@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Swiss Design Style</title>
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <style>
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 1rem;
+      padding: 2rem;
+    }
+    .grid-item {
+      background: #f0f0f0;
+      padding: 1rem;
+      font-size: 1.2rem;
+    }
+    .title {
+      grid-column: span 12;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+    .principle {
+      grid-column: span 6;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Hi Swiss Design Principles</h1>
+    <nav>
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../portfolio/">Portfolio</a></li>
+        <li><a href="../client_site/">Client Site</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main class="grid">
+    <div class="grid-item title">The Grid System</div>
+    <div class="grid-item principle">Modular layouts create rhythm and clarity.</div>
+    <div class="grid-item principle">Whitespace enhances focus and hierarchy.</div>
+    <div class="grid-item principle">Sans-serif typography ensures legibility and neutrality.</div>
+    <div class="grid-item principle">Asymmetry adds dynamic tension and visual interest.</div>
+  </main>
+</body>
+</html>
