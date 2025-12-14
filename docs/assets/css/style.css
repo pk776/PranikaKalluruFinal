@@ -1,3 +1,32 @@
+:root {
+  --accent: #E63946;
+  --text-dark: #111;
+  --text-light: #fff;
+}
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  opacity: 0.7;
+}
+h1, h2 {
+  color: var(--accent);
+}
+.cta-btn {
+  background: var(--accent);
+  color: var(--text-light);
+  padding: 12px 24px;
+  border-radius: 4px;
+  display: inline-block;
+  transition: 0.25s ease;
+}
+
+.cta-btn:hover {
+  opacity: 0.85;
+}
+
 /* ------------------------------
    GLOBAL RESET
 ------------------------------ */
@@ -312,4 +341,16 @@ a, button, .card {
 nav a:hover {
   opacity: 0.6;
 }
+/* Scroll reveal animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 
