@@ -145,3 +145,18 @@ footer {
   font-size: 0.9rem;
   color: #666;
 }
+/* DESIGN STYLE PAGE */
+.design-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.design-title {
+  grid-column: span 12;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
