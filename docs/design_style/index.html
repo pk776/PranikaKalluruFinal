@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Design Style Test Page</title>
+  <title>Swiss Design Style</title>
   <link rel="stylesheet" href="../assets/css/style.css" />
   <style>
     body {
@@ -13,61 +13,89 @@
       background: #fafafa;
       color: #333;
     }
+
     header {
       background: #222;
       color: #fff;
-      padding: 1rem;
+      padding: 2rem 1rem;
       text-align: center;
     }
-    nav ul {
-      list-style: none;
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      padding: 0;
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
     }
-    nav a {
-      color: #fff;
-      text-decoration: none;
-    }
+
     main {
       padding: 2rem;
-      text-align: center;
+      max-width: 1000px;
+      margin: auto;
     }
+
     .grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(12, 1fr);
       gap: 1rem;
       margin-top: 2rem;
     }
-    .grid-item {
-      background: #e0e0e0;
+
+    .title {
+      grid-column: span 12;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    .principle {
+      grid-column: span 6;
+      background: white;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    footer {
+      margin-top: 3rem;
       padding: 1rem;
-      border-radius: 4px;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #666;
     }
   </style>
 </head>
+
 <body>
   <header>
-    <h1>Swiss Design Test Page</h1>
-    <nav>
-      <ul>
-        <li><a href="../index.html">Home</a></li>
-        <li><a href="../portfolio/">Portfolio</a></li>
-        <li><a href="../client_site/">Client Site</a></li>
-      </ul>
-    </nav>
+    <h1>Swiss Design Principles</h1>
   </header>
-  <main>
-    <h2>This page is working!</h2>
-    <p>If you can see this text, your GitHub Pages deployment is successful.</p>
 
+  <main>
     <div class="grid">
-      <div class="grid-item">Grid Item 1</div>
-      <div class="grid-item">Grid Item 2</div>
-      <div class="grid-item">Grid Item 3</div>
-      <div class="grid-item">Grid Item 4</div>
+      <div class="title">Core Principles of Swiss Design</div>
+
+      <div class="principle">
+        <h2>Grid Systems</h2>
+        <p>Swiss Design relies on strict modular grids to create structure, rhythm, and clarity.</p>
+      </div>
+
+      <div class="principle">
+        <h2>Typography</h2>
+        <p>Sans-serif typefaces like Helvetica emphasize neutrality, legibility, and precision.</p>
+      </div>
+
+      <div class="principle">
+        <h2>Whitespace</h2>
+        <p>Generous spacing creates balance, focus, and visual breathing room.</p>
+      </div>
+
+      <div class="principle">
+        <h2>Asymmetry</h2>
+        <p>Dynamic layouts use asymmetry to create movement and visual interest.</p>
+      </div>
     </div>
   </main>
+
+  <footer>
+    © 2025 · Pranika Kalluru · Swiss Design Style
+  </footer>
 </body>
 </html>
