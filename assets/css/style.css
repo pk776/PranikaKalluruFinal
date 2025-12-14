@@ -1,41 +1,131 @@
-body {
-  font-family: Arial, sans-serif;
+/* ------------------------------
+   GLOBAL RESET
+------------------------------ */
+* {
   margin: 0;
   padding: 0;
-  background-color: #f9f9f9;
+  box-sizing: border-box;
+}
+
+/* ------------------------------
+   GLOBAL TYPOGRAPHY
+------------------------------ */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #fafafa;
+  color: #222;
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  font-weight: bold;
+  color: #111;
+}
+
+p {
+  margin-top: 0.5rem;
   color: #333;
 }
 
-header {
-  background-color: #222;
-  color: white;
+/* ------------------------------
+   NAVIGATION
+------------------------------ */
+nav {
+  background: #111;
   padding: 1rem;
-}
-
-nav ul {
-  list-style: none;
   display: flex;
-  gap: 1rem;
-  padding: 0;
+  justify-content: center;
+  gap: 2rem;
 }
 
 nav a {
   color: white;
   text-decoration: none;
+  font-weight: bold;
+  font-size: 1rem;
 }
 
-.hero {
+nav a:hover {
+  opacity: 0.7;
+}
+
+/* ------------------------------
+   HEADERS
+------------------------------ */
+header {
+  background: #222;
+  color: white;
+  padding: 2.5rem 1rem;
   text-align: center;
-  padding: 3rem 1rem;
-  background-color: #e0e0e0;
 }
 
-.cta {
+header h1 {
+  font-size: 2.5rem;
+}
+
+header p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+/* ------------------------------
+   GRID + LAYOUT
+------------------------------ */
+.container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 2rem 1rem;
+}
+
+.grid-12 {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1rem;
+}
+
+/* ------------------------------
+   CARDS
+------------------------------ */
+.card, .project-card, .service-card, .principle {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease;
+}
+
+.card:hover,
+.project-card:hover,
+.service-card:hover,
+.principle:hover {
+  transform: translateY(-5px);
+}
+
+/* ------------------------------
+   BUTTONS
+------------------------------ */
+.btn, .cta-btn {
   display: inline-block;
-  margin-top: 1rem;
-  padding: 0.5rem 1rem;
-  background-color: #007acc;
+  padding: 0.8rem 1.5rem;
+  background: #007acc;
   color: white;
   text-decoration: none;
-  border-radius: 4px;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+.btn:hover,
+.cta-btn:hover {
+  background: #005fa3;
+}
+
+/* ------------------------------
+   FOOTER
+------------------------------ */
+footer {
+  margin-top: 3rem;
+  padding: 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #666;
 }
