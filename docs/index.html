@@ -3,105 +3,50 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pranika Kalluru — IS117 Final Project</title>
-  <link rel="stylesheet" href="assets/css/style.css" />
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #fafafa;
-      color: #333;
-    }
-
-    header {
-      background: #222;
-      color: #fff;
-      padding: 2rem 1rem;
-      text-align: center;
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
-    }
-
-    header p {
-      margin-top: 0.5rem;
-      font-size: 1.2rem;
-      opacity: 0.9;
-    }
-
-    main {
-      padding: 2rem 1rem;
-      max-width: 900px;
-      margin: auto;
-      text-align: center;
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2rem;
-    }
-
-    .card {
-      background: white;
-      padding: 1.5rem;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      transition: transform 0.2s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-    }
-
-    .card a {
-      text-decoration: none;
-      color: #007acc;
-      font-weight: bold;
-      font-size: 1.2rem;
-    }
-
-    footer {
-      margin-top: 3rem;
-      padding: 1rem;
-      text-align: center;
-      font-size: 0.9rem;
-      color: #666;
-    }
-  </style>
+  <title>Home — Pranika Kalluru</title>
+  <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
 
 <body>
-  <header>
-    <h1>Welcome to My Final Project</h1>
-    <p>Explore my Portfolio, Design Style site, and Client Site</p>
-  </header>
 
-  <main>
-    <div class="cards">
-      <div class="card">
-        <a href="portfolio/">Portfolio Site →</a>
+  <!-- NAVIGATION -->
+  <nav>
+    <a href="./">Home</a>
+    <a href="./portfolio/">Portfolio</a>
+    <a href="./design_style/">Design Style</a>
+    <a href="./client_site/">Client Site</a>
+  </nav>
+
+  <!-- TITLE + SUBTITLE -->
+  <h1 class="home-title">Welcome to My Final Project</h1>
+  <p class="home-subtitle">Explore my Portfolio, Design Style site, and Client Site</p>
+
+  <!-- MAIN GRID -->
+  <main class="container">
+    <div class="home-grid">
+
+      <div class="home-card">
+        <h2><a href="./portfolio/">Portfolio Site →</a></h2>
         <p>A showcase of my work, projects, and design thinking.</p>
       </div>
 
-      <div class="card">
-        <a href="design_style/">Design Style Site →</a>
+      <div class="home-card">
+        <h2><a href="./design_style/">Design Style Site →</a></h2>
         <p>A deep dive into Swiss Design principles and layout systems.</p>
       </div>
 
-      <div class="card">
-        <a href="client_site/">Client Site →</a>
+      <div class="home-card">
+        <h2><a href="./client_site/">Client Site →</a></h2>
         <p>A professional business-style website built for a fictional client.</p>
       </div>
+
     </div>
   </main>
 
+  <!-- FOOTER -->
   <footer>
     © 2025 · Pranika Kalluru · IS117 Final Project
   </footer>
+
 </body>
 </html>
