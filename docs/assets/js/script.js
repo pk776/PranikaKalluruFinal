@@ -1,4 +1,5 @@
 console.log("✅ JS loaded");
+
 // Reveal elements on scroll
 const reveals = document.querySelectorAll('.reveal');
 
@@ -11,5 +12,8 @@ function revealOnScroll() {
   }
 }
 
+// ✅ Run once on page load
+revealOnScroll();
+
+// ✅ Run again on scroll
 window.addEventListener('scroll', revealOnScroll);
-window.addEventListener('load', revealOnScroll);
