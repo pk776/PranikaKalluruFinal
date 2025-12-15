@@ -4,10 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Welcome – Pranika Kalluru</title>
-<link rel="stylesheet" href="assets/css/style.css">
+
+  <!-- Correct CSS path for homepage -->
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <!-- Animation script -->
+  <script defer src="assets/js/script.js"></script>
 </head>
 
-<body>
+<body class="fade-in">
 
   <header class="navbar">
     <nav class="container">
@@ -23,19 +28,21 @@
 
   <main class="container home">
 
-    <section class="hero">
-<img src="./assets/img/me.jpg" alt="Photo of Pranika" class="hero-img">
+    <section class="hero reveal">
+      <img src="assets/img/me.jpg" alt="Photo of Pranika" class="hero-img">
+
       <h1>Hi, I’m Pranika Kalluru</h1>
       <p class="subtitle">
         Designer & Developer focused on clarity, systems, and purposeful digital experiences.
       </p>
 
       <p class="intro">
-        I’m a Business & Information Systems student at NJIT with a passion for clean design, thoughtful interfaces,
-        and building things that feel intentional. I love combining structure, creativity, and technology to create meaningful digital work.
+        I’m a Business & Information Systems student at NJIT with a passion for clean design,
+        thoughtful interfaces, and building things that feel intentional. I love combining structure,
+        creativity, and technology to create meaningful digital work.
       </p>
 
-      <div class="home-links">
+      <div class="home-links reveal">
         <a href="./portfolio/index.html" class="button">Portfolio Site →</a>
         <a href="./design_style/index.html" class="button">Design Style Site →</a>
         <a href="./client_site/index.html" class="button">Client Site →</a>
@@ -44,7 +51,7 @@
 
   </main>
 
-  <footer class="footer">
+  <footer class="footer reveal">
     <p>© 2025 – Pranika Kalluru – Built with clarity & purpose</p>
   </footer>
 
