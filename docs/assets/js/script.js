@@ -1,3 +1,4 @@
+
 // BEFORE/AFTER SLIDER LOGIC
 const slider = document.getElementById("sliderHandle");
 const afterImg = document.getElementById("afterImg");
