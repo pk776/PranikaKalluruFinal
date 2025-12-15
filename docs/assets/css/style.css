@@ -626,7 +626,7 @@ nav a:hover {
 }
 
 /* ------------------------------
-   HOMEPAGE INTRO SECTION (CENTERED)
+   HOMEPAGE INTRO SECTION (TIGHTER + MORE PROFESSIONAL)
 ------------------------------ */
 
 .intro-section {
@@ -637,14 +637,14 @@ nav a:hover {
 
 .intro-centered {
   text-align: center;
-  max-width: 700px;
+  max-width: 620px;
   margin: 0 auto;
   padding: 0 var(--space-md);
 }
 
 .intro-photo img {
-  width: 180px;
-  height: 180px;
+  width: 160px;
+  height: 160px;
   object-fit: cover;
   border-radius: 12px;
   border: 3px solid #e5e5e5;
@@ -653,26 +653,19 @@ nav a:hover {
 }
 
 .intro-title {
-  font-size: 2.4rem;
+  font-size: 2.2rem;
   font-weight: 700;
   margin-bottom: var(--space-sm);
 }
 
 .intro-subtitle {
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   color: #555;
   margin-bottom: var(--space-md);
 }
 
 .intro-description {
   color: #444;
-  line-height: 1.7;
+  line-height: 1.65;
   margin-bottom: var(--space-lg);
 }
-
-
-
-
-
-
-
