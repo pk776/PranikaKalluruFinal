@@ -17,3 +17,19 @@ revealOnScroll();
 
 // ✅ Run again on scroll
 window.addEventListener('scroll', revealOnScroll);
+// Smooth page transition on link click
+document.querySelectorAll('a').forEach(link => {
+  const url = link.getAttribute('href');
+
+  // Only fade out for internal links
+  if (url && !url.startsWith('http') && !url.startsWith('#')) {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      document.body.classList.add('fade-out');
+      setTimeout(() => {
+        window.location.href = url;
+      }, 300);
+    });
+  }
+});
+

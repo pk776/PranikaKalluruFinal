@@ -575,6 +575,30 @@ nav a:hover {
   background: #f2f2f2;
   border: 1px solid #e5e5e5;
 }
+/* ------------------------------
+   SMOOTH PAGE TRANSITIONS
+------------------------------ */
+
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 0.6s ease forwards;
+}
+
+.fade-out {
+  opacity: 1;
+  animation: fadeOut 0.4s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
 
 
 
