@@ -36,3 +36,28 @@ document.querySelectorAll('a').forEach(link => {
 function toggleTheme() {
   document.body.classList.toggle("dark");
 }
+const slider = document.getElementById("sliderHandle");
+const afterImg = document.getElementById("afterImg");
+
+slider.addEventListener("mousedown", startSlide);
+
+function startSlide() {
+  document.addEventListener("mousemove", moveSlider);
+  document.addEventListener("mouseup", stopSlide);
+}
+
+function moveSlider(e) {
+  const container = slider.parentElement;
+  const rect = container.getBoundingClientRect();
+  let x = e.clientX - rect.left;
+
+  x = Math.max(0, Math.min(x, rect.width));
+
+  slider.style.left = x + "px";
+  afterImg.style.width = x + "px";
+}
+
+function stopSlide() {
+  document.removeEventListener("mousemove", moveSlider);
+  document.removeEventListener("mouseup", stopSlide);
+}
