@@ -5,46 +5,312 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Client Site – Pranika Kalluru</title>
 
-  <link rel="stylesheet" href="/PranikaKalluruFinal/docs/assets/css/style.css">
-  <script defer src="/PranikaKalluruFinal/docs/assets/js/script.js"></script>
+  <link rel="stylesheet" href="../assets/css/style-v2.css">
+  <script defer src="../assets/js/script.js"></script>
+
+  <style>
+    /* Wrapper */
+    .client-wrapper {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+      padding-bottom: 5rem;
+    }
+
+    /* Hero */
+    .client-hero {
+      padding: 5rem 1rem 4rem;
+      border-bottom: 1px solid #e5e5e5;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .client-hero h1 {
+      font-size: 3.2rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+
+    .client-hero p {
+      max-width: 640px;
+      margin: 0 auto;
+      font-size: 1.2rem;
+      color: #444;
+      line-height: 1.7;
+    }
+
+    /* Decorative shapes */
+    .client-hero::before {
+      content: "";
+      position: absolute;
+      top: -40px;
+      right: -40px;
+      width: 220px;
+      height: 220px;
+      background: #E63946;
+      opacity: 0.12;
+      transform: rotate(-25deg);
+    }
+
+    .client-hero::after {
+      content: "";
+      position: absolute;
+      bottom: -60px;
+      left: -40px;
+      width: 260px;
+      height: 260px;
+      border: 2px solid rgba(0, 0, 0, 0.06);
+      transform: rotate(18deg);
+    }
+
+    /* Services grid */
+    .services-grid {
+      margin-top: 4rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .service-card {
+      background: #fafafa;
+      border: 1px solid #e5e5e5;
+      border-radius: 12px;
+      padding: 1.8rem;
+      text-align: left;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+    }
+
+    .service-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 0.6rem;
+      font-weight: 700;
+    }
+
+    .service-card p {
+      color: #555;
+      line-height: 1.6;
+    }
+
+    /* Mockup section */
+    .mockup-section {
+      margin-top: 5rem;
+    }
+
+    .mockup-frame {
+      width: 100%;
+      max-width: 780px;
+      margin: 0 auto;
+      background: #111;
+      border-radius: 20px;
+      padding: 2rem;
+      color: #fff;
+      text-align: left;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+    }
+
+    .mockup-screen {
+      background: #fff;
+      height: 300px;
+      border-radius: 12px;
+      margin-top: 1rem;
+      border: 1px solid #ccc;
+    }
+
+    /* Process timeline */
+    .process-section {
+      margin-top: 5rem;
+      text-align: center;
+    }
+
+    .timeline {
+      margin-top: 2rem;
+      display: grid;
+      gap: 2rem;
+    }
+
+    .timeline-step {
+      background: #fafafa;
+      border: 1px solid #e5e5e5;
+      padding: 1.5rem;
+      border-radius: 12px;
+      text-align: left;
+    }
+
+    .timeline-step h4 {
+      margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+
+    /* Testimonial */
+    .testimonial {
+      margin-top: 5rem;
+      background: #111;
+      color: #fff;
+      padding: 3rem 2rem;
+      border-radius: 14px;
+    }
+
+    .testimonial p {
+      max-width: 600px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: #ddd;
+    }
+
+    .testimonial .client-name {
+      margin-top: 1rem;
+      font-weight: 700;
+      font-size: 1rem;
+      color: #fff;
+    }
+
+    /* CTA */
+    .cta-section {
+      margin-top: 4rem;
+      padding: 3rem 1rem;
+      background: #E63946;
+      color: #fff;
+      border-radius: 14px;
+    }
+
+    .cta-section h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    .cta-section p {
+      max-width: 600px;
+      margin: 0 auto 1.5rem;
+      line-height: 1.7;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      padding: 0.8rem 1.6rem;
+      background: #fff;
+      color: #E63946;
+      border-radius: 8px;
+      font-weight: 700;
+      transition: transform 0.2s ease;
+    }
+
+    .cta-btn:hover {
+      transform: translateY(-2px);
+    }
+  </style>
 </head>
 
 <body class="fade-in">
 
-  <header class="navbar">
-    <nav class="container">
-      <a href="../index.html" class="logo">PK</a>
-      <ul class="nav-links">
-        <li><a href="../index.html">Home</a></li>
-        <li><a href="../portfolio/index.html">Portfolio</a></li>
-        <li><a href="../design_style/index.html">Design Style</a></li>
-        <li><a href="./index.html" class="active">Client Site</a></li>
-      </ul>
-    </nav>
-  </header>
+  <!-- DARK MODE TOGGLE -->
+  <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
 
-  <main class="container">
+  <!-- MINIMAL NAVIGATION -->
+  <nav class="mini-nav fade-in">
+    <a href="../index.html">Home</a>
+    <a href="../portfolio/index.html">Portfolio</a>
+    <a href="../design_style/index.html">Design Style</a>
+    <a href="../client_site/index.html" class="active">Client Site</a>
+  </nav>
 
-    <section class="page-header reveal">
+  <main class="client-wrapper">
+
+    <!-- HERO -->
+    <section class="client-hero reveal">
       <h1>Client Site</h1>
-      <p class="subtitle">
-        A professional business‑style website built for a fictional client.
-      </p>
+      <p>A polished, professional business‑style website designed for a fictional client — showcasing structure, clarity, and modern UI principles.</p>
     </section>
 
-    <section class="page-body reveal">
-      <p>
-        This site demonstrates structured layout, clear hierarchy, and client‑focused design principles.
-      </p>
+    <!-- SERVICES GRID -->
+    <section class="services-grid reveal">
+
+      <div class="service-card">
+        <h3>Brand Identity</h3>
+        <p>Clear, consistent branding built around typography, color, and layout systems tailored to the client’s goals.</p>
+      </div>
+
+      <div class="service-card">
+        <h3>Responsive Web Design</h3>
+        <p>Fully responsive layouts optimized for mobile, tablet, and desktop with clean spacing and visual hierarchy.</p>
+      </div>
+
+      <div class="service-card">
+        <h3>Content Strategy</h3>
+        <p>Structured messaging that communicates value, builds trust, and guides users through the client’s offerings.</p>
+      </div>
+
+      <div class="service-card">
+        <h3>UI Components</h3>
+        <p>Reusable, scalable interface components designed for clarity, accessibility, and long‑term maintainability.</p>
+      </div>
+
+    </section>
+
+    <!-- MOCKUP PREVIEW -->
+    <section class="mockup-section reveal">
+      <h2>Client Homepage Mockup</h2>
+      <p>A clean, modern homepage layout designed to communicate professionalism and trust.</p>
+
+      <div class="mockup-frame">
+        <h3>Homepage Preview</h3>
+        <div class="mockup-screen"></div>
+      </div>
+    </section>
+
+    <!-- PROCESS TIMELINE -->
+    <section class="process-section reveal">
+      <h2>Design Process</h2>
+
+      <div class="timeline">
+        <div class="timeline-step">
+          <h4>1. Discovery</h4>
+          <p>Understanding the client’s goals, audience, and brand identity.</p>
+        </div>
+
+        <div class="timeline-step">
+          <h4>2. Wireframing</h4>
+          <p>Creating structured layouts that prioritize clarity and usability.</p>
+        </div>
+
+        <div class="timeline-step">
+          <h4>3. Visual Design</h4>
+          <p>Applying typography, color, and spacing to build a cohesive visual system.</p>
+        </div>
+
+        <div class="timeline-step">
+          <h4>4. Development</h4>
+          <p>Building responsive, accessible, and scalable UI components.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIAL -->
+    <section class="testimonial reveal">
+      <p>“Pranika delivered a clean, modern, and highly professional website that perfectly captured our brand’s identity. Her attention to detail and design clarity made the entire process seamless.”</p>
+      <div class="client-name">— Fictional Client</div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section reveal">
+      <h2>Want to See More?</h2>
+      <p>Explore additional projects, case studies, and design explorations in my portfolio.</p>
+      <a class="cta-btn" href="../portfolio/index.html">View Portfolio</a>
     </section>
 
   </main>
 
+  <footer class="site-footer reveal">
+    <p>© 2025 – Pranika Kalluru – Built with clarity & purpose</p>
+  </footer>
+
 </body>
-<nav class="mini-nav fade-in">
-  <a href="../index.html">Home</a>
-  <a href="../portfolio/index.html">Portfolio</a>
-  <a href="../design_style/index.html">Design Style</a>
-  <a href="../client_site/index.html">Client Site</a>
-</nav>
+
 </html>
