@@ -65,7 +65,7 @@ a:hover {
    NAVIGATION
 ------------------------------ */
 .navbar {
-  background: transparent; /* removed black background */
+  background: transparent; /* no black bar */
   padding: 1rem 0;
 }
 
@@ -75,8 +75,13 @@ a:hover {
   align-items: center;
 }
 
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
 .nav-links a {
-  color: #111; /* dark text links */
+  color: #111; /* dark text */
   font-weight: 600;
 }
 
@@ -96,11 +101,11 @@ a:hover {
   position: relative;
   padding-top: 4rem;
   padding-bottom: 4rem;
-  background: #ffffff; /* pure white background */
+  background: #ffffff; /* pure white */
   overflow: hidden;
 }
 
-/* Removed grid overlay */
+/* remove grid overlay */
 .home-hero::before {
   content: none;
 }
