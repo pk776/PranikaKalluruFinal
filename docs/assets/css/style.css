@@ -624,6 +624,47 @@ nav a:hover {
 .footer-links {
   margin-top: var(--space-sm);
 }
+/* ------------------------------
+   HOMEPAGE INTRO SECTION
+------------------------------ */
+
+.intro-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-xl);
+  margin-top: var(--space-xl);
+  flex-wrap: wrap;
+}
+
+.intro-text {
+  flex: 1 1 400px;
+}
+
+.intro-title {
+  font-size: 2.5rem;
+  margin-bottom: var(--space-sm);
+}
+
+.intro-subtitle {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: var(--space-md);
+}
+
+.intro-description {
+  line-height: 1.7;
+  color: #444;
+}
+
+.intro-photo img {
+  width: 260px;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+}
+
 
 
 
