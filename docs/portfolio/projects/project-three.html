@@ -5,31 +5,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Swiss Design Lineage – Flat Design</title>
 
-  <link rel="stylesheet" href="/PranikaKalluruFinal/docs/assets/css/style.css">
-  <script defer src="/PranikaKalluruFinal/docs/assets/js/script.js"></script>
+  <!-- Correct relative paths -->
+  <link rel="stylesheet" href="../../assets/css/style-v2.css">
+  <script defer src="../../assets/js/script.js"></script>
 </head>
 
 <body class="fade-in">
 
-  <header class="navbar">
-    <nav class="container">
-      <a href="../../index.html" class="logo">PK</a>
-      <ul class="nav-links">
-        <li><a href="../../index.html">Home</a></li>
-        <li><a href="../index.html" class="active">Portfolio</a></li>
-        <li><a href="../../design_style/index.html">Design Style</a></li>
-        <li><a href="../../client_site/index.html">Client Site</a></li>
-      </ul>
-    </nav>
-  </header>
+  <!-- DARK MODE TOGGLE -->
+  <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+
+  <!-- MINIMAL NAVIGATION -->
+  <nav class="mini-nav fade-in">
+    <a href="../../index.html">Home</a>
+    <a href="../../portfolio/index.html">Portfolio</a>
+    <a href="../../design_style/index.html">Design Style</a>
+    <a href="../../client_site/index.html">Client Site</a>
+  </nav>
 
   <main class="container">
 
     <section class="project-detail reveal">
 
-      <img src="/PranikaKalluruFinal/docs/assets/img/designstyle.png" class="project-thumb" alt="Design Style Thumbnail">
+      <!-- Correct image path -->
+      <img src="../../assets/img/designstyle.png" 
+           class="project-thumb" 
+           alt="Design Style Thumbnail">
 
       <h1 class="project-title">Swiss Design Lineage – Flat Design</h1>
+
       <p class="project-subtitle">
         A coded exploration of Swiss Design principles using grids, typography, and flat‑design aesthetics.
       </p>
@@ -57,8 +61,8 @@
 
         <h2>Links</h2>
         <div class="project-links">
-          <a href="https://pk776.github.io/flat-design-project/index.html" target="_blank">Live Project →</a>
-          <a href="https://github.com/kaw393939/swiss_design_lineage_vibecoding" target="_blank">Assignment Directions →</a>
+          <a href="https://pk776.github.io/flat-design-project/index.html" target="_blank">Live Project</a>
+          <a href="https://github.com/kaw393939/swiss_design_lineage_vibecoding" target="_blank">Assignment Directions</a>
         </div>
 
       </div>
@@ -67,11 +71,10 @@
 
   </main>
 
+  <footer class="site-footer reveal">
+    <p>© 2025 – Pranika Kalluru – Built with clarity & purpose</p>
+  </footer>
+
 </body>
-<nav class="mini-nav fade-in">
-  <a href="../index.html">Home</a>
-  <a href="../portfolio/index.html">Portfolio</a>
-  <a href="../design_style/index.html">Design Style</a>
-  <a href="../client_site/index.html">Client Site</a>
-</nav>
+
 </html>
