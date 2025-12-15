@@ -5,46 +5,72 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Design Style – Pranika Kalluru</title>
 
-  <link rel="stylesheet" href="/PranikaKalluruFinal/docs/assets/css/style.css">
-  <script defer src="/PranikaKalluruFinal/docs/assets/js/script.js"></script>
+  <!-- Correct relative paths -->
+  <link rel="stylesheet" href="../assets/css/style-v2.css">
+  <script defer src="../assets/js/script.js"></script>
 </head>
 
 <body class="fade-in">
 
-  <header class="navbar">
-    <nav class="container">
-      <a href="../index.html" class="logo">PK</a>
-      <ul class="nav-links">
-        <li><a href="../index.html">Home</a></li>
-        <li><a href="../portfolio/index.html">Portfolio</a></li>
-        <li><a href="./index.html" class="active">Design Style</a></li>
-        <li><a href="../client_site/index.html">Client Site</a></li>
-      </ul>
-    </nav>
-  </header>
+  <!-- DARK MODE TOGGLE -->
+  <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+
+  <!-- MINIMAL NAVIGATION -->
+  <nav class="mini-nav fade-in">
+    <a href="../index.html">Home</a>
+    <a href="../portfolio/index.html">Portfolio</a>
+    <a href="../design_style/index.html">Design Style</a>
+    <a href="../client_site/index.html">Client Site</a>
+  </nav>
 
   <main class="container">
 
-    <section class="page-header reveal">
-      <h1>Swiss Design Style</h1>
-      <p class="subtitle">
+    <section class="project-detail reveal">
+
+      <!-- Optional thumbnail (matches your other pages) -->
+      <img src="../assets/img/designstyle.png" 
+           class="project-thumb"
+           alt="Swiss Design Thumbnail">
+
+      <h1 class="project-title">Swiss Design Style</h1>
+
+      <p class="project-subtitle">
         A visual and coded exploration of Swiss Design principles.
       </p>
-    </section>
 
-    <section class="page-body reveal">
-      <p>
-        This site demonstrates the lineage of Swiss Design through typography, grids, spacing, and visual clarity.
-      </p>
+      <div class="project-body reveal">
+
+        <h2>Overview</h2>
+        <p>
+          This site demonstrates the lineage of Swiss Design through typography, grids, spacing, and visual clarity.
+          It highlights how structure, alignment, and simplicity create powerful visual communication.
+        </p>
+
+        <h2>Core Principles</h2>
+        <ul>
+          <li>Use of modular grid systems</li>
+          <li>Clear typographic hierarchy</li>
+          <li>Intentional spacing and alignment</li>
+          <li>Minimalist, functional color palettes</li>
+          <li>Flat‑design elements inspired by Swiss modernism</li>
+        </ul>
+
+        <h2>What This Site Shows</h2>
+        <p>
+          The Design Style site includes coded examples of layout systems, shape demonstrations, and typography rules,
+          all implemented with clean, modern HTML and CSS.
+        </p>
+
+      </div>
+
     </section>
 
   </main>
 
+  <footer class="site-footer reveal">
+    <p>© 2025 – Pranika Kalluru – Built with clarity & purpose</p>
+  </footer>
+
 </body>
-<nav class="mini-nav fade-in">
-  <a href="../index.html">Home</a>
-  <a href="../portfolio/index.html">Portfolio</a>
-  <a href="../design_style/index.html">Design Style</a>
-  <a href="../client_site/index.html">Client Site</a>
-</nav>
+
 </html>
