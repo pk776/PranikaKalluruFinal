@@ -5,12 +5,132 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Design Style – Pranika Kalluru</title>
 
-  <!-- Correct relative paths -->
   <link rel="stylesheet" href="../assets/css/style-v2.css">
   <script defer src="../assets/js/script.js"></script>
+
+  <style>
+    /* --- GRID OVERLAY --- */
+    .grid-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      background-size: 80px 80px;
+      background-image:
+        linear-gradient(to right, rgba(200,200,200,0.15) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(200,200,200,0.15) 1px, transparent 1px);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: 999;
+    }
+
+    .grid-overlay.active {
+      opacity: 1;
+    }
+
+    .grid-toggle {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #111;
+      color: #fff;
+      padding: 10px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      opacity: 0.8;
+      transition: opacity 0.2s ease;
+      z-index: 1000;
+    }
+
+    .grid-toggle:hover {
+      opacity: 1;
+    }
+
+    /* --- POSTER HERO --- */
+    .poster-hero {
+      text-align: center;
+      padding: 4rem 1rem;
+      border-bottom: 1px solid #e5e5e5;
+    }
+
+    .poster-hero h1 {
+      font-size: 3.2rem;
+      font-weight: 700;
+      letter-spacing: -1px;
+      margin-bottom: 1rem;
+    }
+
+    .poster-hero p {
+      max-width: 600px;
+      margin: 0 auto;
+      color: #555;
+      font-size: 1.2rem;
+    }
+
+    /* --- TYPOGRAPHY SCALE --- */
+    .type-scale {
+      margin-top: 2rem;
+      padding: 1rem 0;
+    }
+
+    .type-scale div {
+      margin-bottom: 1rem;
+    }
+
+    .type-scale .t1 { font-size: 2.4rem; font-weight: 700; }
+    .type-scale .t2 { font-size: 1.8rem; font-weight: 600; }
+    .type-scale .t3 { font-size: 1.4rem; font-weight: 600; }
+    .type-scale .t4 { font-size: 1.1rem; }
+    .type-scale .t5 { font-size: 0.9rem; color: #666; }
+
+    /* --- CONTRAST BLOCKS --- */
+    .contrast-demo {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .contrast-block {
+      width: 140px;
+      height: 80px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+    }
+
+    .contrast-dark { background: #111; color: #fff; }
+    .contrast-light { background: #fafafa; color: #111; border: 1px solid #ddd; }
+    .contrast-accent { background: #E63946; color: #fff; }
+
+    /* --- SHAPES --- */
+    .shape-demo {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .shape {
+      width: 100px;
+      height: 100px;
+      background: #e5e5e5;
+      border-radius: 8px;
+    }
+
+    .shape.circle { border-radius: 50%; }
+    .shape.rectangle { width: 160px; }
+  </style>
 </head>
 
 <body class="fade-in">
+
+  <!-- GRID OVERLAY -->
+  <div class="grid-overlay" id="gridOverlay"></div>
+  <button class="grid-toggle" onclick="toggleGrid()">Toggle Grid</button>
 
   <!-- DARK MODE TOGGLE -->
   <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
@@ -25,44 +145,60 @@
 
   <main class="container">
 
-    <section class="project-detail reveal">
+    <!-- POSTER HERO -->
+    <section class="poster-hero reveal">
+      <h1>Swiss Design Style</h1>
+      <p>A modern exploration of grids, typography, spacing, and clarity — inspired by Swiss Design lineage.</p>
+    </section>
 
-      <!-- Optional thumbnail (matches your other pages) -->
-      <img src="../assets/img/designstyle.png" 
-           class="project-thumb"
-           alt="Swiss Design Thumbnail">
+    <!-- GRID SYSTEM -->
+    <section class="project-body reveal">
+      <h2>Grid System</h2>
+      <p>Swiss Design relies on modular grids to create structure, rhythm, and clarity.</p>
 
-      <h1 class="project-title">Swiss Design Style</h1>
-
-      <p class="project-subtitle">
-        A visual and coded exploration of Swiss Design principles.
-      </p>
-
-      <div class="project-body reveal">
-
-        <h2>Overview</h2>
-        <p>
-          This site demonstrates the lineage of Swiss Design through typography, grids, spacing, and visual clarity.
-          It highlights how structure, alignment, and simplicity create powerful visual communication.
-        </p>
-
-        <h2>Core Principles</h2>
-        <ul>
-          <li>Use of modular grid systems</li>
-          <li>Clear typographic hierarchy</li>
-          <li>Intentional spacing and alignment</li>
-          <li>Minimalist, functional color palettes</li>
-          <li>Flat‑design elements inspired by Swiss modernism</li>
-        </ul>
-
-        <h2>What This Site Shows</h2>
-        <p>
-          The Design Style site includes coded examples of layout systems, shape demonstrations, and typography rules,
-          all implemented with clean, modern HTML and CSS.
-        </p>
-
+      <div class="grid-demo">
+        <div class="grid-box"></div>
+        <div class="grid-box"></div>
+        <div class="grid-box"></div>
       </div>
+    </section>
 
+    <!-- TYPOGRAPHY SCALE -->
+    <section class="project-body reveal">
+      <h2>Typography Scale</h2>
+      <p>Hierarchy is created through scale, weight, and spacing.</p>
+
+      <div class="type-scale">
+        <div class="t1">Heading 1 – 2.4rem</div>
+        <div class="t2">Heading 2 – 1.8rem</div>
+        <div class="t3">Heading 3 – 1.4rem</div>
+        <div class="t4">Body Text – 1.1rem</div>
+        <div class="t5">Caption – 0.9rem</div>
+      </div>
+    </section>
+
+    <!-- COLOR CONTRAST -->
+    <section class="project-body reveal">
+      <h2>Color & Contrast</h2>
+      <p>Swiss Design uses minimal color with strong contrast for clarity.</p>
+
+      <div class="contrast-demo">
+        <div class="contrast-block contrast-dark">Dark</div>
+        <div class="contrast-block contrast-light">Light</div>
+        <div class="contrast-block contrast-accent">Accent</div>
+      </div>
+    </section>
+
+    <!-- SHAPES -->
+    <section class="project-body reveal">
+      <h2>Shape & Layout Examples</h2>
+      <p>Flat design emphasizes simple geometric shapes.</p>
+
+      <div class="shape-demo">
+        <div class="shape circle"></div>
+        <div class="shape square"></div>
+        <div class="shape rectangle"></div>
+      </div>
     </section>
 
   </main>
@@ -70,6 +206,12 @@
   <footer class="site-footer reveal">
     <p>© 2025 – Pranika Kalluru – Built with clarity & purpose</p>
   </footer>
+
+  <script>
+    function toggleGrid() {
+      document.getElementById("gridOverlay").classList.toggle("active");
+    }
+  </script>
 
 </body>
 

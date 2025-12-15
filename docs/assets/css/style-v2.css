@@ -370,4 +370,60 @@ body.dark .mini-nav a {
   margin-bottom: var(--space-md);
   border: 1px solid #e5e5e5;
 }
+/* GRID DEMO */
+.grid-demo {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+  margin-top: var(--space-md);
+}
+
+.grid-box {
+  height: 120px;
+  background: #e5e5e5;
+  border-radius: 8px;
+}
+
+/* TYPOGRAPHY DEMO */
+.type-demo h1,
+.type-demo h2,
+.type-demo p {
+  margin-bottom: var(--space-sm);
+}
+
+/* COLOR PALETTE */
+.color-palette {
+  display: flex;
+  gap: var(--space-md);
+  margin-top: var(--space-md);
+}
+
+.color-swatch {
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+}
+
+/* SHAPE DEMO */
+.shape-demo {
+  display: flex;
+  gap: var(--space-md);
+  margin-top: var(--space-md);
+}
+
+.shape {
+  width: 100px;
+  height: 100px;
+  background: #e5e5e5;
+  border-radius: 8px;
+}
+
+.shape.circle {
+  border-radius: 50%;
+}
+
+.shape.rectangle {
+  width: 160px;
+}
+
 
