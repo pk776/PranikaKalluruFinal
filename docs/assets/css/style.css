@@ -3,45 +3,19 @@
 ------------------------------ */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
 
+/* ------------------------------
+   ROOT VARIABLES
+------------------------------ */
 :root {
   --accent: #E63946;
   --text-dark: #111;
   --text-light: #fff;
-}
-/* ------------------------------
-   SPACING SCALE
------------------------------- */
-:root {
+
   --space-xs: 8px;
   --space-sm: 16px;
   --space-md: 24px;
   --space-lg: 48px;
   --space-xl: 72px;
-}
-
-
-a {
-  color: var(--accent);
-  text-decoration: none;
-}
-
-a:hover {
-  opacity: 0.7;
-}
-h1, h2 {
-  color: var(--accent);
-}
-.cta-btn {
-  background: var(--accent);
-  color: var(--text-light);
-  padding: 12px 24px;
-  border-radius: 4px;
-  display: inline-block;
-  transition: 0.25s ease;
-}
-
-.cta-btn:hover {
-  opacity: 0.85;
 }
 
 /* ------------------------------
@@ -57,75 +31,62 @@ h1, h2 {
    GLOBAL TYPOGRAPHY
 ------------------------------ */
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
   background: #fafafa;
   color: #222;
   line-height: 1.6;
 }
 
 h1, h2, h3 {
-  font-weight: bold;
+  font-weight: 700;
+  letter-spacing: -0.5px;
   color: #111;
 }
 
 p {
   margin-top: 0.5rem;
-  color: #333;
+  color: #444;
+}
+
+/* ------------------------------
+   LINKS
+------------------------------ */
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: opacity 0.25s ease;
+}
+
+a:hover {
+  opacity: 0.7;
 }
 
 /* ------------------------------
    NAVIGATION
 ------------------------------ */
-nav {
+.navbar {
   background: #111;
-  padding: 1rem;
+  padding: 1rem 0;
+}
+
+.navbar .container {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-links {
+  display: flex;
   gap: 2rem;
 }
 
-nav a {
+.nav-links a {
   color: white;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 1rem;
-}
-
-nav a:hover {
-  opacity: 0.7;
-}
-/* ------------------------------
-   GLOBAL TYPOGRAPHY UPGRADE
------------------------------- */
-body {
-  font-family: 'Inter', Arial, Helvetica, sans-serif;
-  font-weight: 400;
-  color: #222;
-  background: #fafafa;
-  line-height: 1.6;
+  font-weight: 600;
 }
 
 /* ------------------------------
-   HEADERS
------------------------------- */
-header {
-  background: #222;
-  color: white;
-  padding: 2.5rem 1rem;
-  text-align: center;
-}
-
-header h1 {
-  font-size: 2.5rem;
-}
-
-header p {
-  font-size: 1.2rem;
-  opacity: 0.9;
-}
-
-/* ------------------------------
-   GRID + LAYOUT
+   LAYOUT CONTAINER
 ------------------------------ */
 .container {
   max-width: 1000px;
@@ -133,288 +94,114 @@ header p {
   padding: 2rem 1rem;
 }
 
-.grid-12 {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 1rem;
-}
-p {
-  font-size: 1rem;
-  color: #444;
-  line-height: 1.7;
-  margin-top: 0.5rem;
-}
-
-
 /* ------------------------------
-   CARDS
+   HOMEPAGE HERO (NEW)
 ------------------------------ */
-.card,
-.project-card,
-.service-card,
-.principle {
-  background: white;
-  padding: 1.5rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  transition: transform 0.2s ease;
-}
-
-.card:hover,
-.project-card:hover,
-.service-card:hover,
-.principle:hover {
-  transform: translateY(-5px);
-}
-/* Improved heading hierarchy */
-h1, h2, h3 {
-  font-family: 'Inter', Arial, sans-serif;
-  font-weight: 700;
-  letter-spacing: -0.5px;
-  color: #111;
-}
-
-h1 {
-  font-size: 2.6rem;
-}
-
-h2 {
-  font-size: 1.6rem;
-}
-
-h3 {
-  font-size: 1.2rem;
-}
-
-
-/* ------------------------------
-   BUTTONS
------------------------------- */
-.btn,
-.cta-btn {
-  display: inline-block;
-  padding: 0.8rem 1.5rem;
-  background: #007acc;
-  color: white;
-  text-decoration: none;
-  border-radius: 6px;
-  font-weight: bold;
-}
-
-.btn:hover,
-.cta-btn:hover {
-  background: #005fa3;
-}
-
-/* ------------------------------
-   PORTFOLIO IMAGES
------------------------------- */
-.project-img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-  border-radius: 6px;
-  margin-bottom: 1rem;
-  background: #ddd;
-}
-
-/* ------------------------------
-   FOOTER
------------------------------- */
-footer {
-  margin-top: 3rem;
-  padding: 1rem;
-  text-align: center;
-  font-size: 0.9rem;
-  color: #666;
-}
-/* DESIGN STYLE PAGE */
-.design-grid {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 1rem;
-  margin-top: 2rem;
-}
-
-.design-title {
-  grid-column: span 12;
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
-}
-/* CLIENT SITE */
-.hero {
-  background: #222;
-  color: white;
-  padding: 4rem 1rem;
-  text-align: center;
-}
-
-.hero h1 {
-  margin: 0;
-  font-size: 2.8rem;
-}
-
-.hero p {
-  margin-top: 1rem;
-  font-size: 1.2rem;
-  opacity: 0.9;
-}
-
-.services {
-  max-width: 1000px;
-  margin: auto;
-  padding: 3rem 1rem;
-  text-align: center;
-}
-
-.service-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
-}
-
-.service-card {
-  background: white;
-  padding: 1.5rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  text-align: left;
-}
-/* HOMEPAGE */
 .home-hero {
-  background: #222;
-  color: white;
-  padding: 4rem 1rem;
+  position: relative;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  background: linear-gradient(180deg, #ffffff, #f7f7f7);
+  overflow: hidden;
+}
+
+/* Swiss-style grid overlay */
+.home-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, rgba(0,0,0,0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0,0,0,0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ------------------------------
+   INTRO SECTION
+------------------------------ */
+.intro-centered-section {
+  position: relative;
+  z-index: 2;
+  margin-top: var(--space-xl);
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-xl);
 }
 
-.home-hero h1 {
-  font-size: 2.8rem;
-  margin-bottom: 1rem;
+.intro-centered {
+  max-width: 650px;
+  padding: 0 var(--space-md);
 }
 
-.home-hero p {
-  font-size: 1.2rem;
-  opacity: 0.9;
+.intro-photo img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 14px;
+  border: 3px solid #e5e5e5;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.home-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
-  margin-top: 2rem;
-}
-
-.home-card {
-  background: white;
-  padding: 1.5rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  text-align: left;
-  transition: transform 0.2s ease;
-}
-
-.home-card:hover {
-  transform: translateY(-5px);
-}
-
-.home-card a {
-  font-weight: bold;
-  color: #007acc;
-  text-decoration: none;
-}
-
-.home-card a:hover {
-  text-decoration: underline;
-}
-/* HOMEPAGE */
-.home-title {
-  text-align: center;
-  margin-top: 2rem;
-  font-size: 2.2rem;
-  font-weight: bold;
-}
-
-.home-subtitle {
-  text-align: center;
-  margin-top: 0.5rem;
-  font-size: 1.2rem;
-  color: #555;
-}
-
-.home-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
-  margin-top: 2rem;
-}
-
-.home-card {
-  background: white;
-  padding: 1.5rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  transition: transform 0.2s ease;
-}
-
-.home-card:hover {
-  transform: translateY(-5px);
-}
-
-.home-card a {
-  font-weight: bold;
-  color: #007acc;
-  text-decoration: none;
-}
-
-.home-card a:hover {
-  text-decoration: underline;
-}
-/* Smooth hover transitions for links, buttons, cards */
-a, button, .card {
-  transition: all 0.25s ease;
-}
-/* Fade-in animation */
-.fade-in {
-  opacity: 0;
-  animation: fadeIn 0.8s ease forwards;
-}
-
-@keyframes fadeIn {
-  to {
-    opacity: 1;
-  }
-}
-/* Improved homepage title block */
-.home-title {
-  margin-top: var(--space-lg);
-  margin-bottom: var(--space-sm);
-  font-size: 2.4rem;
-  font-weight: 700;
-  text-align: center;
-}
-
-.home-subtitle {
-  margin-bottom: var(--space-lg);
-  font-size: 1.2rem;
-  color: #555;
-  text-align: center;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-
-.card:hover {
+.intro-photo img:hover {
   transform: translateY(-4px);
-  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.12);
 }
 
-nav a:hover {
-  opacity: 0.6;
+.intro-title {
+  font-size: 2.4rem;
+  margin-bottom: var(--space-sm);
 }
-/* Scroll reveal animation */
+
+.intro-subtitle {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: var(--space-md);
+}
+
+.intro-description {
+  color: #444;
+  line-height: 1.65;
+}
+
+/* ------------------------------
+   HOMEPAGE CARDS
+------------------------------ */
+.intro-cards {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  width: 100%;
+  max-width: 650px;
+}
+
+.home-card {
+  display: block;
+  padding: var(--space-md);
+  border: 1px solid #e5e5e5;
+  border-radius: 10px;
+  background: white;
+  color: inherit;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.home-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 14px 32px rgba(0,0,0,0.12);
+}
+
+.home-card h2 {
+  color: var(--accent);
+  margin-bottom: var(--space-sm);
+}
+
+/* ------------------------------
+   SCROLL REVEAL
+------------------------------ */
 .reveal {
   opacity: 0;
   transform: translateY(20px);
@@ -425,160 +212,10 @@ nav a:hover {
   opacity: 1;
   transform: translateY(0);
 }
-.visible {
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
 
-/* Improved home grid spacing */
-.home-grid {
-  margin-top: var(--space-md);
-  margin-bottom: var(--space-xl);
-  gap: var(--space-md);
-}
-/* Enhanced home cards */
-.home-card {
-  padding: var(--space-md);
-  border-radius: 10px;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.home-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 10px 24px rgba(0,0,0,0.12);
-}
-
-.home-card h2 a {
-  color: var(--accent);
-  text-decoration: none;
-}
-
-.home-card h2 a:hover {
-  opacity: 0.7;
-}
 /* ------------------------------
-   PORTFOLIO PAGE
+   PAGE TRANSITIONS
 ------------------------------ */
-
-.page-title {
-  margin-top: var(--space-lg);
-  margin-bottom: var(--space-sm);
-  font-size: 2.4rem;
-  font-weight: 700;
-  text-align: center;
-}
-
-.page-subtitle {
-  text-align: center;
-  max-width: 600px;
-  margin: 0 auto var(--space-xl);
-  font-size: 1.1rem;
-  color: #555;
-}
-
-.portfolio-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: var(--space-md);
-  margin-bottom: var(--space-xl);
-}
-
-.portfolio-card {
-  background: white;
-  padding: var(--space-md);
-  border-radius: 10px;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-  text-align: left;
-}
-
-.portfolio-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 10px 24px rgba(0,0,0,0.12);
-}
-
-.portfolio-img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-  border-radius: 6px;
-  margin-bottom: var(--space-sm);
-}
-/* ------------------------------
-   DESIGN STYLE PAGE
------------------------------- */
-
-.design-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: var(--space-md);
-  margin-bottom: var(--space-xl);
-}
-
-.principle {
-  background: white;
-  padding: var(--space-md);
-  border-radius: 10px;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.principle:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 10px 24px rgba(0,0,0,0.12);
-}
-
-.principle h2 {
-  margin-bottom: var(--space-sm);
-  color: var(--accent);
-  font-size: 1.4rem;
-}
-
-.principle p {
-  color: #444;
-  line-height: 1.5;
-}
-/* ------------------------------
-   PROJECT DETAIL PAGE
------------------------------- */
-
-.project-detail-img {
-  width: 100%;
-  max-width: 900px;
-  margin: var(--space-lg) auto;
-  display: block;
-  border-radius: 10px;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
-}
-
-.project-section {
-  margin-bottom: var(--space-xl);
-}
-
-.project-section h2 {
-  margin-bottom: var(--space-sm);
-  color: var(--accent);
-}
-
-.project-section p {
-  color: #444;
-  line-height: 1.7;
-}
-/* Thumbnail polish */
-.portfolio-img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 8px;
-  background: #f2f2f2;
-  border: 1px solid #e5e5e5;
-}
-/* ------------------------------
-   SMOOTH PAGE TRANSITIONS
------------------------------- */
-
 .fade-in {
   opacity: 0;
   animation: fadeIn 0.6s ease forwards;
@@ -598,10 +235,10 @@ nav a:hover {
   from { opacity: 1; }
   to { opacity: 0; }
 }
-/* ------------------------------
-   GLOBAL FOOTER POLISH
------------------------------- */
 
+/* ------------------------------
+   FOOTER
+------------------------------ */
 .site-footer {
   text-align: center;
   padding: var(--space-lg) var(--space-md);
@@ -611,321 +248,6 @@ nav a:hover {
   font-size: 0.9rem;
 }
 
-.site-footer a {
-  color: var(--accent);
-  text-decoration: none;
-  transition: opacity 0.2s ease;
-}
-
-.site-footer a:hover {
-  opacity: 0.7;
-}
-
-.footer-links {
-  margin-top: var(--space-sm);
-}
-
-/* ------------------------------
-   CENTERED INTRO LAYOUT
------------------------------- */
-
-.intro-centered-section {
-  margin-top: var(--space-xl);
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--space-xl);
-}
-
-.intro-centered {
-  max-width: 650px;
-  padding: 0 var(--space-md);
-}
-
-.intro-photo img {
-  width: 170px;
-  height: 170px;
-  object-fit: cover;
-  border-radius: 12px;
-  border: 3px solid #e5e5e5;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
-  margin-bottom: var(--space-md);
-}
-
-.intro-title {
-  font-size: 2.3rem;
-  font-weight: 700;
-  margin-bottom: var(--space-sm);
-}
-
-.intro-subtitle {
-  font-size: 1.15rem;
-  color: #555;
-  margin-bottom: var(--space-md);
-}
-
-.intro-description {
-  color: #444;
-  line-height: 1.65;
-}
-
-/* Cards under intro */
-.intro-cards {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-md);
-  width: 100%;
-  max-width: 650px;
-}
-
-.home-card {
-  display: block;
-  padding: var(--space-md);
-  border: 1px solid #e5e5e5;
-  border-radius: 8px;
-  text-decoration: none;
-  color: inherit;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.home-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-}
-
-.home-card h2 {
-  color: var(--accent);
-  margin-bottom: var(--space-sm);
-}
-/* ------------------------------
-   PORTFOLIO GRID
------------------------------- */
-
-.portfolio-header {
-  text-align: center;
-  margin-top: var(--space-xl);
-  margin-bottom: var(--space-lg);
-}
-
-.portfolio-subtitle {
-  color: #555;
-  max-width: 600px;
-  margin: 0 auto;
-  line-height: 1.6;
-}
-
-.portfolio-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: var(--space-lg);
-  margin-bottom: var(--space-xl);
-}
-
-.portfolio-card {
-  display: block;
-  background: #fff;
-  border: 1px solid #e5e5e5;
-  border-radius: 10px;
-  padding: var(--space-md);
-  text-decoration: none;
-  color: inherit;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.portfolio-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-}
-
-.portfolio-card img {
-  width: 100%;
-  height: 160px;
-  object-fit: cover;
-  border-radius: 8px;
-  margin-bottom: var(--space-md);
-}
-
-.portfolio-card h2 {
-  color: var(--accent);
-  margin-bottom: var(--space-sm);
-  font-size: 1.2rem;
-}
-
-.portfolio-card p {
-  color: #444;
-  line-height: 1.5;
-}
-/* ------------------------------
-   PROJECT DETAIL PAGES
------------------------------- */
-
-.project-detail {
-  max-width: 750px;
-  margin: var(--space-xl) auto;
-  text-align: center;
-}
-
-.project-thumb {
-  width: 100%;
-  max-width: 650px;
-  border-radius: 10px;
-  margin-bottom: var(--space-lg);
-  border: 1px solid #e5e5e5;
-}
-
-.project-subtitle {
-  color: #555;
-  max-width: 600px;
-  margin: 0 auto var(--space-lg);
-  line-height: 1.6;
-}
-
-.project-body {
-  text-align: left;
-  margin-top: var(--space-lg);
-}
-
-.project-body h2 {
-  margin-top: var(--space-lg);
-  margin-bottom: var(--space-sm);
-}
-
-.project-body ul {
-  margin-left: var(--space-md);
-  line-height: 1.6;
-}
-
-.project-body a {
-  color: var(--accent);
-  font-weight: 600;
-}
-/* ------------------------------
-   PROJECT DETAIL PAGES — POLISHED
------------------------------- */
-
-.project-detail {
-  max-width: 780px;
-  margin: var(--space-xl) auto;
-  text-align: center;
-  padding: 0 var(--space-md);
-}
-
-.project-thumb {
-  width: 100%;
-  max-width: 700px;
-  border-radius: 12px;
-  margin-bottom: var(--space-lg);
-  border: 1px solid #e5e5e5;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.06);
-}
-
-.project-title {
-  font-size: 2.4rem;
-  font-weight: 700;
-  margin-bottom: var(--space-sm);
-}
-
-.project-subtitle {
-  color: #555;
-  max-width: 620px;
-  margin: 0 auto var(--space-xl);
-  line-height: 1.6;
-  font-size: 1.15rem;
-}
-
-.project-body {
-  text-align: left;
-  margin-top: var(--space-lg);
-}
-
-.project-body h2 {
-  margin-top: var(--space-xl);
-  margin-bottom: var(--space-sm);
-  font-size: 1.4rem;
-}
-
-.project-body p,
-.project-body ul {
-  color: #444;
-  line-height: 1.7;
-  font-size: 1.05rem;
-}
-
-.project-body ul {
-  margin-left: var(--space-md);
-  margin-bottom: var(--space-lg);
-}
-
-.project-links {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-sm);
-  margin-top: var(--space-md);
-}
-
-.project-links a {
-  color: var(--accent);
-  font-weight: 600;
-  text-decoration: none;
-  transition: opacity 0.2s ease;
-}
-
-.project-links a:hover {
-  opacity: 0.7;
-}
-
-/* ------------------------------
-   HOMEPAGE HERO BACKGROUND
------------------------------- */
-.home-hero {
-  position: relative;
-  padding-top: 4rem;
-  padding-bottom: 4rem;
-  background: linear-gradient(180deg, #ffffff, #f7f7f7);
-  overflow: hidden;
-}
-
-/* Subtle Swiss-style grid overlay */
-.home-hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: 
-    linear-gradient(to right, rgba(0,0,0,0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(0,0,0,0.03) 1px, transparent 1px);
-  background-size: 40px 40px;
-  pointer-events: none;
-  z-index: 0;
-}
-
-.intro-centered-section {
-  position: relative;
-  z-index: 2;
-}
-.intro-photo img {
-  width: 200px;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 14px;
-  border: 3px solid #e5e5e5;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.intro-photo img:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 28px rgba(0,0,0,0.12);
-}
-.home-card {
-  transform: translateY(0);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.home-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 14px 32px rgba(0,0,0,0.12);
-}
 /* ------------------------------
    DARK MODE
 ------------------------------ */
@@ -952,6 +274,7 @@ body.dark .navbar {
   background: #000;
 }
 
+/* Dark mode toggle button */
 .theme-toggle {
   position: absolute;
   top: 20px;
@@ -967,5 +290,3 @@ body.dark .navbar {
 .theme-toggle:hover {
   opacity: 1;
 }
-
-
