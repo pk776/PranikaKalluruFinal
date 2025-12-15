@@ -13,7 +13,7 @@
        GLOBAL CENTERING WRAPPER
     ------------------------------ */
     .design-wrapper {
-      max-width: 820px;
+      max-width: 860px;
       margin: 0 auto;
       text-align: center;
       padding-bottom: 5rem;
@@ -36,14 +36,14 @@
     }
 
     .poster-hero p {
-      max-width: 620px;
+      max-width: 640px;
       margin: 0 auto;
       font-size: 1.25rem;
       color: #444;
       line-height: 1.7;
     }
 
-    /* Subtle diagonal Swiss lines */
+    /* Diagonal Swiss lines */
     .poster-hero::before {
       content: "";
       position: absolute;
@@ -78,25 +78,27 @@
     }
 
     /* ------------------------------
-       GRID DEMO (Centered)
+       GRID DEMO (Centered + Advanced)
     ------------------------------ */
     .grid-demo {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 1rem;
-      max-width: 520px;
+      max-width: 540px;
       margin: 0 auto;
     }
 
     .grid-box {
-      height: 130px;
-      background: #e5e5e5;
-      border-radius: 8px;
-      transition: transform 0.2s ease;
+      height: 140px;
+      background: linear-gradient(135deg, #e5e5e5, #f7f7f7);
+      border-radius: 10px;
+      border: 1px solid #ddd;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
 
     .grid-box:hover {
-      transform: translateY(-4px);
+      transform: translateY(-6px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
     }
 
     /* ------------------------------
