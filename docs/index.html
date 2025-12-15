@@ -1,86 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Home — Pranika Kalluru</title>
-  <link rel="icon" type="image/png" href="./assets/img/favicon.png" />
-<link rel="stylesheet" href="/PranikaKalluruFinal/docs/assets/css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome – Pranika Kalluru</title>
+  <link rel="stylesheet" href="/PranikaKalluruFinal/docs/assets/css/style.css">
 </head>
 
-<body class="fade-in">
+<body>
 
-  <!-- NAVIGATION -->
-  <nav>
-    <a href="./">Home</a>
-    <a href="./portfolio/">Portfolio</a>
-    <a href="./design_style/">Design Style</a>
-    <a href="./client_site/">Client Site</a>
-  </nav>
+  <header class="navbar">
+    <nav class="container">
+      <a href="./index.html" class="logo">PK</a>
+      <ul class="nav-links">
+        <li><a href="./index.html" class="active">Home</a></li>
+        <li><a href="./portfolio/index.html">Portfolio</a></li>
+        <li><a href="./design_style/index.html">Design Style</a></li>
+        <li><a href="./client_site/index.html">Client Site</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <!-- TITLE + SUBTITLE -->
-  <h1 class="home-title reveal">Welcome to My Final Project</h1>
-  <p class="home-subtitle reveal">
-    Explore my Portfolio, Design Style site, and Client Site
-  </p>
+  <main class="container home">
 
-  <!-- MAIN GRID -->
-<section class="intro-centered-section reveal">
+    <section class="hero">
+      <img src="./assets/img/me.jpg" alt="Photo of Pranika" class="hero-img">
 
-  <div class="intro-centered">
-    <div class="intro-photo">
-      <img src="./assets/img/me.jpg" alt="Photo of Pranika Kalluru">
-    </div>
+      <h1>Hi, I’m Pranika Kalluru</h1>
+      <p class="subtitle">
+        Designer & Developer focused on clarity, systems, and purposeful digital experiences.
+      </p>
 
-    <h1 class="intro-title">Hi, I’m Pranika Kalluru</h1>
+      <p class="intro">
+        I’m a Business & Information Systems student at NJIT with a passion for clean design, thoughtful interfaces,
+        and building things that feel intentional. I love combining structure, creativity, and technology to create meaningful digital work.
+      </p>
 
-    <p class="intro-subtitle">
-      Designer & Developer focused on clarity, systems, and purposeful digital experiences.
-    </p>
-
-    <p class="intro-description">
-      I’m a Business & Information Systems student at NJIT with a passion for clean design,
-      thoughtful interfaces, and building things that feel intentional. I love combining
-      structure, creativity, and technology to create meaningful digital work.
-    </p>
-  </div>
-</section>
-
-    <div class="home-grid">
-
-      <div class="home-card reveal">
-        <h2><a href="./portfolio/">Portfolio Site →</a></h2>
-        <p>A showcase of my work, projects, and design thinking.</p>
+      <div class="home-links">
+        <a href="./portfolio/index.html" class="button">Portfolio Site →</a>
+        <a href="./design_style/index.html" class="button">Design Style Site →</a>
+        <a href="./client_site/index.html" class="button">Client Site →</a>
       </div>
+    </section>
 
-      <div class="home-card reveal">
-        <h2><a href="./design_style/">Design Style Site →</a></h2>
-        <p>A deep dive into Swiss Design principles and layout systems.</p>
-      </div>
-
-      <div class="home-card reveal">
-        <h2><a href="./client_site/">Client Site →</a></h2>
-        <p>A professional business-style website built for a fictional client.</p>
-      </div>
-
-    </div>
   </main>
 
-  <!-- FOOTER -->
- <footer class="site-footer reveal">
-  <p>© 2025 · Pranika Kalluru · Built with clarity & purpose</p>
-  <p class="footer-links">
-    <a href="./">Home</a> ·
-    <a href="./portfolio/">Portfolio</a> ·
-    <a href="./design_style/">Design Style</a> ·
-    <a href="./client_site/">Client Site</a>
-  </p>
-</footer>
-
-
-
-  <!-- SCRIPT -->
-  <script src="./assets/js/script.js"></script>
+  <footer class="footer">
+    <p>© 2025 – Pranika Kalluru – Built with clarity & purpose</p>
+  </footer>
 
 </body>
 </html>
