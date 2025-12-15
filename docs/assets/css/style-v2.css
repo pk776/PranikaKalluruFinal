@@ -1,3 +1,4 @@
+
 /* BEFORE/AFTER SLIDER */
 .before-after {
   position: relative;
@@ -17,7 +18,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 50%;
+  width: 50%; /* default midpoint */
   height: 100%;
   overflow: hidden;
   border-radius: 12px;
