@@ -540,6 +540,32 @@ nav a:hover {
   color: #444;
   line-height: 1.5;
 }
+/* ------------------------------
+   PROJECT DETAIL PAGE
+------------------------------ */
+
+.project-detail-img {
+  width: 100%;
+  max-width: 900px;
+  margin: var(--space-lg) auto;
+  display: block;
+  border-radius: 10px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+}
+
+.project-section {
+  margin-bottom: var(--space-xl);
+}
+
+.project-section h2 {
+  margin-bottom: var(--space-sm);
+  color: var(--accent);
+}
+
+.project-section p {
+  color: #444;
+  line-height: 1.7;
+}
 
 
 
