@@ -5,365 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Client Site – Pranika Kalluru</title>
 
-  <link rel="stylesheet" href="../assets/css/style-v2.css">
-  <script defer src="../assets/js/script.js"></script>
-
-  <style>
-    /* -----------------------------------
-       GLOBAL WRAPPER
-    ----------------------------------- */
-    .client-wrapper {
-      max-width: 900px;
-      margin: 0 auto;
-      text-align: center;
-      padding-bottom: 5rem;
-    }
-
-    /* -----------------------------------
-       SCROLL PROGRESS BAR
-    ----------------------------------- */
-    #scrollProgress {
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 4px;
-      background: #E63946;
-      width: 0%;
-      z-index: 9999;
-      transition: width 0.1s linear;
-    }
-
-    /* -----------------------------------
-       FLOATING PROJECT INFO SIDEBAR
-    ----------------------------------- */
-    .project-info {
-      position: fixed;
-      top: 50%;
-      right: 20px;
-      transform: translateY(-50%);
-      background: #111;
-      color: #fff;
-      padding: 1rem 1.2rem;
-      border-radius: 12px;
-      width: 180px;
-      font-size: 0.9rem;
-      line-height: 1.5;
-      opacity: 0.9;
-      z-index: 999;
-    }
-
-    .project-info h4 {
-      margin-bottom: 0.4rem;
-      font-size: 1rem;
-      font-weight: 700;
-    }
-
-    /* -----------------------------------
-       HERO
-    ----------------------------------- */
-    .client-hero {
-      padding: 5rem 1rem 4rem;
-      border-bottom: 1px solid #e5e5e5;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .client-hero h1 {
-      font-size: 3.2rem;
-      font-weight: 800;
-      margin-bottom: 1rem;
-    }
-
-    .client-hero p {
-      max-width: 640px;
-      margin: 0 auto;
-      font-size: 1.2rem;
-      color: #444;
-      line-height: 1.7;
-    }
-
-    .client-hero::before {
-      content: "";
-      position: absolute;
-      top: -40px;
-      right: -40px;
-      width: 220px;
-      height: 220px;
-      background: #E63946;
-      opacity: 0.12;
-      transform: rotate(-25deg);
-    }
-
-    .client-hero::after {
-      content: "";
-      position: absolute;
-      bottom: -60px;
-      left: -40px;
-      width: 260px;
-      height: 260px;
-      border: 2px solid rgba(0, 0, 0, 0.06);
-      transform: rotate(18deg);
-    }
-
-    /* -----------------------------------
-       SECTION DIVIDER
-    ----------------------------------- */
-    .divider {
-      width: 100%;
-      height: 2px;
-      background: linear-gradient(to right, transparent, #ddd, transparent);
-      margin: 4rem 0;
-      opacity: 0;
-      transform: scaleX(0.5);
-      transition: all 0.8s ease;
-    }
-
-    .divider.visible {
-      opacity: 1;
-      transform: scaleX(1);
-    }
-
-    /* -----------------------------------
-       SERVICES GRID
-    ----------------------------------- */
-    .services-grid {
-      margin-top: 4rem;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .service-card {
-      background: #fafafa;
-      border: 1px solid #e5e5e5;
-      border-radius: 12px;
-      padding: 1.8rem;
-      text-align: left;
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
-    }
-
-    .service-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 10px 24px rgba(0,0,0,0.08);
-    }
-
-    /* -----------------------------------
-       BRAND PALETTE
-    ----------------------------------- */
-    .brand-palette {
-      margin-top: 4rem;
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-    }
-
-    .color-swatch {
-      width: 120px;
-      height: 120px;
-      border-radius: 12px;
-      color: #fff;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.9rem;
-    }
-
-    /* -----------------------------------
-       BEFORE/AFTER SLIDER
-    ----------------------------------- */
-    .before-after {
-      margin-top: 4rem;
-      position: relative;
-      width: 100%;
-      max-width: 800px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .before-after img {
-      width: 100%;
-      border-radius: 12px;
-    }
-
-    .slider-handle {
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      width: 4px;
-      background: #E63946;
-      left: 50%;
-      cursor: ew-resize;
-    }
-
-    .after-img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 50%;
-      overflow: hidden;
-      border-radius: 12px;
-    }
-
-    /* -----------------------------------
-       DEVICE MOCKUPS
-    ----------------------------------- */
-    .mockup-devices {
-      margin-top: 3rem;
-      display: flex;
-      justify-content: center;
-      gap: 3rem;
-      flex-wrap: wrap;
-    }
-
-    .device.laptop {
-      width: 480px;
-    }
-
-    .laptop-screen {
-      background: #111;
-      border-radius: 14px 14px 0 0;
-      padding: 1rem;
-      height: 260px;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.15);
-    }
-
-    .laptop-base {
-      height: 18px;
-      background: #ccc;
-      border-radius: 0 0 14px 14px;
-    }
-
-    .device.phone {
-      width: 180px;
-    }
-
-    .phone-screen {
-      background: #111;
-      border-radius: 24px;
-      padding: 0.8rem;
-      height: 320px;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.15);
-    }
-
-    .screen-content {
-      background: linear-gradient(135deg, #e5e5e5, #f7f7f7);
-      width: 100%;
-      height: 100%;
-      border-radius: 10px;
-    }
-
-    /* -----------------------------------
-       PROCESS TIMELINE
-    ----------------------------------- */
-    .timeline {
-      margin-top: 2rem;
-      display: grid;
-      gap: 2rem;
-    }
-
-    .timeline-step {
-      background: #fafafa;
-      border: 1px solid #e5e5e5;
-      padding: 1.5rem;
-      border-radius: 12px;
-      text-align: left;
-    }
-
-    /* -----------------------------------
-       TESTIMONIAL
-    ----------------------------------- */
-    .testimonial {
-      margin-top: 5rem;
-      background: #111;
-      color: #fff;
-      padding: 3rem 2rem;
-      border-radius: 14px;
-    }
-
-    /* -----------------------------------
-       CTA
-    ----------------------------------- */
-    .cta-section {
-      margin-top: 4rem;
-      padding: 3rem 1rem;
-      background: #E63946;
-      color: #fff;
-      border-radius: 14px;
-    }
-
-    .cta-btn {
-      display: inline-block;
-      padding: 0.8rem 1.6rem;
-      background: #fff;
-      color: #E63946;
-      border-radius: 8px;
-      font-weight: 700;
-      transition: transform 0.2s ease;
-    }
-
-    .cta-btn:hover {
-      transform: translateY(-2px);
-    }
-
-    /* -----------------------------------
-       SCROLL REVEAL ANIMATIONS
-    ----------------------------------- */
-    .reveal {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.8s ease;
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .reveal-left {
-      opacity: 0;
-      transform: translateX(-40px);
-      transition: all 0.8s ease;
-    }
-
-    .reveal-right {
-      opacity: 0;
-      transform: translateX(40px);
-      transition: all 0.8s ease;
-    }
-
-    .reveal-left.visible,
-    .reveal-right.visible {
-      opacity: 1;
-      transform: translateX(0);
-    }
-  </style>
+  <!-- FIXED ABSOLUTE PATHS FOR GITHUB PAGES -->
+  <link rel="stylesheet" href="/PranikaKalluruFinal/docs/assets/css/style-v2.css">
+  <script defer src="/PranikaKalluruFinal/docs/assets/js/script.js"></script>
 </head>
 
 <body class="fade-in">
 
-  <!-- SCROLL PROGRESS BAR -->
-  <div id="scrollProgress"></div>
-
-  <!-- FLOATING PROJECT INFO -->
-  <div class="project-info">
-    <h4>Client Project</h4>
-    <p>Branding<br>UI/UX<br>Responsive Design<br>Case Study</p>
-  </div>
-
   <!-- DARK MODE TOGGLE -->
   <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
 
-  <!-- NAVIGATION -->
+  <!-- MINIMAL NAVIGATION -->
   <nav class="mini-nav fade-in">
-    <a href="../index.html">Home</a>
-    <a href="../portfolio/index.html">Portfolio</a>
-    <a href="../design_style/index.html">Design Style</a>
-    <a href="../client_site/index.html" class="active">Client Site</a>
+    <a href="/PranikaKalluruFinal/docs/index.html">Home</a>
+    <a href="/PranikaKalluruFinal/docs/portfolio/index.html">Portfolio</a>
+    <a href="/PranikaKalluruFinal/docs/design_style/index.html">Design Style</a>
+    <a href="/PranikaKalluruFinal/docs/client_site/index.html">Client Site</a>
   </nav>
 
-  <main class="client-wrapper">
+  <main class="container">
 
     <!-- HERO -->
     <section class="client-hero reveal">
@@ -410,27 +70,23 @@
 
     <div class="divider reveal"></div>
 
-    
-<!-- BEFORE/AFTER SLIDER -->
-<section class="before-after reveal">
-  <h2>Before & After Redesign</h2>
+    <!-- BEFORE/AFTER SLIDER -->
+    <section class="before-after reveal">
+      <h2>Before & After Redesign</h2>
 
-  <div class="before-after">
-    <!-- Base image (full width) -->
-    <img src="../assets/img/before-after.png" alt="Before and After">
+      <div class="before-after">
+        <!-- Base image -->
+        <img src="/PranikaKalluruFinal/docs/assets/img/before-after.png" alt="Before and After">
 
-    <!-- Clipped top image -->
-    <div class="after-img" id="afterImg">
-      <img src="../assets/img/before-after.png" alt="After">
-    </div>
+        <!-- Clipped top image -->
+        <div class="after-img" id="afterImg">
+          <img src="/PranikaKalluruFinal/docs/assets/img/before-after.png" alt="After">
+        </div>
 
-    <!-- Slider handle -->
-    <div class="slider-handle" id="sliderHandle"></div>
-  </div>
-</section>
-
-
-
+        <!-- Slider handle -->
+        <div class="slider-handle" id="sliderHandle"></div>
+      </div>
+    </section>
 
     <div class="divider reveal"></div>
 
@@ -500,7 +156,7 @@
     <section class="cta-section reveal-right">
       <h2>Want to See More?</h2>
       <p>Explore additional projects, case studies, and design explorations in my portfolio.</p>
-      <a class="cta-btn" href="../portfolio/index.html">View Portfolio</a>
+      <a class="cta-btn" href="/PranikaKalluruFinal/docs/portfolio/index.html">View Portfolio</a>
     </section>
 
   </main>
@@ -569,5 +225,4 @@
   </script>
 
 </body>
-
 </html>
