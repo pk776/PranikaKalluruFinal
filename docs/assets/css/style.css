@@ -3,6 +3,18 @@
   --text-dark: #111;
   --text-light: #fff;
 }
+/* ------------------------------
+   SPACING SCALE
+------------------------------ */
+:root {
+  --space-xs: 8px;
+  --space-sm: 16px;
+  --space-md: 24px;
+  --space-lg: 48px;
+  --space-xl: 72px;
+}
+
+
 a {
   color: var(--accent);
   text-decoration: none;
@@ -332,6 +344,25 @@ a, button, .card {
     opacity: 1;
   }
 }
+/* Improved homepage title block */
+.home-title {
+  margin-top: var(--space-lg);
+  margin-bottom: var(--space-sm);
+  font-size: 2.4rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.home-subtitle {
+  margin-bottom: var(--space-lg);
+  font-size: 1.2rem;
+  color: #555;
+  text-align: center;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 
 .card:hover {
   transform: translateY(-4px);
@@ -358,5 +389,32 @@ nav a:hover {
   transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
+/* Improved home grid spacing */
+.home-grid {
+  margin-top: var(--space-md);
+  margin-bottom: var(--space-xl);
+  gap: var(--space-md);
+}
+/* Enhanced home cards */
+.home-card {
+  padding: var(--space-md);
+  border-radius: 10px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.home-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.12);
+}
+
+.home-card h2 a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.home-card h2 a:hover {
+  opacity: 0.7;
+}
 
 
