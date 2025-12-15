@@ -26,6 +26,7 @@
       padding: 5rem 1rem 4rem;
       border-bottom: 1px solid #e5e5e5;
       position: relative;
+      overflow: hidden;
     }
 
     .poster-hero h1 {
@@ -47,14 +48,24 @@
     .poster-hero::before {
       content: "";
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-image: linear-gradient(135deg, rgba(0,0,0,0.05) 1px, transparent 1px);
-      background-size: 40px 40px;
-      opacity: 0.25;
-      pointer-events: none;
+      top: -40px;
+      right: -40px;
+      width: 220px;
+      height: 220px;
+      background: #E63946;
+      opacity: 0.12;
+      transform: rotate(-25deg);
+    }
+
+    .poster-hero::after {
+      content: "";
+      position: absolute;
+      bottom: -60px;
+      left: -40px;
+      width: 260px;
+      height: 260px;
+      border: 2px solid rgba(0, 0, 0, 0.06);
+      transform: rotate(18deg);
     }
 
     /* ------------------------------
@@ -122,6 +133,7 @@
       gap: 1rem;
       justify-content: center;
       margin-top: 1rem;
+      flex-wrap: wrap;
     }
 
     .contrast-block {
@@ -146,6 +158,7 @@
       gap: 1rem;
       justify-content: center;
       margin-top: 1rem;
+      flex-wrap: wrap;
     }
 
     .shape {
@@ -199,6 +212,196 @@
     .grid-toggle:hover {
       opacity: 1;
     }
+
+    /* ------------------------------
+       SWISS POSTER GENERATOR
+    ------------------------------ */
+    .poster-section {
+      margin-top: 4.5rem;
+    }
+
+    .poster-layout {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .poster-canvas {
+      width: min(90vw, 900px);
+      aspect-ratio: 3 / 4;
+      background: #f5f5f5;
+      border-radius: 16px;
+      border: 1px solid #ddd;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+
+    .poster-canvas-inner {
+      position: absolute;
+      inset: 18px;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      overflow: hidden;
+    }
+
+    .poster-title {
+      grid-column: 1 / -1;
+      text-align: left;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 1.1rem;
+    }
+
+    .poster-subtitle {
+      grid-column: 1 / 2;
+      align-self: flex-end;
+      font-size: 0.9rem;
+      color: #333;
+    }
+
+    .poster-meta {
+      grid-column: 2 / 3;
+      text-align: right;
+      font-size: 0.8rem;
+      color: #666;
+      align-self: flex-end;
+    }
+
+    .poster-shape-primary,
+    .poster-shape-secondary {
+      position: absolute;
+      border-radius: 999px;
+      transition: transform 0.4s ease, border-radius 0.3s ease;
+    }
+
+    .poster-shape-primary {
+      width: 45%;
+      height: 40%;
+      bottom: 10%;
+      right: 8%;
+      background: #E63946;
+    }
+
+    .poster-shape-secondary {
+      width: 22%;
+      height: 28%;
+      top: 14%;
+      left: 8%;
+      background: #111;
+      opacity: 0.9;
+    }
+
+    .poster-grid-lines {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(to right, rgba(0,0,0,0.07) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0,0,0,0.07) 1px, transparent 1px);
+      background-size: 80px 80px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .poster-grid-lines.active {
+      opacity: 0.5;
+    }
+
+    .poster-controls {
+      width: 100%;
+      max-width: 900px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      font-size: 0.9rem;
+    }
+
+    .poster-control-group {
+      text-align: left;
+    }
+
+    .poster-control-group label {
+      display: block;
+      margin-bottom: 0.35rem;
+      font-weight: 600;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #555;
+    }
+
+    .poster-control-group input[type="text"],
+    .poster-control-group select,
+    .poster-control-group input[type="color"],
+    .poster-control-group input[type="range"] {
+      width: 100%;
+      padding: 0.45rem 0.5rem;
+      border-radius: 6px;
+      border: 1px solid #ddd;
+      font-size: 0.9rem;
+    }
+
+    .poster-toggles {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-top: 0.4rem;
+    }
+
+    .poster-toggle-btn {
+      padding: 0.35rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid #ccc;
+      font-size: 0.85rem;
+      background: #fff;
+      cursor: pointer;
+      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .poster-toggle-btn.active {
+      background: #111;
+      color: #fff;
+      border-color: #111;
+    }
+
+    .poster-randomize {
+      margin-top: 0.5rem;
+      text-align: right;
+    }
+
+    .poster-randomize button {
+      padding: 0.45rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid #111;
+      background: #111;
+      color: #fff;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: background 0.2s ease, color 0.2s ease, transform 0.1s ease;
+    }
+
+    .poster-randomize button:hover {
+      background: #E63946;
+      border-color: #E63946;
+      transform: translateY(-1px);
+    }
+
+    /* Responsive controls */
+    @media (max-width: 800px) {
+      .poster-controls {
+        grid-template-columns: 1fr;
+      }
+
+      .poster-randomize {
+        text-align: left;
+      }
+    }
   </style>
 </head>
 
@@ -225,6 +428,70 @@
     <section class="poster-hero reveal">
       <h1>Swiss Design Style</h1>
       <p>A modern exploration of grids, typography, spacing, and clarity — blending Swiss poster aesthetics with interactive design tools.</p>
+    </section>
+
+    <!-- SWISS POSTER GENERATOR (CENTERPIECE) -->
+    <section class="poster-section project-body reveal">
+      <h2>Swiss Poster Generator</h2>
+      <p>Experiment with layouts, color, and hierarchy to generate Swiss‑inspired posters directly in the browser.</p>
+
+      <div class="poster-layout">
+
+        <!-- Poster Canvas -->
+        <div class="poster-canvas" id="posterCanvas">
+          <div class="poster-canvas-inner">
+            <div class="poster-title" id="posterTitle">Swiss Design Poster</div>
+            <div class="poster-subtitle" id="posterSubtitle">Clarity · Grid · Typographic Rhythm</div>
+            <div class="poster-meta" id="posterMeta">PK · 2025 · NJIT</div>
+          </div>
+
+          <div class="poster-grid-lines" id="posterGridLines"></div>
+          <div class="poster-shape-primary" id="posterShapePrimary"></div>
+          <div class="poster-shape-secondary" id="posterShapeSecondary"></div>
+        </div>
+
+        <!-- Controls -->
+        <div class="poster-controls">
+
+          <div class="poster-control-group">
+            <label for="posterLayoutSelect">Layout Preset</label>
+            <select id="posterLayoutSelect">
+              <option value="modern">Modern Swiss</option>
+              <option value="classic">Classic Swiss</option>
+              <option value="motion">Motion Swiss</option>
+            </select>
+          </div>
+
+          <div class="poster-control-group">
+            <label for="accentColorInput">Accent Color</label>
+            <input type="color" id="accentColorInput" value="#E63946">
+          </div>
+
+          <div class="poster-control-group">
+            <label for="typeScaleInput">Type Scale</label>
+            <input type="range" id="typeScaleInput" min="0.9" max="1.3" step="0.05" value="1.0">
+          </div>
+
+          <div class="poster-control-group">
+            <label>Poster Title</label>
+            <input type="text" id="posterTitleInput" value="Swiss Design Poster">
+          </div>
+
+          <div class="poster-control-group">
+            <label>Toggles</label>
+            <div class="poster-toggles">
+              <button type="button" class="poster-toggle-btn active" id="toggleGridLinesBtn">Grid</button>
+              <button type="button" class="poster-toggle-btn active" id="toggleShapesBtn">Shapes</button>
+            </div>
+          </div>
+
+          <div class="poster-control-group poster-randomize">
+            <label>Preset</label>
+            <button type="button" id="randomizePosterBtn">Randomize</button>
+          </div>
+
+        </div>
+      </div>
     </section>
 
     <!-- GRID SYSTEM -->
@@ -287,6 +554,110 @@
     function toggleGrid() {
       document.getElementById("gridOverlay").classList.toggle("active");
     }
+
+    // Poster generator logic
+    (function () {
+      const posterCanvas = document.getElementById("posterCanvas");
+      const posterGridLines = document.getElementById("posterGridLines");
+      const shapePrimary = document.getElementById("posterShapePrimary");
+      const shapeSecondary = document.getElementById("posterShapeSecondary");
+      const layoutSelect = document.getElementById("posterLayoutSelect");
+      const accentInput = document.getElementById("accentColorInput");
+      const typeScaleInput = document.getElementById("typeScaleInput");
+      const titleInput = document.getElementById("posterTitleInput");
+      const titleEl = document.getElementById("posterTitle");
+      const subtitleEl = document.getElementById("posterSubtitle");
+      const metaEl = document.getElementById("posterMeta");
+      const toggleGridBtn = document.getElementById("toggleGridLinesBtn");
+      const toggleShapesBtn = document.getElementById("toggleShapesBtn");
+      const randomizeBtn = document.getElementById("randomizePosterBtn");
+
+      function applyLayout(preset) {
+        if (preset === "modern") {
+          posterCanvas.style.background = "#f5f5f5";
+          shapePrimary.style.borderRadius = "999px";
+          shapeSecondary.style.borderRadius = "24px";
+          shapePrimary.style.transform = "translate(0, 0)";
+          shapeSecondary.style.transform = "translate(0, 0)";
+          subtitleEl.textContent = "Clarity · Grid · Typographic Rhythm";
+          metaEl.textContent = "PK · 2025 · Modern Swiss";
+        } else if (preset === "classic") {
+          posterCanvas.style.background = "#fbfbfb";
+          shapePrimary.style.borderRadius = "4px";
+          shapeSecondary.style.borderRadius = "4px";
+          shapePrimary.style.transform = "translate(-10%, -4%)";
+          shapeSecondary.style.transform = "translate(6%, 8%)";
+          subtitleEl.textContent = "Brockmann · Hofmann · Swiss Legacy";
+          metaEl.textContent = "PK · 1960s Inspired";
+        } else if (preset === "motion") {
+          posterCanvas.style.background = "linear-gradient(135deg, #f5f5f5, #e9f0ff)";
+          shapePrimary.style.borderRadius = "40% 60% 50% 70%";
+          shapeSecondary.style.borderRadius = "60% 40% 70% 50%";
+          shapePrimary.style.transform = "translate(3%, -3%)";
+          shapeSecondary.style.transform = "translate(-4%, 6%)";
+          subtitleEl.textContent = "Kinetic Type · Motion · Energy";
+          metaEl.textContent = "PK · Motion Swiss · 2025";
+        }
+      }
+
+      function applyAccent(color) {
+        shapePrimary.style.background = color;
+        document.documentElement.style.setProperty("--accent-color", color);
+      }
+
+      function applyTypeScale(scale) {
+        const s = parseFloat(scale);
+        titleEl.style.transform = `scale(${s})`;
+        subtitleEl.style.transform = `scale(${s})`;
+        metaEl.style.transform = `scale(${s})`;
+      }
+
+      function applyTitle(text) {
+        titleEl.textContent = text || "Swiss Design Poster";
+      }
+
+      // Toggles
+      toggleGridBtn.addEventListener("click", () => {
+        const active = posterGridLines.classList.toggle("active");
+        toggleGridBtn.classList.toggle("active", active);
+      });
+
+      toggleShapesBtn.addEventListener("click", () => {
+        const hide = shapePrimary.style.display === "none";
+        shapePrimary.style.display = hide ? "block" : "none";
+        shapeSecondary.style.display = hide ? "block" : "none";
+        toggleShapesBtn.classList.toggle("active", hide);
+      });
+
+      // Listeners
+      layoutSelect.addEventListener("change", (e) => applyLayout(e.target.value));
+      accentInput.addEventListener("input", (e) => applyAccent(e.target.value));
+      typeScaleInput.addEventListener("input", (e) => applyTypeScale(e.target.value));
+      titleInput.addEventListener("input", (e) => applyTitle(e.target.value));
+
+      randomizeBtn.addEventListener("click", () => {
+        const presets = ["modern", "classic", "motion"];
+        const randomPreset = presets[Math.floor(Math.random() * presets.length)];
+        layoutSelect.value = randomPreset;
+        applyLayout(randomPreset);
+
+        const randomColor = "#" + Math.floor(Math.random()*16777215).toString(16).padStart(6, "0");
+        accentInput.value = randomColor;
+        applyAccent(randomColor);
+
+        const randomScale = (0.9 + Math.random() * 0.4).toFixed(2);
+        typeScaleInput.value = randomScale;
+        applyTypeScale(randomScale);
+      });
+
+      // Initial state
+      applyLayout("modern");
+      applyAccent(accentInput.value);
+      applyTypeScale(typeScaleInput.value);
+      applyTitle(titleInput.value);
+      posterGridLines.classList.add("active");
+      toggleGridBtn.classList.add("active");
+    })();
   </script>
 
 </body>
