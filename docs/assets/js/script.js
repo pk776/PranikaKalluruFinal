@@ -33,3 +33,6 @@ document.querySelectorAll('a').forEach(link => {
   }
 });
 
+function toggleTheme() {
+  document.body.classList.toggle("dark");
+}
