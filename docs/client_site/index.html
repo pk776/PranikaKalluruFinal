@@ -9,7 +9,9 @@
   <script defer src="../assets/js/script.js"></script>
 
   <style>
-    /* Wrapper */
+    /* -----------------------------------
+       GLOBAL WRAPPER
+    ----------------------------------- */
     .client-wrapper {
       max-width: 900px;
       margin: 0 auto;
@@ -17,7 +19,48 @@
       padding-bottom: 5rem;
     }
 
-    /* Hero */
+    /* -----------------------------------
+       SCROLL PROGRESS BAR
+    ----------------------------------- */
+    #scrollProgress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      background: #E63946;
+      width: 0%;
+      z-index: 9999;
+      transition: width 0.1s linear;
+    }
+
+    /* -----------------------------------
+       FLOATING PROJECT INFO SIDEBAR
+    ----------------------------------- */
+    .project-info {
+      position: fixed;
+      top: 50%;
+      right: 20px;
+      transform: translateY(-50%);
+      background: #111;
+      color: #fff;
+      padding: 1rem 1.2rem;
+      border-radius: 12px;
+      width: 180px;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      opacity: 0.9;
+      z-index: 999;
+    }
+
+    .project-info h4 {
+      margin-bottom: 0.4rem;
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    /* -----------------------------------
+       HERO
+    ----------------------------------- */
     .client-hero {
       padding: 5rem 1rem 4rem;
       border-bottom: 1px solid #e5e5e5;
@@ -39,7 +82,6 @@
       line-height: 1.7;
     }
 
-    /* Decorative shapes */
     .client-hero::before {
       content: "";
       position: absolute;
@@ -63,7 +105,27 @@
       transform: rotate(18deg);
     }
 
-    /* Services grid */
+    /* -----------------------------------
+       SECTION DIVIDER
+    ----------------------------------- */
+    .divider {
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(to right, transparent, #ddd, transparent);
+      margin: 4rem 0;
+      opacity: 0;
+      transform: scaleX(0.5);
+      transition: all 0.8s ease;
+    }
+
+    .divider.visible {
+      opacity: 1;
+      transform: scaleX(1);
+    }
+
+    /* -----------------------------------
+       SERVICES GRID
+    ----------------------------------- */
     .services-grid {
       margin-top: 4rem;
       display: grid;
@@ -85,48 +147,116 @@
       box-shadow: 0 10px 24px rgba(0,0,0,0.08);
     }
 
-    .service-card h3 {
-      font-size: 1.4rem;
-      margin-bottom: 0.6rem;
-      font-weight: 700;
+    /* -----------------------------------
+       BRAND PALETTE
+    ----------------------------------- */
+    .brand-palette {
+      margin-top: 4rem;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
     }
 
-    .service-card p {
-      color: #555;
-      line-height: 1.6;
-    }
-
-    /* Mockup section */
-    .mockup-section {
-      margin-top: 5rem;
-    }
-
-    .mockup-frame {
-      width: 100%;
-      max-width: 780px;
-      margin: 0 auto;
-      background: #111;
-      border-radius: 20px;
-      padding: 2rem;
+    .color-swatch {
+      width: 120px;
+      height: 120px;
+      border-radius: 12px;
       color: #fff;
-      text-align: left;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+    }
+
+    /* -----------------------------------
+       BEFORE/AFTER SLIDER
+    ----------------------------------- */
+    .before-after {
+      margin-top: 4rem;
+      position: relative;
+      width: 100%;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .before-after img {
+      width: 100%;
+      border-radius: 12px;
+    }
+
+    .slider-handle {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: #E63946;
+      left: 50%;
+      cursor: ew-resize;
+    }
+
+    .after-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 50%;
+      overflow: hidden;
+      border-radius: 12px;
+    }
+
+    /* -----------------------------------
+       DEVICE MOCKUPS
+    ----------------------------------- */
+    .mockup-devices {
+      margin-top: 3rem;
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .device.laptop {
+      width: 480px;
+    }
+
+    .laptop-screen {
+      background: #111;
+      border-radius: 14px 14px 0 0;
+      padding: 1rem;
+      height: 260px;
       box-shadow: 0 12px 30px rgba(0,0,0,0.15);
     }
 
-    .mockup-screen {
-      background: #fff;
-      height: 300px;
-      border-radius: 12px;
-      margin-top: 1rem;
-      border: 1px solid #ccc;
+    .laptop-base {
+      height: 18px;
+      background: #ccc;
+      border-radius: 0 0 14px 14px;
     }
 
-    /* Process timeline */
-    .process-section {
-      margin-top: 5rem;
-      text-align: center;
+    .device.phone {
+      width: 180px;
     }
 
+    .phone-screen {
+      background: #111;
+      border-radius: 24px;
+      padding: 0.8rem;
+      height: 320px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+    }
+
+    .screen-content {
+      background: linear-gradient(135deg, #e5e5e5, #f7f7f7);
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+    }
+
+    /* -----------------------------------
+       PROCESS TIMELINE
+    ----------------------------------- */
     .timeline {
       margin-top: 2rem;
       display: grid;
@@ -141,13 +271,9 @@
       text-align: left;
     }
 
-    .timeline-step h4 {
-      margin-bottom: 0.5rem;
-      font-size: 1.2rem;
-      font-weight: 700;
-    }
-
-    /* Testimonial */
+    /* -----------------------------------
+       TESTIMONIAL
+    ----------------------------------- */
     .testimonial {
       margin-top: 5rem;
       background: #111;
@@ -156,40 +282,15 @@
       border-radius: 14px;
     }
 
-    .testimonial p {
-      max-width: 600px;
-      margin: 0 auto;
-      font-size: 1.1rem;
-      line-height: 1.7;
-      color: #ddd;
-    }
-
-    .testimonial .client-name {
-      margin-top: 1rem;
-      font-weight: 700;
-      font-size: 1rem;
-      color: #fff;
-    }
-
-    /* CTA */
+    /* -----------------------------------
+       CTA
+    ----------------------------------- */
     .cta-section {
       margin-top: 4rem;
       padding: 3rem 1rem;
       background: #E63946;
       color: #fff;
       border-radius: 14px;
-    }
-
-    .cta-section h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      font-weight: 700;
-    }
-
-    .cta-section p {
-      max-width: 600px;
-      margin: 0 auto 1.5rem;
-      line-height: 1.7;
     }
 
     .cta-btn {
@@ -205,15 +306,56 @@
     .cta-btn:hover {
       transform: translateY(-2px);
     }
+
+    /* -----------------------------------
+       SCROLL REVEAL ANIMATIONS
+    ----------------------------------- */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-40px);
+      transition: all 0.8s ease;
+    }
+
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(40px);
+      transition: all 0.8s ease;
+    }
+
+    .reveal-left.visible,
+    .reveal-right.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
   </style>
 </head>
 
 <body class="fade-in">
 
+  <!-- SCROLL PROGRESS BAR -->
+  <div id="scrollProgress"></div>
+
+  <!-- FLOATING PROJECT INFO -->
+  <div class="project-info">
+    <h4>Client Project</h4>
+    <p>Branding<br>UI/UX<br>Responsive Design<br>Case Study</p>
+  </div>
+
   <!-- DARK MODE TOGGLE -->
   <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
 
-  <!-- MINIMAL NAVIGATION -->
+  <!-- NAVIGATION -->
   <nav class="mini-nav fade-in">
     <a href="../index.html">Home</a>
     <a href="../portfolio/index.html">Portfolio</a>
@@ -229,8 +371,10 @@
       <p>A polished, professional business‑style website designed for a fictional client — showcasing structure, clarity, and modern UI principles.</p>
     </section>
 
+    <div class="divider reveal"></div>
+
     <!-- SERVICES GRID -->
-    <section class="services-grid reveal">
+    <section class="services-grid reveal-left">
 
       <div class="service-card">
         <h3>Brand Identity</h3>
@@ -254,16 +398,57 @@
 
     </section>
 
-    <!-- MOCKUP PREVIEW -->
-    <section class="mockup-section reveal">
-      <h2>Client Homepage Mockup</h2>
-      <p>A clean, modern homepage layout designed to communicate professionalism and trust.</p>
+    <div class="divider reveal"></div>
 
-      <div class="mockup-frame">
-        <h3>Homepage Preview</h3>
-        <div class="mockup-screen"></div>
+    <!-- BRAND PALETTE -->
+    <section class="brand-palette reveal-right">
+      <div class="color-swatch" style="background:#E63946;">#E63946</div>
+      <div class="color-swatch" style="background:#111;">#111111</div>
+      <div class="color-swatch" style="background:#555;">#555555</div>
+      <div class="color-swatch" style="background:#f5f5f5; color:#111;">#F5F5F5</div>
+    </section>
+
+    <div class="divider reveal"></div>
+
+    <!-- BEFORE/AFTER SLIDER -->
+    <section class="before-after reveal">
+      <h2>Before & After Redesign</h2>
+
+      <div class="before-after">
+        <img src="https://via.placeholder.com/800x400?text=Before" alt="Before">
+        <div class="after-img" id="afterImg">
+          <img src="https://via.placeholder.com/800x400?text=After" alt="After">
+        </div>
+        <div class="slider-handle" id="sliderHandle"></div>
       </div>
     </section>
+
+    <div class="divider reveal"></div>
+
+    <!-- MOCKUPS -->
+    <section class="mockup-section reveal-right">
+      <h2>Client Homepage Mockup</h2>
+      <p>A responsive homepage preview displayed inside realistic device frames.</p>
+
+      <div class="mockup-devices">
+
+        <div class="device laptop">
+          <div class="laptop-screen">
+            <div class="screen-content"></div>
+          </div>
+          <div class="laptop-base"></div>
+        </div>
+
+        <div class="device phone">
+          <div class="phone-screen">
+            <div class="screen-content"></div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="divider reveal"></div>
 
     <!-- PROCESS TIMELINE -->
     <section class="process-section reveal">
@@ -292,14 +477,18 @@
       </div>
     </section>
 
+    <div class="divider reveal"></div>
+
     <!-- TESTIMONIAL -->
-    <section class="testimonial reveal">
+    <section class="testimonial reveal-left">
       <p>“Pranika delivered a clean, modern, and highly professional website that perfectly captured our brand’s identity. Her attention to detail and design clarity made the entire process seamless.”</p>
       <div class="client-name">— Fictional Client</div>
     </section>
 
+    <div class="divider reveal"></div>
+
     <!-- CTA -->
-    <section class="cta-section reveal">
+    <section class="cta-section reveal-right">
       <h2>Want to See More?</h2>
       <p>Explore additional projects, case studies, and design explorations in my portfolio.</p>
       <a class="cta-btn" href="../portfolio/index.html">View Portfolio</a>
@@ -310,6 +499,65 @@
   <footer class="site-footer reveal">
     <p>© 2025 – Pranika Kalluru – Built with clarity & purpose</p>
   </footer>
+
+  <script>
+    /* -----------------------------------
+       SCROLL PROGRESS BAR
+    ----------------------------------- */
+    window.addEventListener("scroll", () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.body.scrollHeight - window.innerHeight;
+      const progress = (scrollTop / docHeight) * 100;
+      document.getElementById("scrollProgress").style.width = progress + "%";
+    });
+
+    /* -----------------------------------
+       SCROLL REVEAL
+    ----------------------------------- */
+    document.addEventListener("scroll", revealElements);
+
+    function revealElements() {
+      const reveals = document.querySelectorAll(".reveal, .reveal-left, .reveal-right, .divider");
+
+      reveals.forEach((el) => {
+        const rect = el.getBoundingClientRect();
+        const isVisible = rect.top < window.innerHeight - 100;
+
+        if (isVisible) {
+          el.classList.add("visible");
+        }
+      });
+    }
+
+    /* -----------------------------------
+       BEFORE/AFTER SLIDER
+    ----------------------------------- */
+    const slider = document.getElementById("sliderHandle");
+    const afterImg = document.getElementById("afterImg");
+
+    slider.addEventListener("mousedown", startSlide);
+
+    function startSlide() {
+      document.addEventListener("mousemove", moveSlider);
+      document.addEventListener("mouseup", stopSlide);
+    }
+
+    function moveSlider(e) {
+      const container = slider.parentElement;
+      const rect = container.getBoundingClientRect();
+      let x = e.clientX - rect.left;
+
+      x = Math.max(0, Math.min(x, rect.width));
+
+      slider.style.left = x + "px";
+      afterImg.style.width = x + "px";
+    }
+
+    function stopSlide() {
+      document.removeEventListener("mousemove", moveSlider);
+      document.removeEventListener("mouseup", stopSlide);
+    }
+  </script>
 
 </body>
 
