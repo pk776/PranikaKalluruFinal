@@ -15,46 +15,160 @@
   <!-- DARK MODE TOGGLE -->
   <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
 
-  <main class="design-wrapper">
+<!-- Scroll progress bar (place near top of body, once per site) -->
+<div class="scroll-progress">
+  <div class="scroll-progress-bar"></div>
+</div>
 
-    <!-- HEADER -->
-    <section class="portfolio-header reveal">
-      <h1>Selected Work</h1>
-      <p class="portfolio-subtitle">
-        A curated collection of projects exploring design systems, collaboration, and visual clarity.
+<main class="portfolio-wrapper">
+
+  <section class="portfolio-header reveal-on-scroll">
+    <h1>Selected Work</h1>
+    <p class="portfolio-subtitle">
+      A curated collection of projects exploring design systems, collaboration, and visual clarity across digital experiences.
+    </p>
+  </section>
+
+  <!-- Featured project hero -->
+  <section class="featured-project reveal-on-scroll glass-hover">
+    <div class="featured-visual" data-micromodal-trigger="modal-featured">
+      <img src="images/swiss-design-lineage-thumb.png" alt="Swiss Design Lineage – Flat Design preview">
+    </div>
+    <div class="featured-meta">
+      <div class="featured-label">Featured Project</div>
+      <div class="featured-title">Swiss Design Lineage – Flat Design</div>
+      <p class="featured-description">
+        A coded exploration of Swiss Design principles using grids, typography, and flat-design aesthetics. Built as a live, responsive system that translates visual clarity into front-end decisions.
       </p>
-    </section>
-
-    <!-- PORTFOLIO GRID -->
-  <section class="portfolio-grid reveal">
-
-  <a class="portfolio-card reveal" href="./projects/project-one.html">
-    <div class="portfolio-thumb">
-      <img src="../assets/img/archetype.png" alt="Archetypes Project Thumbnail">
+      <div class="featured-tags">
+        <span class="tag">Design Systems</span>
+        <span class="tag">Swiss Design</span>
+        <span class="tag">Front-end</span>
+        <span class="tag">Case Study</span>
+      </div>
+      <a href="project-swiss-design.html" class="featured-link">
+        View full case study
+        <span>→</span>
+      </a>
     </div>
-    <h2>Archetypes Persuasion Analysis</h2>
-    <p>A competitive landscape analysis exploring persuasion archetypes, brand positioning, and sales funnel strategy.</p>
-  </a>
+  </section>
 
-  <a class="portfolio-card reveal" href="./projects/project-two.html">
-    <div class="portfolio-thumb">
-      <img src="../assets/img/webcollab.png" alt="Web Collaboration Thumbnail">
+  <!-- Filter bar -->
+  <section class="filter-bar reveal-on-scroll">
+    <span class="filter-label">Filter:</span>
+    <button class="filter-button active" data-filter="all">All</button>
+    <button class="filter-button" data-filter="design">Design Systems</button>
+    <button class="filter-button" data-filter="web">Web Development</button>
+    <button class="filter-button" data-filter="collaboration">Collaboration</button>
+    <button class="filter-button" data-filter="strategy">Strategy</button>
+  </section>
+
+  <!-- Portfolio grid -->
+  <section class="portfolio-grid reveal-on-scroll">
+
+    <!-- Archetypes Persuasion Analysis -->
+    <a href="project-archetypes.html"
+       class="portfolio-card glass-hover"
+       data-category="strategy design">
+      <div class="portfolio-thumb" data-micromodal-trigger="modal-archetypes">
+        <img src="images/archetypes-thumb.png" alt="Archetypes Persuasion Analysis preview">
+      </div>
+      <div class="portfolio-meta">
+        <span class="tag">Strategy</span>
+        <span class="tag">Competitive Analysis</span>
+        <span class="tag">Design Systems</span>
+      </div>
+      <h2>Archetypes Persuasion Analysis</h2>
+      <p>
+        A competitive landscape analysis exploring persuasion archetypes, brand positioning, and sales funnel strategy across multiple SaaS design systems.
+      </p>
+    </a>
+
+    <!-- Web Collaboration – Elemental Water -->
+    <a href="project-elemental-water.html"
+       class="portfolio-card glass-hover"
+       data-category="web collaboration">
+      <div class="portfolio-thumb" data-micromodal-trigger="modal-elemental">
+        <img src="images/elemental-water-thumb.png" alt="Elemental Water collaboration preview">
+      </div>
+      <div class="portfolio-meta">
+        <span class="tag">Web Dev</span>
+        <span class="tag">Collaboration</span>
+        <span class="tag">GitHub</span>
+      </div>
+      <h2>Web Collaboration – Elemental Water</h2>
+      <p>
+        A collaborative themed website built with coordinated design, GitHub workflows, and team integration to align visual rhythm and code structure.
+      </p>
+    </a>
+
+    <!-- Swiss Design Lineage – Flat Design (grid version also, separate from featured) -->
+    <a href="project-swiss-design.html"
+       class="portfolio-card glass-hover"
+       data-category="design web">
+      <div class="portfolio-thumb" data-micromodal-trigger="modal-swiss">
+        <img src="images/swiss-design-lineage-thumb.png" alt="Swiss Design Lineage – Flat Design preview">
+      </div>
+      <div class="portfolio-meta">
+        <span class="tag">Swiss Design</span>
+        <span class="tag">Grid Systems</span>
+        <span class="tag">Front-end</span>
+      </div>
+      <h2>Swiss Design Lineage – Flat Design</h2>
+      <p>
+        A coded exploration of Swiss Design principles using typographic hierarchy, grid structures, and flat design aesthetics in a live environment.
+      </p>
+    </a>
+
+    <!-- You can append more cards here, following the same pattern -->
+
+  </section>
+
+</main>
+
+<!-- Lightbox modals (MicroModal) -->
+
+<!-- Featured modal -->
+<div class="modal micromodal-slide" id="modal-featured" aria-hidden="true">
+  <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+    <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-featured-title">
+      <button class="modal__close" aria-label="Close" data-micromodal-close>&times;</button>
+      <div class="modal__content">
+        <div class="modal__image-wrapper">
+          <img src="images/swiss-design-lineage-large.png" alt="Swiss Design Lineage – full preview">
+        </div>
+      </div>
     </div>
-    <h2>Web Collaboration – Elemental Water</h2>
-    <p>A collaborative themed website built with coordinated design, GitHub workflows, and team integration.</p>
-  </a>
+  </div>
+</div>
 
-  <a class="portfolio-card reveal" href="./projects/project-three.html">
-    <div class="portfolio-thumb">
-      <img src="../assets/img/designstyle.png" alt="Design Style Project Thumbnail">
+<!-- Archetypes modal -->
+<div class="modal micromodal-slide" id="modal-archetypes" aria-hidden="true">
+  <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+    <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-archetypes-title">
+      <button class="modal__close" aria-label="Close" data-micromodal-close>&times;</button>
+      <div class="modal__content">
+        <div class="modal__image-wrapper">
+          <img src="images/archetypes-large.png" alt="Archetypes Persuasion Analysis full preview">
+        </div>
+      </div>
     </div>
-    <h2>Swiss Design Lineage – Flat Design</h2>
-    <p>A coded exploration of Swiss Design principles using grids, typography, and flat‑design aesthetics.</p>
-  </a>
+  </div>
+</div>
 
-</section>
-
-  </main>
+<!-- Elemental Water modal -->
+<div class="modal micromodal-slide" id="modal-elemental" aria-hidden="true">
+  <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+    <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-elemental-title">
+      <button class="modal__close" aria-label="Close" data-micromodal-close>&times;</button>
+      <div class="modal__content">
+        <div class="modal__image-wrapper">
+          <img src="images/elemental-water-large.png" alt="Elemental Water full preview">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
   <!-- BOTTOM NAV (Swiss underline) -->
   <nav class="bottom-nav">
@@ -67,6 +181,15 @@
   <footer class="site-footer reveal">
     <p>© 2025 – Pranika Kalluru – Built with clarity & purpose</p>
   </footer>
+<!-- GSAP + ScrollTrigger -->
+<script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+<script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+
+<!-- MicroModal -->
+<script src="https://unpkg.com/micromodal/dist/micromodal.min.js"></script>
+
+<!-- Your main JS -->
+<script src="main.js"></script>
 
 </body>
 
