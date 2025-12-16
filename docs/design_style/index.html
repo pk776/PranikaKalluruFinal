@@ -414,7 +414,7 @@
   <!-- DARK MODE TOGGLE -->
   <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
 
-  <!-- MINIMAL NAVIGATION -->
+  <!-- TOP MINI NAV (kept for this page only) -->
   <nav class="mini-nav fade-in">
     <a href="../index.html">Home</a>
     <a href="../portfolio/index.html">Portfolio</a>
@@ -430,7 +430,7 @@
       <p>A modern exploration of grids, typography, spacing, and clarity — blending Swiss poster aesthetics with interactive design tools.</p>
     </section>
 
-    <!-- SWISS POSTER GENERATOR (CENTERPIECE) -->
+    <!-- SWISS POSTER GENERATOR -->
     <section class="poster-section project-body reveal">
       <h2>Swiss Poster Generator</h2>
       <p>Experiment with layouts, color, and hierarchy to generate Swiss‑inspired posters directly in the browser.</p>
@@ -546,119 +546,18 @@
 
   </main>
 
+  <!-- BOTTOM NAV (Swiss underline style) -->
+  <nav class="bottom-nav">
+    <a href="../index.html">Home</a>
+    <a href="../portfolio/index.html">Portfolio</a>
+    <a href="../design_style/index.html">Design Style</a>
+    <a href="../client_site/index.html">Client Site</a>
+  </nav>
+
   <footer class="site-footer reveal">
     <p>© 2025 – Pranika Kalluru – Built with clarity & purpose</p>
   </footer>
-
-  <script>
-    function toggleGrid() {
-      document.getElementById("gridOverlay").classList.toggle("active");
-    }
-
-    // Poster generator logic
-    (function () {
-      const posterCanvas = document.getElementById("posterCanvas");
-      const posterGridLines = document.getElementById("posterGridLines");
-      const shapePrimary = document.getElementById("posterShapePrimary");
-      const shapeSecondary = document.getElementById("posterShapeSecondary");
-      const layoutSelect = document.getElementById("posterLayoutSelect");
-      const accentInput = document.getElementById("accentColorInput");
-      const typeScaleInput = document.getElementById("typeScaleInput");
-      const titleInput = document.getElementById("posterTitleInput");
-      const titleEl = document.getElementById("posterTitle");
-      const subtitleEl = document.getElementById("posterSubtitle");
-      const metaEl = document.getElementById("posterMeta");
-      const toggleGridBtn = document.getElementById("toggleGridLinesBtn");
-      const toggleShapesBtn = document.getElementById("toggleShapesBtn");
-      const randomizeBtn = document.getElementById("randomizePosterBtn");
-
-      function applyLayout(preset) {
-        if (preset === "modern") {
-          posterCanvas.style.background = "#f5f5f5";
-          shapePrimary.style.borderRadius = "999px";
-          shapeSecondary.style.borderRadius = "24px";
-          shapePrimary.style.transform = "translate(0, 0)";
-          shapeSecondary.style.transform = "translate(0, 0)";
-          subtitleEl.textContent = "Clarity · Grid · Typographic Rhythm";
-          metaEl.textContent = "PK · 2025 · Modern Swiss";
-        } else if (preset === "classic") {
-          posterCanvas.style.background = "#fbfbfb";
-          shapePrimary.style.borderRadius = "4px";
-          shapeSecondary.style.borderRadius = "4px";
-          shapePrimary.style.transform = "translate(-10%, -4%)";
-          shapeSecondary.style.transform = "translate(6%, 8%)";
-          subtitleEl.textContent = "Brockmann · Hofmann · Swiss Legacy";
-          metaEl.textContent = "PK · 1960s Inspired";
-        } else if (preset === "motion") {
-          posterCanvas.style.background = "linear-gradient(135deg, #f5f5f5, #e9f0ff)";
-          shapePrimary.style.borderRadius = "40% 60% 50% 70%";
-          shapeSecondary.style.borderRadius = "60% 40% 70% 50%";
-          shapePrimary.style.transform = "translate(3%, -3%)";
-          shapeSecondary.style.transform = "translate(-4%, 6%)";
-          subtitleEl.textContent = "Kinetic Type · Motion · Energy";
-          metaEl.textContent = "PK · Motion Swiss · 2025";
-        }
-      }
-
-      function applyAccent(color) {
-        shapePrimary.style.background = color;
-        document.documentElement.style.setProperty("--accent-color", color);
-      }
-
-      function applyTypeScale(scale) {
-        const s = parseFloat(scale);
-        titleEl.style.transform = `scale(${s})`;
-        subtitleEl.style.transform = `scale(${s})`;
-        metaEl.style.transform = `scale(${s})`;
-      }
-
-      function applyTitle(text) {
-        titleEl.textContent = text || "Swiss Design Poster";
-      }
-
-      // Toggles
-      toggleGridBtn.addEventListener("click", () => {
-        const active = posterGridLines.classList.toggle("active");
-        toggleGridBtn.classList.toggle("active", active);
-      });
-
-      toggleShapesBtn.addEventListener("click", () => {
-        const hide = shapePrimary.style.display === "none";
-        shapePrimary.style.display = hide ? "block" : "none";
-        shapeSecondary.style.display = hide ? "block" : "none";
-        toggleShapesBtn.classList.toggle("active", hide);
-      });
-
-      // Listeners
-      layoutSelect.addEventListener("change", (e) => applyLayout(e.target.value));
-      accentInput.addEventListener("input", (e) => applyAccent(e.target.value));
-      typeScaleInput.addEventListener("input", (e) => applyTypeScale(e.target.value));
-      titleInput.addEventListener("input", (e) => applyTitle(e.target.value));
-
-      randomizeBtn.addEventListener("click", () => {
-        const presets = ["modern", "classic", "motion"];
-        const randomPreset = presets[Math.floor(Math.random() * presets.length)];
-        layoutSelect.value = randomPreset;
-        applyLayout(randomPreset);
-
-        const randomColor = "#" + Math.floor(Math.random()*16777215).toString(16).padStart(6, "0");
-        accentInput.value = randomColor;
-        applyAccent(randomColor);
-
-        const randomScale = (0.9 + Math.random() * 0.4).toFixed(2);
-        typeScaleInput.value = randomScale;
-        applyTypeScale(randomScale);
-      });
-
-      // Initial state
-      applyLayout("modern");
-      applyAccent(accentInput.value);
-      applyTypeScale(typeScaleInput.value);
-      applyTitle(titleInput.value);
-      posterGridLines.classList.add("active");
-      toggleGridBtn.classList.add("active");
-    })();
-  </script>
-
+  
 </body>
+
 </html>
