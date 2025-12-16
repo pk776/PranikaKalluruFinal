@@ -10,6 +10,10 @@
   --border: #ddd;
   --radius: 10px;
   --transition: 0.25s ease;
+
+  /* Premium warm-gray gradient */
+  --portfolio-bg-top: #ffffff;
+  --portfolio-bg-bottom: #f7f5f3;
 }
 
 body.dark {
@@ -18,6 +22,9 @@ body.dark {
   --subtle-text: #ccc;
   --border: #333;
   --accent: #ff6b6b;
+
+  --portfolio-bg-top: #111;
+  --portfolio-bg-bottom: #1a1a1a;
 }
 
 * {
@@ -31,7 +38,7 @@ body {
   color: var(--text);
   font-family: "Inter", sans-serif;
   line-height: 1.6;
-  padding-bottom: 120px;
+  padding-bottom: 140px;
 }
 
 img {
@@ -55,7 +62,7 @@ img {
 .reveal {
   opacity: 0;
   transform: translateY(20px);
-  animation: reveal 0.8s ease forwards;
+  animation: reveal 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 @keyframes reveal {
@@ -64,6 +71,11 @@ img {
     transform: translateY(0);
   }
 }
+
+/* Staggered reveal for portfolio cards */
+.portfolio-card:nth-child(1) { animation-delay: 0.1s; }
+.portfolio-card:nth-child(2) { animation-delay: 0.2s; }
+.portfolio-card:nth-child(3) { animation-delay: 0.3s; }
 
 /* ----------------------------------------------------------
    THEME TOGGLE
@@ -124,7 +136,7 @@ img {
 }
 
 /* ----------------------------------------------------------
-   MINI NAV (TOP NAV FOR DESIGN STYLE ONLY)
+   MINI NAV (TOP NAV)
 ---------------------------------------------------------- */
 
 .mini-nav {
@@ -155,6 +167,7 @@ img {
   gap: 40px;
   padding: 40px 0 20px;
   border-top: 1px solid var(--border);
+  box-shadow: 0 -4px 12px rgba(0,0,0,0.05);
 }
 
 .bottom-nav a {
@@ -254,7 +267,7 @@ img {
 }
 
 /* ----------------------------------------------------------
-   DESIGN STYLE PAGE (HYBRID SWISS)
+   DESIGN STYLE PAGE
 ---------------------------------------------------------- */
 
 .design-wrapper {
@@ -322,63 +335,8 @@ img {
   border-radius: var(--radius);
 }
 
-/* Grid Demo */
-.grid-demo {
-  display: flex;
-  gap: 20px;
-  margin-top: 20px;
-}
-
-.grid-box {
-  flex: 1;
-  height: 120px;
-  background: var(--border);
-  border-radius: var(--radius);
-}
-
-/* Typography Scale */
-.type-scale div {
-  margin-bottom: 10px;
-}
-
-/* Contrast Demo */
-.contrast-demo {
-  display: flex;
-  gap: 20px;
-  margin-top: 20px;
-}
-
-.contrast-block {
-  flex: 1;
-  padding: 20px;
-  text-align: center;
-  border-radius: var(--radius);
-  color: #fff;
-}
-
-.contrast-dark { background: #111; }
-.contrast-light { background: #ccc; color: #000; }
-.contrast-accent { background: var(--accent); }
-
-/* Shapes */
-.shape-demo {
-  display: flex;
-  gap: 20px;
-  margin-top: 20px;
-}
-
-.shape {
-  width: 80px;
-  height: 80px;
-  background: var(--accent);
-  border-radius: var(--radius);
-}
-
-.circle { border-radius: 50%; }
-.rectangle { width: 140px; }
-
 /* ----------------------------------------------------------
-   PORTFOLIO PAGE — PROFESSIONAL GRID + CARDS
+   PORTFOLIO PAGE — PREMIUM DESIGN
 ---------------------------------------------------------- */
 
 .portfolio-header {
@@ -389,6 +347,20 @@ img {
 .portfolio-header h1 {
   font-size: 2.4rem;
   margin-bottom: 10px;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 8px;
+}
+
+.portfolio-header h1::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 60%;
+  background: var(--accent);
+  border-radius: 2px;
 }
 
 .portfolio-subtitle {
@@ -397,11 +369,19 @@ img {
   color: var(--subtle-text);
 }
 
+/* Premium gradient background */
 .portfolio-grid {
   display: grid;
   gap: 30px;
   grid-template-columns: 1fr;
   margin-top: 40px;
+  padding: 40px;
+  border-radius: var(--radius);
+  background: linear-gradient(
+    to bottom,
+    var(--portfolio-bg-top),
+    var(--portfolio-bg-bottom)
+  );
 }
 
 @media (min-width: 700px) {
@@ -410,6 +390,7 @@ img {
   }
 }
 
+/* Premium cards */
 .portfolio-card {
   display: flex;
   flex-direction: column;
@@ -420,6 +401,8 @@ img {
   padding: 20px;
   background: var(--bg);
   transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  position: relative;
+  overflow: hidden;
 }
 
 .portfolio-card:hover {
@@ -428,6 +411,7 @@ img {
   box-shadow: 0 8px 20px rgba(0,0,0,0.08);
 }
 
+/* Thumbnail motion */
 .portfolio-thumb {
   width: 100%;
   height: 180px;
@@ -442,6 +426,12 @@ img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.5s ease, filter 0.4s ease;
+}
+
+.portfolio-card:hover .portfolio-thumb img {
+  transform: scale(1.06);
+  filter: brightness(1.05);
 }
 
 .portfolio-card h2 {
@@ -453,5 +443,3 @@ img {
   color: var(--subtle-text);
   font-size: 0.95rem;
 }
-
-
