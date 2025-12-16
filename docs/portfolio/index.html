@@ -22,6 +22,7 @@
 
 <main class="portfolio-wrapper">
 
+  <!-- Header -->
   <section class="portfolio-header reveal-on-scroll">
     <h1>Selected Work</h1>
     <p class="portfolio-subtitle">
@@ -29,10 +30,10 @@
     </p>
   </section>
 
-  <!-- Featured project hero -->
+  <!-- Featured Project -->
   <section class="featured-project reveal-on-scroll glass-hover">
     <div class="featured-visual" data-micromodal-trigger="modal-featured">
-      <img src="images/swiss-design-lineage-thumb.png" alt="Swiss Design Lineage – Flat Design preview">
+      <img src="assets/img/project3.png" alt="Swiss Design Lineage – Flat Design preview">
     </div>
     <div class="featured-meta">
       <div class="featured-label">Featured Project</div>
@@ -47,13 +48,12 @@
         <span class="tag">Case Study</span>
       </div>
       <a href="project-swiss-design.html" class="featured-link">
-        View full case study
-        <span>→</span>
+        View full case study →
       </a>
     </div>
   </section>
 
-  <!-- Filter bar -->
+  <!-- Filter Bar -->
   <section class="filter-bar reveal-on-scroll">
     <span class="filter-label">Filter:</span>
     <button class="filter-button active" data-filter="all">All</button>
@@ -63,7 +63,7 @@
     <button class="filter-button" data-filter="strategy">Strategy</button>
   </section>
 
-  <!-- Portfolio grid -->
+  <!-- Portfolio Grid -->
   <section class="portfolio-grid reveal-on-scroll">
 
     <!-- Archetypes Persuasion Analysis -->
@@ -71,7 +71,7 @@
        class="portfolio-card glass-hover"
        data-category="strategy design">
       <div class="portfolio-thumb" data-micromodal-trigger="modal-archetypes">
-        <img src="images/archetypes-thumb.png" alt="Archetypes Persuasion Analysis preview">
+        <img src="assets/img/archetype.png" alt="Archetypes Persuasion Analysis preview">
       </div>
       <div class="portfolio-meta">
         <span class="tag">Strategy</span>
@@ -89,7 +89,7 @@
        class="portfolio-card glass-hover"
        data-category="web collaboration">
       <div class="portfolio-thumb" data-micromodal-trigger="modal-elemental">
-        <img src="images/elemental-water-thumb.png" alt="Elemental Water collaboration preview">
+        <img src="assets/img/webcollab.png" alt="Elemental Water collaboration preview">
       </div>
       <div class="portfolio-meta">
         <span class="tag">Web Dev</span>
@@ -102,12 +102,12 @@
       </p>
     </a>
 
-    <!-- Swiss Design Lineage – Flat Design (grid version also, separate from featured) -->
+    <!-- Swiss Design Lineage – Flat Design -->
     <a href="project-swiss-design.html"
        class="portfolio-card glass-hover"
        data-category="design web">
       <div class="portfolio-thumb" data-micromodal-trigger="modal-swiss">
-        <img src="images/swiss-design-lineage-thumb.png" alt="Swiss Design Lineage – Flat Design preview">
+        <img src="assets/img/project3.png" alt="Swiss Design Lineage – Flat Design preview">
       </div>
       <div class="portfolio-meta">
         <span class="tag">Swiss Design</span>
@@ -120,11 +120,54 @@
       </p>
     </a>
 
-    <!-- You can append more cards here, following the same pattern -->
-
   </section>
 
 </main>
+
+<!-- Lightbox Modals -->
+
+<!-- Featured Modal -->
+<div class="modal micromodal-slide" id="modal-featured" aria-hidden="true">
+  <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+    <div class="modal__container" role="dialog" aria-modal="true">
+      <button class="modal__close" aria-label="Close" data-micromodal-close>&times;</button>
+      <div class="modal__content">
+        <div class="modal__image-wrapper">
+          <img src="assets/img/project3.png" alt="Swiss Design Lineage full preview">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Archetypes Modal -->
+<div class="modal micromodal-slide" id="modal-archetypes" aria-hidden="true">
+  <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+    <div class="modal__container" role="dialog" aria-modal="true">
+      <button class="modal__close" aria-label="Close" data-micromodal-close>&times;</button>
+      <div class="modal__content">
+        <div class="modal__image-wrapper">
+          <img src="assets/img/archetype.png" alt="Archetypes full preview">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Elemental Water Modal -->
+<div class="modal micromodal-slide" id="modal-elemental" aria-hidden="true">
+  <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+    <div class="modal__container" role="dialog" aria-modal="true">
+      <button class="modal__close" aria-label="Close" data-micromodal-close>&times;</button>
+      <div class="modal__content">
+        <div class="modal__image-wrapper">
+          <img src="assets/img/webcollab.png" alt="Elemental Water full preview">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 <!-- Lightbox modals (MicroModal) -->
 
