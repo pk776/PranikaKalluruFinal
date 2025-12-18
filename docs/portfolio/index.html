@@ -5,34 +5,52 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfolio – Pranika Kalluru</title>
 
-  <!-- Your stylesheet -->
+  <!-- Main stylesheet -->
   <link rel="stylesheet" href="/PranikaKalluruFinal/docs/assets/css/style-v2.css">
 
   <style>
     /* --- SWISS STYLE ENHANCEMENTS --- */
 
+    :root {
+      --accent: #e63946;
+      --bg: #ffffff;
+      --text: #111111;
+      --card: #fafafa;
+      --border: #e0e0e0;
+    }
+
+    body.dark {
+      --bg: #111111;
+      --text: #f5f5f5;
+      --card: #1a1a1a;
+      --border: #333333;
+    }
+
     body {
       margin: 0;
       padding: 0;
-      font-family: Helvetica, Arial, sans-serif;
       background: var(--bg);
       color: var(--text);
+      font-family: Helvetica, Arial, sans-serif;
+      transition: background 0.3s ease, color 0.3s ease;
     }
 
+    /* PAGE WRAPPER */
     .portfolio-grid-wrapper {
-      max-width: 1100px;
+      max-width: 1200px;
       margin: 0 auto;
-      padding: 4rem 1.5rem;
+      padding: 4rem 2rem;
     }
 
+    /* HEADER */
     .portfolio-header {
       margin-bottom: 4rem;
       border-left: 6px solid var(--accent);
-      padding-left: 1rem;
+      padding-left: 1.2rem;
     }
 
     .portfolio-title {
-      font-size: 3rem;
+      font-size: 3.2rem;
       font-weight: 700;
       margin: 0;
       letter-spacing: -1px;
@@ -42,56 +60,56 @@
       max-width: 600px;
       line-height: 1.6;
       margin-top: 1rem;
-      font-size: 1.1rem;
-      opacity: 0.8;
+      font-size: 1.15rem;
+      opacity: 0.85;
     }
 
     /* GRID */
     .portfolio-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 3rem;
     }
 
     /* PROJECT CARD */
     .project-card {
       text-decoration: none;
       color: inherit;
-      border: 1px solid #ddd;
-      padding: 1.5rem;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
       background: var(--card);
+      border: 1px solid var(--border);
+      padding: 1.8rem;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
 
     .project-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      transform: translateY(-6px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.12);
     }
 
     .project-image {
       width: 100%;
       height: auto;
-      margin-bottom: 1.2rem;
-      border: 1px solid #ccc;
+      border: 1px solid var(--border);
+      margin-bottom: 1.4rem;
     }
 
     .project-title {
-      font-size: 1.4rem;
+      font-size: 1.5rem;
       font-weight: 700;
-      margin: 0 0 0.5rem 0;
+      margin: 0 0 0.6rem 0;
     }
 
     .project-desc {
-      font-size: 0.95rem;
-      line-height: 1.5;
+      font-size: 1rem;
+      line-height: 1.55;
       margin-bottom: 1rem;
       opacity: 0.85;
     }
 
     .project-tags span {
       display: inline-block;
-      background: #eee;
-      padding: 0.25rem 0.6rem;
+      background: var(--border);
+      padding: 0.3rem 0.7rem;
       margin-right: 0.4rem;
       font-size: 0.75rem;
       text-transform: uppercase;
@@ -103,6 +121,24 @@
       padding: 3rem 0;
       opacity: 0.7;
       font-size: 0.9rem;
+    }
+
+    /* DARK MODE BUTTON */
+    .theme-toggle {
+      position: fixed;
+      top: 1.5rem;
+      right: 1.5rem;
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 0.6rem 0.8rem;
+      cursor: pointer;
+      font-size: 1.2rem;
+      border-radius: 6px;
+      transition: background 0.3s ease;
+    }
+
+    .theme-toggle:hover {
+      background: var(--border);
     }
   </style>
 </head>
@@ -168,7 +204,8 @@
   <footer>
     © 2025 – Pranika Kalluru – Built with clarity & purpose
   </footer>
-  
+
+  <!-- JS -->
   <script src="/PranikaKalluruFinal/docs/assets/js/script.js"></script>
 
 </body>
