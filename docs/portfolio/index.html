@@ -5,8 +5,106 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfolio – Pranika Kalluru</title>
 
-  <!-- Swiss-style reset + your stylesheet -->
+  <!-- Your stylesheet -->
   <link rel="stylesheet" href="/PranikaKalluruFinal/docs/assets/css/style-v2.css">
+
+  <style>
+    /* --- SWISS STYLE ENHANCEMENTS --- */
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    .portfolio-grid-wrapper {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 4rem 1.5rem;
+    }
+
+    .portfolio-header {
+      margin-bottom: 4rem;
+      border-left: 6px solid var(--accent);
+      padding-left: 1rem;
+    }
+
+    .portfolio-title {
+      font-size: 3rem;
+      font-weight: 700;
+      margin: 0;
+      letter-spacing: -1px;
+    }
+
+    .portfolio-subtitle {
+      max-width: 600px;
+      line-height: 1.6;
+      margin-top: 1rem;
+      font-size: 1.1rem;
+      opacity: 0.8;
+    }
+
+    /* GRID */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2.5rem;
+    }
+
+    /* PROJECT CARD */
+    .project-card {
+      text-decoration: none;
+      color: inherit;
+      border: 1px solid #ddd;
+      padding: 1.5rem;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      background: var(--card);
+    }
+
+    .project-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    }
+
+    .project-image {
+      width: 100%;
+      height: auto;
+      margin-bottom: 1.2rem;
+      border: 1px solid #ccc;
+    }
+
+    .project-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin: 0 0 0.5rem 0;
+    }
+
+    .project-desc {
+      font-size: 0.95rem;
+      line-height: 1.5;
+      margin-bottom: 1rem;
+      opacity: 0.85;
+    }
+
+    .project-tags span {
+      display: inline-block;
+      background: #eee;
+      padding: 0.25rem 0.6rem;
+      margin-right: 0.4rem;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 3rem 0;
+      opacity: 0.7;
+      font-size: 0.9rem;
+    }
+  </style>
 </head>
 
 <body class="fade-in">
@@ -14,7 +112,6 @@
   <!-- DARK MODE TOGGLE -->
   <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
 
-  <!-- PAGE WRAPPER -->
   <main class="portfolio-grid-wrapper">
 
     <!-- HEADER -->
@@ -30,43 +127,37 @@
 
       <!-- PROJECT 1 -->
       <a href="/PranikaKalluruFinal/docs/portfolio/project-one.html" class="project-card">
-        <img src="/PranikaKalluruFinal/docs/assets/img/archetype.png" alt="Archetypes preview" class="project-image">
-        <div class="project-info">
-          <h2 class="project-title">Archetypes Persuasion Analysis</h2>
-          <p class="project-desc">
-            Competitive landscape research analyzing persuasion archetypes, brand identity, and funnel strategy.
-          </p>
-          <div class="project-tags">
-            <span>Strategy</span><span>Analysis</span><span>Design Systems</span>
-          </div>
+        <img src="/PranikaKalluruFinal/docs/assets/img/archetype.png" class="project-image">
+        <h2 class="project-title">Archetypes Persuasion Analysis</h2>
+        <p class="project-desc">
+          Competitive landscape research analyzing persuasion archetypes, brand identity, and funnel strategy.
+        </p>
+        <div class="project-tags">
+          <span>Strategy</span><span>Analysis</span><span>Design Systems</span>
         </div>
       </a>
 
       <!-- PROJECT 2 -->
       <a href="/PranikaKalluruFinal/docs/portfolio/project-two.html" class="project-card">
-        <img src="/PranikaKalluruFinal/docs/assets/img/webcollab.png" alt="Elemental Water preview" class="project-image">
-        <div class="project-info">
-          <h2 class="project-title">Web Collaboration – Elemental Water</h2>
-          <p class="project-desc">
-            A collaborative themed website built with coordinated design, GitHub workflows, and team integration.
-          </p>
-          <div class="project-tags">
-            <span>Web Dev</span><span>Collaboration</span><span>GitHub</span>
-          </div>
+        <img src="/PranikaKalluruFinal/docs/assets/img/webcollab.png" class="project-image">
+        <h2 class="project-title">Web Collaboration – Elemental Water</h2>
+        <p class="project-desc">
+          A collaborative themed website built with coordinated design, GitHub workflows, and team integration.
+        </p>
+        <div class="project-tags">
+          <span>Web Dev</span><span>Collaboration</span><span>GitHub</span>
         </div>
       </a>
 
       <!-- PROJECT 3 -->
       <a href="/PranikaKalluruFinal/docs/portfolio/project-three.html" class="project-card">
-        <img src="/PranikaKalluruFinal/docs/assets/img/designstyle.png" alt="Swiss Design preview" class="project-image">
-        <div class="project-info">
-          <h2 class="project-title">Swiss Design Lineage – Flat Design</h2>
-          <p class="project-desc">
-            A coded exploration of Swiss Design principles using grids, typography, and flat-design clarity.
-          </p>
-          <div class="project-tags">
-            <span>Swiss Design</span><span>Grid Systems</span><span>Front-end</span>
-          </div>
+        <img src="/PranikaKalluruFinal/docs/assets/img/designstyle.png" class="project-image">
+        <h2 class="project-title">Swiss Design Lineage – Flat Design</h2>
+        <p class="project-desc">
+          A coded exploration of Swiss Design principles using grids, typography, and flat-design clarity.
+        </p>
+        <div class="project-tags">
+          <span>Swiss Design</span><span>Grid Systems</span><span>Front-end</span>
         </div>
       </a>
 
@@ -74,12 +165,10 @@
 
   </main>
 
-  <!-- FOOTER -->
-  <footer class="site-footer">
-    <p>© 2025 – Pranika Kalluru – Built with clarity & purpose</p>
+  <footer>
+    © 2025 – Pranika Kalluru – Built with clarity & purpose
   </footer>
-
-  <!-- JS -->
+  
   <script src="/PranikaKalluruFinal/docs/assets/js/script.js"></script>
 
 </body>
