@@ -6,8 +6,132 @@
   <title>Archetypes Persuasion Analysis – Pranika Kalluru</title>
 
   <!-- Correct GitHub Pages relative paths -->
-  <link rel="stylesheet" href="../assets/css/style-v2.css">
-  <script defer src="../assets/js/script.js"></script>
+  <link rel="stylesheet" href="../../assets/css/style-v2.css">
+  <script defer src="../../assets/js/script.js"></script>
+
+  <style>
+    /* --- PAGE-SPECIFIC ENHANCEMENTS --- */
+
+    .project-hero {
+      max-width: 900px;
+      margin: 4rem auto 2rem;
+      text-align: center;
+      padding: 0 1rem;
+    }
+
+    .project-thumb {
+      width: 100%;
+      max-width: 650px;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      margin-bottom: 2rem;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    }
+
+    .project-title {
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.5px;
+    }
+
+    .project-subtitle {
+      font-size: 1.2rem;
+      max-width: 650px;
+      margin: 0 auto 2rem;
+      opacity: 0.85;
+      line-height: 1.6;
+    }
+
+    .project-body {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem 1rem 4rem;
+      line-height: 1.7;
+    }
+
+    .project-body h2 {
+      margin-top: 3rem;
+      margin-bottom: 1rem;
+      font-size: 1.6rem;
+      border-left: 5px solid var(--accent);
+      padding-left: 0.8rem;
+    }
+
+    .project-body ul {
+      padding-left: 1.2rem;
+      margin-top: 1rem;
+    }
+
+    .project-body li {
+      margin-bottom: 0.6rem;
+    }
+
+    .project-links {
+      margin-top: 1.5rem;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .project-links a {
+      padding: 0.6rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      text-decoration: none;
+      transition: 0.2s ease;
+      background: var(--card);
+    }
+
+    .project-links a:hover {
+      background: var(--accent);
+      color: white;
+      border-color: var(--accent);
+    }
+
+    /* Sticky top nav */
+    .mini-nav {
+      position: sticky;
+      top: 0;
+      background: var(--bg);
+      padding: 1rem 2rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      gap: 1.5rem;
+      z-index: 10;
+    }
+
+    .mini-nav a {
+      text-decoration: none;
+      font-size: 0.95rem;
+      opacity: 0.85;
+      transition: 0.2s ease;
+    }
+
+    .mini-nav a:hover {
+      opacity: 1;
+      color: var(--accent);
+    }
+
+    /* Bottom nav */
+    .bottom-nav {
+      margin-top: 4rem;
+      padding: 2rem;
+      text-align: center;
+      border-top: 1px solid var(--border);
+    }
+
+    .bottom-nav a {
+      margin: 0 1rem;
+      opacity: 0.8;
+      text-decoration: none;
+    }
+
+    .bottom-nav a:hover {
+      opacity: 1;
+      color: var(--accent);
+    }
+  </style>
 </head>
 
 <body class="fade-in">
@@ -17,17 +141,17 @@
 
   <!-- TOP MINI NAV -->
   <nav class="mini-nav fade-in">
-    <a href="../index.html">Home</a>
-    <a href="index.html">Portfolio</a>
-    <a href="../design_style/index.html">Design Style</a>
-    <a href="../client_site/index.html">Client Site</a>
+    <a href="../../index.html">Home</a>
+    <a href="../index.html">Portfolio</a>
+    <a href="../../design_style/index.html">Design Style</a>
+    <a href="../../client_site/index.html">Client Site</a>
   </nav>
 
-  <main class="design-wrapper">
+  <main>
 
-    <section class="project-detail reveal">
-
-      <img src="../assets/img/archetype.png" 
+    <!-- HERO SECTION -->
+    <section class="project-hero reveal">
+      <img src="../../assets/img/archetype.png" 
            class="project-thumb" 
            alt="Archetypes Project Thumbnail">
 
@@ -36,46 +160,46 @@
       <p class="project-subtitle">
         Competitive landscape research exploring persuasion archetypes, brand identity, and sales funnel strategy.
       </p>
+    </section>
 
-      <div class="project-body reveal">
+    <!-- BODY CONTENT -->
+    <div class="project-body reveal">
 
-        <h2>Overview</h2>
-        <p>
-          This project focused on analyzing persuasion archetypes and how they shape competitive positioning within a sales funnel.
-        </p>
+      <h2>Overview</h2>
+      <p>
+        This project focused on analyzing persuasion archetypes and how they shape competitive positioning within a sales funnel.
+      </p>
 
-        <h2>Process</h2>
-        <ul>
-          <li>Conducted a competitive landscape analysis</li>
-          <li>Identified persuasion archetypes for each competitor</li>
-          <li>Evaluated messaging, tone, and visual identity</li>
-          <li>Mapped each brand’s sales funnel and user journey</li>
-          <li>Synthesized findings into a structured framework</li>
-        </ul>
+      <h2>Process</h2>
+      <ul>
+        <li>Conducted a competitive landscape analysis</li>
+        <li>Identified persuasion archetypes for each competitor</li>
+        <li>Evaluated messaging, tone, and visual identity</li>
+        <li>Mapped each brand’s sales funnel and user journey</li>
+        <li>Synthesized findings into a structured framework</li>
+      </ul>
 
-        <h2>Outcome</h2>
-        <p>
-          The final deliverable demonstrated how archetypes strengthen brand identity and improve funnel performance.
-        </p>
+      <h2>Outcome</h2>
+      <p>
+        The final deliverable demonstrated how archetypes strengthen brand identity and improve funnel performance.
+      </p>
 
-        <h2>Links</h2>
-        <div class="project-links">
-          <a href="https://github.com/natorbit/williams_design" target="_blank">GitHub Repository</a>
-          <a href="https://github.com/kaw393939/williams_design" target="_blank">Assignment Directions</a>
-        </div>
-
+      <h2>Links</h2>
+      <div class="project-links">
+        <a href="https://github.com/natorbit/williams_design" target="_blank">GitHub Repository</a>
+        <a href="https://github.com/kaw393939/williams_design" target="_blank">Assignment Directions</a>
       </div>
 
-    </section>
+    </div>
 
   </main>
 
   <!-- BOTTOM NAV -->
   <nav class="bottom-nav">
-    <a href="../index.html">Home</a>
-    <a href="index.html">Portfolio</a>
-    <a href="../design_style/index.html">Design Style</a>
-    <a href="../client_site/index.html">Client Site</a>
+    <a href="../../index.html">Home</a>
+    <a href="../index.html">Portfolio</a>
+    <a href="../../design_style/index.html">Design Style</a>
+    <a href="../../client_site/index.html">Client Site</a>
   </nav>
 
   <footer class="site-footer reveal">
