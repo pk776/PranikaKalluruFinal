@@ -9,6 +9,8 @@
   <script defer src="../../assets/js/script.js"></script>
 
   <style>
+    /* --- PAGE-SPECIFIC ENHANCEMENTS --- */
+
     .project-hero {
       text-align: center;
       padding: 4rem 1rem 2rem;
@@ -16,19 +18,21 @@
     }
 
     .project-thumb {
-      max-width: 600px;
+      max-width: 650px;
       width: 100%;
+      display: block;              /* ⭐ Forces centering */
+      margin: 0 auto 2rem;         /* ⭐ Centers the image */
       border-radius: 8px;
       border: 1px solid var(--border);
       box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
-      margin-bottom: 2rem;
       animation: scaleIn 0.8s ease;
     }
 
     .project-title {
-      font-size: 2.6rem;
+      font-size: 2.8rem;
       font-weight: 700;
       margin-bottom: 0.5rem;
+      letter-spacing: -0.5px;
     }
 
     .project-subtitle {
@@ -43,10 +47,11 @@
       max-width: 900px;
       margin: 0 auto;
       padding: 2rem 1rem 4rem;
+      line-height: 1.7;
     }
 
     .project-body h2 {
-      font-size: 1.5rem;
+      font-size: 1.6rem;
       margin-top: 3rem;
       margin-bottom: 1rem;
       position: relative;
@@ -61,13 +66,9 @@
       margin-top: 0.5rem;
     }
 
-    .project-body ul {
-      padding-left: 1.2rem;
-      margin-top: 1rem;
-    }
-
-    .project-body li {
-      margin-bottom: 0.6rem;
+    .section-divider {
+      margin: 3rem 0;
+      border-top: 1px solid var(--border);
     }
 
     .project-links {
@@ -90,11 +91,6 @@
       background: var(--accent);
       color: white;
       border-color: var(--accent);
-    }
-
-    .section-divider {
-      margin: 3rem 0;
-      border-top: 1px solid var(--border);
     }
 
     .back-button {
@@ -193,8 +189,7 @@
   </footer>
 
   <a href="../index.html" class="back-button">← Back to Portfolio</a>
-
-
+  
 </body>
 
 </html>
