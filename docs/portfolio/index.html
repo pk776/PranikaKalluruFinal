@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfolio – Pranika Kalluru</title>
 
-  <!-- Correct CSS path -->
+  <!-- Swiss-style reset + your stylesheet -->
   <link rel="stylesheet" href="/PranikaKalluruFinal/docs/assets/css/style-v2.css">
 </head>
 
@@ -14,190 +14,73 @@
   <!-- DARK MODE TOGGLE -->
   <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
 
-  <!-- Scroll progress bar -->
-  <div class="scroll-progress">
-    <div class="scroll-progress-bar"></div>
-  </div>
+  <!-- PAGE WRAPPER -->
+  <main class="portfolio-grid-wrapper">
 
-<main class="portfolio-wrapper">
-
-  <section class="portfolio-header reveal-on-scroll">
-    <h1>Selected Work</h1>
-    <p class="portfolio-subtitle">
-      A curated collection of projects exploring design systems, collaboration, and visual clarity across digital experiences.
-    </p>
-  </section>
-
-  <!-- Featured project hero -->
-  <section class="featured-project reveal-on-scroll glass-hover">
-    <div class="featured-visual" data-micromodal-trigger="modal-featured">
-      <img src="/PranikaKalluruFinal/docs/assets/img/designstyle.png" alt="Swiss Design Lineage – Flat Design preview">
-    </div>
-    <div class="featured-meta">
-      <div class="featured-label">Featured Project</div>
-      <div class="featured-title">Swiss Design Lineage – Flat Design</div>
-      <p class="featured-description">
-        A coded exploration of Swiss Design principles using grids, typography, and flat-design aesthetics. Built as a live, responsive system that translates visual clarity into front-end decisions.
+    <!-- HEADER -->
+    <header class="portfolio-header">
+      <h1 class="portfolio-title">Selected Work</h1>
+      <p class="portfolio-subtitle">
+        A curated collection of digital work exploring clarity, structure, and visual systems.
       </p>
-      <div class="featured-tags">
-        <span class="tag">Design Systems</span>
-        <span class="tag">Swiss Design</span>
-        <span class="tag">Front-end</span>
-        <span class="tag">Case Study</span>
-      </div>
+    </header>
 
-      <!-- FIXED LINK -->
-      <a href="/PranikaKalluruFinal/docs/portfolio/project-three.html" class="featured-link">
-        view full case study →
+    <!-- GRID -->
+    <section class="portfolio-grid">
+
+      <!-- PROJECT 1 -->
+      <a href="/PranikaKalluruFinal/docs/portfolio/project-one.html" class="project-card">
+        <img src="/PranikaKalluruFinal/docs/assets/img/archetype.png" alt="Archetypes preview" class="project-image">
+        <div class="project-info">
+          <h2 class="project-title">Archetypes Persuasion Analysis</h2>
+          <p class="project-desc">
+            Competitive landscape research analyzing persuasion archetypes, brand identity, and funnel strategy.
+          </p>
+          <div class="project-tags">
+            <span>Strategy</span><span>Analysis</span><span>Design Systems</span>
+          </div>
+        </div>
       </a>
-    </div>
-  </section>
 
-  <!-- Filter bar -->
-  <section class="filter-bar reveal-on-scroll">
-    <span class="filter-label">Filter:</span>
-    <button class="filter-button active" data-filter="all">All</button>
-    <button class="filter-button" data-filter="design">Design Systems</button>
-    <button class="filter-button" data-filter="web">Web Development</button>
-    <button class="filter-button" data-filter="collaboration">Collaboration</button>
-    <button class="filter-button" data-filter="strategy">Strategy</button>
-  </section>
-
-  <!-- Portfolio grid -->
-  <section class="portfolio-grid reveal-on-scroll">
-
-    <!-- Archetypes Persuasion Analysis -->
-    <a href="/PranikaKalluruFinal/docs/portfolio/project-one.html"
-       class="portfolio-card glass-hover"
-       data-category="strategy design">
-      <div class="portfolio-thumb" data-micromodal-trigger="modal-archetypes">
-        <img src="/PranikaKalluruFinal/docs/assets/img/archetype.png" alt="Archetypes Persuasion Analysis preview">
-      </div>
-      <div class="portfolio-meta">
-        <span class="tag">Strategy</span>
-        <span class="tag">Competitive Analysis</span>
-        <span class="tag">Design Systems</span>
-      </div>
-      <h2>Archetypes Persuasion Analysis</h2>
-      <p>
-        A competitive landscape analysis exploring persuasion archetypes, brand positioning, and sales funnel strategy across multiple SaaS design systems.
-      </p>
-    </a>
-
-    <!-- Web Collaboration – Elemental Water -->
-    <a href="/PranikaKalluruFinal/docs/portfolio/project-two.html"
-       class="portfolio-card glass-hover"
-       data-category="web collaboration">
-      <div class="portfolio-thumb" data-micromodal-trigger="modal-elemental">
-        <img src="/PranikaKalluruFinal/docs/assets/img/webcollab.png" alt="Elemental Water collaboration preview">
-      </div>
-      <div class="portfolio-meta">
-        <span class="tag">Web Dev</span>
-        <span class="tag">Collaboration</span>
-        <span class="tag">GitHub</span>
-      </div>
-      <h2>Web Collaboration – Elemental Water</h2>
-      <p>
-        A collaborative themed website built with coordinated design, GitHub workflows, and team integration to align visual rhythm and code structure.
-      </p>
-    </a>
-
-    <!-- Swiss Design Lineage – Flat Design -->
-    <a href="/PranikaKalluruFinal/docs/portfolio/project-three.html"
-       class="portfolio-card glass-hover"
-       data-category="design web">
-      <div class="portfolio-thumb" data-micromodal-trigger="modal-swiss">
-        <img src="/PranikaKalluruFinal/docs/assets/img/designstyle.png" alt="Swiss Design Lineage – Flat Design preview">
-      </div>
-      <div class="portfolio-meta">
-        <span class="tag">Swiss Design</span>
-        <span class="tag">Grid Systems</span>
-        <span class="tag">Front-end</span>
-      </div>
-      <h2>Swiss Design Lineage – Flat Design</h2>
-      <p>
-        A coded exploration of Swiss Design principles using typographic hierarchy, grid structures, and flat design aesthetics in a live environment.
-      </p>
-    </a>
-
-  </section>
-
-</main>
-
-<!-- Lightbox modals -->
-<div class="modal micromodal-slide" id="modal-archetypes" aria-hidden="true">
-  <div class="modal__overlay" tabindex="-1" data-micromodal-close>
-    <div class="modal__container" role="dialog" aria-modal="true">
-      <button class="modal__close" aria-label="Close" data-micromodal-close>&times;</button>
-      <div class="modal__content">
-        <div class="modal__image-wrapper">
-          <img src="/PranikaKalluruFinal/docs/assets/img/archetype.png" alt="Archetypes full preview">
+      <!-- PROJECT 2 -->
+      <a href="/PranikaKalluruFinal/docs/portfolio/project-two.html" class="project-card">
+        <img src="/PranikaKalluruFinal/docs/assets/img/webcollab.png" alt="Elemental Water preview" class="project-image">
+        <div class="project-info">
+          <h2 class="project-title">Web Collaboration – Elemental Water</h2>
+          <p class="project-desc">
+            A collaborative themed website built with coordinated design, GitHub workflows, and team integration.
+          </p>
+          <div class="project-tags">
+            <span>Web Dev</span><span>Collaboration</span><span>GitHub</span>
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
-</div>
+      </a>
 
-<div class="modal micromodal-slide" id="modal-elemental" aria-hidden="true">
-  <div class="modal__overlay" tabindex="-1" data-micromodal-close>
-    <div class="modal__container" role="dialog" aria-modal="true">
-      <button class="modal__close" aria-label="Close" data-micromodal-close>&times;</button>
-      <div class="modal__content">
-        <div class="modal__image-wrapper">
-          <img src="/PranikaKalluruFinal/docs/assets/img/webcollab.png" alt="Elemental Water full preview">
+      <!-- PROJECT 3 -->
+      <a href="/PranikaKalluruFinal/docs/portfolio/project-three.html" class="project-card">
+        <img src="/PranikaKalluruFinal/docs/assets/img/designstyle.png" alt="Swiss Design preview" class="project-image">
+        <div class="project-info">
+          <h2 class="project-title">Swiss Design Lineage – Flat Design</h2>
+          <p class="project-desc">
+            A coded exploration of Swiss Design principles using grids, typography, and flat-design clarity.
+          </p>
+          <div class="project-tags">
+            <span>Swiss Design</span><span>Grid Systems</span><span>Front-end</span>
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
-</div>
+      </a>
 
-<div class="modal micromodal-slide" id="modal-featured" aria-hidden="true">
-  <div class="modal__overlay" tabindex="-1" data-micromodal-close>
-    <div class="modal__container" role="dialog" aria-modal="true">
-      <button class="modal__close" aria-label="Close" data-micromodal-close>&times;</button>
-      <div class="modal__content">
-        <div class="modal__image-wrapper">
-          <img src="/PranikaKalluruFinal/docs/assets/img/designstyle.png" alt="Swiss Design Lineage full preview">
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+    </section>
 
-<div class="modal micromodal-slide" id="modal-swiss" aria-hidden="true">
-  <div class="modal__overlay" tabindex="-1" data-micromodal-close>
-    <div class="modal__container" role="dialog" aria-modal="true">
-      <button class="modal__close" aria-label="Close" data-micromodal-close>&times;</button>
-      <div class="modal__content">
-        <div class="modal__image-wrapper">
-          <img src="/PranikaKalluruFinal/docs/assets/img/designstyle.png" alt="Swiss Design Lineage full preview">
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+  </main>
 
-<!-- BOTTOM NAV -->
-<nav class="bottom-nav">
-  <a href="/PranikaKalluruFinal/docs/index.html">Home</a>
-  <a href="/PranikaKalluruFinal/docs/portfolio/index.html">Portfolio</a>
-  <a href="/PranikaKalluruFinal/docs/design_style/index.html">Design Style</a>
-  <a href="/PranikaKalluruFinal/docs/client_site/index.html">Client Site</a>
-</nav>
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <p>© 2025 – Pranika Kalluru – Built with clarity & purpose</p>
+  </footer>
 
-<footer class="site-footer reveal">
-  <p>© 2025 – Pranika Kalluru – Built with clarity & purpose</p>
-</footer>
-
-<!-- GSAP + ScrollTrigger -->
-<script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
-<script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
-
-<!-- MicroModal -->
-<script src="https://unpkg.com/micromodal/dist/micromodal.min.js"></script>
-
-<!-- Your main JS -->
-<script src="/PranikaKalluruFinal/docs/assets/js/script.js"></script>
+  <!-- JS -->
+  <script src="/PranikaKalluruFinal/docs/assets/js/script.js"></script>
 
 </body>
 
