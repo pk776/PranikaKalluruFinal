@@ -757,17 +757,17 @@ body.dark .mini-nav {
 }
 
 /* ----------------------------------------------------------
-   LIGHTBOX / MODAL
+   LIGHTBOX / MODAL  — FINAL PATCHED VERSION
 ---------------------------------------------------------- */
 
 /* -----------------------------------------
-   LIGHTBOX (PATCHED)
+   LIGHTBOX (FINAL PATCH)
 ------------------------------------------ */
 .lightbox-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.8);
-  display: none; /* ← FIX: fully hidden by default */
+  position: fixed !important;
+  inset: 0 !important;
+  background: rgba(0,0,0,0.8) !important;
+  display: none !important; /* fully hidden by default */
   align-items: center;
   justify-content: center;
   opacity: 0;
@@ -777,11 +777,14 @@ body.dark .mini-nav {
 }
 
 .lightbox-overlay.visible {
-  display: flex; /* ← FIX: only visible when activated */
+  display: flex !important; /* only visible when activated */
   opacity: 1;
   pointer-events: auto;
 }
 
+/* -----------------------------------------
+   MODAL SYSTEM (unchanged)
+------------------------------------------ */
 .modal {
   font-family: "Inter", sans-serif;
 }
