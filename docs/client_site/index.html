@@ -1,291 +1,204 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Client Site – Pranika Kalluru</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Client Site – Professional Support Services</title>
 
-  <link rel="stylesheet" href="../assets/css/style-v2.css?v=3" />
+  <!-- C1 CSS -->
+  <link rel="stylesheet" href="../assets/css/style-v2.css">
+
+  <!-- JS -->
+  <script defer src="../assets/js/script.js"></script>
+
+  <!-- PAGE-SPECIFIC STYLES -->
+  <style>
+    /* Center main content */
+    main {
+      padding: 0 !important;
+      margin: 0 auto !important;
+      max-width: 1100px;
+      text-align: center;
+    }
+
+    /* Reduce hero spacing */
+    .home-hero {
+      padding: 60px 20px 30px !important;
+      min-height: auto !important;
+    }
+
+    /* Section spacing */
+    section {
+      margin: 60px auto;
+      max-width: 900px;
+      padding: 0 20px;
+    }
+
+    .section-title {
+      margin-bottom: 6px;
+    }
+
+    .section-title-underline {
+      margin-bottom: 24px !important;
+    }
+
+    /* Service cards */
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 32px;
+      justify-items: center;
+      margin-top: 20px;
+    }
+
+    .service-card {
+      background: rgba(255,255,255,0.75);
+      backdrop-filter: blur(14px);
+      padding: 28px;
+      border-radius: 14px;
+      text-align: left;
+      max-width: 300px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      border: 1px solid rgba(255,255,255,0.4);
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 14px 32px rgba(0,0,0,0.12);
+    }
+
+    /* Testimonials */
+    .testimonial {
+      background: rgba(255,255,255,0.7);
+      backdrop-filter: blur(12px);
+      padding: 24px;
+      border-radius: 14px;
+      margin: 20px auto;
+      max-width: 700px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+      border: 1px solid rgba(255,255,255,0.4);
+      font-style: italic;
+    }
+
+    /* Contact box */
+    .contact-box {
+      background: rgba(255,255,255,0.75);
+      backdrop-filter: blur(14px);
+      padding: 32px;
+      border-radius: 14px;
+      max-width: 600px;
+      margin: 0 auto;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      border: 1px solid rgba(255,255,255,0.4);
+    }
+  </style>
 </head>
 
 <body class="fade-in">
 
-  <!-- Ambient background layers -->
-  <div class="client-background">
+  <!-- BACKGROUND LAYERS -->
+  <div class="hero-background">
     <div class="bg-gradient-wave"></div>
     <div class="bg-blob bg-blob-1"></div>
     <div class="bg-blob bg-blob-2"></div>
     <div class="bg-blob bg-blob-3"></div>
     <div class="bg-grid-overlay"></div>
     <div class="bg-particles"></div>
-    <div class="bg-spotlight" id="client-spotlight"></div>
+    <div class="bg-spotlight" id="bg-spotlight"></div>
   </div>
 
-  <!-- SCROLL PROGRESS BAR -->
-  <div class="scroll-progress"></div>
+  <!-- NAV SPACER -->
+  <div class="nav-spacer"></div>
 
-  <!-- MAIN NAV -->
+  <!-- NAV -->
   <nav class="mini-nav fade-in">
     <a href="../index.html">Home</a>
     <a href="../portfolio/index.html">Portfolio</a>
     <a href="../design_style/index.html">Design Style</a>
-    <a href="../client_site/index.html" class="active">Client Site</a>
+    <a href="./index.html" class="active">Client Site</a>
   </nav>
 
-  <!-- SECTION NAV -->
-  <nav class="section-nav client-section-nav">
-    <a href="#intro">Overview</a>
-    <a href="#services">Services</a>
-    <a href="#palette">Brand Palette</a>
-    <a href="#mockup-banner">Mockup</a>
-    <a href="#process">Process</a>
-    <a href="#testimonial">Testimonial</a>
-    <a href="#reflection">Reflection</a>
-    <a href="#cta">CTA</a>
-  </nav>
+  <!-- HERO -->
+  <header class="home-hero fade-in">
+    <h1 class="intro-title">Professional Support Services</h1>
+    <div class="title-underline"></div>
 
-  <!-- ⭐ NEW WRAPPER FOR PERFECT CENTERING -->
- <div class="page-wrapper">
-  <main class="client-wrapper">
+    <p class="intro-description">
+      Providing guidance, clarity, and support through thoughtful, client‑centered care.
+    </p>
+  </header>
 
+  <main class="fade-up-stagger">
 
-      <!-- INTRO (CASE STUDY) -->
-      <section class="case-intro animate-section" id="intro">
-        <p class="section-label">CASE STUDY</p>
-        <h1>Client Site Redesign</h1>
-        <div class="section-title-underline"></div>
-        <p class="intro-text">
-          A polished, professional website for a fictional counseling center, transforming a dense, dated layout into a
-          calm, modern, and welcoming experience. This project focuses on clarity, hierarchy, and an accessible, responsive
-          interface that feels trustworthy and human.
-        </p>
-        <div class="case-meta">
-          <span><strong>Role:</strong> Designer · Developer</span>
-          <span><strong>Tools:</strong> Figma, VS Code, HTML, CSS</span>
-          <span><strong>Timeline:</strong> 2 weeks</span>
-          <span><strong>Deliverables:</strong> Homepage, Brand System, UI Components</span>
+    <!-- ABOUT -->
+    <section>
+      <h2 class="section-title">About</h2>
+      <div class="section-title-underline"></div>
+
+      <p class="section-intro-text">
+        This client‑focused service site is designed to offer a calm, welcoming space for individuals seeking clarity, emotional support, or structured guidance. The goal is to create an environment that feels safe, grounded, and easy to navigate.
+      </p>
+    </section>
+
+    <!-- SERVICES -->
+    <section>
+      <h2 class="section-title">Services</h2>
+      <div class="section-title-underline"></div>
+
+      <div class="service-grid">
+
+        <div class="service-card">
+          <h3>Personal Guidance</h3>
+          <p>One‑on‑one support focused on personal growth, emotional clarity, and developing healthy coping strategies.</p>
         </div>
-      </section>
 
-      <div class="section-divider animate-divider"></div>
-
-      <!-- HERO / OVERVIEW -->
-      <section class="client-hero animate-section" id="overview">
-        <p class="section-label">OVERVIEW</p>
-        <h2>Creating a Calmer First Impression</h2>
-        <div class="section-title-underline"></div>
-        <p class="section-intro-text centered">
-          The original site was text-heavy, visually noisy, and difficult to scan. The redesigned experience introduces
-          a calmer visual language, clear entry points, and focused messaging so visitors can quickly understand who the
-          client is, what they offer, and how to get started.
-        </p>
-      </section>
-
-      <div class="section-divider animate-divider"></div>
-
-      <!-- SERVICES -->
-      <section id="services" class="animate-section">
-        <p class="section-label">SERVICES</p>
-        <h2>How I Supported the Client</h2>
-        <div class="section-title-underline"></div>
-        <p class="section-intro-text centered">
-          The redesign touched multiple layers of the experience, from visual identity to content structure and UI
-          components that make future updates easier.
-        </p>
-        <div class="services-grid">
-          <div class="service-card hover-lift ripple">
-            <h3>Brand Identity</h3>
-            <p>Refined typography, a balanced color palette, and consistent layout patterns to build trust.</p>
-          </div>
-          <div class="service-card hover-lift ripple">
-            <h3>Responsive Web Design</h3>
-            <p>Layouts that adapt gracefully from mobile to desktop, keeping key actions always visible.</p>
-          </div>
-          <div class="service-card hover-lift ripple">
-            <h3>Content Restructure</h3>
-            <p>Rewriting and reorganizing content for clarity, readability, and emotional connection.</p>
-          </div>
-          <div class="service-card hover-lift ripple">
-            <h3>UI Components</h3>
-            <p>Reusable sections, buttons, and patterns that support a scalable, consistent interface.</p>
-          </div>
+        <div class="service-card">
+          <h3>Stress & Wellness Support</h3>
+          <p>Tools and techniques to manage stress, build resilience, and create sustainable wellness habits.</p>
         </div>
-      </section>
 
-      <div class="section-divider animate-divider"></div>
-
-      <!-- BRAND PALETTE -->
-      <section id="palette" class="animate-section">
-        <p class="section-label">BRAND PALETTE</p>
-        <h2>Color System</h2>
-        <div class="section-title-underline"></div>
-        <p class="section-intro-text centered">
-          The palette shifts from saturated, competing colors to a calmer system that supports readability and focus while
-          still giving the brand a warm, human presence.
-        </p>
-        <div class="brand-palette">
-          <div class="color-swatch" style="background:#E63946;">#E63946</div>
-          <div class="color-swatch" style="background:#111;">#111111</div>
-          <div class="color-swatch" style="background:#555;">#555555</div>
-          <div class="color-swatch" style="background:#f5f5f5; color:#111;">#F5F5F5</div>
+        <div class="service-card">
+          <h3>Goal‑Oriented Planning</h3>
+          <p>Structured sessions designed to help clients set goals, stay accountable, and move forward with confidence.</p>
         </div>
-      </section>
 
-      <div class="section-divider animate-divider"></div>
+      </div>
+    </section>
 
-      <!-- FULL-WIDTH MOCKUP BANNER -->
-      <section class="mockup-banner animate-section parallax-layer" id="mockup-banner">
-        <p class="section-label">HOMEPAGE</p>
-        <h2>Before & After</h2>
-        <div class="section-title-underline"></div>
-        <p class="section-intro-text centered">
-          A full-width mockup showcases the transformation of the homepage, centering a calm hero, clearer hierarchy,
-          and more intentional calls to action.
-        </p>
-        <div class="mockup-banner-frame hover-soft-zoom">
-          <img src="../assets/img/before-after.png"
-               alt="Before and after comparison of the counseling center homepage redesign">
-        </div>
-      </section>
+    <!-- TESTIMONIALS -->
+    <section>
+      <h2 class="section-title">Testimonials</h2>
+      <div class="section-title-underline"></div>
 
-      <div class="section-divider animate-divider"></div>
+      <div class="testimonial">
+        “A calm, supportive environment that helped me feel grounded and understood.”
+      </div>
 
-      <!-- PROCESS -->
-      <!-- PROCESS -->
-      <section class="process-section animate-section" id="process">
-        <p class="section-label">PROCESS</p>
-        <h2>How I Approached the Redesign</h2>
-        <div class="section-title-underline"></div>
-        <p class="section-intro-text centered">
-          I treated this as a full case study: understanding the existing experience, defining priorities, exploring layout
-          options, and then building a responsive, accessible implementation.
-        </p>
+      <div class="testimonial">
+        “Clear guidance and thoughtful insight — exactly what I needed.”
+      </div>
+    </section>
 
-        <div class="timeline timeline-accent">
-          <div class="timeline-step">
-            <h4>1. Discovery</h4>
-            <p>Analyzed the existing site to identify pain points in hierarchy, color usage, and content density.</p>
-          </div>
-          <div class="timeline-step">
-            <h4>2. Wireframing</h4>
-            <p>Explored layouts that prioritized clarity, with clear sections for welcome, services, and getting started.</p>
-          </div>
-          <div class="timeline-step">
-            <h4>3. Visual Design</h4>
-            <p>Introduced a calmer palette, modern type choices, and generous spacing to support accessibility.</p>
-          </div>
-          <div class="timeline-step">
-            <h4>4. Development</h4>
-            <p>Built the layout using semantic HTML and modular CSS, ensuring it adapts smoothly across screen sizes.</p>
-          </div>
-        </div>
-      </section>
+    <!-- CONTACT -->
+    <section>
+      <h2 class="section-title">Contact</h2>
+      <div class="section-title-underline"></div>
 
-      <div class="section-divider animate-divider"></div>
+      <div class="contact-box">
+        <p>If you’d like to learn more or schedule a session, feel free to reach out.</p>
+        <p><strong>Email:</strong> contact@example.com</p>
+        <p><strong>Phone:</strong> (000) 000‑0000</p>
+      </div>
+    </section>
 
-      <!-- TESTIMONIAL -->
-      <section class="testimonial animate-section" id="testimonial">
-        <p class="section-label">FEEDBACK</p>
-        <h2>Client Perspective</h2>
-        <div class="section-title-underline"></div>
-        <p>
-          “The redesigned site feels calming, clear, and easy to navigate. It communicates who we are in a way that
-          finally feels aligned with the work we do.”
-        </p>
-        <div class="client-name">— Fictional Client, Counseling Center</div>
-      </section>
-
-      <div class="section-divider animate-divider"></div>
-
-      <!-- REFLECTION -->
-      <section class="reflection-section animate-section" id="reflection">
-        <p class="section-label">REFLECTION</p>
-        <h2>What I Learned</h2>
-        <div class="section-title-underline"></div>
-        <p class="section-intro-text centered">
-          This project reinforced how much small shifts in typography, spacing, and wording can change how a brand feels.
-          If I extended this further, I’d design a resource hub and a guided onboarding flow that walks new clients from
-          first visit to first appointment with even more clarity and care.
-        </p>
-      </section>
-
-      <div class="section-divider animate-divider"></div>
-
-      <!-- CTA -->
-      <section class="cta-section animate-section" id="cta">
-        <p class="section-label">NEXT</p>
-        <h2>Explore More Work</h2>
-        <div class="section-title-underline"></div>
-        <p>
-          See additional projects, experiments, and explorations that build on the same focus on clarity, structure,
-          and intentional motion.
-        </p>
-        <a class="cta-btn" href="../portfolio/index.html">View Portfolio</a>
-      </section>
-
-    </main>
-
-  </div> <!-- ⭐ closes page-wrapper -->
-
-  <footer class="site-footer">
-    <p>© 2025 – Pranika Kalluru – Built with clarity & purpose</p>
-  </footer>
-
-  <!-- JS: scroll progress, spotlight, parallax, section-nav active -->
-  <script>
-    // Scroll progress
-    const progressBar = document.querySelector('.scroll-progress');
-    function updateProgress() {
-      const scrollTop = window.scrollY || document.documentElement.scrollTop;
-      const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-      progressBar.style.width = progress + '%';
-    }
-    window.addEventListener('scroll', updateProgress);
-    window.addEventListener('load', updateProgress);
-
-    // Spotlight cursor
-    const clientSpotlight = document.getElementById('client-spotlight');
-    document.addEventListener('mousemove', (e) => {
-      const x = e.clientX;
-      const y = e.clientY + window.scrollY;
-      clientSpotlight.style.transform = `translate(${x - 200}px, ${y - 200}px)`;
-    });
-
-    // Parallax mockup section
-    const parallaxLayers = document.querySelectorAll('.parallax-layer');
-    window.addEventListener('scroll', () => {
-      const scrollY = window.scrollY;
-      parallaxLayers.forEach((layer, index) => {
-        const depth = (index + 1) * 0.08;
-        layer.style.transform = `translateY(${scrollY * depth}px)`;
-      });
-    });
-
-    // Section nav active state
-    const sectionLinks = document.querySelectorAll('.client-section-nav a');
-    const sections = document.querySelectorAll('main section');
-
-    function updateSectionNav() {
-      let currentId = null;
-      sections.forEach(sec => {
-        const rect = sec.getBoundingClientRect();
-        if (rect.top <= 140 && rect.bottom >= 140) currentId = sec.id;
-      });
-
-      sectionLinks.forEach(link => {
-        const hrefId = link.getAttribute('href').substring(1);
-        link.classList.toggle('active', hrefId === currentId);
-      });
-    }
-
-    window.addEventListener('scroll', updateSectionNav);
-    window.addEventListener('load', updateSectionNav);
-  </script>
-  
   </main>
-</div>
 
+  <!-- FOOTER -->
+  <footer class="site-footer reveal">
+    <p>© 2025 – Professional Support Services</p>
+  </footer>
+  
 </body>
 
 </html>
