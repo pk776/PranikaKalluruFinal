@@ -8,7 +8,7 @@
   <!-- C1 CSS -->
   <link rel="stylesheet" href="../assets/css/style-v2.css">
 
-  <!-- JS (your global script) -->
+  <!-- JS -->
   <script defer src="../assets/js/script.js"></script>
 
   <!-- PAGE-SPECIFIC STYLES -->
@@ -18,7 +18,6 @@
       opacity: 0;
       transition: opacity 0.45s ease;
     }
-
     body.page-transition.page-loaded {
       opacity: 1;
     }
@@ -31,7 +30,7 @@
     }
 
     section {
-      margin: 60px auto;
+      margin: 70px auto;
       max-width: 950px;
       padding: 0 20px;
     }
@@ -40,14 +39,8 @@
       text-align: center;
       margin-bottom: 6px;
     }
-
     .section-title-underline {
       margin: 0 auto 24px !important;
-    }
-
-    .section-intro-text {
-      text-align: center;
-      margin-bottom: 32px;
     }
 
     .section-divider {
@@ -60,71 +53,55 @@
 
     /* Hero */
     .home-hero {
-      padding: 70px 20px 40px !important;
-      min-height: auto !important;
+      padding: 80px 20px 50px !important;
       text-align: center;
+      position: relative;
+      z-index: 5;
     }
 
     .hero-cta {
-      margin-top: 24px;
+      margin-top: 28px;
       display: flex;
       justify-content: center;
       gap: 14px;
     }
 
-    .primary-cta {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 12px 22px;
+    .primary-cta,
+    .secondary-cta {
       border-radius: 999px;
-      border: none;
-      cursor: pointer;
-      background: #4a6cff;
-      color: white;
-      font-weight: 600;
-      font-size: 0.98rem;
-      letter-spacing: 0.02em;
-      box-shadow: 0 8px 20px rgba(74,108,255,0.35);
-      transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+      padding: 12px 22px;
       text-decoration: none;
+      font-weight: 600;
+      transition: 0.25s ease;
     }
 
+    .primary-cta {
+      background: #4a6cff;
+      color: white;
+      box-shadow: 0 8px 20px rgba(74,108,255,0.35);
+    }
     .primary-cta:hover {
       transform: translateY(-2px);
-      box-shadow: 0 10px 26px rgba(74,108,255,0.45);
-      background: #3d5cff;
+      box-shadow: 0 12px 28px rgba(74,108,255,0.45);
     }
 
     .secondary-cta {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 10px 18px;
-      border-radius: 999px;
-      border: 1px solid rgba(0,0,0,0.12);
       background: rgba(255,255,255,0.7);
-      backdrop-filter: blur(10px);
-      cursor: pointer;
-      font-size: 0.95rem;
-      text-decoration: none;
+      border: 1px solid rgba(0,0,0,0.12);
       color: inherit;
-      transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+      backdrop-filter: blur(10px);
     }
-
     .secondary-cta:hover {
       transform: translateY(-2px);
       box-shadow: 0 6px 18px rgba(0,0,0,0.15);
-      background: rgba(255,255,255,0.9);
     }
 
-    /* About section two-column */
+    /* About */
     .about-layout {
       display: grid;
       grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
       gap: 40px;
       align-items: center;
-      margin-top: 20px;
     }
 
     .about-text {
@@ -135,54 +112,42 @@
 
     .about-highlight-card {
       background: rgba(255,255,255,0.8);
-      backdrop-filter: blur(16px);
+      padding: 24px;
       border-radius: 16px;
-      padding: 24px 22px;
+      backdrop-filter: blur(16px);
       box-shadow: 0 10px 30px rgba(0,0,0,0.08);
       border: 1px solid rgba(255,255,255,0.6);
     }
 
     .about-highlight-tag {
-      display: inline-flex;
+      display: inline-block;
       padding: 4px 10px;
       border-radius: 999px;
+      background: rgba(74,108,255,0.08);
+      color: #4a5cff;
       font-size: 0.8rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      background: rgba(74,108,255,0.08);
-      color: #4a5cff;
       margin-bottom: 10px;
     }
 
-    .about-highlight-card p {
-      margin: 6px 0;
-      font-size: 0.95rem;
-      opacity: 0.9;
-    }
-
-    /* Services grid */
+    /* Services */
     .service-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 32px;
-      justify-items: center;
       margin-top: 20px;
     }
 
     .service-card {
       background: rgba(255,255,255,0.8);
-      backdrop-filter: blur(14px);
       padding: 26px;
       border-radius: 16px;
-      text-align: left;
-      max-width: 320px;
+      backdrop-filter: blur(14px);
       box-shadow: 0 10px 28px rgba(0,0,0,0.08);
       border: 1px solid rgba(255,255,255,0.6);
-      transition: transform 0.35s ease, box-shadow 0.35s ease;
-      position: relative;
-      overflow: hidden;
+      transition: 0.35s ease;
     }
-
     .service-card:hover {
       transform: translateY(-8px);
       box-shadow: 0 16px 40px rgba(0,0,0,0.12);
@@ -192,28 +157,42 @@
       width: 40px;
       height: 40px;
       border-radius: 999px;
+      background: radial-gradient(circle at 30% 0%, #ffffff, #dbe3ff);
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 14px;
-      background: radial-gradient(circle at 30% 0%, #ffffff, #dbe3ff);
-      box-shadow: 0 6px 18px rgba(0,0,0,0.12);
       font-size: 1.4rem;
+      margin-bottom: 14px;
     }
 
-    .service-card h3 {
-      margin-top: 0;
-      margin-bottom: 8px;
+    /* Before & After */
+    #before-after {
+      text-align: center;
     }
 
-    .service-card p {
-      margin: 0;
-      font-size: 0.98rem;
-      line-height: 1.6;
-      opacity: 0.9;
+    .before-after-wrapper {
+      max-width: 750px;
+      margin: 0 auto;
+      background: rgba(255,255,255,0.75);
+      padding: 20px;
+      border-radius: 16px;
+      backdrop-filter: blur(14px);
+      box-shadow: 0 10px 28px rgba(0,0,0,0.08);
+      border: 1px solid rgba(255,255,255,0.6);
     }
 
-    /* Testimonials slider */
+    .before-after-wrapper img {
+      width: 100%;
+      border-radius: 12px;
+    }
+
+    .before-after-caption {
+      margin-top: 14px;
+      font-size: 0.95rem;
+      opacity: 0.85;
+    }
+
+    /* Testimonials */
     .testimonial-slider {
       max-width: 780px;
       margin: 24px auto 10px;
@@ -222,15 +201,14 @@
 
     .testimonial-slide {
       background: rgba(255,255,255,0.8);
-      backdrop-filter: blur(14px);
-      padding: 24px 24px 20px;
+      padding: 24px;
       border-radius: 16px;
+      backdrop-filter: blur(14px);
       box-shadow: 0 8px 24px rgba(0,0,0,0.08);
       border: 1px solid rgba(255,255,255,0.6);
-      font-style: italic;
       opacity: 0;
       transform: translateY(10px);
-      transition: opacity 0.5s ease, transform 0.5s ease;
+      transition: 0.5s ease;
       position: absolute;
       inset: 0;
     }
@@ -241,86 +219,13 @@
       position: relative;
     }
 
-    .testimonial-author {
-      margin-top: 10px;
-      font-style: normal;
-      font-weight: 500;
-      opacity: 0.8;
-    }
-
-    .testimonial-dots {
-      display: flex;
-      justify-content: center;
-      gap: 8px;
-      margin-top: 12px;
-    }
-
-    .testimonial-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: rgba(0,0,0,0.16);
-      cursor: pointer;
-      transition: transform 0.2s ease, background 0.2s ease;
-    }
-
-    .testimonial-dot.active {
-      transform: scale(1.25);
-      background: #4a6cff;
-    }
-
     /* FAQ */
     .faq-list {
       max-width: 750px;
       margin: 0 auto;
-      text-align: left;
     }
 
-    .faq-item {
-      margin-bottom: 14px;
-      border-radius: 10px;
-      background: rgba(255,255,255,0.8);
-      backdrop-filter: blur(12px);
-      box-shadow: 0 6px 20px rgba(0,0,0,0.06);
-      border: 1px solid rgba(255,255,255,0.6);
-      overflow: hidden;
-    }
-
-    .faq-item summary {
-      cursor: pointer;
-      padding: 12px 14px;
-      font-weight: 500;
-      list-style: none;
-      position: relative;
-    }
-
-    .faq-item summary::marker,
-    .faq-item summary::-webkit-details-marker {
-      display: none;
-    }
-
-    .faq-item summary::after {
-      content: "+";
-      position: absolute;
-      right: 16px;
-      top: 12px;
-      font-weight: 600;
-      opacity: 0.7;
-    }
-
-    .faq-item[open] summary::after {
-      content: "−";
-    }
-
-    .faq-item p {
-      padding: 0 14px 12px;
-      margin: 0;
-      font-size: 0.95rem;
-      line-height: 1.6;
-      opacity: 0.9;
-    }
-
-    /* Contact form */
+    /* Contact */
     .contact-layout {
       max-width: 750px;
       margin: 0 auto;
@@ -328,63 +233,29 @@
 
     .contact-box {
       background: rgba(255,255,255,0.85);
-      backdrop-filter: blur(16px);
-      padding: 28px 24px 26px;
+      padding: 28px;
       border-radius: 16px;
+      backdrop-filter: blur(16px);
       box-shadow: 0 10px 30px rgba(0,0,0,0.1);
       border: 1px solid rgba(255,255,255,0.7);
     }
 
-    .contact-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
-      gap: 24px;
-      align-items: start;
+    /* CTA Banner */
+    .cta-banner {
+      margin: 80px auto 0;
+      padding: 40px 24px;
+      text-align: center;
+      background: linear-gradient(135deg, rgba(74,108,255,0.15), rgba(255,255,255,0.4));
+      border-radius: 20px;
+      backdrop-filter: blur(18px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.08);
     }
 
-    .contact-form-group {
-      text-align: left;
-      margin-bottom: 12px;
+    .cta-banner h3 {
+      margin-bottom: 10px;
     }
 
-    .contact-form-group label {
-      display: block;
-      font-size: 0.9rem;
-      margin-bottom: 4px;
-      opacity: 0.85;
-    }
-
-    .contact-form-group input,
-    .contact-form-group textarea {
-      width: 100%;
-      border-radius: 10px;
-      border: 1px solid rgba(0,0,0,0.12);
-      padding: 8px 10px;
-      font-family: inherit;
-      font-size: 0.95rem;
-      resize: vertical;
-      background: rgba(255,255,255,0.9);
-    }
-
-    .contact-form-group textarea {
-      min-height: 90px;
-    }
-
-    .contact-submit {
-      margin-top: 8px;
-    }
-
-    .contact-details {
-      font-size: 0.95rem;
-      text-align: left;
-      opacity: 0.9;
-    }
-
-    .contact-details p {
-      margin: 6px 0;
-    }
-
-    /* Back to top button */
+    /* Back to top */
     #backToTop {
       position: fixed;
       right: 24px;
@@ -392,29 +263,20 @@
       width: 40px;
       height: 40px;
       border-radius: 999px;
-      border: none;
       background: rgba(74,108,255,0.9);
       color: white;
-      box-shadow: 0 10px 28px rgba(0,0,0,0.25);
-      cursor: pointer;
+      border: none;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.2rem;
       opacity: 0;
       pointer-events: none;
-      transition: opacity 0.25s ease, transform 0.25s ease;
+      transition: 0.25s ease;
       z-index: 900;
     }
-
     #backToTop.visible {
       opacity: 1;
       pointer-events: auto;
-      transform: translateY(0);
-    }
-
-    #backToTop:hover {
-      transform: translateY(-2px);
     }
 
     /* Responsive */
@@ -423,9 +285,8 @@
       .contact-grid {
         grid-template-columns: 1fr;
       }
-
       section {
-        margin: 46px auto;
+        margin: 50px auto;
       }
     }
   </style>
@@ -433,7 +294,7 @@
 
 <body class="fade-in page-transition">
 
-  <!-- BACKGROUND LAYERS (C1 SYSTEM) -->
+  <!-- BACKGROUND -->
   <div class="hero-background">
     <div class="bg-gradient-wave"></div>
     <div class="bg-blob bg-blob-1"></div>
@@ -444,10 +305,8 @@
     <div class="bg-spotlight" id="bg-spotlight"></div>
   </div>
 
-  <!-- NAV SPACER -->
-  <div class="nav-spacer"></div>
-
   <!-- NAV -->
+  <div class="nav-spacer"></div>
   <nav class="mini-nav fade-in">
     <a href="../index.html">Home</a>
     <a href="../portfolio/index.html">Portfolio</a>
@@ -528,6 +387,22 @@
         </div>
 
       </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- BEFORE & AFTER -->
+    <section id="before-after">
+      <h2 class="section-title">Before & After</h2>
+      <div class="section-title-underline"></div>
+
+      <div class="before-after-wrapper">
+        <img src="../assets/img/before-after.png" alt="Before and After Comparison">
+      </div>
+
+      <p class="before-after-caption">
+        A visual comparison showing the transformation and clarity achieved through the redesigned experience.
+      </p>
     </section>
 
     <div class="section-divider"></div>
@@ -620,18 +495,19 @@
               </div>
             </div>
 
-            <div class="contact-details">
-              <p>If you’d like to learn more, explore options, or discuss availability, you can reach out using the form or directly:</p>
-              <p><strong>Email:</strong> contact@example.com</p>
-              <p><strong>Phone:</strong> (000) 000‑0000</p>
-              <p><strong>Availability:</strong> Weekday afternoons and early evenings</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+            <div class
+                </section>
 
   </main>
+
+  <!-- CTA BANNER -->
+  <section class="cta-banner fade-up">
+    <h3>Ready to take the next step?</h3>
+    <p>Reach out anytime to begin your journey toward clarity, balance, and meaningful progress.</p>
+    <a href="#contact" class="primary-cta" style="margin-top:16px; display:inline-block;">
+      Get in Touch
+    </a>
+  </section>
 
   <!-- BACK TO TOP BUTTON -->
   <button id="backToTop" aria-label="Back to top">↑</button>
@@ -655,7 +531,6 @@
 
       const href = link.getAttribute("href");
       if (!href || href.startsWith("#")) return;
-
       if (href.startsWith("http")) return;
 
       e.preventDefault();
@@ -708,6 +583,7 @@
       window.scrollTo({ top: 0, behavior: "smooth" });
     });
   </script>
+
 </body>
 
 </html>
