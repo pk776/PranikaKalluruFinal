@@ -1949,3 +1949,16 @@ body.dark .mini-nav {
   100% { opacity: 1; transform: translateY(0); }
 }
 
+/* DESIGN PAGE BACKGROUND LAYERS (shared with other pages) */
+.design-background {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  overflow: hidden;
+}
+
+/* .bg-gradient-wave, .bg-blob, .bg-grid-overlay, .bg-particles, .bg-spotlight
+   plus waveShift / floatBlob1 / floatBlob2 / floatBlob3 / particleDrift keyframes
+   can be shared with your homepage/portfolio definitions so they stay consistent. */
+

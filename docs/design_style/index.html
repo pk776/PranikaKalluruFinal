@@ -148,7 +148,12 @@
       border: 1px solid var(--border);
       box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
       cursor: zoom-in;
-      transition: transform 0.3s ease-out;
+      transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+    }
+
+    .design-poster:hover {
+      transform: scale(1.03);
+      box-shadow: 0 24px 54px rgba(0, 0, 0, 0.22);
     }
 
     .design-title {
@@ -156,6 +161,15 @@
       font-weight: 700;
       letter-spacing: -0.03em;
       margin-bottom: 0.6rem;
+    }
+
+    .design-title::after {
+      content: "";
+      display: block;
+      width: 52px;
+      height: 2px;
+      background: var(--accent);
+      margin: 12px auto 0;
     }
 
     .design-subtitle {
@@ -376,14 +390,25 @@
   </style>
 </head>
 
-<body class="fade-in">
+<body class="fade-in" id="top">
+
+  <!-- Ambient background layers -->
+  <div class="design-background">
+    <div class="bg-gradient-wave"></div>
+    <div class="bg-blob bg-blob-1"></div>
+    <div class="bg-blob bg-blob-2"></div>
+    <div class="bg-blob bg-blob-3"></div>
+    <div class="bg-grid-overlay"></div>
+    <div class="bg-particles"></div>
+    <div class="bg-spotlight" id="bg-spotlight"></div>
+  </div>
 
   <div class="nav-spacer"></div>
 
   <nav class="mini-nav fade-in">
     <a href="../index.html">Home</a>
     <a href="../portfolio/index.html">Portfolio</a>
-    <a href="./index.html">Design Style</a>
+    <a href="./index.html" class="active">Design Style</a>
     <a href="../client_site/index.html">Client Site</a>
   </nav>
 
@@ -710,7 +735,16 @@
 
     window.addEventListener("scroll", animateMetrics);
     window.addEventListener("load", animateMetrics);
-    
+
+    /* -----------------------------------------
+       SPOTLIGHT CURSOR (MATCHES OTHER PAGES)
+    ------------------------------------------ */
+    const spotlight = document.getElementById("bg-spotlight");
+    document.addEventListener("mousemove", (e) => {
+      const x = e.clientX;
+      const y = e.clientY + window.scrollY;
+      spotlight.style.transform = `translate(${x - 200}px, ${y - 200}px)`;
+    });
   </script>
 
 </body>
