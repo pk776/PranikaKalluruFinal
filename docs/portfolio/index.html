@@ -5,166 +5,60 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfolio – Pranika Kalluru</title>
 
-  <link rel="stylesheet" href="../assets/css/style-v2.css">
+  <link rel="stylesheet" href="../assets/css/style-v2.css?v=3">
+  <script defer src="../assets/js/script.js"></script>
 
   <style>
-    :root {
-      --accent: #e63946;
-      --bg: #ffffff;
-      --text: #111111;
-      --card: #fafafa;
-      --border: #e0e0e0;
-    }
-
-    body.dark {
-      --bg: #111111;
-      --text: #f5f5f5;
-      --card: #1a1a1a;
-      --border: #333333;
-    }
-
-    body {
-      margin: 0;
-      padding: 0;
-      background: var(--bg);
-      color: var(--text);
-      font-family: Helvetica, Arial, sans-serif;
-      transition: background 0.3s ease, color 0.3s ease;
-    }
-
     .nav-spacer {
       height: 70px;
-    }
-
-    .portfolio-grid-wrapper {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 4rem 2rem;
-    }
-
-    .portfolio-header {
-      margin-bottom: 4rem;
-      border-left: 6px solid var(--accent);
-      padding-left: 1.2rem;
-    }
-
-    .portfolio-title {
-      font-size: 3.2rem;
-      font-weight: 700;
-      margin: 0;
-      letter-spacing: -1px;
-    }
-
-    .portfolio-subtitle {
-      max-width: 600px;
-      line-height: 1.6;
-      margin-top: 1rem;
-      font-size: 1.15rem;
-      opacity: 0.85;
-    }
-
-    .portfolio-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 3rem;
-    }
-
-    .project-card {
-      text-decoration: none;
-      color: inherit;
-      background: var(--card);
-      border: 1px solid var(--border);
-      padding: 1.8rem;
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
-    }
-
-    .project-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.12);
-    }
-
-    .project-image {
-      width: 100%;
-      height: auto;
-      border: 1px solid var(--border);
-      margin-bottom: 1.4rem;
-    }
-
-    .project-title {
-      font-size: 1.5rem;
-      font-weight: 700;
-      margin: 0 0 0.6rem 0;
-    }
-
-    .project-desc {
-      font-size: 1rem;
-      line-height: 1.55;
-      margin-bottom: 1rem;
-      opacity: 0.85;
-    }
-
-    .project-tags span {
-      display: inline-block;
-      background: var(--border);
-      padding: 0.3rem 0.7rem;
-      margin-right: 0.4rem;
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    footer {
-      text-align: center;
-      padding: 3rem 0;
-      opacity: 0.7;
-      font-size: 0.9rem;
-    }
-
-    .theme-toggle {
-      position: fixed;
-      top: 1.5rem;
-      right: 1.5rem;
-      background: var(--card);
-      border: 1px solid var(--border);
-      padding: 0.6rem 0.8rem;
-      cursor: pointer;
-      font-size: 1.2rem;
-      border-radius: 6px;
-      transition: background 0.3s ease;
-    }
-
-    .theme-toggle:hover {
-      background: var(--border);
     }
   </style>
 </head>
 
 <body class="fade-in">
 
+  <!-- BACKGROUND LAYERS -->
+  <div class="portfolio-background">
+    <div class="bg-gradient-wave"></div>
+    <div class="bg-blob bg-blob-1"></div>
+    <div class="bg-blob bg-blob-2"></div>
+    <div class="bg-blob bg-blob-3"></div>
+    <div class="bg-grid-overlay"></div>
+    <div class="bg-particles"></div>
+    <div class="bg-spotlight" id="bg-spotlight"></div>
+  </div>
+
   <div class="nav-spacer"></div>
 
+  <!-- NAV -->
   <nav class="mini-nav fade-in">
     <a href="../index.html">Home</a>
-    <a href="./index.html">Portfolio</a>
+    <a href="./index.html" class="active">Portfolio</a>
     <a href="../design_style/index.html">Design Style</a>
     <a href="../client_site/index.html">Client Site</a>
   </nav>
 
-  <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+  <button class="theme-toggle glow-toggle" onclick="toggleTheme()">🌙</button>
 
-  <main class="portfolio-grid-wrapper">
+  <!-- PORTFOLIO HEADER -->
+  <header class="portfolio-header parallax-layer fade-up-stagger">
+    <p class="section-label">PORTFOLIO</p>
+    <h1 class="portfolio-title">Selected Work</h1>
+    <div class="section-title-underline"></div>
+    <p class="portfolio-subtitle">
+      A curated collection of digital work exploring clarity, structure, and visual systems.
+    </p>
+  </header>
 
-    <header class="portfolio-header">
-      <h1 class="portfolio-title">Selected Work</h1>
-      <p class="portfolio-subtitle">
-        A curated collection of digital work exploring clarity, structure, and visual systems.
-      </p>
-    </header>
+  <!-- PORTFOLIO GRID -->
+  <main class="portfolio-grid-wrapper fade-up-stagger">
 
     <section class="portfolio-grid">
 
-      <a href="projects/project-one.html" class="project-card">
-        <img src="../assets/img/archetype.png" class="project-image">
+      <a href="projects/project-one.html" class="project-card hover-lift ripple">
+        <div class="project-image-frame">
+          <img src="../assets/img/archetype.png" class="project-image soft-zoom">
+        </div>
         <h2 class="project-title">Archetypes Persuasion Analysis</h2>
         <p class="project-desc">
           Competitive landscape research analyzing persuasion archetypes, brand identity, and funnel strategy.
@@ -174,8 +68,10 @@
         </div>
       </a>
 
-      <a href="projects/project-two.html" class="project-card">
-        <img src="../assets/img/webcollab.png" class="project-image">
+      <a href="projects/project-two.html" class="project-card hover-lift ripple">
+        <div class="project-image-frame">
+          <img src="../assets/img/webcollab.png" class="project-image soft-zoom">
+        </div>
         <h2 class="project-title">Web Collaboration – Elemental Water</h2>
         <p class="project-desc">
           A collaborative themed website built with coordinated design, GitHub workflows, and team integration.
@@ -185,8 +81,10 @@
         </div>
       </a>
 
-      <a href="projects/project-three.html" class="project-card">
-        <img src="../assets/img/designstyle.png" class="project-image">
+      <a href="projects/project-three.html" class="project-card hover-lift ripple">
+        <div class="project-image-frame">
+          <img src="../assets/img/designstyle.png" class="project-image soft-zoom">
+        </div>
         <h2 class="project-title">Swiss Design Lineage – Flat Design</h2>
         <p class="project-desc">
           A coded exploration of Swiss Design principles using grids, typography, and flat-design clarity.
@@ -200,11 +98,32 @@
 
   </main>
 
-  <footer>
+  <footer class="site-footer reveal">
     © 2025 – Pranika Kalluru – built with clarity & purpose
   </footer>
 
-  <script src="../assets/js/script.js"></script>
+  <!-- INLINE JS FOR SPOTLIGHT + PARALLAX -->
+  <script>
+    // Spotlight cursor
+    const spotlight = document.getElementById("bg-spotlight");
+    if (spotlight) {
+      document.addEventListener("mousemove", (e) => {
+        const x = e.clientX;
+        const y = e.clientY + window.scrollY;
+        spotlight.style.transform = `translate(${x - 200}px, ${y - 200}px)`;
+      });
+    }
+
+    // Parallax header
+    const parallaxLayers = document.querySelectorAll(".parallax-layer");
+    window.addEventListener("scroll", () => {
+      const scrollY = window.scrollY;
+      parallaxLayers.forEach((layer, index) => {
+        const depth = (index + 1) * 0.06;
+        layer.style.transform = `translateY(${scrollY * depth}px)`;
+      });
+    });
+  </script>
 
 </body>
 
