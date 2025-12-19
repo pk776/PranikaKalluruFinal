@@ -11,13 +11,11 @@
 
   <style>
     /* -----------------------------------------
-       GLOBAL PAGE LAYOUT (NO GRID BACKGROUND)
+       GLOBAL PAGE LAYOUT (PROJECT SPECIFIC)
     ------------------------------------------ */
 
     body {
-      background: var(--background);
-      margin: 0;
-      padding: 0;
+      background: var(--bg);
     }
 
     /* Centered max-width wrapper */
@@ -34,21 +32,6 @@
       .project-layout {
         grid-template-columns: 1fr;
       }
-    }
-
-    /* -----------------------------------------
-       SCROLL PROGRESS BAR
-    ------------------------------------------ */
-
-    .scroll-progress {
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 3px;
-      width: 0;
-      background: var(--accent);
-      z-index: 1000;
-      transition: width 0.1s linear;
     }
 
     /* -----------------------------------------
@@ -87,7 +70,6 @@
     ------------------------------------------ */
 
     .project-header-wrap {
-      grid-column: 1 / -1;
       max-width: 1100px;
       margin: 0 auto;
       padding: 1.5rem 1.5rem 0;
@@ -123,7 +105,6 @@
     ------------------------------------------ */
 
     .project-hero {
-      grid-column: 1 / -1;
       text-align: center;
       padding: 2rem 1.5rem 0;
       max-width: 900px;
@@ -196,7 +177,7 @@
       padding: 0.3rem 0.6rem;
       border-radius: 999px;
       border: 1px solid var(--border);
-      background: rgba(0,0,0,0.03);
+      background: rgba(0, 0, 0, 0.03);
     }
 
     .share-button {
@@ -311,7 +292,7 @@
       height: 7px;
       border-radius: 50%;
       border: 1px solid var(--border);
-      background: var(--background);
+      background: var(--bg);
       transition: background 0.2s ease, border-color 0.2s ease;
     }
 
@@ -364,10 +345,11 @@
       border-radius: 6px;
       padding: 2rem;
       margin-bottom: 2.5rem;
-      box-shadow: 0 4px 18px rgba(0,0,0,0.04);
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04);
       opacity: 0;
       transform: translateY(20px);
       transition: opacity 0.5s ease, transform 0.5s ease;
+      scroll-snap-align: start;
     }
 
     .project-section.visible {
@@ -375,7 +357,6 @@
       transform: translateY(0);
     }
 
-    /* Animated underline */
     .project-section h2 {
       font-size: 1.5rem;
       margin-bottom: 0.6rem;
@@ -398,22 +379,18 @@
       width: 40px;
     }
 
-    /* -----------------------------------------
-       MICRO-PARALLAX ON CARDS
-    ------------------------------------------ */
-
     .project-section.parallax-card {
       will-change: transform;
     }
 
     /* -----------------------------------------
-       LIGHTBOX
+       LIGHTBOX (PAGE TWEAKS)
     ------------------------------------------ */
 
     .lightbox-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(0,0,0,0.8);
+      background: rgba(0, 0, 0, 0.8);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -432,8 +409,8 @@
       max-width: 90vw;
       max-height: 90vh;
       border-radius: 8px;
-      border: 1px solid rgba(255,255,255,0.2);
-      box-shadow: 0 18px 45px rgba(0,0,0,0.6);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.6);
     }
 
     .lightbox-close {
@@ -459,7 +436,7 @@
       background: var(--card);
       font-size: 0.85rem;
       text-decoration: none;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.18);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
       opacity: 0;
       pointer-events: none;
       transition: opacity 0.2s ease, transform 0.2s ease;
@@ -480,7 +457,7 @@
     }
 
     /* -----------------------------------------
-       SCROLL SNAPPING
+       SCROLL BEHAVIOR
     ------------------------------------------ */
 
     html,
@@ -492,12 +469,31 @@
       scroll-snap-type: y proximity;
     }
 
-    .project-section {
-      scroll-snap-align: start;
+    .project-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 0.75rem;
+    }
+
+    .project-links a {
+      font-size: 0.9rem;
+      text-decoration: none;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      padding: 0.35rem 0.8rem;
+      background: var(--bg);
+      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .project-links a:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
     }
   </style>
 </head>
-<body class="fade-in">
+<body id="top" class="fade-in">
 
   <!-- Scroll progress bar -->
   <div class="scroll-progress" id="scrollProgress"></div>
@@ -590,80 +586,85 @@
       <section class="project-section" id="process">
         <h2>Process</h2>
         <ul>
-          <li>Conducted a competitive landscape analysis with a focus on beauty and
-                  <li>Identified persuasion archetypes for each competitor, mapping tone, promise, and personality.</li>
-      <li>Evaluated messaging, visual hierarchy, and on‑site interaction patterns.</li>
-      <li>Mapped each brand’s sales funnel and customer journey from awareness to purchase.</li>
-      <li>Synthesized findings into a structured framework aligned with the Williams Design System.</li>
-    </ul>
-  </section>
+          <li>Conducted a competitive landscape analysis with a focus on beauty and e‑commerce players.</li>
+          <li>Identified persuasion archetypes for each competitor, mapping tone, promise, and personality.</li>
+          <li>Evaluated messaging, visual hierarchy, and on‑site interaction patterns.</li>
+          <li>Mapped each brand’s sales funnel and customer journey from awareness to purchase.</li>
+          <li>Synthesized findings into a structured framework aligned with the Williams Design System.</li>
+        </ul>
+      </section>
 
-  <section class="project-section" id="outcome">
-    <h2>Outcome</h2>
-    <p>
-      The final deliverable clarified how Sephora’s persuasion strategy leans on authority, social proof, and curated abundance
-      while still preserving a premium, editorial feel. The framework highlighted concrete opportunities to sharpen narrative focus,
-      simplify decision points, and translate the persuasion model into a more modular, reusable design system.
-    </p>
-  </section>
+      <section class="project-section" id="outcome">
+        <h2>Outcome</h2>
+        <p>
+          The final deliverable clarified how Sephora’s persuasion strategy leans on authority, social proof, and curated abundance
+          while still preserving a premium, editorial feel. The framework highlighted concrete opportunities to sharpen narrative focus,
+          simplify decision points, and translate the persuasion model into a more modular, reusable design system.
+        </p>
+      </section>
 
-  <section class="project-section" id="links">
-    <h2>Links</h2>
-    <p>Supporting materials and original assignment context:</p>
-    <div class="project-links">
-      <a href="https://github.com/natorbit/williams_design" target="_blank" rel="noopener">GitHub Repository</a>
-      <a href="https://github.com/kaw393939/williams_design" target="_blank" rel="noopener">Assignment Directions</a>
-    </div>
-  </section>
+      <section class="project-section" id="links">
+        <h2>Links</h2>
+        <p>Supporting materials and original assignment context:</p>
+        <div class="project-links">
+          <a href="https://github.com/natorbit/williams_design" target="_blank" rel="noopener">GitHub Repository</a>
+          <a href="https://github.com/kaw393939/williams_design" target="_blank" rel="noopener">Assignment Directions</a>
+        </div>
+      </section>
 
-</article>
+    </article>
 
-<!-- TABLE OF CONTENTS -->
-<aside class="project-toc">
-  <div class="project-toc-title">On this page</div>
-  <ul>
-    <li>
-      <a href="#overview" class="toc-link">Overview</a>
-      <span class="toc-status"></span>
-    </li>
-    <li>
-      <a href="#process" class="toc-link">Process</a>
-      <span class="toc-status"></span>
-    </li>
-    <li>
-      <a href="#outcome" class="toc-link">Outcome</a>
-      <span class="toc-status"></span>
-    </li>
-    <li>
-      <a href="#links" class="toc-link">Links</a>
-      <span class="toc-status"></span>
-    </li>
-  </ul>
-</aside>
+    <!-- TABLE OF CONTENTS -->
+    <aside class="project-toc">
+      <div class="project-toc-title">On this page</div>
+      <ul>
+        <li>
+          <a href="#overview" class="toc-link">Overview</a>
+          <span class="toc-status"></span>
+        </li>
+        <li>
+          <a href="#process" class="toc-link">Process</a>
+          <span class="toc-status"></span>
+        </li>
+        <li>
+          <a href="#outcome" class="toc-link">Outcome</a>
+          <span class="toc-status"></span>
+        </li>
+        <li>
+          <a href="#links" class="toc-link">Links</a>
+          <span class="toc-status"></span>
+        </li>
+      </ul>
+    </aside>
 
-</main>
+  </main>
 
-<!-- BOTTOM NAV -->
-<nav class="bottom-nav">
-  <a href="../../index.html">Home</a>
-  <a href="../index.html">Portfolio</a>
-  <a href="../../design_style/index.html">Design Style</a>
-  <a href="../../client_site/index.html">Client Site</a>
-</nav>
+  <!-- BOTTOM NAV -->
+  <nav class="bottom-nav">
+    <a href="../../index.html">Home</a>
+    <a href="../index.html">Portfolio</a>
+    <a href="../../design_style/index.html">Design Style</a>
+    <a href="../../client_site/index.html">Client Site</a>
+  </nav>
 
-<footer class="site-footer reveal">
-  <p>© 2025 – Pranika Kalluru – Built with clarity & purpose</p>
-</footer>
+  <footer class="site-footer reveal">
+    <p>© 2025 – Pranika Kalluru – Built with clarity & purpose</p>
+  </footer>
 
-<!-- LIGHTBOX -->
-<div class="lightbox-overlay" id="lightbox">
-  <img src="../../assets/img/archetype.png" alt="Archetypes Persuasion Analysis full preview" class="lightbox-image" />
-  <div class="lightbox-close" id="lightboxClose">×</div>
-</div>
+  <!-- LIGHTBOX -->
+  <div class="lightbox-overlay" id="lightbox">
+    <img
+      src="../../assets/img/archetype.png"
+      alt="Archetypes Persuasion Analysis full preview"
+      class="lightbox-image"
+    />
+    <div class="lightbox-close" id="lightboxClose">×</div>
+  </div>
 
-<!-- BACK TO TOP -->
-<a href="#top" class="back-to-top" id="backToTop">Back to top</a>
-  <!-- INTERACTIONS -->
+  <!-- BACK TO TOP -->
+  <a href="#top" class="back-to-top" id="backToTop">Back to top</a>
+
+  <!-- PAGE-SPECIFIC INTERACTIONS -->
   <script>
     /* -----------------------------------------
        SMOOTH SCROLL FOR IN-PAGE LINKS
@@ -674,8 +675,9 @@
         const target = document.getElementById(targetId);
         if (target) {
           e.preventDefault();
+          const offsetTop = target.getBoundingClientRect().top + window.scrollY - 80;
           window.scrollTo({
-            top: target.offsetTop - 80,
+            top: offsetTop,
             behavior: "smooth",
           });
         }
@@ -899,4 +901,3 @@
 </body>
 
 </html>
-
