@@ -132,7 +132,103 @@ if (window.gsap) {
 // -----------------------------
 if (window.MicroModal) {
   MicroModal.init();
-
-  // Attach triggers if you want dynamic behavior (optional)
-  // Thumbnails already have data-micromodal-trigger in HTML
 }
+
+// ----------------------------------------------------
+// NEW: Horizontal Section Navigation + Mini Header
+// ----------------------------------------------------
+const sectionNavLinks = document.querySelectorAll(".section-nav a");
+const miniHeader = document.getElementById("miniSectionHeader");
+
+const trackedSections = [
+  "overview",
+  "services",
+  "palette",
+  "beforeafter",
+  "mockups",
+  "process",
+  "testimonial",
+  "cta"
+].map(id => document.getElementById(id));
+
+function updateSectionNav() {
+  let current = null;
+
+  trackedSections.forEach(section => {
+    const rect = section.getBoundingClientRect();
+    if (rect.top <= 140 && rect.bottom >= 140) {
+      current = section.id;
+    }
+  });
+
+  // Highlight active nav link
+  sectionNavLinks.forEach(link => {
+    const target = link.getAttribute("href").substring(1);
+    link.classList.toggle("active", target === current);
+  });
+
+  updateMiniHeader(current);
+}
+
+function updateMiniHeader(currentId) {
+  if (!miniHeader) return;
+
+  if (!currentId) {
+    miniHeader.classList.remove("visible");
+    return;
+  }
+
+  const section = document.getElementById(currentId);
+  const title = section.querySelector("h2")?.textContent || "Section";
+
+  miniHeader.textContent = "Current section: " + title;
+  miniHeader.classList.add("visible");
+}
+
+window.addEventListener("scroll", updateSectionNav);
+window.addEventListener("load", updateSectionNav);
+// ----------------------------------------------------
+// Smooth Scrolling for Section Navigation
+// ----------------------------------------------------
+const sectionNav = document.querySelector(".section-nav");
+if (sectionNav) {
+  sectionNav.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", e => {
+      const targetId = link.getAttribute("href");
+      const targetEl = document.querySelector(targetId);
+      if (!targetEl) return;
+
+      e.preventDefault();
+      window.scrollTo({
+        top: targetEl.offsetTop - 80,
+        behavior: "smooth"
+      });
+    });
+  });
+}
+
+// ----------------------------------------------------
+// Throttled Scroll Spy + Mini Header Sync
+// ----------------------------------------------------
+let scrollTimeout = null;
+
+function throttledScrollSpy() {
+  if (scrollTimeout) return;
+
+  scrollTimeout = setTimeout(() => {
+    updateSectionNav();
+    scrollTimeout = null;
+  }, 120);
+}
+
+window.addEventListener("scroll", throttledScrollSpy);
+window.addEventListener("load", updateSectionNav);
+
+// ----------------------------------------------------
+// Animated Underline for Active Nav Link
+// ----------------------------------------------------
+sectionNavLinks.forEach(link => {
+  link.addEventListener("mouseenter", () => link.classList.add("hover"));
+  link.addEventListener("mouseleave", () => link.classList.remove("hover"));
+});
+
