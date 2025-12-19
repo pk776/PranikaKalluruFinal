@@ -10,15 +10,17 @@
   <script defer src="../../assets/js/script.js"></script>
 
   <style>
-    /* --------- LAYOUT & BACKGROUND --------- */
+    /* -----------------------------------------
+       GLOBAL PAGE LAYOUT (NO GRID BACKGROUND)
+    ------------------------------------------ */
 
     body {
-      background:
-        linear-gradient(to bottom, rgba(0,0,0,0.02) 1px, transparent 1px),
-        linear-gradient(to right, rgba(0,0,0,0.02) 1px, transparent 1px);
-      background-size: 24px 24px;
+      background: var(--background);
+      margin: 0;
+      padding: 0;
     }
 
+    /* Centered max-width wrapper */
     .project-layout {
       max-width: 1100px;
       margin: 0 auto;
@@ -34,7 +36,9 @@
       }
     }
 
-    /* --------- SCROLL PROGRESS BAR --------- */
+    /* -----------------------------------------
+       SCROLL PROGRESS BAR
+    ------------------------------------------ */
 
     .scroll-progress {
       position: fixed;
@@ -47,7 +51,9 @@
       transition: width 0.1s linear;
     }
 
-    /* --------- BREADCRUMBS + HEADER --------- */
+    /* -----------------------------------------
+       BREADCRUMBS + META
+    ------------------------------------------ */
 
     .project-header-wrap {
       grid-column: 1 / -1;
@@ -81,29 +87,49 @@
       margin-top: 0.4rem;
     }
 
-    .project-meta span {
-      white-space: nowrap;
-    }
-
-    /* --------- HERO --------- */
+    /* -----------------------------------------
+       HERO SECTION (CENTERED + AMBIENT GLOW)
+    ------------------------------------------ */
 
     .project-hero {
       grid-column: 1 / -1;
-      text-align: left;
+      text-align: center;
       padding: 2rem 1.5rem 0;
-      max-width: 1100px;
+      max-width: 900px;
       margin: 0 auto;
+      position: relative;
     }
 
+    /* Ambient glow behind hero */
+    .project-hero::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(
+        circle,
+        rgba(255, 0, 80, 0.12),
+        transparent 70%
+      );
+      transform: translate(-50%, -50%);
+      z-index: -1;
+      filter: blur(40px);
+    }
+
+    /* Parallax hero image */
     .project-thumb {
       max-width: 720px;
       width: 100%;
       display: block;
       margin: 0 auto 2rem;
-      border-radius: 8px;
+      border-radius: 10px;
       border: 1px solid var(--border);
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
       cursor: zoom-in;
+      transform: translateY(0);
+      transition: transform 0.3s ease-out;
     }
 
     .project-title {
@@ -116,14 +142,18 @@
     .project-subtitle {
       font-size: 1.1rem;
       max-width: 640px;
+      margin: 0 auto;
       line-height: 1.6;
       opacity: 0.85;
     }
 
-    /* --------- READING TIME + SHARE --------- */
+    /* -----------------------------------------
+       HEADER ACTIONS (CENTERED)
+    ------------------------------------------ */
 
     .header-actions {
       display: flex;
+      justify-content: center;
       flex-wrap: wrap;
       align-items: center;
       gap: 0.75rem;
@@ -135,7 +165,7 @@
       padding: 0.3rem 0.6rem;
       border-radius: 999px;
       border: 1px solid var(--border);
-      background: rgba(0,0,0,0.02);
+      background: rgba(0,0,0,0.03);
     }
 
     .share-button {
@@ -157,7 +187,9 @@
       color: #fff;
     }
 
-    /* --------- TABLE OF CONTENTS --------- */
+    /* -----------------------------------------
+       TABLE OF CONTENTS (FLOAT RIGHT)
+    ------------------------------------------ */
 
     .project-toc {
       position: sticky;
@@ -208,17 +240,24 @@
       }
     }
 
-    /* --------- MAIN CONTENT --------- */
+    /* -----------------------------------------
+       HYBRID SECTION CARDS (MEDIUM WIDTH)
+    ------------------------------------------ */
 
     .project-body {
       line-height: 1.7;
     }
 
     .project-section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 2rem;
       margin-bottom: 2.5rem;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.04); /* ultra-soft shadow */
       opacity: 0;
-      transform: translateY(15px);
-      transition: opacity 0.4s ease, transform 0.4s ease;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
     }
 
     .project-section.visible {
@@ -226,34 +265,32 @@
       transform: translateY(0);
     }
 
+    /* Animated underline */
     .project-section h2 {
       font-size: 1.5rem;
       margin-bottom: 0.6rem;
       position: relative;
+      display: inline-block;
     }
 
     .project-section h2::after {
       content: "";
-      display: block;
-      width: 40px;
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 0%;
       height: 3px;
       background: var(--accent);
-      margin-top: 0.4rem;
-      transform-origin: left;
-      transform: scaleX(0.3);
-      opacity: 0.8;
+      transition: width 0.4s ease;
     }
 
-    .project-section ul {
-      padding-left: 1.2rem;
-      margin-top: 0.6rem;
+    .project-section.visible h2::after {
+      width: 40px;
     }
 
-    .section-divider {
-      border-top: 1px solid var(--border);
-      margin: 2.5rem 0;
-      opacity: 0.8;
-    }
+    /* -----------------------------------------
+       LINKS + MICRO INTERACTIONS
+    ------------------------------------------ */
 
     .project-links {
       margin-top: 1rem;
@@ -276,9 +313,12 @@
       background: var(--accent);
       border-color: var(--accent);
       color: #fff;
+      transform: translateY(-2px);
     }
 
-    /* --------- LIGHTBOX --------- */
+    /* -----------------------------------------
+       LIGHTBOX
+    ------------------------------------------ */
 
     .lightbox-overlay {
       position: fixed;
@@ -315,7 +355,9 @@
       cursor: pointer;
     }
 
-    /* --------- BACK TO TOP BUTTON --------- */
+    /* -----------------------------------------
+       BACK TO TOP BUTTON
+    ------------------------------------------ */
 
     .back-to-top {
       position: fixed;
@@ -348,7 +390,6 @@
     }
   </style>
 </head>
-
 <body class="fade-in">
 
   <!-- Scroll progress bar -->
@@ -380,7 +421,7 @@
   </header>
 
   <!-- HERO -->
-  <section class="project-hero">
+  <section class="project-hero" id="heroContainer">
     <img
       src="../../assets/img/archetype.png"
       class="project-thumb"
@@ -415,8 +456,6 @@
         </p>
       </section>
 
-      <div class="section-divider"></div>
-
       <section class="project-section" id="process">
         <h2>Process</h2>
         <ul>
@@ -428,8 +467,6 @@
         </ul>
       </section>
 
-      <div class="section-divider"></div>
-
       <section class="project-section" id="outcome">
         <h2>Outcome</h2>
         <p>
@@ -438,8 +475,6 @@
           simplify decision points, and translate the persuasion model into a more modular, reusable design system.
         </p>
       </section>
-
-      <div class="section-divider"></div>
 
       <section class="project-section" id="links">
         <h2>Links</h2>
@@ -485,10 +520,11 @@
 
   <!-- BACK TO TOP -->
   <a href="#top" class="back-to-top" id="backToTop">Back to top</a>
-
   <!-- INTERACTIONS -->
   <script>
-    // Smooth scroll for in-page anchors
+    /* -----------------------------------------
+       SMOOTH SCROLL FOR IN-PAGE LINKS
+    ------------------------------------------ */
     document.querySelectorAll('a[href^="#"]').forEach(function (link) {
       link.addEventListener("click", function (e) {
         const targetId = this.getAttribute("href").substring(1);
@@ -503,7 +539,9 @@
       });
     });
 
-    // Scroll progress bar
+    /* -----------------------------------------
+       SCROLL PROGRESS BAR
+    ------------------------------------------ */
     const scrollProgress = document.getElementById("scrollProgress");
     window.addEventListener("scroll", function () {
       const scrollTop = window.scrollY || document.documentElement.scrollTop;
@@ -512,23 +550,35 @@
       scrollProgress.style.width = progress + "%";
     });
 
-    // Reveal sections on scroll + TOC highlight
+    /* -----------------------------------------
+       SECTION FADE-IN + UNDERLINE ANIMATION
+    ------------------------------------------ */
     const sections = document.querySelectorAll(".project-section");
-    const tocLinks = document.querySelectorAll(".toc-link");
 
-    function handleScrollEffects() {
+    function revealSections() {
       const viewportBottom = window.scrollY + window.innerHeight;
 
       sections.forEach(function (section) {
         const rect = section.getBoundingClientRect();
         const top = rect.top + window.scrollY;
+
         if (viewportBottom > top + 80) {
           section.classList.add("visible");
         }
       });
+    }
 
-      // Active TOC link
+    window.addEventListener("scroll", revealSections);
+    window.addEventListener("load", revealSections);
+
+    /* -----------------------------------------
+       TABLE OF CONTENTS ACTIVE HIGHLIGHT
+    ------------------------------------------ */
+    const tocLinks = document.querySelectorAll(".toc-link");
+
+    function updateTOC() {
       let currentId = null;
+
       sections.forEach(function (section) {
         const rect = section.getBoundingClientRect();
         if (rect.top <= 120 && rect.bottom >= 120) {
@@ -545,7 +595,89 @@
       });
     }
 
-    window.addEventListener("scroll", handleScrollEffects);
+    window.addEventListener("scroll", updateTOC);
+    window.addEventListener("load", updateTOC);
+
+    /* -----------------------------------------
+       PARALLAX HERO IMAGE
+    ------------------------------------------ */
+    const heroImage = document.getElementById("heroImage");
+    const heroContainer = document.getElementById("heroContainer");
+
+    window.addEventListener("scroll", function () {
+      const offset = window.scrollY * 0.15;
+      heroImage.style.transform = `translateY(${offset}px)`;
+    });
+
+    /* -----------------------------------------
+       LIGHTBOX
+    ------------------------------------------ */
+    const lightbox = document.getElementById("lightbox");
+    const lightboxClose = document.getElementById("lightboxClose");
+
+    heroImage.addEventListener("click", function () {
+      lightbox.classList.add("visible");
+    });
+
+    lightboxClose.addEventListener("click", function () {
+      lightbox.classList.remove("visible");
+    });
+
+    lightbox.addEventListener("click", function (e) {
+      if (e.target === lightbox) {
+        lightbox.classList.remove("visible");
+      }
+    });
+
+    /* -----------------------------------------
+       SHARE BUTTON (COPY LINK)
+    ------------------------------------------ */
+    const shareButton = document.getElementById("shareButton");
+
+    shareButton.addEventListener("click", function () {
+      const url = window.location.href;
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(function () {
+          shareButton.textContent = "Link copied";
+          setTimeout(function () {
+            shareButton.textContent = "Copy project link";
+          }, 1800);
+        });
+      } else {
+        const tempInput = document.createElement("input");
+        tempInput.value = url;
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        document.execCommand("copy");
+        document.body.removeChild(tempInput);
+
+        shareButton.textContent = "Link copied";
+        setTimeout(function () {
+          shareButton.textContent = "Copy project link";
+        }, 1800);
+      }
+    });
+
+    /* -----------------------------------------
+       BACK TO TOP BUTTON
+    ------------------------------------------ */
+    const backToTop = document.getElementById("backToTop");
+
+    function toggleBackToTop() {
+      if (window.scrollY > 400) {
+        backToTop.classList.add("visible");
+      } else {
+        backToTop.classList.remove("visible");
+      }
+    }
+
+    window.addEventListener("scroll", toggleBackToTop);
+
+    backToTop.addEventListener("click", function (e) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
   </script>
 
 </body>
