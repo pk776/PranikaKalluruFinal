@@ -10,6 +10,66 @@
 
   <!-- JS -->
   <script defer src="../assets/js/script.js"></script>
+
+  <style>
+    /* Center the grid and improve spacing */
+    .home-card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 36px;
+      justify-items: center;
+      margin: 60px auto 0;
+      max-width: 900px;
+    }
+
+    /* Cooler card styling */
+    .home-card {
+      background: rgba(255,255,255,0.75);
+      backdrop-filter: blur(14px);
+      padding: 32px;
+      border-radius: 14px;
+      text-decoration: none;
+      color: var(--text);
+      width: 100%;
+      max-width: 320px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      transition: transform 0.35s ease, box-shadow 0.35s ease, background 0.35s ease;
+      border: 1px solid rgba(255,255,255,0.4);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .home-card:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 14px 32px rgba(0,0,0,0.12);
+      background: rgba(255,255,255,0.9);
+    }
+
+    /* Ripple effect */
+    .home-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle, rgba(255,255,255,0.4), transparent 70%);
+      opacity: 0;
+      transform: scale(0.2);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+
+    .home-card:hover::after {
+      opacity: 1;
+      transform: scale(1.6);
+    }
+
+    /* Better spacing for portfolio section */
+    main {
+      padding-top: 20px !important;
+    }
+
+    .section-title-underline {
+      margin-bottom: 40px;
+    }
+  </style>
 </head>
 
 <body class="fade-in">
@@ -56,25 +116,24 @@
     <div class="home-card-grid">
 
       <!-- PROJECT 1 -->
-      <a href="projects/project-one.html" class="home-card hover-lift ripple">
+      <a href="projects/project-one.html" class="home-card">
         <h2>Archetypes Persuasion Analysis →</h2>
         <p>A structured, editorial-style analysis exploring persuasion, narrative, and character systems.</p>
       </a>
 
       <!-- PROJECT 2 -->
-      <a href="projects/project-two.html" class="home-card hover-lift ripple">
+      <a href="projects/project-two.html" class="home-card">
         <h2>Elemental Water Project →</h2>
         <p>A visual exploration of water as a design system — motion, clarity, and layered depth.</p>
       </a>
 
       <!-- PROJECT 3 -->
-      <a href="projects/project-three.html" class="home-card hover-lift ripple">
+      <a href="projects/project-three.html" class="home-card">
         <h2>Client Counseling Site →</h2>
         <p>A calm, professional site designed for clarity, trust, and accessible information flow.</p>
       </a>
-      
-    </div>
 
+    </div>
   </main>
 
   <!-- FOOTER -->
