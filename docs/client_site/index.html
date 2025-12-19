@@ -1,262 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Client Site – Pranika Kalluru</title>
 
-  <link rel="stylesheet" href="../assets/css/style-v2.css">
-  <script defer src="../assets/js/script.js"></script>
-
-  <style>
-    /* ----------------------------------------------------------
-       CLIENT SITE — PREMIUM STICKY LAYOUT
-    ---------------------------------------------------------- */
-
-    .client-wrapper {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 160px 20px 80px;
-      display: grid;
-      grid-template-columns: 1fr 260px;
-      gap: 60px;
-    }
-
-    @media (max-width: 900px) {
-      .client-wrapper {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    /* Left column (content) */
-    .client-content section {
-      margin-bottom: 80px;
-    }
-
-    /* Right column (sticky project info) */
-    .project-info {
-      position: sticky;
-      top: 120px;
-      align-self: start;
-      background: var(--bg);
-      border: 1px solid var(--border);
-      padding: 16px 20px;
-      border-radius: var(--radius);
-      font-size: 0.9rem;
-      line-height: 1.4;
-    }
-
-    /* ----------------------------------------------------------
-       SECTION NAV — STICKY
-    ---------------------------------------------------------- */
-
-    .section-nav {
-      position: sticky;
-      top: 60px;
-      background: var(--bg);
-      padding: 14px 0;
-      border-bottom: 1px solid var(--border);
-      z-index: 900;
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-    }
-
-    .section-nav a {
-      font-size: 0.9rem;
-      padding-bottom: 4px;
-      position: relative;
-      text-decoration: none;
-      color: var(--text);
-    }
-
-    .section-nav a.active::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -2px;
-      width: 100%;
-      height: 2px;
-      background: var(--accent);
-    }
-
-    /* ----------------------------------------------------------
-       HERO
-    ---------------------------------------------------------- */
-
-    .client-hero {
-      text-align: center;
-      padding-top: 20px;
-    }
-
-    .client-hero h1 {
-      font-size: 2.6rem;
-      margin-bottom: 12px;
-    }
-
-    .client-hero p {
-      max-width: 700px;
-      margin: 0 auto;
-      color: var(--subtle-text);
-    }
-
-    /* ----------------------------------------------------------
-       SERVICES GRID
-    ---------------------------------------------------------- */
-
-    .services-grid {
-      display: grid;
-      gap: 24px;
-      grid-template-columns: 1fr;
-    }
-
-    @media (min-width: 800px) {
-      .services-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    .service-card {
-      border: 1px solid var(--border);
-      padding: 20px;
-      border-radius: var(--radius);
-      background: var(--bg);
-    }
-
-    /* ----------------------------------------------------------
-       BRAND PALETTE
-    ---------------------------------------------------------- */
-
-    .brand-palette {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    .color-swatch {
-      width: 140px;
-      height: 80px;
-      border-radius: var(--radius);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.85rem;
-      border: 1px solid var(--border);
-    }
-
-    /* ----------------------------------------------------------
-       BEFORE / AFTER SLIDER
-    ---------------------------------------------------------- */
-
-    .before-after {
-      position: relative;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .before-after img {
-      border-radius: var(--radius);
-    }
-
-    .after-img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 50%;
-      overflow: hidden;
-      border-radius: var(--radius);
-    }
-
-    .slider-handle {
-      position: absolute;
-      top: 0;
-      left: 50%;
-      width: 4px;
-      height: 100%;
-      background: var(--accent);
-      cursor: ew-resize;
-    }
-
-    /* ----------------------------------------------------------
-       MOCKUP SECTION
-    ---------------------------------------------------------- */
-
-    .mockup-section p {
-      max-width: 700px;
-      color: var(--subtle-text);
-      margin-bottom: 20px;
-    }
-
-    .mockup-devices {
-      display: flex;
-      gap: 40px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    /* ----------------------------------------------------------
-       PROCESS TIMELINE
-    ---------------------------------------------------------- */
-
-    .timeline {
-      display: grid;
-      gap: 30px;
-      max-width: 700px;
-      margin: 0 auto;
-    }
-
-    .timeline-step h4 {
-      margin-bottom: 6px;
-    }
-
-    /* ----------------------------------------------------------
-       TESTIMONIAL
-    ---------------------------------------------------------- */
-
-    .testimonial p {
-      max-width: 700px;
-      margin: 0 auto 10px;
-      color: var(--subtle-text);
-      text-align: center;
-    }
-
-    .client-name {
-      text-align: center;
-      font-weight: 600;
-      color: var(--text);
-    }
-
-    /* ----------------------------------------------------------
-       CTA
-    ---------------------------------------------------------- */
-
-    .cta-section {
-      text-align: center;
-    }
-
-    .cta-section p {
-      max-width: 600px;
-      margin: 0 auto 20px;
-      color: var(--subtle-text);
-    }
-
-    .cta-btn {
-      display: inline-block;
-      padding: 12px 24px;
-      background: var(--accent);
-      color: #fff;
-      border-radius: var(--radius);
-      text-decoration: none;
-      transition: var(--transition);
-    }
-
-    .cta-btn:hover {
-      opacity: 0.85;
-    }
-  </style>
+  <link rel="stylesheet" href="../assets/css/style-v2.css" />
 </head>
 
 <body class="fade-in">
+
+  <!-- SCROLL PROGRESS BAR -->
+  <div class="scroll-progress"></div>
 
   <!-- MAIN NAV -->
   <nav class="mini-nav fade-in">
@@ -268,89 +23,159 @@
 
   <!-- SECTION NAV -->
   <nav class="section-nav">
-    <a href="#overview">Overview</a>
+    <a href="#intro">Overview</a>
     <a href="#services">Services</a>
     <a href="#palette">Brand Palette</a>
-    <a href="#beforeafter">Before & After</a>
-    <a href="#mockups">Mockups</a>
+    <a href="#mockup-banner">Mockup</a>
     <a href="#process">Process</a>
     <a href="#testimonial">Testimonial</a>
+    <a href="#reflection">Reflection</a>
     <a href="#cta">CTA</a>
   </nav>
 
   <main class="client-wrapper">
 
-    <!-- LEFT COLUMN -->
-    <div class="client-content">
+    <!-- INTRO (CASE STUDY) -->
+    <section class="case-intro" id="intro">
+      <h1>Client Site Case Study</h1>
+      <p>
+        A polished, professional website for a fictional counseling center, designed to transform a dense, dated layout
+        into a calm, modern, and welcoming experience. This project focuses on clarity, hierarchy, and an accessible,
+        responsive interface that feels trustworthy and human.
+      </p>
+      <div class="case-meta">
+        <span><strong>Role:</strong> Designer · Developer</span>
+        <span><strong>Tools:</strong> Figma, VS Code, HTML, CSS</span>
+        <span><strong>Timeline:</strong> 2 weeks</span>
+        <span><strong>Deliverables:</strong> Homepage, Brand System, UI Components</span>
+      </div>
+    </section>
 
-      <section class="client-hero" id="overview">
-        <h1>Client Site</h1>
-        <p>A polished, professional business‑style website designed for a fictional client — showcasing structure, clarity, and modern UI principles.</p>
-      </section>
+    <div class="section-divider"></div>
 
-      <section class="services-grid" id="services">
-        <h2>Services</h2>
-        <div class="service-card"><h3>Brand Identity</h3><p>Clear, consistent branding built around typography, color, and layout systems.</p></div>
-        <div class="service-card"><h3>Responsive Web Design</h3><p>Fully responsive layouts optimized for all devices.</p></div>
-        <div class="service-card"><h3>Content Strategy</h3><p>Structured messaging that communicates value and builds trust.</p></div>
-        <div class="service-card"><h3>UI Components</h3><p>Reusable, scalable interface components designed for clarity.</p></div>
-      </section>
+    <!-- HERO -->
+    <section class="client-hero" id="overview">
+      <h2>Project Overview</h2>
+      <p>
+        The original site was text-heavy, visually noisy, and difficult to scan. The redesigned experience introduces
+        a calmer visual language, clear entry points, and focused messaging so visitors can quickly understand who the
+        client is, what they offer, and how to get started.
+      </p>
+    </section>
 
-      <section class="brand-palette" id="palette">
-        <h2>Brand Palette</h2>
+    <div class="section-divider"></div>
+
+    <!-- SERVICES -->
+    <section id="services">
+      <h2>Services Highlighted</h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <h3>Brand Identity</h3>
+          <p>Refined typography, a balanced color palette, and consistent layout patterns to build trust.</p>
+        </div>
+        <div class="service-card">
+          <h3>Responsive Web Design</h3>
+          <p>Layouts that adapt gracefully from mobile to desktop, keeping key actions always visible.</p>
+        </div>
+        <div class="service-card">
+          <h3>Content Restructure</h3>
+          <p>Rewriting and reorganizing content for clarity, readability, and emotional connection.</p>
+        </div>
+        <div class="service-card">
+          <h3>UI Components</h3>
+          <p>Reusable sections, buttons, and patterns that make future updates easier and more consistent.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- BRAND PALETTE -->
+    <section id="palette">
+      <h2>Brand Palette</h2>
+      <p class="section-intro-text">
+        The palette shifts from saturated, competing colors to a calmer system that supports readability and focus.
+      </p>
+      <div class="brand-palette">
         <div class="color-swatch" style="background:#E63946;">#E63946</div>
         <div class="color-swatch" style="background:#111;">#111111</div>
         <div class="color-swatch" style="background:#555;">#555555</div>
         <div class="color-swatch" style="background:#f5f5f5; color:#111;">#F5F5F5</div>
-      </section>
+      </div>
+    </section>
 
-      <section class="before-after" id="beforeafter">
-        <h2>Before & After Redesign</h2>
-        <div class="before-after">
-          <img src="../assets/img/before-after.png" alt="Before and After">
-          <div class="after-img"><img src="../assets/img/before-after.png" alt="After"></div>
-          <div class="slider-handle"></div>
+    <div class="section-divider"></div>
+
+    <!-- FULL-WIDTH MOCKUP BANNER -->
+    <section class="mockup-banner" id="mockup-banner">
+      <h2>Homepage Redesign</h2>
+      <p class="section-intro-text">
+        A full-width hero mockup showcases the redesigned homepage, centering a calm hero image, focused messaging,
+        and clear calls to action.
+      </p>
+      <div class="mockup-banner-frame">
+        <img src="../assets/img/before-after.png"
+             alt="Before and after comparison of the counseling center homepage redesign">
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- PROCESS -->
+    <section class="process-section" id="process">
+      <h2>Design Process</h2>
+      <div class="timeline">
+        <div class="timeline-step">
+          <h4>1. Discovery</h4>
+          <p>Analyzed the existing site to identify pain points in hierarchy, color usage, and content density.</p>
         </div>
-      </section>
-
-      <section class="mockup-section" id="mockups">
-        <h2>Client Homepage Mockup</h2>
-        <p>A responsive homepage preview displayed inside realistic device frames.</p>
-        <div class="mockup-devices">
-          <div class="device laptop"><div class="laptop-screen"><div class="screen-content"></div></div><div class="laptop-base"></div></div>
-          <div class="device phone"><div class="phone-screen"><div class="screen-content"></div></div></div>
+        <div class="timeline-step">
+          <h4>2. Wireframing</h4>
+          <p>Explored layouts that prioritized clarity, with clear sections for welcome, services, and getting started.</p>
         </div>
-      </section>
-
-      <section class="process-section" id="process">
-        <h2>Design Process</h2>
-        <div class="timeline">
-          <div class="timeline-step"><h4>1. Discovery</h4><p>Understanding the client’s goals and audience.</p></div>
-          <div class="timeline-step"><h4>2. Wireframing</h4><p>Creating structured layouts that prioritize clarity.</p></div>
-          <div class="timeline-step"><h4>3. Visual Design</h4><p>Applying typography, color, and spacing.</p></div>
-          <div class="timeline-step"><h4>4. Development</h4><p>Building responsive, accessible UI components.</p></div>
+        <div class="timeline-step">
+          <h4>3. Visual Design</h4>
+          <p>Introduced a calmer palette, modern type choices, and generous spacing to support accessibility.</p>
         </div>
-      </section>
+        <div class="timeline-step">
+          <h4>4. Development</h4>
+          <p>Built the layout using semantic HTML and modular CSS, ensuring it adapts smoothly across screen sizes.</p>
+        </div>
+      </div>
+    </section>
 
-      <section class="testimonial" id="testimonial">
-        <h2>Testimonial</h2>
-        <p>“Pranika delivered a clean, modern, and highly professional website that perfectly captured our brand’s identity.”</p>
-        <div class="client-name">— Fictional Client</div>
-      </section>
+    <div class="section-divider"></div>
 
-      <section class="cta-section" id="cta">
-        <h2>Want to See More?</h2>
-        <p>Explore additional projects, case studies, and design explorations in my portfolio.</p>
-        <a class="cta-btn" href="../portfolio/index.html">View Portfolio</a>
-      </section>
+    <!-- TESTIMONIAL -->
+    <section class="testimonial" id="testimonial">
+      <h2>Testimonial</h2>
+      <p>
+        “The redesigned site feels calming, clear, and easy to navigate. It communicates who we are in a way that
+        finally feels aligned with the work we do.”
+      </p>
+      <div class="client-name">— Fictional Client, Counseling Center</div>
+    </section>
 
-    </div>
+    <div class="section-divider"></div>
 
-    <!-- RIGHT COLUMN -->
-    <div class="project-info">
-      <h4>Client Project</h4>
-      <p>Branding<br>UI/UX<br>Responsive Design<br>Case Study</p>
-    </div>
+    <!-- REFLECTION -->
+    <section class="reflection-section" id="reflection">
+      <h2>Reflection</h2>
+      <p>
+        This project reinforced how much small shifts in typography, spacing, and wording can change how a brand feels.
+        If I were to extend this further, I’d design a full resource library layout and an onboarding flow that guides
+        new clients from first visit to first appointment with even more clarity.
+      </p>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- CTA -->
+    <section class="cta-section" id="cta">
+      <h2>Explore More Work</h2>
+      <p>See additional projects, experiments, and explorations that build on this same focus on clarity and structure.</p>
+      <a class="cta-btn" href="../portfolio/index.html">View Portfolio</a>
+    </section>
 
   </main>
 
@@ -358,6 +183,20 @@
     <p>© 2025 – Pranika Kalluru – Built with clarity & purpose</p>
   </footer>
 
+  <!-- SIMPLE SCROLL PROGRESS JS -->
+  <script>
+    const progressBar = document.querySelector('.scroll-progress');
+    function updateProgress() {
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      progressBar.style.width = progress + '%';
+    }
+    window.addEventListener('scroll', updateProgress);
+    window.addEventListener('load', updateProgress);
+  </script>
+
 </body>
 
 </html>
+  
