@@ -14,9 +14,7 @@
        GLOBAL PAGE LAYOUT
     ------------------------------------------ */
     body {
-      background: var(--background);
-      margin: 0;
-      padding: 0;
+      background: var(--bg);
     }
 
     .project-layout {
@@ -32,20 +30,6 @@
       .project-layout {
         grid-template-columns: 1fr;
       }
-    }
-
-    /* -----------------------------------------
-       SCROLL PROGRESS BAR
-    ------------------------------------------ */
-    .scroll-progress {
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 3px;
-      width: 0;
-      background: var(--accent);
-      z-index: 1000;
-      transition: width 0.1s linear;
     }
 
     /* -----------------------------------------
@@ -82,7 +66,6 @@
        HERO SECTION
     ------------------------------------------ */
     .project-hero {
-      grid-column: 1 / -1;
       text-align: center;
       padding: 2rem 1.5rem 0;
       max-width: 900px;
@@ -90,6 +73,7 @@
       position: relative;
     }
 
+    /* Blue glow */
     .project-hero::before {
       content: "";
       position: absolute;
@@ -226,7 +210,7 @@
       height: 7px;
       border-radius: 50%;
       border: 1px solid var(--border);
-      background: var(--background);
+      background: var(--bg);
       transition: background 0.2s ease, border-color 0.2s ease;
     }
 
@@ -256,19 +240,33 @@
       font-weight: 600;
     }
 
+    @media (max-width: 880px) {
+      .project-toc {
+        position: static;
+        margin-top: 2rem;
+        border-top: 1px solid var(--border);
+        padding-top: 1rem;
+      }
+    }
+
     /* -----------------------------------------
-       HYBRID SECTION CARDS
+       SECTION CARDS
     ------------------------------------------ */
+    .project-body {
+      line-height: 1.7;
+    }
+
     .project-section {
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: 6px;
       padding: 2rem;
       margin-bottom: 2.5rem;
-      box-shadow: 0 4px 18px rgba(0,0,0,0.04);
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04);
       opacity: 0;
       transform: translateY(20px);
       transition: opacity 0.5s ease, transform 0.5s ease;
+      scroll-snap-align: start;
     }
 
     .project-section.visible {
@@ -298,9 +296,6 @@
       width: 40px;
     }
 
-    /* -----------------------------------------
-       MICRO-PARALLAX
-    ------------------------------------------ */
     .project-section.parallax-card {
       will-change: transform;
     }
@@ -388,12 +383,32 @@
       scroll-snap-type: y proximity;
     }
 
-    .project-section {
-      scroll-snap-align: start;
+    .project-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 0.75rem;
+    }
+
+    .project-links a {
+      font-size: 0.9rem;
+      text-decoration: none;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      padding: 0.35rem 0.8rem;
+      background: var(--bg);
+      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .project-links a:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
     }
   </style>
 </head>
-<body class="fade-in">
+
+<body id="top" class="fade-in">
 
   <!-- Scroll progress bar -->
   <div class="scroll-progress" id="scrollProgress"></div>
@@ -460,10 +475,9 @@
     </div>
   </section>
 
-  <!-- MAIN LAYOUT: CONTENT + TOC -->
+  <!-- MAIN LAYOUT -->
   <main class="project-layout">
 
-    <!-- MAIN CONTENT -->
     <article class="project-body">
 
       <section class="project-section" id="overview">
@@ -544,14 +558,21 @@
   </footer>
 
   <!-- LIGHTBOX -->
+  <div class="lightbox
+    <!-- LIGHTBOX -->
   <div class="lightbox-overlay" id="lightbox">
-    <img src="../../assets/img/webcollab.png" alt="Web Collaboration full preview" class="lightbox-image" />
+    <img
+      src="../../assets/img/webcollab.png"
+      alt="Web Collaboration full preview"
+      class="lightbox-image"
+    />
     <div class="lightbox-close" id="lightboxClose">×</div>
   </div>
 
   <!-- BACK TO TOP -->
   <a href="#top" class="back-to-top" id="backToTop">Back to top</a>
-  <!-- INTERACTIONS -->
+
+  <!-- PAGE-SPECIFIC INTERACTIONS -->
   <script>
     /* -----------------------------------------
        SMOOTH SCROLL FOR IN-PAGE LINKS
@@ -562,8 +583,10 @@
         const target = document.getElementById(targetId);
         if (target) {
           e.preventDefault();
+          const offsetTop =
+            target.getBoundingClientRect().top + window.scrollY - 80;
           window.scrollTo({
-            top: target.offsetTop - 80,
+            top: offsetTop,
             behavior: "smooth",
           });
         }
@@ -576,7 +599,8 @@
     const scrollProgress = document.getElementById("scrollProgress");
     window.addEventListener("scroll", function () {
       const scrollTop = window.scrollY || document.documentElement.scrollTop;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const docHeight =
+        document.documentElement.scrollHeight - window.innerHeight;
       const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
       scrollProgress.style.width = progress + "%";
     });
@@ -602,8 +626,12 @@
         }
 
         if (section.classList.contains("visible")) {
-          const centerOffset = rect.top + rect.height / 2 - window.innerHeight / 2;
-          const parallaxShift = Math.max(Math.min(centerOffset * 0.02, 6), -6);
+          const centerOffset =
+            rect.top + rect.height / 2 - window.innerHeight / 2;
+          const parallaxShift = Math.max(
+            Math.min(centerOffset * 0.02, 6),
+            -6
+          );
           section.style.transform = `translateY(${parallaxShift}px)`;
         }
       });
@@ -650,7 +678,8 @@
         const activeSection = document.getElementById(currentId);
         const heading = activeSection.querySelector("h2");
         if (heading) {
-          miniHeader.textContent = "Current section: " + heading.textContent;
+          miniHeader.textContent =
+            "Current section: " + heading.textContent;
           miniHeader.classList.add("visible");
         }
       } else {
@@ -776,7 +805,8 @@
             if (progress < 1) {
               requestAnimationFrame(tick);
             } else {
-              valueEl.textContent = target === 100 ? target + "%" : target;
+              valueEl.textContent =
+                target === 100 ? target + "%" : target;
             }
           }
 
@@ -792,4 +822,3 @@
 </body>
 
 </html>
-
