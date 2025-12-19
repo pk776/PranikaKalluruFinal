@@ -1,21 +1,412 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Web Collaboration – Elemental Water</title>
 
-  <!-- Correct relative paths -->
-<link rel="stylesheet" href="/PranikaKalluruFinal/docs/assets/css/style-v2.css">
-<script defer src="/PranikaKalluruFinal/docs/assets/js/script.js"></script>
-</head>
+  <!-- Global styles + scripts -->
+  <link rel="stylesheet" href="../../assets/css/style-v2.css" />
+  <script defer src="../../assets/js/script.js"></script>
 
+  <style>
+    /* -----------------------------------------
+       GLOBAL PAGE LAYOUT
+    ------------------------------------------ */
+    body {
+      background: var(--background);
+      margin: 0;
+      padding: 0;
+    }
+
+    .project-layout {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 4rem 1.5rem 5rem;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(260px, 280px);
+      gap: 3rem;
+    }
+
+    @media (max-width: 880px) {
+      .project-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* -----------------------------------------
+       SCROLL PROGRESS BAR
+    ------------------------------------------ */
+    .scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      width: 0;
+      background: var(--accent);
+      z-index: 1000;
+      transition: width 0.1s linear;
+    }
+
+    /* -----------------------------------------
+       MINI SECTION HEADER
+    ------------------------------------------ */
+    .mini-section-header {
+      position: fixed;
+      top: 3px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 0.25rem 0.7rem;
+      font-size: 0.78rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(6px);
+      z-index: 900;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+
+    body.dark .mini-section-header {
+      background: rgba(15, 15, 15, 0.9);
+    }
+
+    .mini-section-header.visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translate(-50%, 0);
+    }
+
+    /* -----------------------------------------
+       HERO SECTION
+    ------------------------------------------ */
+    .project-hero {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 2rem 1.5rem 0;
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .project-hero::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(
+        circle,
+        rgba(0, 140, 255, 0.12),
+        transparent 70%
+      );
+      transform: translate(-50%, -50%);
+      z-index: -1;
+      filter: blur(40px);
+    }
+
+    .project-thumb {
+      max-width: 720px;
+      width: 100%;
+      display: block;
+      margin: 0 auto 2rem;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+      cursor: zoom-in;
+      transform: translateY(0);
+      transition: transform 0.3s ease-out;
+    }
+
+    .project-title {
+      font-size: 2.6rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-subtitle {
+      font-size: 1.1rem;
+      max-width: 640px;
+      margin: 0 auto;
+      line-height: 1.6;
+      opacity: 0.85;
+    }
+
+    /* -----------------------------------------
+       METRIC CARDS
+    ------------------------------------------ */
+    .metrics-bar {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      margin-top: 1.8rem;
+    }
+
+    .metric-card {
+      min-width: 150px;
+      padding: 1rem 1.25rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--card);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+      text-align: left;
+      position: relative;
+      overflow: hidden;
+      transform: translateY(0);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .metric-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 32px rgba(0, 0, 0, 0.1);
+    }
+
+    .metric-value {
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+    }
+
+    .metric-label {
+      font-size: 0.85rem;
+      opacity: 0.8;
+      margin-top: 0.15rem;
+    }
+
+    .metric-underline {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0%;
+      height: 3px;
+      background: var(--accent);
+      transition: width 0.4s ease;
+    }
+
+    .metric-card.visible .metric-underline {
+      width: 100%;
+    }
+
+    /* -----------------------------------------
+       TABLE OF CONTENTS
+    ------------------------------------------ */
+    .project-toc {
+      position: sticky;
+      top: 5.5rem;
+      align-self: flex-start;
+      font-size: 0.9rem;
+    }
+
+    .project-toc-title {
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-toc ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      border-left: 1px solid var(--border);
+    }
+
+    .project-toc li {
+      position: relative;
+      padding-left: 0.8rem;
+    }
+
+    .toc-status {
+      position: absolute;
+      left: -0.45rem;
+      top: 0.7rem;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: var(--background);
+      transition: background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .toc-link.completed + .toc-status {
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .project-toc a {
+      display: block;
+      padding: 0.4rem 0.75rem;
+      text-decoration: none;
+      opacity: 0.7;
+      border-left: 2px solid transparent;
+      transform: translateX(-1px);
+      transition: 0.18s ease;
+    }
+
+    .project-toc a:hover {
+      opacity: 1;
+      color: var(--accent);
+    }
+
+    .project-toc a.active {
+      opacity: 1;
+      border-left-color: var(--accent);
+      font-weight: 600;
+    }
+
+    /* -----------------------------------------
+       HYBRID SECTION CARDS
+    ------------------------------------------ */
+    .project-section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 2rem;
+      margin-bottom: 2.5rem;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.04);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .project-section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .project-section h2 {
+      font-size: 1.5rem;
+      margin-bottom: 0.6rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .project-section h2::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 0%;
+      height: 3px;
+      background: var(--accent);
+      transition: width 0.4s ease;
+    }
+
+    .project-section.visible h2::after {
+      width: 40px;
+    }
+
+    /* -----------------------------------------
+       MICRO-PARALLAX
+    ------------------------------------------ */
+    .project-section.parallax-card {
+      will-change: transform;
+    }
+
+    /* -----------------------------------------
+       LIGHTBOX
+    ------------------------------------------ */
+    .lightbox-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+      z-index: 999;
+    }
+
+    .lightbox-overlay.visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .lightbox-image {
+      max-width: 90vw;
+      max-height: 90vh;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.2);
+      box-shadow: 0 18px 45px rgba(0,0,0,0.6);
+    }
+
+    .lightbox-close {
+      position: fixed;
+      top: 1.5rem;
+      right: 1.8rem;
+      color: #fff;
+      font-size: 1.6rem;
+      cursor: pointer;
+    }
+
+    /* -----------------------------------------
+       BACK TO TOP
+    ------------------------------------------ */
+    .back-to-top {
+      position: fixed;
+      bottom: 1.8rem;
+      right: 1.8rem;
+      padding: 0.5rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--card);
+      font-size: 0.85rem;
+      text-decoration: none;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.18);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+      transform: translateY(8px);
+      z-index: 900;
+    }
+
+    .back-to-top.visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .back-to-top:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+
+    /* -----------------------------------------
+       SCROLL SNAPPING
+    ------------------------------------------ */
+    html,
+    body {
+      scroll-behavior: smooth;
+    }
+
+    main.project-layout {
+      scroll-snap-type: y proximity;
+    }
+
+    .project-section {
+      scroll-snap-align: start;
+    }
+  </style>
+</head>
 <body class="fade-in">
+
+  <!-- Scroll progress bar -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- Mini section header -->
+  <div class="mini-section-header" id="miniSectionHeader">
+    Current section: Overview
+  </div>
 
   <!-- DARK MODE TOGGLE -->
   <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
 
-  <!-- MINIMAL NAVIGATION -->
+  <!-- TOP MINI NAV -->
   <nav class="mini-nav fade-in">
     <a href="../../index.html">Home</a>
     <a href="../../portfolio/index.html">Portfolio</a>
@@ -23,58 +414,382 @@
     <a href="../../client_site/index.html">Client Site</a>
   </nav>
 
-  <main class="container">
+  <!-- HERO -->
+  <section class="project-hero" id="heroContainer">
+    <img
+      src="../../assets/img/webcollab.png"
+      class="project-thumb"
+      alt="Web Collaboration – Elemental Water"
+      id="heroImage"
+    />
 
-    <section class="project-detail reveal">
+    <h1 class="project-title">Web Collaboration – Elemental Water</h1>
+    <p class="project-subtitle">
+      A collaborative themed website built with coordinated design, GitHub workflows, and team integration.
+    </p>
 
-      <!-- Correct image path -->
-      <img src="../../assets/img/webcollab.png" 
-           class="project-thumb" 
-           alt="Web Collaboration Thumbnail">
+    <div class="header-actions">
+      <span class="reading-time">2–3 minute read</span>
+      <button class="share-button" id="shareButton" type="button">
+        <span>Copy project link</span>
+      </button>
+    </div>
 
-      <h1 class="project-title">Web Collaboration – Elemental Water</h1>
+    <!-- METRIC CARDS -->
+    <div class="metrics-bar" id="metricsBar">
+      <div class="metric-card" data-target="4">
+        <div class="metric-value">0</div>
+        <div class="metric-label">Team members collaborated</div>
+        <div class="metric-underline"></div>
+      </div>
+      <div class="metric-card" data-target="12">
+        <div class="metric-value">0</div>
+        <div class="metric-label">GitHub pull requests merged</div>
+        <div class="metric-underline"></div>
+      </div>
+      <div class="metric-card" data-target="100">
+        <div class="metric-value">0%</div>
+        <div class="metric-label">Design consistency achieved</div>
+        <div class="metric-underline"></div>
+      </div>
+      <div class="metric-card" data-target="3">
+        <div class="metric-value">0</div>
+        <div class="metric-label">Design systems unified</div>
+        <div class="metric-underline"></div>
+      </div>
+    </div>
+  </section>
 
-      <p class="project-subtitle">
-        A collaborative themed website built with coordinated design, GitHub workflows, and team integration.
-      </p>
+  <!-- MAIN LAYOUT: CONTENT + TOC -->
+  <main class="project-layout">
 
-      <div class="project-body reveal">
+    <!-- MAIN CONTENT -->
+    <article class="project-body">
 
+      <section class="project-section" id="overview">
         <h2>Overview</h2>
         <p>
-          This project explored teamwork, version control, and collaborative web development.
+          This project explored teamwork, version control, and collaborative web development. 
+          Each team member contributed a unique section to a unified themed website, requiring 
+          coordination, communication, and consistent design execution.
         </p>
+      </section>
 
+      <section class="project-section" id="process">
         <h2>Process</h2>
         <ul>
           <li>Designed and coded my assigned section</li>
           <li>Collaborated through GitHub branching and pull requests</li>
-          <li>Integrated multiple design styles</li>
-          <li>Ensured consistency in typography and spacing</li>
-          <li>Resolved merge conflicts</li>
+          <li>Integrated multiple design styles into one cohesive theme</li>
+          <li>Ensured consistency in typography, spacing, and layout</li>
+          <li>Resolved merge conflicts and maintained clean version history</li>
         </ul>
+      </section>
 
+      <section class="project-section" id="outcome">
         <h2>Outcome</h2>
         <p>
-          The final site demonstrated strong collaboration and technical coordination.
+          The final site demonstrated strong collaboration, technical coordination, and 
+          the ability to merge multiple design perspectives into a unified experience. 
+          The project strengthened teamwork, GitHub workflow skills, and design alignment.
         </p>
+      </section>
 
+      <section class="project-section" id="links">
         <h2>Links</h2>
+        <p>Supporting materials and project resources:</p>
         <div class="project-links">
           <a href="https://pk776.github.io/Elemental_Water/index.html" target="_blank">Live Project</a>
           <a href="https://github.com/kaw393939/is117_ai_test_practice" target="_blank">Assignment Directions</a>
         </div>
+      </section>
 
-      </div>
+    </article>
 
-    </section>
+    <!-- TABLE OF CONTENTS -->
+    <aside class="project-toc">
+      <div class="project-toc-title">On this page</div>
+      <ul>
+        <li>
+          <a href="#overview" class="toc-link">Overview</a>
+          <span class="toc-status"></span>
+        </li>
+        <li>
+          <a href="#process" class="toc-link">Process</a>
+          <span class="toc-status"></span>
+        </li>
+        <li>
+          <a href="#outcome" class="toc-link">Outcome</a>
+          <span class="toc-status"></span>
+        </li>
+        <li>
+          <a href="#links" class="toc-link">Links</a>
+          <span class="toc-status"></span>
+        </li>
+      </ul>
+    </aside>
 
   </main>
+
+  <!-- BOTTOM NAV -->
+  <nav class="bottom-nav">
+    <a href="../../index.html">Home</a>
+    <a href="../../portfolio/index.html">Portfolio</a>
+    <a href="../../design_style/index.html">Design Style</a>
+    <a href="../../client_site/index.html">Client Site</a>
+  </nav>
 
   <footer class="site-footer reveal">
     <p>© 2025 – Pranika Kalluru – Built with clarity & purpose</p>
   </footer>
 
+  <!-- LIGHTBOX -->
+  <div class="lightbox-overlay" id="lightbox">
+    <img src="../../assets/img/webcollab.png" alt="Web Collaboration full preview" class="lightbox-image" />
+    <div class="lightbox-close" id="lightboxClose">×</div>
+  </div>
+
+  <!-- BACK TO TOP -->
+  <a href="#top" class="back-to-top" id="backToTop">Back to top</a>
+  <!-- INTERACTIONS -->
+  <script>
+    /* -----------------------------------------
+       SMOOTH SCROLL FOR IN-PAGE LINKS
+    ------------------------------------------ */
+    document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+      link.addEventListener("click", function (e) {
+        const targetId = this.getAttribute("href").substring(1);
+        const target = document.getElementById(targetId);
+        if (target) {
+          e.preventDefault();
+          window.scrollTo({
+            top: target.offsetTop - 80,
+            behavior: "smooth",
+          });
+        }
+      });
+    });
+
+    /* -----------------------------------------
+       SCROLL PROGRESS BAR
+    ------------------------------------------ */
+    const scrollProgress = document.getElementById("scrollProgress");
+    window.addEventListener("scroll", function () {
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      scrollProgress.style.width = progress + "%";
+    });
+
+    /* -----------------------------------------
+       SECTION FADE-IN + MICRO-PARALLAX
+    ------------------------------------------ */
+    const sections = document.querySelectorAll(".project-section");
+
+    sections.forEach(function (section) {
+      section.classList.add("parallax-card");
+    });
+
+    function revealSections() {
+      const viewportBottom = window.scrollY + window.innerHeight;
+
+      sections.forEach(function (section) {
+        const rect = section.getBoundingClientRect();
+        const top = rect.top + window.scrollY;
+
+        if (viewportBottom > top + 80) {
+          section.classList.add("visible");
+        }
+
+        if (section.classList.contains("visible")) {
+          const centerOffset = rect.top + rect.height / 2 - window.innerHeight / 2;
+          const parallaxShift = Math.max(Math.min(centerOffset * 0.02, 6), -6);
+          section.style.transform = `translateY(${parallaxShift}px)`;
+        }
+      });
+    }
+
+    window.addEventListener("scroll", revealSections);
+    window.addEventListener("load", revealSections);
+
+    /* -----------------------------------------
+       TOC ACTIVE + COMPLETION + MINI HEADER
+    ------------------------------------------ */
+    const tocLinks = document.querySelectorAll(".toc-link");
+    const miniHeader = document.getElementById("miniSectionHeader");
+
+    function updateTOC() {
+      let currentId = null;
+
+      sections.forEach(function (section) {
+        const rect = section.getBoundingClientRect();
+
+        if (rect.top <= 120 && rect.bottom >= 120) {
+          currentId = section.id;
+        }
+
+        if (rect.top < 120) {
+          const completedLink = document.querySelector(
+            '.toc-link[href="#' + section.id + '"]'
+          );
+          if (completedLink) {
+            completedLink.classList.add("completed");
+          }
+        }
+      });
+
+      tocLinks.forEach(function (link) {
+        if (link.getAttribute("href").substring(1) === currentId) {
+          link.classList.add("active");
+        } else {
+          link.classList.remove("active");
+        }
+      });
+
+      if (currentId) {
+        const activeSection = document.getElementById(currentId);
+        const heading = activeSection.querySelector("h2");
+        if (heading) {
+          miniHeader.textContent = "Current section: " + heading.textContent;
+          miniHeader.classList.add("visible");
+        }
+      } else {
+        miniHeader.classList.remove("visible");
+      }
+    }
+
+    window.addEventListener("scroll", updateTOC);
+    window.addEventListener("load", updateTOC);
+
+    /* -----------------------------------------
+       PARALLAX HERO IMAGE
+    ------------------------------------------ */
+    const heroImage = document.getElementById("heroImage");
+
+    window.addEventListener("scroll", function () {
+      const offset = window.scrollY * 0.15;
+      heroImage.style.transform = `translateY(${offset}px)`;
+    });
+
+    /* -----------------------------------------
+       LIGHTBOX
+    ------------------------------------------ */
+    const lightbox = document.getElementById("lightbox");
+    const lightboxClose = document.getElementById("lightboxClose");
+
+    heroImage.addEventListener("click", function () {
+      lightbox.classList.add("visible");
+    });
+
+    lightboxClose.addEventListener("click", function () {
+      lightbox.classList.remove("visible");
+    });
+
+    lightbox.addEventListener("click", function (e) {
+      if (e.target === lightbox) {
+        lightbox.classList.remove("visible");
+      }
+    });
+
+    /* -----------------------------------------
+       SHARE BUTTON (COPY LINK)
+    ------------------------------------------ */
+    const shareButton = document.getElementById("shareButton");
+
+    shareButton.addEventListener("click", function () {
+      const url = window.location.href;
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(function () {
+          shareButton.textContent = "Link copied";
+          setTimeout(function () {
+            shareButton.textContent = "Copy project link";
+          }, 1800);
+        });
+      } else {
+        const tempInput = document.createElement("input");
+        tempInput.value = url;
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        document.execCommand("copy");
+        document.body.removeChild(tempInput);
+
+        shareButton.textContent = "Link copied";
+        setTimeout(function () {
+          shareButton.textContent = "Copy project link";
+        }, 1800);
+      }
+    });
+
+    /* -----------------------------------------
+       BACK TO TOP BUTTON
+    ------------------------------------------ */
+    const backToTop = document.getElementById("backToTop");
+
+    function toggleBackToTop() {
+      if (window.scrollY > 400) {
+        backToTop.classList.add("visible");
+      } else {
+        backToTop.classList.remove("visible");
+      }
+    }
+
+    window.addEventListener("scroll", toggleBackToTop);
+
+    backToTop.addEventListener("click", function (e) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    /* -----------------------------------------
+       METRIC CARD COUNT-UP ANIMATION
+    ------------------------------------------ */
+    const metricCards = document.querySelectorAll(".metric-card");
+
+    function animateMetrics() {
+      const viewportBottom = window.scrollY + window.innerHeight;
+
+      metricCards.forEach(function (card) {
+        const rect = card.getBoundingClientRect();
+        const top = rect.top + window.scrollY;
+
+        if (!card.classList.contains("visible") && viewportBottom > top + 40) {
+          card.classList.add("visible");
+
+          const target = parseInt(card.getAttribute("data-target"), 10) || 0;
+          const valueEl = card.querySelector(".metric-value");
+          let current = 0;
+          const duration = 900;
+          const start = performance.now();
+
+          function tick(now) {
+            const progress = Math.min((now - start) / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            current = Math.floor(target * eased);
+
+            if (target === 100) {
+              valueEl.textContent = current + "%";
+            } else {
+              valueEl.textContent = current;
+            }
+
+            if (progress < 1) {
+              requestAnimationFrame(tick);
+            } else {
+              valueEl.textContent = target === 100 ? target + "%" : target;
+            }
+          }
+
+          requestAnimationFrame(tick);
+        }
+      });
+    }
+
+    window.addEventListener("scroll", animateMetrics);
+    window.addEventListener("load", animateMetrics);
+  </script>
+
 </body>
 
 </html>
+
