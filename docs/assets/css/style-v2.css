@@ -1,7 +1,3 @@
-/* ----------------------------------------------------------
-   1. GLOBAL RESET & VARIABLES
----------------------------------------------------------- */
-
 :root {
   --bg: #ffffff;
   --text: #222;
@@ -47,10 +43,6 @@ img {
   max-width: 100%;
   display: block;
 }
-/* ----------------------------------------------------------
-   2. GLOBAL ANIMATIONS
----------------------------------------------------------- */
-
 .fade-in {
   opacity: 0;
   animation: fadeIn 0.8s ease forwards;
@@ -84,10 +76,6 @@ img {
   0% { opacity: 0; transform: scaleX(0.8); }
   100% { opacity: 1; transform: scaleX(1); }
 }
-/* ----------------------------------------------------------
-   3. SCROLL PROGRESS BAR
----------------------------------------------------------- */
-
 .scroll-progress {
   position: fixed;
   top: 0;
@@ -98,10 +86,6 @@ img {
   z-index: 1000;
   transition: width 0.15s ease-out;
 }
-
-/* ----------------------------------------------------------
-   4. THEME TOGGLE
----------------------------------------------------------- */
 
 .theme-toggle {
   position: fixed;
@@ -129,10 +113,6 @@ img {
   transform: translateY(-1px);
 }
 
-/* ----------------------------------------------------------
-   5. GRID OVERLAY
----------------------------------------------------------- */
-
 .grid-overlay {
   position: fixed;
   inset: 0;
@@ -159,45 +139,6 @@ img {
   border-radius: var(--radius);
   cursor: pointer;
 }
-/* ----------------------------------------------------------
-   6. NAVIGATION (GLOBAL)
----------------------------------------------------------- */
-
-.mini-nav {
-  position: fixed;
-  top: 3px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 1.8rem;
-  padding: 0.9rem 1.2rem;
-  background: rgba(255, 255, 255, 0.75);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--border);
-  z-index: 999;
-  border-radius: 0 0 12px 12px;
-}
-
-body.dark .mini-nav {
-  background: rgba(20, 20, 20, 0.75);
-}
-
-.mini-nav a {
-  font-size: 0.95rem;
-  text-decoration: none;
-  color: var(--text);
-  opacity: 0.85;
-  transition: opacity 0.2s ease, color 0.2s ease;
-}
-
-.mini-nav a:hover {
-  opacity: 1;
-  color: var(--accent);
-}
-/* ----------------------------------------------------------
-   7. AMBIENT BACKGROUND SYSTEM
----------------------------------------------------------- */
-
 .hero-background,
 .portfolio-background,
 .design-background,
@@ -209,7 +150,6 @@ body.dark .mini-nav {
   overflow: hidden;
 }
 
-/* Gradient wave */
 .bg-gradient-wave {
   position: absolute;
   inset: -20%;
@@ -219,7 +159,6 @@ body.dark .mini-nav {
   animation: waveShift 18s ease-in-out infinite alternate;
 }
 
-/* Blobs */
 .bg-blob {
   position: absolute;
   width: 300px;
@@ -233,7 +172,6 @@ body.dark .mini-nav {
 .bg-blob-2 { background: #8e5cff; bottom: 0%; right: 5%; animation: floatBlob2 20s ease-in-out infinite alternate; }
 .bg-blob-3 { background: #00c6ae; top: 40%; right: 50%; animation: floatBlob3 24s ease-in-out infinite alternate; }
 
-/* Grid overlay */
 .bg-grid-overlay {
   position: absolute;
   inset: 0;
@@ -245,7 +183,6 @@ body.dark .mini-nav {
   mix-blend-mode: soft-light;
 }
 
-/* Particles */
 .bg-particles {
   position: absolute;
   inset: 0;
@@ -255,7 +192,6 @@ body.dark .mini-nav {
   animation: particleDrift 40s linear infinite alternate;
 }
 
-/* Spotlight */
 .bg-spotlight {
   position: absolute;
   width: 400px;
@@ -266,10 +202,6 @@ body.dark .mini-nav {
   pointer-events: none;
   transition: transform 0.20s ease-out;
 }
-/* ----------------------------------------------------------
-   8. SHARED COMPONENTS
----------------------------------------------------------- */
-
 .section-label {
   text-transform: uppercase;
   letter-spacing: 0.16em;
@@ -321,10 +253,6 @@ body.dark .mini-nav {
   transform: translateY(-6px);
   box-shadow: 0 14px 30px rgba(0, 0, 0, 0.16);
 }
-/* ----------------------------------------------------------
-   9. HOMEPAGE MODULE
----------------------------------------------------------- */
-
 .home-hero {
   position: relative;
   padding-top: 120px;
@@ -407,10 +335,6 @@ body.dark .mini-nav {
   font-size: 1.05rem;
   line-height: 1.6;
 }
-/* ----------------------------------------------------------
-   10. PORTFOLIO MODULE
----------------------------------------------------------- */
-
 .portfolio-header {
   max-width: 900px;
   margin: 0 auto;
@@ -470,10 +394,6 @@ body.dark .mini-nav {
   letter-spacing: 0.5px;
   border-radius: 4px;
 }
-/* ----------------------------------------------------------
-   11. DESIGN STYLE MODULE
----------------------------------------------------------- */
-
 .design-wrapper {
   max-width: 1100px;
   margin: 0 auto;
@@ -512,10 +432,6 @@ body.dark .mini-nav {
   flex-direction: column;
   gap: 20px;
 }
-/* ----------------------------------------------------------
-   12. CLIENT SITE MODULE
----------------------------------------------------------- */
-
 .client-wrapper {
   max-width: 900px;
   margin: 0 auto;
@@ -619,3 +535,68 @@ body.dark .mini-nav {
 }
 
 /* Testimonial */
+.testimonial p {
+  max-width: 650px;
+  margin: 16px auto 10px;
+  color: var(--subtle-text);
+  text-align: center;
+}
+
+.client-name {
+  text-align: center;
+  font-weight: 600;
+  color: var(--text);
+}
+
+/* CTA */
+.client-wrapper .cta-section {
+  text-align: center;
+}
+
+.client-wrapper .cta-section p {
+  max-width: 600px;
+  margin: 16px auto 20px;
+  color: var(--subtle-text);
+}
+
+.client-wrapper .cta-btn {
+  display: inline-block;
+  padding: 12px 24px;
+  background: var(--accent);
+  color: #fff;
+  border-radius: var(--radius);
+  text-decoration: none;
+  transition: transform 0.2s ease-out, box-shadow 0.2s ease-out, opacity 0.2s ease-out;
+}
+
+.client-wrapper .cta-btn:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+.lightbox-overlay {
+  position: fixed !important;
+  inset: 0 !important;
+  background: rgba(0,0,0,0.8) !important;
+  display: none !important;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+  z-index: 999;
+}
+
+.lightbox-overlay.visible {
+  display: flex !important;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal {
+  font-family: "Inter", sans-serif;
+}
+
+.modal__overlay {
+  background-color: rgba(0, 0, 0, 0.65);
+}
