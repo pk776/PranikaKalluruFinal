@@ -538,4 +538,16 @@
 
       tocLinks.forEach(function (link) {
         if (link.getAttribute("href").substring(1) === currentId) {
-          link.classList.add
+          link.classList.add("active");
+        } else {
+          link.classList.remove("active");
+        }
+      });
+    }
+
+    window.addEventListener("scroll", handleScrollEffects);
+  </script>
+
+</body>
+
+</html>
