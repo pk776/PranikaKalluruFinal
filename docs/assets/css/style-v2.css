@@ -838,3 +838,9 @@ body.dark .mini-nav {
   opacity: 1;
   color: var(--accent);
 }
+.lightbox-overlay {
+  display: none;
+}
+.lightbox-overlay.visible {
+  display: flex;
+}
