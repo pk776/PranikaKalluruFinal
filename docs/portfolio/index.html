@@ -12,20 +12,36 @@
   <script defer src="../assets/js/script.js"></script>
 
   <style>
-  /* Center the grid and improve spacing */
+  /* Reduce hero spacing ONLY on portfolio page */
+  .home-hero {
+    padding: 40px 20px 20px !important;
+    min-height: auto !important;
+  }
+
+  /* Center the grid and remove excess spacing */
   .home-card-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 36px;
+    gap: 32px;
     justify-items: center;
-    margin: 40px auto 0;
+    margin: 20px auto 0 !important;
     max-width: 900px;
   }
 
-  /* Reduce hero spacing ONLY on portfolio page */
-  .home-hero {
-    padding: 80px 40px 40px;
-    min-height: auto;
+  /* Reduce spacing above the grid */
+  main {
+    padding: 0 40px 80px !important;
+    margin-top: -20px !important;
+  }
+
+  /* Tighten section spacing */
+  .section-title {
+    margin-top: 0;
+    margin-bottom: 4px;
+  }
+
+  .section-title-underline {
+    margin-bottom: 20px !important;
   }
 
   /* Cooler card styling */
@@ -67,14 +83,6 @@
     transform: scale(1.6);
   }
 
-  /* Better spacing for portfolio section */
-  main {
-    padding-top: 0 !important;
-  }
-
-  .section-title-underline {
-    margin-bottom: 30px;
-  }
 </style>
 
 </head>
