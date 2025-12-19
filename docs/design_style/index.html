@@ -5,22 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Swiss Design Style – Visual Language</title>
 
-  <!-- Global styles + scripts -->
-  <link rel="stylesheet" href="../../assets/css/style-v2.css" />
-  <script defer src="../../assets/js/script.js"></script>
+  <!-- Correct global stylesheet + script paths -->
+  <link rel="stylesheet" href="../assets/css/style-v2.css" />
+  <script defer src="../assets/js/script.js"></script>
 
   <style>
 
     body {
-      background: var(--background);
+      background: var(--bg);
       margin: 0;
       padding: 0;
     }
 
+    /* Spacer so fixed nav doesn't overlap hero */
     .nav-spacer {
       height: 70px;
     }
 
+    /* PAGE LAYOUT */
     .design-layout {
       max-width: 1100px;
       margin: 0 auto;
@@ -36,7 +38,7 @@
       }
     }
 
-
+    /* SCROLL PROGRESS */
     .scroll-progress {
       position: fixed;
       top: 0;
@@ -48,7 +50,7 @@
       transition: width 0.1s linear;
     }
 
-
+    /* MINI SECTION HEADER */
     .mini-section-header {
       position: fixed;
       top: 3px;
@@ -66,14 +68,16 @@
       transition: opacity 0.2s ease, transform 0.2s ease;
     }
 
-
+    body.dark .mini-section-header {
+      background: rgba(20, 20, 20, 0.9);
+    }
 
     .mini-section-header.visible {
       opacity: 1;
       transform: translate(-50%, 0);
     }
 
-  
+    /* HERO */
     .design-hero {
       grid-column: 1 / -1;
       text-align: center;
@@ -82,7 +86,6 @@
       margin: 0 auto;
       position: relative;
     }
-
 
     .design-hero::before {
       content: "";
@@ -109,7 +112,6 @@
       transition: transform 0.3s ease-out;
     }
 
-  
     .design-title {
       font-size: 2.6rem;
       font-weight: 700;
@@ -123,6 +125,7 @@
       opacity: 0.85;
     }
 
+    /* METRICS */
     .metrics-bar {
       display: flex;
       justify-content: center;
@@ -170,6 +173,7 @@
       width: 100%;
     }
 
+    /* TABLE OF CONTENTS */
     .design-toc {
       position: sticky;
       top: 5.5rem;
@@ -200,134 +204,56 @@
       height: 7px;
       border-radius: 50%;
       border: 1px solid var(--border);
-      background: var(--background);
-    }
-
-    .toc-link.completed + .toc-status {
-      background: var(--accent);
-      border-color: var(--accent);
-    }
-
-    .design-toc a {
-      display: block;
-      padding: 0.4rem 0.75rem;
-      opacity: 0.7;
-      border-left: 2px solid transparent;
-      transition: 0.18s ease;
-    }
-
-    .design-toc a.active {
-      opacity: 1;
-      border-left-color: var(--accent);
-      font-weight: 600;
-    }
-
-    .design-section {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      padding: 2rem;
-      margin-bottom: 2.5rem;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: 0.5s ease;
-    }
-
-    .design-section.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .design-section h2 {
-      font-size: 1.5rem;
-      margin-bottom: 0.6rem;
-      position: relative;
-    }
-
-    .design-section h2::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -6px;
-      width: 40px;
-      height: 3px;
-      background: var(--accent);
-    }
-
-    .lightbox-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.8);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      opacity: 0;
-      pointer-events: none;
-      transition: 0.25s ease;
-      z-index: 999;
-    }
-
-    .lightbox-overlay.visible {
-      opacity: 1;
-      pointer-events: auto;
-    }
-
-    .lightbox-image {
-      max-width: 90vw;
-      max-height: 90vh;
-      border-radius: 8px;
-    }
-
-    .lightbox-close {
-      position: fixed;
-      top: 1.5rem;
-      right: 1.8rem;
-      color: #fff;
-      font-size: 1.6rem;
-      cursor: pointer;
-    }
-
-    .back-to-top {
-      position: fixed;
-      bottom: 1.8rem;
-      right: 1.8rem;
-      padding: 0.5rem 0.9rem;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      background: var(--card);
-      opacity: 0;
-      pointer-events: none;
-      transition: 0.2s ease;
-    }
-
-    .back-to-top.visible {
-      opacity: 1;
-      pointer-events: auto;
+      background: var(--bg);
     }
   </style>
 </head>
 
 <body class="fade-in">
 
+  <!-- Spacer for fixed nav -->
   <div class="nav-spacer"></div>
 
+  <!-- TOP NAVIGATION (same as homepage) -->
+  <nav class="mini-nav fade-in">
+    <a href="../index.html">Home</a>
+    <a href="../portfolio/index.html">Portfolio</a>
+    <a href="./index.html">Design Style</a>
+    <a href="../client_site/index.html">Client Site</a>
+  </nav>
+</style>
+</head>
+
+<body class="fade-in">
+
+  <!-- Spacer for fixed nav -->
+  <div class="nav-spacer"></div>
+
+  <!-- Scroll progress bar -->
   <div class="scroll-progress" id="scrollProgress"></div>
 
+  <!-- Mini section header -->
   <div class="mini-section-header" id="miniSectionHeader">
     Current section: Overview
   </div>
 
+  <!-- Theme toggle -->
   <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
 
+  <!-- TOP NAVIGATION (corrected paths) -->
   <nav class="mini-nav fade-in">
-    <a href="../../index.html">Home</a>
-    <a href="../../portfolio/index.html">Portfolio</a>
-    <a href="../../design_style/index.html">Design Style</a>
-    <a href="../../client_site/index.html">Client Site</a>
+    <a href="../index.html">Home</a>
+    <a href="../portfolio/index.html">Portfolio</a>
+    <a href="./index.html">Design Style</a>
+    <a href="../client_site/index.html">Client Site</a>
   </nav>
 
+  <!-- HERO SECTION -->
   <section class="design-hero" id="heroContainer">
-    <img src="../../assets/img/designstyle.png" class="design-poster" id="heroImage" alt="Swiss Design Style Poster" />
+    <img src="../assets/img/designstyle.png" 
+         class="design-poster" 
+         id="heroImage" 
+         alt="Swiss Design Style Poster" />
 
     <h1 class="design-title">Swiss Design Style</h1>
     <p class="design-subtitle">
@@ -361,6 +287,7 @@
     </div>
   </section>
 
+  <!-- MAIN CONTENT LAYOUT -->
   <main class="design-layout">
 
     <article class="design-body">
@@ -383,7 +310,6 @@
           <li>Minimal ornamentation</li>
         </ul>
       </section>
-
       <section class="design-section" id="grid">
         <h2>Grid System</h2>
         <p>
@@ -451,14 +377,18 @@
     <p>© 2025 – Pranika Kalluru – Built with clarity & purpose</p>
   </footer>
 
+  <!-- FIXED LIGHTBOX PATH -->
   <div class="lightbox-overlay" id="lightbox">
-    <img src="../../assets/img/designstyle.png" class="lightbox-image" />
+    <img src="../assets/img/designstyle.png" class="lightbox-image" />
     <div class="lightbox-close" id="lightboxClose">×</div>
   </div>
 
   <a href="#top" class="back-to-top" id="backToTop">Back to top</a>
 
   <script>
+    /* -----------------------------------------
+       SCROLL PROGRESS
+    ------------------------------------------ */
     const scrollProgress = document.getElementById("scrollProgress");
     window.addEventListener("scroll", () => {
       const scrollTop = window.scrollY;
@@ -466,6 +396,9 @@
       scrollProgress.style.width = (scrollTop / docHeight) * 100 + "%";
     });
 
+    /* -----------------------------------------
+       SECTION REVEAL
+    ------------------------------------------ */
     const sections = document.querySelectorAll(".design-section");
     function revealSections() {
       const viewportBottom = window.scrollY + window.innerHeight;
@@ -477,17 +410,24 @@
     window.addEventListener("scroll", revealSections);
     window.addEventListener("load", revealSections);
 
+    /* -----------------------------------------
+       TOC ACTIVE + MINI HEADER
+    ------------------------------------------ */
     const tocLinks = document.querySelectorAll(".toc-link");
     const miniHeader = document.getElementById("miniSectionHeader");
+
     function updateTOC() {
       let currentId = null;
+
       sections.forEach(section => {
         const rect = section.getBoundingClientRect();
         if (rect.top <= 120 && rect.bottom >= 120) currentId = section.id;
       });
+
       tocLinks.forEach(link => {
         link.classList.toggle("active", link.getAttribute("href").substring(1) === currentId);
       });
+
       if (currentId) {
         const heading = document.getElementById(currentId).querySelector("h2").textContent;
         miniHeader.textContent = "Current section: " + heading;
@@ -496,26 +436,81 @@
         miniHeader.classList.remove("visible");
       }
     }
+
     window.addEventListener("scroll", updateTOC);
     window.addEventListener("load", updateTOC);
 
+    /* -----------------------------------------
+       HERO PARALLAX
+    ------------------------------------------ */
     const heroImage = document.getElementById("heroImage");
     window.addEventListener("scroll", () => {
       heroImage.style.transform = `translateY(${window.scrollY * 0.15}px)`;
     });
 
+    /* -----------------------------------------
+       LIGHTBOX
+    ------------------------------------------ */
     const lightbox = document.getElementById("lightbox");
     const lightboxClose = document.getElementById("lightboxClose");
+
     heroImage.addEventListener("click", () => lightbox.classList.add("visible"));
     lightboxClose.addEventListener("click", () => lightbox.classList.remove("visible"));
     lightbox.addEventListener("click", e => {
       if (e.target === lightbox) lightbox.classList.remove("visible");
     });
-  
 
+    /* -----------------------------------------
+       BACK TO TOP
+    ------------------------------------------ */
     const backToTop = document.getElementById("backToTop");
     window.addEventListener("scroll", () => {
       backToTop.classList.toggle("visible", window.scrollY > 400);
     });
 
-    const metricCards = document.querySelectorAll(".metric-card
+    /* -----------------------------------------
+       METRIC COUNT-UP ANIMATION
+    ------------------------------------------ */
+    const metricCards = document.querySelectorAll(".metric-card");
+
+    function animateMetrics() {
+      const viewportBottom = window.scrollY + window.innerHeight;
+
+      metricCards.forEach(card => {
+        const rect = card.getBoundingClientRect();
+        const top = rect.top + window.scrollY;
+
+        if (!card.classList.contains("visible") && viewportBottom > top + 40) {
+          card.classList.add("visible");
+
+          const target = parseInt(card.getAttribute("data-target"), 10) || 0;
+          const valueEl = card.querySelector(".metric-value");
+          let current = 0;
+          const duration = 900;
+          const start = performance.now();
+
+          function tick(now) {
+            const progress = Math.min((now - start) / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            current = Math.floor(target * eased);
+
+            valueEl.textContent = target === 100 ? current + "%" : current;
+
+            if (progress < 1) {
+              requestAnimationFrame(tick);
+            } else {
+              valueEl.textContent = target === 100 ? target + "%" : target;
+            }
+          }
+
+          requestAnimationFrame(tick);
+        }
+      });
+    }
+
+    window.addEventListener("scroll", animateMetrics);
+    window.addEventListener("load", animateMetrics);
+  </script>
+
+</body>
+</html>
