@@ -6,7 +6,7 @@
   <title>Client Site – Pranika Kalluru</title>
 
   <link rel="stylesheet" href="/PranikaKalluruFinal/docs/assets/css/style-v2.css">
-<script defer src="/PranikaKalluruFinal/docs/assets/js/script.js"></script>
+  <script defer src="/PranikaKalluruFinal/docs/assets/js/script.js"></script>
 
   <style>
     /* -----------------------------------
@@ -346,6 +346,11 @@
   <!-- SCROLL PROGRESS BAR -->
   <div id="scrollProgress"></div>
 
+  <!-- MINI SECTION HEADER -->
+  <div class="mini-section-header" id="miniSectionHeader">
+    Current section: Overview
+  </div>
+
   <!-- FLOATING PROJECT INFO -->
   <div class="project-info">
     <h4>Client Project</h4>
@@ -363,18 +368,36 @@
     <a href="../client_site/index.html" class="active">Client Site</a>
   </nav>
 
+  <!-- TABLE OF CONTENTS -->
+  <aside class="design-toc">
+    <div class="design-toc-title">On this page</div>
+    <ul>
+      <li><a href="#overview" class="toc-link">Overview</a><span class="toc-status"></span></li>
+      <li><a href="#services" class="toc-link">Services</a><span class="toc-status"></span></li>
+      <li><a href="#palette" class="toc-link">Brand Palette</a><span class="toc-status"></span></li>
+      <li><a href="#beforeafter" class="toc-link">Before & After</a><span class="toc-status"></span></li>
+      <li><a href="#mockups" class="toc-link">Mockups</a><span class="toc-status"></span></li>
+      <li><a href="#process" class="toc-link">Process</a><span class="toc-status"></span></li>
+      <li><a href="#testimonial" class="toc-link">Testimonial</a><span class="toc-status"></span></li>
+      <li><a href="#cta" class="toc-link">CTA</a><span class="toc-status"></span></li>
+    </ul>
+  </aside>
+
   <main class="client-wrapper">
 
     <!-- HERO -->
-    <section class="client-hero reveal">
+    <section class="client-hero reveal" id="overview">
       <h1>Client Site</h1>
       <p>A polished, professional business‑style website designed for a fictional client — showcasing structure, clarity, and modern UI principles.</p>
     </section>
 
     <div class="divider reveal"></div>
-
-    <!-- SERVICES GRID -->
-    <section class="services-grid reveal-left">
+<main class="client-wrapper">
+   ...HERE...
+</main>
+    <!-- SERVICES -->
+    <section class="services-grid reveal-left" id="services">
+      <h2>Services</h2>
 
       <div class="service-card">
         <h3>Brand Identity</h3>
@@ -395,13 +418,14 @@
         <h3>UI Components</h3>
         <p>Reusable, scalable interface components designed for clarity, accessibility, and long‑term maintainability.</p>
       </div>
-
     </section>
 
     <div class="divider reveal"></div>
 
     <!-- BRAND PALETTE -->
-    <section class="brand-palette reveal-right">
+    <section class="brand-palette reveal-right" id="palette">
+      <h2>Brand Palette</h2>
+
       <div class="color-swatch" style="background:#E63946;">#E63946</div>
       <div class="color-swatch" style="background:#111;">#111111</div>
       <div class="color-swatch" style="background:#555;">#555555</div>
@@ -410,27 +434,25 @@
 
     <div class="divider reveal"></div>
 
-<!-- BEFORE/AFTER SLIDER -->
-<section class="before-after reveal">
-  <h2>Before & After Redesign</h2>
+    <!-- BEFORE/AFTER -->
+    <section class="before-after reveal" id="beforeafter">
+      <h2>Before & After Redesign</h2>
 
-  <div class="before-after">
-    <img src="../assets/img/before-after.png" alt="Before and After">
+      <div class="before-after">
+        <img src="../assets/img/before-after.png" alt="Before and After">
 
-    <div class="after-img" id="afterImg">
-      <img src="../assets/img/before-after.png" alt="After">
-    </div>
+        <div class="after-img" id="afterImg">
+          <img src="../assets/img/before-after.png" alt="After">
+        </div>
 
-    <div class="slider-handle" id="sliderHandle"></div>
-  </div>
-</section>
-
-
+        <div class="slider-handle" id="sliderHandle"></div>
+      </div>
+    </section>
 
     <div class="divider reveal"></div>
 
     <!-- MOCKUPS -->
-    <section class="mockup-section reveal-right">
+    <section class="mockup-section reveal-right" id="mockups">
       <h2>Client Homepage Mockup</h2>
       <p>A responsive homepage preview displayed inside realistic device frames.</p>
 
@@ -455,7 +477,7 @@
     <div class="divider reveal"></div>
 
     <!-- PROCESS TIMELINE -->
-    <section class="process-section reveal">
+    <section class="process-section reveal" id="process">
       <h2>Design Process</h2>
 
       <div class="timeline">
@@ -484,7 +506,8 @@
     <div class="divider reveal"></div>
 
     <!-- TESTIMONIAL -->
-    <section class="testimonial reveal-left">
+    <section class="testimonial reveal-left" id="testimonial">
+      <h2>Testimonial</h2>
       <p>“Pranika delivered a clean, modern, and highly professional website that perfectly captured our brand’s identity. Her attention to detail and design clarity made the entire process seamless.”</p>
       <div class="client-name">— Fictional Client</div>
     </section>
@@ -492,12 +515,11 @@
     <div class="divider reveal"></div>
 
     <!-- CTA -->
-    <section class="cta-section reveal-right">
+    <section class="cta-section reveal-right" id="cta">
       <h2>Want to See More?</h2>
       <p>Explore additional projects, case studies, and design explorations in my portfolio.</p>
       <a class="cta-btn" href="../portfolio/index.html">View Portfolio</a>
     </section>
-
   </main>
 
   <footer class="site-footer reveal">
@@ -560,6 +582,60 @@
     function stopSlide() {
       document.removeEventListener("mousemove", moveSlider);
       document.removeEventListener("mouseup", stopSlide);
+    }
+
+    /* -----------------------------------
+       TABLE OF CONTENTS ACTIVE STATE
+    ----------------------------------- */
+    const tocLinks = document.querySelectorAll(".toc-link");
+    const sections = [
+      "overview",
+      "services",
+      "palette",
+      "beforeafter",
+      "mockups",
+      "process",
+      "testimonial",
+      "cta"
+    ].map(id => document.getElementById(id));
+
+    function updateTOC() {
+      let current = null;
+
+      sections.forEach(section => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top <= 140 && rect.bottom >= 140) {
+          current = section.id;
+        }
+      });
+
+      tocLinks.forEach(link => {
+        const target = link.getAttribute("href").substring(1);
+        link.classList.toggle("active", target === current);
+      });
+
+      updateMiniHeader(current);
+    }
+
+    window.addEventListener("scroll", updateTOC);
+    window.addEventListener("load", updateTOC);
+
+    /* -----------------------------------
+       MINI SECTION HEADER
+    ----------------------------------- */
+    const miniHeader = document.getElementById("miniSectionHeader");
+
+    function updateMiniHeader(currentId) {
+      if (!currentId) {
+        miniHeader.classList.remove("visible");
+        return;
+      }
+
+      const section = document.getElementById(currentId);
+      const title = section.querySelector("h2")?.textContent || "Section";
+
+      miniHeader.textContent = "Current section: " + title;
+      miniHeader.classList.add("visible");
     }
   </script>
 
