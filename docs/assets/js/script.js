@@ -231,4 +231,30 @@ sectionNavLinks.forEach(link => {
   link.addEventListener("mouseenter", () => link.classList.add("hover"));
   link.addEventListener("mouseleave", () => link.classList.remove("hover"));
 });
+// Staggered fade-up
+const staggerEls = document.querySelectorAll(".fade-up-stagger");
+
+staggerEls.forEach((section) => {
+  const children = section.querySelectorAll("*");
+  children.forEach((child, i) => {
+    child.style.opacity = 0;
+    child.style.transform = "translateY(20px)";
+    child.style.transition = `0.6s ease ${i * 0.08}s`;
+  });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        children.forEach((child) => {
+          child.style.opacity = 1;
+          child.style.transform = "translateY(0)";
+        });
+        observer.unobserve(section);
+      }
+    });
+  });
+
+  observer.observe(section);
+});
+
 
