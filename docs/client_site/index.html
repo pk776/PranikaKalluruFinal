@@ -31,18 +31,26 @@
     }
 
     body {
-      margin: 0;
-      padding: 0;
-      background: #f7f8fc;
-      overflow-x: hidden;
-      font-family: "Inter", sans-serif;
-    }
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: "Inter", sans-serif;
+
+  /* NEW gradient background */
+  background: linear-gradient(
+    180deg,
+    #e8ecff 0%,
+    #f3f0ff 40%,
+    #faf7ff 100%
+  );
+}
 
     section {
-      max-width: 950px;
-      margin: 36px auto;
-      padding: 0 22px;
-    }
+  max-width: 950px;
+  margin: 28px auto;   /* tighter */
+  padding: 0 20px;
+}
+
 
     .section-title {
       text-align: center;
@@ -68,8 +76,8 @@
     .section-divider {
       height: 1px;
       max-width: 700px;
-      margin: 20px auto;
-      background: linear-gradient(to right, transparent, rgba(0,0,0,0.12), transparent);
+  margin: 14px auto; /* cleaner, less tall */
+  background: linear-gradient(to right, transparent, rgba(0,0,0,0.12), transparent);
       opacity: 0;
       transform: scaleX(0.6);
       transition: var(--transition-medium);
@@ -121,8 +129,8 @@
        HERO (Centered + Parallax + Soft Motion)
     --------------------------------------------- */
     .home-hero {
-      padding: 70px 20px 50px;
-      text-align: center;
+  padding: 60px 20px 40px; /* slightly tighter */
+        text-align: center;
       position: relative;
       overflow: hidden;
     }
@@ -263,8 +271,8 @@
 
     .service-card {
       background: white;
-      padding: 20px;
-      border-radius: var(--radius-lg);
+    padding: 16px; /* tighter */
+        border-radius: var(--radius-lg);
       box-shadow: var(--shadow-soft);
       border: 1px solid rgba(0,0,0,0.06);
       transition: var(--transition-medium);
@@ -337,8 +345,8 @@
 
     details {
       background: white;
-      padding: 14px 16px;
-      border-radius: var(--radius-md);
+  padding: 12px 14px; /* tighter */
+        border-radius: var(--radius-md);
       margin-bottom: 10px;
       border: 1px solid rgba(0,0,0,0.08);
       box-shadow: var(--shadow-soft);
@@ -361,8 +369,8 @@
     --------------------------------------------- */
     .contact-box {
       background: white;
-      padding: 20px;
-      border-radius: var(--radius-lg);
+  padding: 16px; /* tighter */
+        border-radius: var(--radius-lg);
       box-shadow: var(--shadow-medium);
       border: 1px solid rgba(0,0,0,0.06);
     }
@@ -395,9 +403,9 @@
        CTA BANNER (Smaller + Premium)
     --------------------------------------------- */
     .cta-banner {
-      margin: 34px auto 26px;
-      padding: 22px 18px;
-      max-width: 900px;
+ margin: 26px auto 20px; /* tighter */
+  padding: 18px 16px;
+        max-width: 900px;
       text-align: center;
       background: linear-gradient(135deg,
         rgba(74,108,255,0.16),
