@@ -17,6 +17,17 @@
 
 <body class="fade-in">
 
+  <!-- BACKGROUND LAYERS -->
+  <div class="hero-background">
+    <div class="bg-gradient-wave"></div>
+    <div class="bg-blob bg-blob-1"></div>
+    <div class="bg-blob bg-blob-2"></div>
+    <div class="bg-blob bg-blob-3"></div>
+    <div class="bg-grid-overlay"></div>
+    <div class="bg-particles"></div>
+    <div class="bg-spotlight" id="bg-spotlight"></div>
+  </div>
+
   <!-- Spacer so nav doesn't overlap hero -->
   <div class="nav-spacer"></div>
 
@@ -34,7 +45,7 @@
     <!-- THEME TOGGLE -->
     <button class="theme-toggle glow-toggle" onclick="toggleTheme()">🌙</button>
 
-    <section class="intro-centered-section reveal hero-animated">
+    <section class="intro-centered-section reveal hero-animated parallax-layer">
 
       <!-- PHOTO -->
       <div class="intro-photo parallax-photo">
@@ -49,11 +60,11 @@
         </h1>
 
         <p class="intro-subtitle">
-          Designer & Developer focused on clarity, systems, and purposeful digital experiences.
+          <span id="dynamic-tagline">Designer &amp; Developer</span>
         </p>
 
         <p class="intro-description">
-          I’m a Business & Information Systems student at NJIT with a passion for clean design,
+          I’m a Business &amp; Information Systems student at NJIT with a passion for clean design,
           thoughtful interfaces, and building things that feel intentional.
         </p>
       </div>
@@ -61,20 +72,116 @@
       <!-- CARDS -->
       <div class="intro-cards reveal home-card-grid">
 
-        <a href="./portfolio/index.html" class="home-card hover-lift">
+        <a href="./portfolio/index.html" class="home-card hover-lift ripple">
           <h2>Portfolio Site →</h2>
           <p>Explore selected projects and case studies.</p>
         </a>
 
-        <a href="./design_style/index.html" class="home-card hover-lift">
+        <a href="./design_style/index.html" class="home-card hover-lift ripple">
           <h2>Design Style Site →</h2>
           <p>See my Swiss Design lineage and flat‑design system.</p>
         </a>
 
-        <a href="./client_site/index.html" class="home-card hover-lift">
+        <a href="./client_site/index.html" class="home-card hover-lift ripple">
           <h2>Client Site →</h2>
           <p>A professional business‑style website built for a fictional client.</p>
         </a>
+
+      </div>
+
+    </section>
+
+    <!-- WHAT I DO -->
+    <section class="what-i-do section-block fade-up-stagger">
+
+      <p class="section-label">FOCUS</p>
+      <h2 class="section-title">What I Do</h2>
+      <div class="section-title-underline"></div>
+
+      <p class="section-intro-text centered">
+        I design and build interfaces that feel clear, structured, and intentional — grounded in systems thinking
+        and accessible, production-ready implementation.
+      </p>
+
+      <div class="pillars-grid">
+        <div class="pillar-card hover-lift">
+          <h3>Design</h3>
+          <p>Layout systems, hierarchy, and visual direction rooted in Swiss-inspired structure.</p>
+        </div>
+        <div class="pillar-card hover-lift">
+          <h3>Development</h3>
+          <p>Semantic HTML, modular CSS, and responsive front-end implementations that scale.</p>
+        </div>
+        <div class="pillar-card hover-lift">
+          <h3>Strategy</h3>
+          <p>Translating goals into interfaces, focusing on clarity, flow, and realistic constraints.</p>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- CURRENTLY WORKING ON -->
+    <section class="current-section section-block fade-up-stagger">
+
+      <p class="section-label">CURRENTLY</p>
+      <h2 class="section-title">What I’m Working On</h2>
+      <div class="section-title-underline"></div>
+
+      <div class="current-card hover-lift">
+        <p class="section-intro-text centered">
+          Building a cohesive portfolio system that connects my client work, design language, and personal experiments
+          into a single, intentional narrative — from homepage to detailed case studies.
+        </p>
+      </div>
+
+    </section>
+
+    <!-- TOOLS I USE -->
+    <section class="tools-section section-block fade-up-stagger">
+
+      <p class="section-label">TOOLS</p>
+      <h2 class="section-title">Tools I Use</h2>
+      <div class="section-title-underline"></div>
+
+      <p class="section-intro-text centered">
+        A small, focused set of tools that support fast iteration and clean implementation.
+      </p>
+
+      <div class="tools-strip">
+        <span class="tool-pill">Figma</span>
+        <span class="tool-pill">VS Code</span>
+        <span class="tool-pill">HTML</span>
+        <span class="tool-pill">CSS</span>
+        <span class="tool-pill">JavaScript</span>
+        <span class="tool-pill">Git</span>
+      </div>
+
+    </section>
+
+    <!-- FEATURED CASE STUDY -->
+    <section class="featured-section section-block fade-up-stagger">
+
+      <p class="section-label">FEATURED</p>
+      <h2 class="section-title">Client Site Case Study</h2>
+      <div class="section-title-underline"></div>
+
+      <div class="featured-layout">
+
+        <div class="featured-copy">
+          <p>
+            A calm, professional site for a fictional counseling center, redesigned to prioritize clarity,
+            hierarchy, and a more welcoming first impression. The project brought together visual identity,
+            responsive layout, and thoughtful content structure.
+          </p>
+          <a href="./client_site/index.html" class="cta-btn">View Client Site</a>
+        </div>
+
+        <div class="featured-frame hover-soft-zoom parallax-layer">
+          <div class="featured-mock">
+            <div class="featured-bar"></div>
+            <div class="featured-body"></div>
+          </div>
+        </div>
 
       </div>
 
@@ -84,9 +191,51 @@
 
   <!-- FOOTER -->
   <footer class="site-footer reveal">
-    
-    <p>© 2025 – Pranika Kalluru – Built with clarity & purpose</p>
+    <p>© 2025 – Pranika Kalluru – Built with clarity &amp; purpose</p>
   </footer>
+
+  <!-- INLINE JS FOR DYNAMIC TAGLINE + SPOTLIGHT + PARALLAX -->
+  <script>
+    // Dynamic tagline
+    const taglines = [
+      "Designer & Developer",
+      "Systems Thinker",
+      "Interface Builder",
+      "Swiss-Inspired Creator"
+    ];
+    const taglineEl = document.getElementById("dynamic-tagline");
+    if (taglineEl) {
+      let taglineIndex = 0;
+      setInterval(() => {
+        taglineIndex = (taglineIndex + 1) % taglines.length;
+        taglineEl.style.opacity = 0;
+        setTimeout(() => {
+          taglineEl.textContent = taglines[taglineIndex];
+          taglineEl.style.opacity = 1;
+        }, 200);
+      }, 2600);
+    }
+
+    // Spotlight cursor
+    const spotlight = document.getElementById("bg-spotlight");
+    if (spotlight) {
+      document.addEventListener("mousemove", (e) => {
+        const x = e.clientX;
+        const y = e.clientY + window.scrollY;
+        spotlight.style.transform = `translate(${x - 200}px, ${y - 200}px)`;
+      });
+    }
+
+    // Simple parallax on scroll
+    const parallaxLayers = document.querySelectorAll(".parallax-layer");
+    window.addEventListener("scroll", () => {
+      const scrollY = window.scrollY;
+      parallaxLayers.forEach((layer, index) => {
+        const depth = (index + 1) * 0.08;
+        layer.style.transform = `translateY(${scrollY * depth}px)`;
+      });
+    });
+  </script>
 
 </body>
 
