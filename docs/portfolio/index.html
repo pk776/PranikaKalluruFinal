@@ -11,80 +11,96 @@
   <!-- JS -->
   <script defer src="../assets/js/script.js"></script>
 
+  <!-- PAGE-SPECIFIC STYLING -->
   <style>
-  /* Reduce hero spacing ONLY on portfolio page */
-  .home-hero {
-    padding: 40px 20px 20px !important;
-    min-height: auto !important;
-  }
+    /* Reduce hero spacing ONLY on portfolio page */
+    .home-hero {
+      padding: 40px 20px 20px !important;
+      min-height: auto !important;
+    }
 
-  /* Center the grid and remove excess spacing */
-  .home-card-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 32px;
-    justify-items: center;
-    margin: 20px auto 0 !important;
-    max-width: 900px;
-  }
+    /* Center the entire main content */
+    main {
+      padding: 0 !important;
+      margin: 0 auto !important;
+      max-width: 1100px;
+      text-align: center;
+    }
 
-  /* Reduce spacing above the grid */
-  main {
-    padding: 0 40px 80px !important;
-    margin-top: -20px !important;
-  }
+    /* Center the grid and remove excess spacing */
+    .home-card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 32px;
+      justify-items: center;
+      margin: 20px auto 0 !important;
+      max-width: 900px;
+    }
 
-  /* Tighten section spacing */
-  .section-title {
-    margin-top: 0;
-    margin-bottom: 4px;
-  }
+    /* Tighten section spacing */
+    .section-title {
+      margin-top: 0;
+      margin-bottom: 4px;
+    }
 
-  .section-title-underline {
-    margin-bottom: 20px !important;
-  }
+    .section-title-underline {
+      margin-bottom: 20px !important;
+    }
 
-  /* Cooler card styling */
-  .home-card {
-    background: rgba(255,255,255,0.75);
-    backdrop-filter: blur(14px);
-    padding: 32px;
-    border-radius: 14px;
-    text-decoration: none;
-    color: var(--text);
-    width: 100%;
-    max-width: 320px;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-    transition: transform 0.35s ease, box-shadow 0.35s ease, background 0.35s ease;
-    border: 1px solid rgba(255,255,255,0.4);
-    position: relative;
-    overflow: hidden;
-  }
+    /* Thumbnail styling */
+    .card-thumb {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 16px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+      transition: transform 0.35s ease;
+    }
 
-  .home-card:hover {
-    transform: translateY(-10px) scale(1.02);
-    box-shadow: 0 14px 32px rgba(0,0,0,0.12);
-    background: rgba(255,255,255,0.9);
-  }
+    .home-card:hover .card-thumb {
+      transform: scale(1.03);
+    }
 
-  /* Ripple effect */
-  .home-card::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(circle, rgba(255,255,255,0.4), transparent 70%);
-    opacity: 0;
-    transform: scale(0.2);
-    transition: opacity 0.4s ease, transform 0.4s ease;
-  }
+    /* Cooler card styling */
+    .home-card {
+      background: rgba(255,255,255,0.75);
+      backdrop-filter: blur(14px);
+      padding: 32px;
+      border-radius: 14px;
+      text-decoration: none;
+      color: var(--text);
+      width: 100%;
+      max-width: 320px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      transition: transform 0.35s ease, box-shadow 0.35s ease, background 0.35s ease;
+      border: 1px solid rgba(255,255,255,0.4);
+      position: relative;
+      overflow: hidden;
+    }
 
-  .home-card:hover::after {
-    opacity: 1;
-    transform: scale(1.6);
-  }
+    .home-card:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 14px 32px rgba(0,0,0,0.12);
+      background: rgba(255,255,255,0.9);
+    }
 
-</style>
+    /* Ripple effect */
+    .home-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle, rgba(255,255,255,0.4), transparent 70%);
+      opacity: 0;
+      transform: scale(0.2);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
 
+    .home-card:hover::after {
+      opacity: 1;
+      transform: scale(1.6);
+    }
+  </style>
 </head>
 
 <body class="fade-in">
@@ -122,7 +138,7 @@
   </header>
 
   <!-- PROJECT GRID -->
-  <main class="fade-up-stagger" style="padding: 40px 40px 80px; max-width: 1100px; margin: auto;">
+  <main class="fade-up-stagger">
 
     <p class="section-label">PROJECTS</p>
     <h2 class="section-title">Selected Work</h2>
@@ -132,18 +148,21 @@
 
       <!-- PROJECT 1 -->
       <a href="projects/project-one.html" class="home-card">
+        <img src="../assets/img/archetype.png" alt="Archetypes Project Thumbnail" class="card-thumb">
         <h2>Archetypes Persuasion Analysis →</h2>
         <p>A structured, editorial-style analysis exploring persuasion, narrative, and character systems.</p>
       </a>
 
       <!-- PROJECT 2 -->
       <a href="projects/project-two.html" class="home-card">
+        <img src="../assets/img/designstyle.png" alt="Design Style Thumbnail" class="card-thumb">
         <h2>Elemental Water Project →</h2>
         <p>A visual exploration of water as a design system — motion, clarity, and layered depth.</p>
       </a>
 
       <!-- PROJECT 3 -->
       <a href="projects/project-three.html" class="home-card">
+        <img src="../assets/img/webcollab.png" alt="Client Counseling Site Thumbnail" class="card-thumb">
         <h2>Client Counseling Site →</h2>
         <p>A calm, professional site designed for clarity, trust, and accessible information flow.</p>
       </a>
