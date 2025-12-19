@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfolio – Pranika Kalluru</title>
 
-  <!-- Main stylesheet -->
   <link rel="stylesheet" href="../assets/css/style-v2.css">
 
   <style>
@@ -31,6 +30,10 @@
       color: var(--text);
       font-family: Helvetica, Arial, sans-serif;
       transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    .nav-spacer {
+      height: 70px;
     }
 
     .portfolio-grid-wrapper {
@@ -138,6 +141,15 @@
 
 <body class="fade-in">
 
+  <div class="nav-spacer"></div>
+
+  <nav class="mini-nav fade-in">
+    <a href="../index.html">Home</a>
+    <a href="./index.html">Portfolio</a>
+    <a href="../design_style/index.html">Design Style</a>
+    <a href="../client_site/index.html">Client Site</a>
+  </nav>
+
   <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
 
   <main class="portfolio-grid-wrapper">
@@ -151,7 +163,6 @@
 
     <section class="portfolio-grid">
 
-      <!-- PROJECT 1 -->
       <a href="projects/project-one.html" class="project-card">
         <img src="../assets/img/archetype.png" class="project-image">
         <h2 class="project-title">Archetypes Persuasion Analysis</h2>
@@ -163,7 +174,6 @@
         </div>
       </a>
 
-      <!-- PROJECT 2 -->
       <a href="projects/project-two.html" class="project-card">
         <img src="../assets/img/webcollab.png" class="project-image">
         <h2 class="project-title">Web Collaboration – Elemental Water</h2>
@@ -175,7 +185,6 @@
         </div>
       </a>
 
-      <!-- PROJECT 3 -->
       <a href="projects/project-three.html" class="project-card">
         <img src="../assets/img/designstyle.png" class="project-image">
         <h2 class="project-title">Swiss Design Lineage – Flat Design</h2>
