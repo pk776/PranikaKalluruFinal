@@ -10,13 +10,15 @@
   <script defer src="../../assets/js/script.js"></script>
 
   <style>
-    /* -----------------------------------------
-       GLOBAL PAGE LAYOUT
-    ------------------------------------------ */
+
     body {
       background: var(--background);
       margin: 0;
       padding: 0;
+    }
+
+    .nav-spacer {
+      height: 70px;
     }
 
     .design-layout {
@@ -34,9 +36,7 @@
       }
     }
 
-    /* -----------------------------------------
-       SCROLL PROGRESS BAR
-    ------------------------------------------ */
+
     .scroll-progress {
       position: fixed;
       top: 0;
@@ -48,9 +48,7 @@
       transition: width 0.1s linear;
     }
 
-    /* -----------------------------------------
-       MINI SECTION HEADER
-    ------------------------------------------ */
+
     .mini-section-header {
       position: fixed;
       top: 3px;
@@ -68,19 +66,14 @@
       transition: opacity 0.2s ease, transform 0.2s ease;
     }
 
-    body.dark .mini-section-header {
-      background: rgba(15, 15, 15, 0.9);
-    }
+
 
     .mini-section-header.visible {
       opacity: 1;
-      pointer-events: auto;
       transform: translate(-50%, 0);
     }
 
-    /* -----------------------------------------
-       HERO SECTION (POSTER)
-    ------------------------------------------ */
+  
     .design-hero {
       grid-column: 1 / -1;
       text-align: center;
@@ -90,7 +83,7 @@
       position: relative;
     }
 
-    /* Ambient glow behind poster */
+
     .design-hero::before {
       content: "";
       position: absolute;
@@ -98,11 +91,7 @@
       left: 50%;
       width: 650px;
       height: 650px;
-      background: radial-gradient(
-        circle,
-        rgba(255, 0, 0, 0.12),
-        transparent 70%
-      );
+      background: radial-gradient(circle, rgba(255, 0, 0, 0.12), transparent 70%);
       transform: translate(-50%, -50%);
       z-index: -1;
       filter: blur(40px);
@@ -117,14 +106,13 @@
       border: 1px solid var(--border);
       box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
       cursor: zoom-in;
-      transform: translateY(0);
       transition: transform 0.3s ease-out;
     }
 
+  
     .design-title {
       font-size: 2.6rem;
       font-weight: 700;
-      letter-spacing: -0.5px;
       margin-bottom: 0.5rem;
     }
 
@@ -132,13 +120,9 @@
       font-size: 1.1rem;
       max-width: 640px;
       margin: 0 auto;
-      line-height: 1.6;
       opacity: 0.85;
     }
 
-    /* -----------------------------------------
-       METRIC CARDS
-    ------------------------------------------ */
     .metrics-bar {
       display: flex;
       justify-content: center;
@@ -154,28 +138,22 @@
       border: 1px solid var(--border);
       background: var(--card);
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
-      text-align: left;
       position: relative;
-      overflow: hidden;
-      transform: translateY(0);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      transition: 0.2s ease;
     }
 
     .metric-card:hover {
       transform: translateY(-3px);
-      box-shadow: 0 14px 32px rgba(0, 0, 0, 0.1);
     }
 
     .metric-value {
       font-size: 1.6rem;
       font-weight: 700;
-      letter-spacing: -0.03em;
     }
 
     .metric-label {
       font-size: 0.85rem;
       opacity: 0.8;
-      margin-top: 0.15rem;
     }
 
     .metric-underline {
@@ -192,13 +170,9 @@
       width: 100%;
     }
 
-    /* -----------------------------------------
-       TABLE OF CONTENTS
-    ------------------------------------------ */
     .design-toc {
       position: sticky;
       top: 5.5rem;
-      align-self: flex-start;
       font-size: 0.9rem;
     }
 
@@ -210,7 +184,6 @@
     .design-toc ul {
       list-style: none;
       padding: 0;
-      margin: 0;
       border-left: 1px solid var(--border);
     }
 
@@ -228,7 +201,6 @@
       border-radius: 50%;
       border: 1px solid var(--border);
       background: var(--background);
-      transition: background 0.2s ease, border-color 0.2s ease;
     }
 
     .toc-link.completed + .toc-status {
@@ -239,16 +211,9 @@
     .design-toc a {
       display: block;
       padding: 0.4rem 0.75rem;
-      text-decoration: none;
       opacity: 0.7;
       border-left: 2px solid transparent;
-      transform: translateX(-1px);
       transition: 0.18s ease;
-    }
-
-    .design-toc a:hover {
-      opacity: 1;
-      color: var(--accent);
     }
 
     .design-toc a.active {
@@ -257,19 +222,15 @@
       font-weight: 600;
     }
 
-    /* -----------------------------------------
-       HYBRID SECTION CARDS
-    ------------------------------------------ */
     .design-section {
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: 6px;
       padding: 2rem;
       margin-bottom: 2.5rem;
-      box-shadow: 0 4px 18px rgba(0,0,0,0.04);
       opacity: 0;
       transform: translateY(20px);
-      transition: opacity 0.5s ease, transform 0.5s ease;
+      transition: 0.5s ease;
     }
 
     .design-section.visible {
@@ -281,7 +242,6 @@
       font-size: 1.5rem;
       margin-bottom: 0.6rem;
       position: relative;
-      display: inline-block;
     }
 
     .design-section h2::after {
@@ -289,26 +249,11 @@
       position: absolute;
       left: 0;
       bottom: -6px;
-      width: 0%;
+      width: 40px;
       height: 3px;
       background: var(--accent);
-      transition: width 0.4s ease;
     }
 
-    .design-section.visible h2::after {
-      width: 40px;
-    }
-
-    /* -----------------------------------------
-       MICRO-PARALLAX
-    ------------------------------------------ */
-    .design-section.parallax-card {
-      will-change: transform;
-    }
-
-    /* -----------------------------------------
-       LIGHTBOX
-    ------------------------------------------ */
     .lightbox-overlay {
       position: fixed;
       inset: 0;
@@ -318,7 +263,7 @@
       justify-content: center;
       opacity: 0;
       pointer-events: none;
-      transition: opacity 0.25s ease;
+      transition: 0.25s ease;
       z-index: 999;
     }
 
@@ -331,8 +276,6 @@
       max-width: 90vw;
       max-height: 90vh;
       border-radius: 8px;
-      border: 1px solid rgba(255,255,255,0.2);
-      box-shadow: 0 18px 45px rgba(0,0,0,0.6);
     }
 
     .lightbox-close {
@@ -344,9 +287,6 @@
       cursor: pointer;
     }
 
-    /* -----------------------------------------
-       BACK TO TOP
-    ------------------------------------------ */
     .back-to-top {
       position: fixed;
       bottom: 1.8rem;
@@ -355,59 +295,30 @@
       border-radius: 999px;
       border: 1px solid var(--border);
       background: var(--card);
-      font-size: 0.85rem;
-      text-decoration: none;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.18);
       opacity: 0;
       pointer-events: none;
-      transition: opacity 0.2s ease, transform 0.2s ease;
-      transform: translateY(8px);
-      z-index: 900;
+      transition: 0.2s ease;
     }
 
     .back-to-top.visible {
       opacity: 1;
       pointer-events: auto;
-      transform: translateY(0);
-    }
-
-    .back-to-top:hover {
-      background: var(--accent);
-      border-color: var(--accent);
-      color: #fff;
-    }
-
-    /* -----------------------------------------
-       SCROLL SNAPPING
-    ------------------------------------------ */
-    html,
-    body {
-      scroll-behavior: smooth;
-    }
-
-    main.design-layout {
-      scroll-snap-type: y proximity;
-    }
-
-    .design-section {
-      scroll-snap-align: start;
     }
   </style>
 </head>
+
 <body class="fade-in">
 
-  <!-- Scroll progress bar -->
+  <div class="nav-spacer"></div>
+
   <div class="scroll-progress" id="scrollProgress"></div>
 
-  <!-- Mini section header -->
   <div class="mini-section-header" id="miniSectionHeader">
     Current section: Overview
   </div>
 
-  <!-- DARK MODE TOGGLE -->
   <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
 
-  <!-- TOP MINI NAV -->
   <nav class="mini-nav fade-in">
     <a href="../../index.html">Home</a>
     <a href="../../portfolio/index.html">Portfolio</a>
@@ -415,44 +326,33 @@
     <a href="../../client_site/index.html">Client Site</a>
   </nav>
 
-  <!-- HERO -->
   <section class="design-hero" id="heroContainer">
-    <img
-      src="../../assets/img/designstyle.png"
-      class="design-poster"
-      alt="Swiss Design Style Poster"
-      id="heroImage"
-    />
+    <img src="../../assets/img/designstyle.png" class="design-poster" id="heroImage" alt="Swiss Design Style Poster" />
 
     <h1 class="design-title">Swiss Design Style</h1>
     <p class="design-subtitle">
       A modern exploration of grids, typography, spacing, and clarity — blending Swiss poster aesthetics with interactive design tools.
     </p>
 
-    <div class="header-actions">
-      <span class="reading-time">3–4 minute read</span>
-      <button class="share-button" id="shareButton" type="button">
-        <span>Copy page link</span>
-      </button>
-    </div>
-
-    <!-- METRIC CARDS -->
-    <div class="metrics-bar" id="metricsBar">
+    <div class="metrics-bar">
       <div class="metric-card" data-target="6">
         <div class="metric-value">0</div>
         <div class="metric-label">Swiss principles demonstrated</div>
         <div class="metric-underline"></div>
       </div>
+
       <div class="metric-card" data-target="12">
         <div class="metric-value">0</div>
         <div class="metric-label">Grid modules used</div>
         <div class="metric-underline"></div>
       </div>
+
       <div class="metric-card" data-target="100">
         <div class="metric-value">0%</div>
         <div class="metric-label">Typographic consistency</div>
         <div class="metric-underline"></div>
       </div>
+
       <div class="metric-card" data-target="4">
         <div class="metric-value">0</div>
         <div class="metric-label">Visual demonstration categories</div>
@@ -461,17 +361,14 @@
     </div>
   </section>
 
-  <!-- MAIN LAYOUT: CONTENT + TOC -->
   <main class="design-layout">
 
-    <!-- MAIN CONTENT -->
     <article class="design-body">
 
       <section class="design-section" id="overview">
         <h2>Overview</h2>
         <p>
-          Swiss Design, also known as the International Typographic Style, emphasizes clarity, structure, and visual harmony. 
-          This page explores how those principles translate into modern digital design through grids, typography, spacing, and shape language.
+          Swiss Design emphasizes clarity, structure, and visual harmony. This page explores how those principles translate into modern digital design.
         </p>
       </section>
 
@@ -490,32 +387,28 @@
       <section class="design-section" id="grid">
         <h2>Grid System</h2>
         <p>
-          The grid is the backbone of Swiss Design. It creates rhythm, alignment, and visual order. 
-          This project uses a modular grid to structure spacing, typography, and layout relationships.
+          The grid is the backbone of Swiss Design. It creates rhythm, alignment, and visual order.
         </p>
       </section>
 
       <section class="design-section" id="typography">
         <h2>Typography</h2>
         <p>
-          Typography is treated as a functional tool rather than decoration. 
-          Consistent hierarchy, spacing, and alignment ensure clarity and readability across all components.
+          Typography is treated as a functional tool rather than decoration.
         </p>
       </section>
 
       <section class="design-section" id="color">
         <h2>Color System</h2>
         <p>
-          Swiss Design traditionally uses limited color palettes with strong contrast. 
-          This page blends muted neutrals with bold accent colors to maintain clarity while adding modern energy.
+          Swiss Design traditionally uses limited color palettes with strong contrast.
         </p>
       </section>
 
       <section class="design-section" id="shapes">
         <h2>Shape Language</h2>
         <p>
-          Geometric shapes — circles, rectangles, and lines — reinforce structure and guide the eye. 
-          These elements echo classic Swiss posters while supporting digital interaction patterns.
+          Geometric shapes reinforce structure and guide the eye.
         </p>
       </section>
 
@@ -523,15 +416,13 @@
         <h2>Tools Used</h2>
         <ul>
           <li>HTML & CSS</li>
-          <li>Grid & Flexbox systems</li>
-          <li>Modern typography scaling</li>
+          <li>Grid & Flexbox</li>
           <li>Responsive layout techniques</li>
         </ul>
       </section>
 
       <section class="design-section" id="links">
         <h2>Links</h2>
-        <p>Supporting materials and project resources:</p>
         <div class="project-links">
           <a href="https://pk776.github.io/flat-design-project/index.html" target="_blank">Live Project</a>
           <a href="https://github.com/kaw393939/swiss_design_lineage_vibecoding" target="_blank">Assignment Directions</a>
@@ -540,305 +431,91 @@
 
     </article>
 
-    <!-- TABLE OF CONTENTS -->
     <aside class="design-toc">
       <div class="design-toc-title">On this page</div>
       <ul>
-        <li>
-          <a href="#overview" class="toc-link">Overview</a>
-          <span class="toc-status"></span>
-        </li>
-        <li>
-          <a href="#principles" class="toc-link">Core Principles</a>
-          <span class="toc-status"></span>
-        </li>
-        <li>
-          <a href="#grid" class="toc-link">Grid System</a>
-          <span class="toc-status"></span>
-        </li>
-        <li>
-          <a href="#typography" class="toc-link">Typography</a>
-          <span class="toc-status"></span>
-        </li>
-        <li>
-          <a href="#color" class="toc-link">Color System</a>
-          <span class="toc-status"></span>
-        </li>
-        <li>
-          <a href="#shapes" class="toc-link">Shape Language</a>
-          <span class="toc-status"></span>
-        </li>
-        <li>
-          <a href="#tools" class="toc-link">Tools Used</a>
-          <span class="toc-status"></span>
-        </li>
-        <li>
-          <a href="#links" class="toc-link">Links</a>
-          <span class="toc-status"></span>
-        </li>
+        <li><a href="#overview" class="toc-link">Overview</a><span class="toc-status"></span></li>
+        <li><a href="#principles" class="toc-link">Core Principles</a><span class="toc-status"></span></li>
+        <li><a href="#grid" class="toc-link">Grid System</a><span class="toc-status"></span></li>
+        <li><a href="#typography" class="toc-link">Typography</a><span class="toc-status"></span></li>
+        <li><a href="#color" class="toc-link">Color System</a><span class="toc-status"></span></li>
+        <li><a href="#shapes" class="toc-link">Shape Language</a><span class="toc-status"></span></li>
+        <li><a href="#tools" class="toc-link">Tools Used</a><span class="toc-status"></span></li>
+        <li><a href="#links" class="toc-link">Links</a><span class="toc-status"></span></li>
       </ul>
     </aside>
 
   </main>
 
-  <!-- BOTTOM NAV -->
-  <nav class="bottom-nav">
-    <a href="../../index.html">Home</a>
-    <a href="../../portfolio/index.html">Portfolio</a>
-    <a href="../../design_style/index.html">Design Style</a>
-    <a href="../../client_site/index.html">Client Site</a>
-  </nav>
-
   <footer class="site-footer reveal">
     <p>© 2025 – Pranika Kalluru – Built with clarity & purpose</p>
   </footer>
 
-  <!-- LIGHTBOX -->
   <div class="lightbox-overlay" id="lightbox">
-    <img src="../../assets/img/designstyle.png" alt="Swiss Design Poster Full Preview" class="lightbox-image" />
+    <img src="../../assets/img/designstyle.png" class="lightbox-image" />
     <div class="lightbox-close" id="lightboxClose">×</div>
   </div>
 
-  <!-- BACK TO TOP -->
   <a href="#top" class="back-to-top" id="backToTop">Back to top</a>
-  <!-- INTERACTIONS -->
+
   <script>
-    /* -----------------------------------------
-       SMOOTH SCROLL FOR IN-PAGE LINKS
-    ------------------------------------------ */
-    document.querySelectorAll('a[href^="#"]').forEach(function (link) {
-      link.addEventListener("click", function (e) {
-        const targetId = this.getAttribute("href").substring(1);
-        const target = document.getElementById(targetId);
-        if (target) {
-          e.preventDefault();
-          window.scrollTo({
-            top: target.offsetTop - 80,
-            behavior: "smooth",
-          });
-        }
-      });
-    });
-
-    /* -----------------------------------------
-       SCROLL PROGRESS BAR
-    ------------------------------------------ */
     const scrollProgress = document.getElementById("scrollProgress");
-    window.addEventListener("scroll", function () {
-      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    window.addEventListener("scroll", () => {
+      const scrollTop = window.scrollY;
       const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-      scrollProgress.style.width = progress + "%";
+      scrollProgress.style.width = (scrollTop / docHeight) * 100 + "%";
     });
 
-    /* -----------------------------------------
-       SECTION FADE-IN + MICRO-PARALLAX
-    ------------------------------------------ */
     const sections = document.querySelectorAll(".design-section");
-
-    sections.forEach(function (section) {
-      section.classList.add("parallax-card");
-    });
-
     function revealSections() {
       const viewportBottom = window.scrollY + window.innerHeight;
-
-      sections.forEach(function (section) {
-        const rect = section.getBoundingClientRect();
-        const top = rect.top + window.scrollY;
-
-        if (viewportBottom > top + 80) {
-          section.classList.add("visible");
-        }
-
-        if (section.classList.contains("visible")) {
-          const centerOffset = rect.top + rect.height / 2 - window.innerHeight / 2;
-          const parallaxShift = Math.max(Math.min(centerOffset * 0.02, 6), -6);
-          section.style.transform = `translateY(${parallaxShift}px)`;
-        }
+      sections.forEach(section => {
+        const top = section.getBoundingClientRect().top + window.scrollY;
+        if (viewportBottom > top + 80) section.classList.add("visible");
       });
     }
-
     window.addEventListener("scroll", revealSections);
     window.addEventListener("load", revealSections);
 
-    /* -----------------------------------------
-       TOC ACTIVE + COMPLETION + MINI HEADER
-    ------------------------------------------ */
     const tocLinks = document.querySelectorAll(".toc-link");
     const miniHeader = document.getElementById("miniSectionHeader");
-
     function updateTOC() {
       let currentId = null;
-
-      sections.forEach(function (section) {
+      sections.forEach(section => {
         const rect = section.getBoundingClientRect();
-
-        if (rect.top <= 120 && rect.bottom >= 120) {
-          currentId = section.id;
-        }
-
-        if (rect.top < 120) {
-          const completedLink = document.querySelector(
-            '.toc-link[href="#' + section.id + '"]'
-          );
-          if (completedLink) {
-            completedLink.classList.add("completed");
-          }
-        }
+        if (rect.top <= 120 && rect.bottom >= 120) currentId = section.id;
       });
-
-      tocLinks.forEach(function (link) {
-        if (link.getAttribute("href").substring(1) === currentId) {
-          link.classList.add("active");
-        } else {
-          link.classList.remove("active");
-        }
+      tocLinks.forEach(link => {
+        link.classList.toggle("active", link.getAttribute("href").substring(1) === currentId);
       });
-
       if (currentId) {
-        const activeSection = document.getElementById(currentId);
-        const heading = activeSection.querySelector("h2");
-        if (heading) {
-          miniHeader.textContent = "Current section: " + heading.textContent;
-          miniHeader.classList.add("visible");
-        }
+        const heading = document.getElementById(currentId).querySelector("h2").textContent;
+        miniHeader.textContent = "Current section: " + heading;
+        miniHeader.classList.add("visible");
       } else {
         miniHeader.classList.remove("visible");
       }
     }
-
     window.addEventListener("scroll", updateTOC);
     window.addEventListener("load", updateTOC);
 
-    /* -----------------------------------------
-       PARALLAX HERO POSTER
-    ------------------------------------------ */
     const heroImage = document.getElementById("heroImage");
-
-    window.addEventListener("scroll", function () {
-      const offset = window.scrollY * 0.15;
-      heroImage.style.transform = `translateY(${offset}px)`;
+    window.addEventListener("scroll", () => {
+      heroImage.style.transform = `translateY(${window.scrollY * 0.15}px)`;
     });
 
-    /* -----------------------------------------
-       LIGHTBOX
-    ------------------------------------------ */
     const lightbox = document.getElementById("lightbox");
     const lightboxClose = document.getElementById("lightboxClose");
-
-    heroImage.addEventListener("click", function () {
-      lightbox.classList.add("visible");
+    heroImage.addEventListener("click", () => lightbox.classList.add("visible"));
+    lightboxClose.addEventListener("click", () => lightbox.classList.remove("visible"));
+    lightbox.addEventListener("click", e => {
+      if (e.target === lightbox) lightbox.classList.remove("visible");
     });
+  
 
-    lightboxClose.addEventListener("click", function () {
-      lightbox.classList.remove("visible");
-    });
-
-    lightbox.addEventListener("click", function (e) {
-      if (e.target === lightbox) {
-        lightbox.classList.remove("visible");
-      }
-    });
-
-    /* -----------------------------------------
-       SHARE BUTTON (COPY LINK)
-    ------------------------------------------ */
-    const shareButton = document.getElementById("shareButton");
-
-    shareButton.addEventListener("click", function () {
-      const url = window.location.href;
-
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(url).then(function () {
-          shareButton.textContent = "Link copied";
-          setTimeout(function () {
-            shareButton.textContent = "Copy page link";
-          }, 1800);
-        });
-      } else {
-        const tempInput = document.createElement("input");
-        tempInput.value = url;
-        document.body.appendChild(tempInput);
-        tempInput.select();
-        document.execCommand("copy");
-        document.body.removeChild(tempInput);
-
-        shareButton.textContent = "Link copied";
-        setTimeout(function () {
-          shareButton.textContent = "Copy page link";
-        }, 1800);
-      }
-    });
-
-    /* -----------------------------------------
-       BACK TO TOP BUTTON
-    ------------------------------------------ */
     const backToTop = document.getElementById("backToTop");
-
-    function toggleBackToTop() {
-      if (window.scrollY > 400) {
-        backToTop.classList.add("visible");
-      } else {
-        backToTop.classList.remove("visible");
-      }
-    }
-
-    window.addEventListener("scroll", toggleBackToTop);
-
-    backToTop.addEventListener("click", function (e) {
-      e.preventDefault();
-      window.scrollTo({ top: 0, behavior: "smooth" });
+    window.addEventListener("scroll", () => {
+      backToTop.classList.toggle("visible", window.scrollY > 400);
     });
 
-    /* -----------------------------------------
-       METRIC CARD COUNT-UP ANIMATION
-    ------------------------------------------ */
-    const metricCards = document.querySelectorAll(".metric-card");
-
-    function animateMetrics() {
-      const viewportBottom = window.scrollY + window.innerHeight;
-
-      metricCards.forEach(function (card) {
-        const rect = card.getBoundingClientRect();
-        const top = rect.top + window.scrollY;
-
-        if (!card.classList.contains("visible") && viewportBottom > top + 40) {
-          card.classList.add("visible");
-
-          const target = parseInt(card.getAttribute("data-target"), 10) || 0;
-          const valueEl = card.querySelector(".metric-value");
-          let current = 0;
-          const duration = 900;
-          const start = performance.now();
-
-          function tick(now) {
-            const progress = Math.min((now - start) / duration, 1);
-            const eased = 1 - Math.pow(1 - progress, 3);
-            current = Math.floor(target * eased);
-
-            if (target === 100) {
-              valueEl.textContent = current + "%";
-            } else {
-              valueEl.textContent = current;
-            }
-
-            if (progress < 1) {
-              requestAnimationFrame(tick);
-            } else {
-              valueEl.textContent = target === 100 ? target + "%" : target;
-            }
-          }
-
-          requestAnimationFrame(tick);
-        }
-      });
-    }
-
-    window.addEventListener("scroll", animateMetrics);
-    window.addEventListener("load", animateMetrics);
-  </script>
-
-</body>
-
-</html>
+    const metricCards = document.querySelectorAll(".metric-card

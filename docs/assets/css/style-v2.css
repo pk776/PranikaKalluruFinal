@@ -806,3 +806,35 @@ body.dark .modal__container {
 
 .circle { border-radius: 50%; }
 .rectangle { width: 140px; }
+/* FIXED TOP NAVIGATION — GLOBAL */
+.mini-nav {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 1.8rem;
+  padding: 0.9rem 1.2rem;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+  z-index: 999;
+  border-radius: 0 0 12px 12px;
+}
+
+body.dark .mini-nav {
+  background: rgba(20, 20, 20, 0.75);
+}
+
+.mini-nav a {
+  font-size: 0.95rem;
+  text-decoration: none;
+  color: var(--text);
+  opacity: 0.85;
+  transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+.mini-nav a:hover {
+  opacity: 1;
+  color: var(--accent);
+}
