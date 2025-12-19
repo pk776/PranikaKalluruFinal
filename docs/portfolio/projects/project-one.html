@@ -5,128 +5,359 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Archetypes Persuasion Analysis – Pranika Kalluru</title>
 
+  <!-- Global styles + scripts -->
   <link rel="stylesheet" href="../../assets/css/style-v2.css" />
   <script defer src="../../assets/js/script.js"></script>
 
   <style>
-    /* --- PAGE-SPECIFIC ENHANCEMENTS --- */
+    /* --------- LAYOUT & BACKGROUND --------- */
+
+    body {
+      background:
+        linear-gradient(to bottom, rgba(0,0,0,0.02) 1px, transparent 1px),
+        linear-gradient(to right, rgba(0,0,0,0.02) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+
+    .project-layout {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 4rem 1.5rem 5rem;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(260px, 280px);
+      gap: 3rem;
+    }
+
+    @media (max-width: 880px) {
+      .project-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* --------- SCROLL PROGRESS BAR --------- */
+
+    .scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      width: 0;
+      background: var(--accent);
+      z-index: 1000;
+      transition: width 0.1s linear;
+    }
+
+    /* --------- BREADCRUMBS + HEADER --------- */
+
+    .project-header-wrap {
+      grid-column: 1 / -1;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1.5rem 1.5rem 0;
+    }
+
+    .breadcrumbs {
+      font-size: 0.85rem;
+      opacity: 0.75;
+      margin-bottom: 0.75rem;
+    }
+
+    .breadcrumbs a {
+      text-decoration: none;
+      opacity: 0.85;
+    }
+
+    .breadcrumbs a:hover {
+      opacity: 1;
+      color: var(--accent);
+    }
+
+    .project-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.9rem;
+      opacity: 0.8;
+      margin-top: 0.4rem;
+    }
+
+    .project-meta span {
+      white-space: nowrap;
+    }
+
+    /* --------- HERO --------- */
 
     .project-hero {
-      text-align: center;
-      padding: 4rem 1rem 2rem;
-      animation: fadeIn 1s ease;
+      grid-column: 1 / -1;
+      text-align: left;
+      padding: 2rem 1.5rem 0;
+      max-width: 1100px;
+      margin: 0 auto;
     }
 
     .project-thumb {
-      max-width: 650px;
+      max-width: 720px;
       width: 100%;
-      display: block;              /* ⭐ Forces centering */
-      margin: 0 auto 2rem;         /* ⭐ Centers the image */
+      display: block;
+      margin: 0 auto 2rem;
       border-radius: 8px;
       border: 1px solid var(--border);
       box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
-      animation: scaleIn 0.8s ease;
+      cursor: zoom-in;
     }
 
     .project-title {
-      font-size: 2.8rem;
+      font-size: 2.6rem;
       font-weight: 700;
-      margin-bottom: 0.5rem;
       letter-spacing: -0.5px;
+      margin-bottom: 0.5rem;
     }
 
     .project-subtitle {
-      font-size: 1.2rem;
-      max-width: 700px;
-      margin: 0 auto 2rem;
-      opacity: 0.85;
+      font-size: 1.1rem;
+      max-width: 640px;
       line-height: 1.6;
+      opacity: 0.85;
     }
 
+    /* --------- READING TIME + SHARE --------- */
+
+    .header-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.75rem;
+      margin-top: 1.2rem;
+    }
+
+    .reading-time {
+      font-size: 0.9rem;
+      padding: 0.3rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(0,0,0,0.02);
+    }
+
+    .share-button {
+      font-size: 0.9rem;
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--card);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .share-button:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+
+    /* --------- TABLE OF CONTENTS --------- */
+
+    .project-toc {
+      position: sticky;
+      top: 5.5rem;
+      align-self: flex-start;
+      font-size: 0.9rem;
+    }
+
+    .project-toc-title {
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-toc ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      border-left: 1px solid var(--border);
+    }
+
+    .project-toc a {
+      display: block;
+      padding: 0.4rem 0.75rem;
+      text-decoration: none;
+      opacity: 0.7;
+      border-left: 2px solid transparent;
+      transform: translateX(-1px);
+      transition: 0.18s ease;
+    }
+
+    .project-toc a:hover {
+      opacity: 1;
+      color: var(--accent);
+    }
+
+    .project-toc a.active {
+      opacity: 1;
+      border-left-color: var(--accent);
+      font-weight: 600;
+    }
+
+    @media (max-width: 880px) {
+      .project-toc {
+        position: static;
+        margin-top: 2rem;
+        border-top: 1px solid var(--border);
+        padding-top: 1rem;
+      }
+    }
+
+    /* --------- MAIN CONTENT --------- */
+
     .project-body {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 2rem 1rem 4rem;
       line-height: 1.7;
     }
 
-    .project-body h2 {
-      font-size: 1.6rem;
-      margin-top: 3rem;
-      margin-bottom: 1rem;
+    .project-section {
+      margin-bottom: 2.5rem;
+      opacity: 0;
+      transform: translateY(15px);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+
+    .project-section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .project-section h2 {
+      font-size: 1.5rem;
+      margin-bottom: 0.6rem;
       position: relative;
     }
 
-    .project-body h2::after {
+    .project-section h2::after {
       content: "";
       display: block;
       width: 40px;
       height: 3px;
       background: var(--accent);
-      margin-top: 0.5rem;
+      margin-top: 0.4rem;
+      transform-origin: left;
+      transform: scaleX(0.3);
+      opacity: 0.8;
+    }
+
+    .project-section ul {
+      padding-left: 1.2rem;
+      margin-top: 0.6rem;
     }
 
     .section-divider {
-      margin: 3rem 0;
       border-top: 1px solid var(--border);
+      margin: 2.5rem 0;
+      opacity: 0.8;
     }
 
     .project-links {
-      margin-top: 1.5rem;
+      margin-top: 1rem;
       display: flex;
-      gap: 1rem;
       flex-wrap: wrap;
+      gap: 0.75rem;
     }
 
     .project-links a {
-      padding: 0.6rem 1rem;
-      border: 1px solid var(--border);
+      padding: 0.5rem 0.9rem;
       border-radius: 4px;
+      border: 1px solid var(--border);
       text-decoration: none;
       background: var(--card);
+      font-size: 0.9rem;
       transition: 0.2s ease;
     }
 
     .project-links a:hover {
       background: var(--accent);
-      color: white;
       border-color: var(--accent);
+      color: #fff;
     }
 
-    .back-button {
+    /* --------- LIGHTBOX --------- */
+
+    .lightbox-overlay {
       position: fixed;
-      bottom: 2rem;
-      right: 2rem;
-      background: var(--accent);
-      color: white;
-      padding: 0.6rem 1rem;
-      border-radius: 6px;
+      inset: 0;
+      background: rgba(0,0,0,0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+      z-index: 999;
+    }
+
+    .lightbox-overlay.visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .lightbox-image {
+      max-width: 90vw;
+      max-height: 90vh;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.2);
+      box-shadow: 0 18px 45px rgba(0,0,0,0.6);
+    }
+
+    .lightbox-close {
+      position: fixed;
+      top: 1.5rem;
+      right: 1.8rem;
+      color: #fff;
+      font-size: 1.6rem;
+      cursor: pointer;
+    }
+
+    /* --------- BACK TO TOP BUTTON --------- */
+
+    .back-to-top {
+      position: fixed;
+      bottom: 1.8rem;
+      right: 1.8rem;
+      padding: 0.5rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--card);
+      font-size: 0.85rem;
       text-decoration: none;
-      font-size: 0.9rem;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-      transition: 0.2s ease;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.18);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+      transform: translateY(8px);
+      z-index: 900;
     }
 
-    .back-button:hover {
-      background: #c62828;
+    .back-to-top.visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes scaleIn {
-      from { opacity: 0; transform: scale(0.95); }
-      to { opacity: 1; transform: scale(1); }
+    .back-to-top:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
     }
   </style>
 </head>
 
 <body class="fade-in">
 
+  <!-- Scroll progress bar -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- DARK MODE TOGGLE -->
   <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
 
+  <!-- TOP MINI NAV -->
   <nav class="mini-nav fade-in">
     <a href="../../index.html">Home</a>
     <a href="../index.html">Portfolio</a>
@@ -134,49 +365,107 @@
     <a href="../../client_site/index.html">Client Site</a>
   </nav>
 
-  <main>
-    <section class="project-hero">
-      <img src="../../assets/img/archetype.png" class="project-thumb" alt="Archetypes Project Thumbnail" />
-      <h1 class="project-title">Archetypes Persuasion Analysis</h1>
-      <p class="project-subtitle">
-        Competitive landscape research exploring persuasion archetypes, brand identity, and sales funnel strategy.
-      </p>
-    </section>
-
-    <div class="project-body">
-      <h2>Overview</h2>
-      <p>
-        This project focused on analyzing persuasion archetypes and how they shape competitive positioning within a sales funnel.
-      </p>
-
-      <div class="section-divider"></div>
-
-      <h2>Process</h2>
-      <ul>
-        <li>Conducted a competitive landscape analysis</li>
-        <li>Identified persuasion archetypes for each competitor</li>
-        <li>Evaluated messaging, tone, and visual identity</li>
-        <li>Mapped each brand’s sales funnel and user journey</li>
-        <li>Synthesized findings into a structured framework</li>
-      </ul>
-
-      <div class="section-divider"></div>
-
-      <h2>Outcome</h2>
-      <p>
-        The final deliverable demonstrated how archetypes strengthen brand identity and improve funnel performance.
-      </p>
-
-      <div class="section-divider"></div>
-
-      <h2>Links</h2>
-      <div class="project-links">
-        <a href="https://github.com/natorbit/williams_design" target="_blank">GitHub Repository</a>
-        <a href="https://github.com/kaw393939/williams_design" target="_blank">Assignment Directions</a>
-      </div>
+  <!-- Breadcrumb + meta -->
+  <header class="project-header-wrap">
+    <div class="breadcrumbs">
+      <a href="../../index.html">Home</a> ›
+      <a href="../index.html">Portfolio</a> ›
+      <span>Archetypes Persuasion Analysis</span>
     </div>
+    <div class="project-meta">
+      <span>Topic: Persuasion</span>
+      <span>Competitor: Sephora</span>
+      <span>Course: Williams Design System</span>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="project-hero">
+    <img
+      src="../../assets/img/archetype.png"
+      class="project-thumb"
+      alt="Archetypes Persuasion Analysis – Sephora persuasion framework"
+      id="heroImage"
+    />
+
+    <h1 class="project-title">Archetypes Persuasion Analysis</h1>
+    <p class="project-subtitle">
+      Competitive landscape research exploring persuasion archetypes, brand identity, and sales funnel strategy within the Williams Design System framework.
+    </p>
+
+    <div class="header-actions">
+      <span class="reading-time">3–4 minute read</span>
+      <button class="share-button" id="shareButton" type="button">
+        <span>Copy project link</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- MAIN LAYOUT: CONTENT + TOC -->
+  <main class="project-layout">
+
+    <!-- MAIN CONTENT -->
+    <article class="project-body">
+
+      <section class="project-section" id="overview">
+        <h2>Overview</h2>
+        <p>
+          This project examines how persuasion archetypes shape competitive positioning for Sephora within a broader e‑commerce landscape.
+          By mapping messaging, visual language, and funnel structure, the analysis reveals how emotional and rational cues reinforce the brand’s identity and drive conversion.
+        </p>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <section class="project-section" id="process">
+        <h2>Process</h2>
+        <ul>
+          <li>Conducted a competitive landscape analysis with a focus on beauty and lifestyle brands.</li>
+          <li>Identified persuasion archetypes for each competitor, mapping tone, promise, and personality.</li>
+          <li>Evaluated messaging, visual hierarchy, and on‑site interaction patterns.</li>
+          <li>Mapped each brand’s sales funnel and customer journey from awareness to purchase.</li>
+          <li>Synthesized findings into a structured framework aligned with the Williams Design System.</li>
+        </ul>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <section class="project-section" id="outcome">
+        <h2>Outcome</h2>
+        <p>
+          The final deliverable clarified how Sephora’s persuasion strategy leans on authority, social proof, and curated abundance
+          while still preserving a premium, editorial feel. The framework highlighted concrete opportunities to sharpen narrative focus,
+          simplify decision points, and translate the persuasion model into a more modular, reusable design system.
+        </p>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <section class="project-section" id="links">
+        <h2>Links</h2>
+        <p>Supporting materials and original assignment context:</p>
+        <div class="project-links">
+          <a href="https://github.com/natorbit/williams_design" target="_blank" rel="noopener">GitHub Repository</a>
+          <a href="https://github.com/kaw393939/williams_design" target="_blank" rel="noopener">Assignment Directions</a>
+        </div>
+      </section>
+
+    </article>
+
+    <!-- TABLE OF CONTENTS -->
+    <aside class="project-toc">
+      <div class="project-toc-title">On this page</div>
+      <ul>
+        <li><a href="#overview" class="toc-link">Overview</a></li>
+        <li><a href="#process" class="toc-link">Process</a></li>
+        <li><a href="#outcome" class="toc-link">Outcome</a></li>
+        <li><a href="#links" class="toc-link">Links</a></li>
+      </ul>
+    </aside>
+
   </main>
 
+  <!-- BOTTOM NAV -->
   <nav class="bottom-nav">
     <a href="../../index.html">Home</a>
     <a href="../index.html">Portfolio</a>
@@ -188,8 +477,65 @@
     <p>© 2025 – Pranika Kalluru – Built with clarity & purpose</p>
   </footer>
 
-  <a href="../index.html" class="back-button">← Back to Portfolio</a>
-  
-</body>
+  <!-- LIGHTBOX -->
+  <div class="lightbox-overlay" id="lightbox">
+    <img src="../../assets/img/archetype.png" alt="Archetypes Persuasion Analysis full preview" class="lightbox-image" />
+    <div class="lightbox-close" id="lightboxClose">×</div>
+  </div>
 
-</html>
+  <!-- BACK TO TOP -->
+  <a href="#top" class="back-to-top" id="backToTop">Back to top</a>
+
+  <!-- INTERACTIONS -->
+  <script>
+    // Smooth scroll for in-page anchors
+    document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+      link.addEventListener("click", function (e) {
+        const targetId = this.getAttribute("href").substring(1);
+        const target = document.getElementById(targetId);
+        if (target) {
+          e.preventDefault();
+          window.scrollTo({
+            top: target.offsetTop - 80,
+            behavior: "smooth",
+          });
+        }
+      });
+    });
+
+    // Scroll progress bar
+    const scrollProgress = document.getElementById("scrollProgress");
+    window.addEventListener("scroll", function () {
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      scrollProgress.style.width = progress + "%";
+    });
+
+    // Reveal sections on scroll + TOC highlight
+    const sections = document.querySelectorAll(".project-section");
+    const tocLinks = document.querySelectorAll(".toc-link");
+
+    function handleScrollEffects() {
+      const viewportBottom = window.scrollY + window.innerHeight;
+
+      sections.forEach(function (section) {
+        const rect = section.getBoundingClientRect();
+        const top = rect.top + window.scrollY;
+        if (viewportBottom > top + 80) {
+          section.classList.add("visible");
+        }
+      });
+
+      // Active TOC link
+      let currentId = null;
+      sections.forEach(function (section) {
+        const rect = section.getBoundingClientRect();
+        if (rect.top <= 120 && rect.bottom >= 120) {
+          currentId = section.id;
+        }
+      });
+
+      tocLinks.forEach(function (link) {
+        if (link.getAttribute("href").substring(1) === currentId) {
+          link.classList.add
