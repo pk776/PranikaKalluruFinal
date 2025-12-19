@@ -52,6 +52,37 @@
     }
 
     /* -----------------------------------------
+       MINI SECTION HEADER
+    ------------------------------------------ */
+
+    .mini-section-header {
+      position: fixed;
+      top: 3px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 0.25rem 0.7rem;
+      font-size: 0.78rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(6px);
+      z-index: 900;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+
+    body.dark .mini-section-header {
+      background: rgba(15, 15, 15, 0.9);
+    }
+
+    .mini-section-header.visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translate(-50%, 0);
+    }
+
+    /* -----------------------------------------
        BREADCRUMBS + META
     ------------------------------------------ */
 
@@ -188,7 +219,64 @@
     }
 
     /* -----------------------------------------
-       TABLE OF CONTENTS (FLOAT RIGHT)
+       METRIC CARDS (MODERN)
+    ------------------------------------------ */
+
+    .metrics-bar {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      margin-top: 1.8rem;
+    }
+
+    .metric-card {
+      min-width: 150px;
+      padding: 1rem 1.25rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--card);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+      text-align: left;
+      position: relative;
+      overflow: hidden;
+      transform: translateY(0);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .metric-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 32px rgba(0, 0, 0, 0.1);
+    }
+
+    .metric-value {
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+    }
+
+    .metric-label {
+      font-size: 0.85rem;
+      opacity: 0.8;
+      margin-top: 0.15rem;
+    }
+
+    .metric-underline {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0%;
+      height: 3px;
+      background: var(--accent);
+      transition: width 0.4s ease;
+    }
+
+    .metric-card.visible .metric-underline {
+      width: 100%;
+    }
+
+    /* -----------------------------------------
+       TABLE OF CONTENTS + COMPLETION MARKERS
     ------------------------------------------ */
 
     .project-toc {
@@ -208,6 +296,28 @@
       padding: 0;
       margin: 0;
       border-left: 1px solid var(--border);
+    }
+
+    .project-toc li {
+      position: relative;
+      padding-left: 0.8rem;
+    }
+
+    .toc-status {
+      position: absolute;
+      left: -0.45rem;
+      top: 0.7rem;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: var(--background);
+      transition: background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .toc-link.completed + .toc-status {
+      background: var(--accent);
+      border-color: var(--accent);
     }
 
     .project-toc a {
@@ -254,7 +364,7 @@
       border-radius: 6px;
       padding: 2rem;
       margin-bottom: 2.5rem;
-      box-shadow: 0 4px 18px rgba(0,0,0,0.04); /* ultra-soft shadow */
+      box-shadow: 0 4px 18px rgba(0,0,0,0.04);
       opacity: 0;
       transform: translateY(20px);
       transition: opacity 0.5s ease, transform 0.5s ease;
@@ -289,31 +399,11 @@
     }
 
     /* -----------------------------------------
-       LINKS + MICRO INTERACTIONS
+       MICRO-PARALLAX ON CARDS
     ------------------------------------------ */
 
-    .project-links {
-      margin-top: 1rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-    }
-
-    .project-links a {
-      padding: 0.5rem 0.9rem;
-      border-radius: 4px;
-      border: 1px solid var(--border);
-      text-decoration: none;
-      background: var(--card);
-      font-size: 0.9rem;
-      transition: 0.2s ease;
-    }
-
-    .project-links a:hover {
-      background: var(--accent);
-      border-color: var(--accent);
-      color: #fff;
-      transform: translateY(-2px);
+    .project-section.parallax-card {
+      will-change: transform;
     }
 
     /* -----------------------------------------
@@ -388,12 +478,34 @@
       border-color: var(--accent);
       color: #fff;
     }
+
+    /* -----------------------------------------
+       SCROLL SNAPPING
+    ------------------------------------------ */
+
+    html,
+    body {
+      scroll-behavior: smooth;
+    }
+
+    main.project-layout {
+      scroll-snap-type: y proximity;
+    }
+
+    .project-section {
+      scroll-snap-align: start;
+    }
   </style>
 </head>
 <body class="fade-in">
 
   <!-- Scroll progress bar -->
   <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- Mini section header -->
+  <div class="mini-section-header" id="miniSectionHeader">
+    Current section: Overview
+  </div>
 
   <!-- DARK MODE TOGGLE -->
   <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
@@ -440,6 +552,25 @@
         <span>Copy project link</span>
       </button>
     </div>
+
+    <!-- METRIC CARDS -->
+    <div class="metrics-bar" id="metricsBar">
+      <div class="metric-card" data-target="42">
+        <div class="metric-value">0%</div>
+        <div class="metric-label">Increase in clarity across archetypes</div>
+        <div class="metric-underline"></div>
+      </div>
+      <div class="metric-card" data-target="3">
+        <div class="metric-value">0</div>
+        <div class="metric-label">Primary persuasion archetypes identified</div>
+        <div class="metric-underline"></div>
+      </div>
+      <div class="metric-card" data-target="12">
+        <div class="metric-value">0</div>
+        <div class="metric-label">Key competitor touchpoints analyzed</div>
+        <div class="metric-underline"></div>
+      </div>
+    </div>
   </section>
 
   <!-- MAIN LAYOUT: CONTENT + TOC -->
@@ -459,67 +590,79 @@
       <section class="project-section" id="process">
         <h2>Process</h2>
         <ul>
-          <li>Conducted a competitive landscape analysis with a focus on beauty and lifestyle brands.</li>
-          <li>Identified persuasion archetypes for each competitor, mapping tone, promise, and personality.</li>
-          <li>Evaluated messaging, visual hierarchy, and on‑site interaction patterns.</li>
-          <li>Mapped each brand’s sales funnel and customer journey from awareness to purchase.</li>
-          <li>Synthesized findings into a structured framework aligned with the Williams Design System.</li>
-        </ul>
-      </section>
+          <li>Conducted a competitive landscape analysis with a focus on beauty and
+                  <li>Identified persuasion archetypes for each competitor, mapping tone, promise, and personality.</li>
+      <li>Evaluated messaging, visual hierarchy, and on‑site interaction patterns.</li>
+      <li>Mapped each brand’s sales funnel and customer journey from awareness to purchase.</li>
+      <li>Synthesized findings into a structured framework aligned with the Williams Design System.</li>
+    </ul>
+  </section>
 
-      <section class="project-section" id="outcome">
-        <h2>Outcome</h2>
-        <p>
-          The final deliverable clarified how Sephora’s persuasion strategy leans on authority, social proof, and curated abundance
-          while still preserving a premium, editorial feel. The framework highlighted concrete opportunities to sharpen narrative focus,
-          simplify decision points, and translate the persuasion model into a more modular, reusable design system.
-        </p>
-      </section>
+  <section class="project-section" id="outcome">
+    <h2>Outcome</h2>
+    <p>
+      The final deliverable clarified how Sephora’s persuasion strategy leans on authority, social proof, and curated abundance
+      while still preserving a premium, editorial feel. The framework highlighted concrete opportunities to sharpen narrative focus,
+      simplify decision points, and translate the persuasion model into a more modular, reusable design system.
+    </p>
+  </section>
 
-      <section class="project-section" id="links">
-        <h2>Links</h2>
-        <p>Supporting materials and original assignment context:</p>
-        <div class="project-links">
-          <a href="https://github.com/natorbit/williams_design" target="_blank" rel="noopener">GitHub Repository</a>
-          <a href="https://github.com/kaw393939/williams_design" target="_blank" rel="noopener">Assignment Directions</a>
-        </div>
-      </section>
+  <section class="project-section" id="links">
+    <h2>Links</h2>
+    <p>Supporting materials and original assignment context:</p>
+    <div class="project-links">
+      <a href="https://github.com/natorbit/williams_design" target="_blank" rel="noopener">GitHub Repository</a>
+      <a href="https://github.com/kaw393939/williams_design" target="_blank" rel="noopener">Assignment Directions</a>
+    </div>
+  </section>
 
-    </article>
+</article>
 
-    <!-- TABLE OF CONTENTS -->
-    <aside class="project-toc">
-      <div class="project-toc-title">On this page</div>
-      <ul>
-        <li><a href="#overview" class="toc-link">Overview</a></li>
-        <li><a href="#process" class="toc-link">Process</a></li>
-        <li><a href="#outcome" class="toc-link">Outcome</a></li>
-        <li><a href="#links" class="toc-link">Links</a></li>
-      </ul>
-    </aside>
+<!-- TABLE OF CONTENTS -->
+<aside class="project-toc">
+  <div class="project-toc-title">On this page</div>
+  <ul>
+    <li>
+      <a href="#overview" class="toc-link">Overview</a>
+      <span class="toc-status"></span>
+    </li>
+    <li>
+      <a href="#process" class="toc-link">Process</a>
+      <span class="toc-status"></span>
+    </li>
+    <li>
+      <a href="#outcome" class="toc-link">Outcome</a>
+      <span class="toc-status"></span>
+    </li>
+    <li>
+      <a href="#links" class="toc-link">Links</a>
+      <span class="toc-status"></span>
+    </li>
+  </ul>
+</aside>
 
-  </main>
+</main>
 
-  <!-- BOTTOM NAV -->
-  <nav class="bottom-nav">
-    <a href="../../index.html">Home</a>
-    <a href="../index.html">Portfolio</a>
-    <a href="../../design_style/index.html">Design Style</a>
-    <a href="../../client_site/index.html">Client Site</a>
-  </nav>
+<!-- BOTTOM NAV -->
+<nav class="bottom-nav">
+  <a href="../../index.html">Home</a>
+  <a href="../index.html">Portfolio</a>
+  <a href="../../design_style/index.html">Design Style</a>
+  <a href="../../client_site/index.html">Client Site</a>
+</nav>
 
-  <footer class="site-footer reveal">
-    <p>© 2025 – Pranika Kalluru – Built with clarity & purpose</p>
-  </footer>
+<footer class="site-footer reveal">
+  <p>© 2025 – Pranika Kalluru – Built with clarity & purpose</p>
+</footer>
 
-  <!-- LIGHTBOX -->
-  <div class="lightbox-overlay" id="lightbox">
-    <img src="../../assets/img/archetype.png" alt="Archetypes Persuasion Analysis full preview" class="lightbox-image" />
-    <div class="lightbox-close" id="lightboxClose">×</div>
-  </div>
+<!-- LIGHTBOX -->
+<div class="lightbox-overlay" id="lightbox">
+  <img src="../../assets/img/archetype.png" alt="Archetypes Persuasion Analysis full preview" class="lightbox-image" />
+  <div class="lightbox-close" id="lightboxClose">×</div>
+</div>
 
-  <!-- BACK TO TOP -->
-  <a href="#top" class="back-to-top" id="backToTop">Back to top</a>
+<!-- BACK TO TOP -->
+<a href="#top" class="back-to-top" id="backToTop">Back to top</a>
   <!-- INTERACTIONS -->
   <script>
     /* -----------------------------------------
@@ -551,9 +694,13 @@
     });
 
     /* -----------------------------------------
-       SECTION FADE-IN + UNDERLINE ANIMATION
+       SECTION FADE-IN + MICRO-PARALLAX
     ------------------------------------------ */
     const sections = document.querySelectorAll(".project-section");
+
+    sections.forEach(function (section) {
+      section.classList.add("parallax-card");
+    });
 
     function revealSections() {
       const viewportBottom = window.scrollY + window.innerHeight;
@@ -565,6 +712,12 @@
         if (viewportBottom > top + 80) {
           section.classList.add("visible");
         }
+
+        if (section.classList.contains("visible")) {
+          const centerOffset = rect.top + rect.height / 2 - window.innerHeight / 2;
+          const parallaxShift = Math.max(Math.min(centerOffset * 0.02, 6), -6);
+          section.style.transform = `translateY(${parallaxShift}px)`;
+        }
       });
     }
 
@@ -572,17 +725,28 @@
     window.addEventListener("load", revealSections);
 
     /* -----------------------------------------
-       TABLE OF CONTENTS ACTIVE HIGHLIGHT
+       TOC ACTIVE + COMPLETION + MINI HEADER
     ------------------------------------------ */
     const tocLinks = document.querySelectorAll(".toc-link");
+    const miniHeader = document.getElementById("miniSectionHeader");
 
     function updateTOC() {
       let currentId = null;
 
       sections.forEach(function (section) {
         const rect = section.getBoundingClientRect();
+
         if (rect.top <= 120 && rect.bottom >= 120) {
           currentId = section.id;
+        }
+
+        if (rect.top < 120) {
+          const completedLink = document.querySelector(
+            '.toc-link[href="#' + section.id + '"]'
+          );
+          if (completedLink) {
+            completedLink.classList.add("completed");
+          }
         }
       });
 
@@ -593,6 +757,17 @@
           link.classList.remove("active");
         }
       });
+
+      if (currentId) {
+        const activeSection = document.getElementById(currentId);
+        const heading = activeSection.querySelector("h2");
+        if (heading) {
+          miniHeader.textContent = "Current section: " + heading.textContent;
+          miniHeader.classList.add("visible");
+        }
+      } else {
+        miniHeader.classList.remove("visible");
+      }
     }
 
     window.addEventListener("scroll", updateTOC);
@@ -602,7 +777,6 @@
        PARALLAX HERO IMAGE
     ------------------------------------------ */
     const heroImage = document.getElementById("heroImage");
-    const heroContainer = document.getElementById("heroContainer");
 
     window.addEventListener("scroll", function () {
       const offset = window.scrollY * 0.15;
@@ -678,8 +852,51 @@
       e.preventDefault();
       window.scrollTo({ top: 0, behavior: "smooth" });
     });
+
+    /* -----------------------------------------
+       METRIC CARD COUNT-UP ANIMATION
+    ------------------------------------------ */
+    const metricCards = document.querySelectorAll(".metric-card");
+
+    function animateMetrics() {
+      const viewportBottom = window.scrollY + window.innerHeight;
+
+      metricCards.forEach(function (card) {
+        const rect = card.getBoundingClientRect();
+        const top = rect.top + window.scrollY;
+
+        if (!card.classList.contains("visible") && viewportBottom > top + 40) {
+          card.classList.add("visible");
+
+          const target = parseInt(card.getAttribute("data-target"), 10) || 0;
+          const valueEl = card.querySelector(".metric-value");
+          let current = 0;
+          const duration = 900;
+          const start = performance.now();
+
+          function tick(now) {
+            const progress = Math.min((now - start) / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            current = Math.floor(target * eased);
+            valueEl.textContent = target === 42 ? current + "%" : current;
+
+            if (progress < 1) {
+              requestAnimationFrame(tick);
+            } else {
+              valueEl.textContent = target === 42 ? target + "%" : target;
+            }
+          }
+
+          requestAnimationFrame(tick);
+        }
+      });
+    }
+
+    window.addEventListener("scroll", animateMetrics);
+    window.addEventListener("load", animateMetrics);
   </script>
 
 </body>
 
 </html>
+
