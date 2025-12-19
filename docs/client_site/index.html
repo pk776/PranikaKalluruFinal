@@ -5,10 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Client Site – Pranika Kalluru</title>
 
-  <link rel="stylesheet" href="../assets/css/style-v2.css" />
+  <link rel="stylesheet" href="../assets/css/style-v2.css?v=3" />
 </head>
 
 <body class="fade-in">
+
+  <!-- Ambient background layers -->
+  <div class="client-background">
+    <div class="bg-gradient-wave"></div>
+    <div class="bg-blob bg-blob-1"></div>
+    <div class="bg-blob bg-blob-2"></div>
+    <div class="bg-blob bg-blob-3"></div>
+    <div class="bg-grid-overlay"></div>
+    <div class="bg-particles"></div>
+    <div class="bg-spotlight" id="client-spotlight"></div>
+  </div>
 
   <!-- SCROLL PROGRESS BAR -->
   <div class="scroll-progress"></div>
@@ -22,7 +33,7 @@
   </nav>
 
   <!-- SECTION NAV -->
-  <nav class="section-nav">
+  <nav class="section-nav client-section-nav">
     <a href="#intro">Overview</a>
     <a href="#services">Services</a>
     <a href="#palette">Brand Palette</a>
@@ -79,19 +90,19 @@
         components that make future updates easier.
       </p>
       <div class="services-grid">
-        <div class="service-card hover-lift">
+        <div class="service-card hover-lift ripple">
           <h3>Brand Identity</h3>
           <p>Refined typography, a balanced color palette, and consistent layout patterns to build trust.</p>
         </div>
-        <div class="service-card hover-lift">
+        <div class="service-card hover-lift ripple">
           <h3>Responsive Web Design</h3>
           <p>Layouts that adapt gracefully from mobile to desktop, keeping key actions always visible.</p>
         </div>
-        <div class="service-card hover-lift">
+        <div class="service-card hover-lift ripple">
           <h3>Content Restructure</h3>
           <p>Rewriting and reorganizing content for clarity, readability, and emotional connection.</p>
         </div>
-        <div class="service-card hover-lift">
+        <div class="service-card hover-lift ripple">
           <h3>UI Components</h3>
           <p>Reusable sections, buttons, and patterns that support a scalable, consistent interface.</p>
         </div>
@@ -120,7 +131,7 @@
     <div class="section-divider animate-divider"></div>
 
     <!-- FULL-WIDTH MOCKUP BANNER -->
-    <section class="mockup-banner animate-section" id="mockup-banner">
+    <section class="mockup-banner animate-section parallax-layer" id="mockup-banner">
       <p class="section-label">HOMEPAGE</p>
       <h2>Before & After</h2>
       <div class="section-title-underline"></div>
@@ -145,7 +156,7 @@
         I treated this as a full case study: understanding the existing experience, defining priorities, exploring layout
         options, and then building a responsive, accessible implementation.
       </p>
-      <div class="timeline">
+      <div class="timeline timeline-accent">
         <div class="timeline-step">
           <h4>1. Discovery</h4>
           <p>Analyzed the existing site to identify pain points in hierarchy, color usage, and content density.</p>
@@ -213,8 +224,9 @@
     <p>© 2025 – Pranika Kalluru – Built with clarity & purpose</p>
   </footer>
 
-  <!-- SIMPLE SCROLL PROGRESS JS -->
+  <!-- JS: scroll progress, spotlight, parallax, section-nav active -->
   <script>
+    // Scroll progress
     const progressBar = document.querySelector('.scroll-progress');
     function updateProgress() {
       const scrollTop = window.scrollY || document.documentElement.scrollTop;
@@ -224,6 +236,44 @@
     }
     window.addEventListener('scroll', updateProgress);
     window.addEventListener('load', updateProgress);
+
+    // Spotlight cursor
+    const clientSpotlight = document.getElementById('client-spotlight');
+    document.addEventListener('mousemove', (e) => {
+      const x = e.clientX;
+      const y = e.clientY + window.scrollY;
+      clientSpotlight.style.transform = `translate(${x - 200}px, ${y - 200}px)`;
+    });
+
+    // Parallax mockup section
+    const parallaxLayers = document.querySelectorAll('.parallax-layer');
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      parallaxLayers.forEach((layer, index) => {
+        const depth = (index + 1) * 0.08;
+        layer.style.transform = `translateY(${scrollY * depth}px)`;
+      });
+    });
+
+    // Section nav active state
+    const sectionLinks = document.querySelectorAll('.client-section-nav a');
+    const sections = document.querySelectorAll('main section');
+
+    function updateSectionNav() {
+      let currentId = null;
+      sections.forEach(sec => {
+        const rect = sec.getBoundingClientRect();
+        if (rect.top <= 140 && rect.bottom >= 140) currentId = sec.id;
+      });
+
+      sectionLinks.forEach(link => {
+        const hrefId = link.getAttribute('href').substring(1);
+        link.classList.toggle('active', hrefId === currentId);
+      });
+    }
+
+    window.addEventListener('scroll', updateSectionNav);
+    window.addEventListener('load', updateSectionNav);
   </script>
 
 </body>
