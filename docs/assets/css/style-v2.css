@@ -987,3 +987,93 @@ body.dark .mini-nav {
   width: 100%;
   border-radius: 10px;
 }
+
+/* HARD RESET: neutralize page-wrapper everywhere */
+.page-wrapper {
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* ----------------------------------------------------------
+   CLIENT SITE ONLY — CENTERING + SPACING
+---------------------------------------------------------- */
+
+.client-wrapper {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+}
+
+/* Consistent spacing for client site sections only */
+.client-wrapper section {
+  padding: 4rem 0;
+}
+
+/* Internal spacing inside sections */
+.client-wrapper section > * + * {
+  margin-top: 1.25rem;
+}
+
+/* Center intro text */
+.client-wrapper .section-intro-text,
+.client-wrapper .centered {
+  text-align: center;
+  max-width: 750px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Center headings just within the client case study body,
+   NOT globally across the whole site */
+.client-wrapper h1,
+.client-wrapper h2,
+.client-wrapper h3 {
+  text-align: center;
+}
+
+/* Services grid fix */
+.client-wrapper .services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+/* Timeline spacing fix */
+.client-wrapper .timeline {
+  max-width: 800px;
+  margin: 2.5rem auto 0;
+  display: grid;
+  gap: 2rem;
+}
+
+/* Testimonial centering */
+.client-wrapper .testimonial {
+  text-align: center;
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+/* CTA centering */
+.client-wrapper .cta-section {
+  text-align: center;
+}
+
+.client-wrapper .cta-btn {
+  display: inline-block;
+  margin-top: 1.5rem;
+}
+
+/* Mockup banner centering */
+.client-wrapper .mockup-banner-frame {
+  max-width: 900px;
+  margin: 2rem auto 0;
+}
+
+.client-wrapper .mockup-banner-frame img {
+  display: block;
+  width: 100%;
+  border-radius: 10px;
+}
+
