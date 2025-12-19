@@ -5,16 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Swiss Design Style – Visual Language</title>
 
-  <!-- Correct global stylesheet + script paths -->
+  <!-- Global stylesheet + script -->
   <link rel="stylesheet" href="../assets/css/style-v2.css" />
   <script defer src="../assets/js/script.js"></script>
 
+  <!-- Premium Swiss-inspired typography -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
 
+    /* GLOBAL PAGE RESET */
     body {
       background: var(--bg);
       margin: 0;
       padding: 0;
+      font-family: "Inter", sans-serif;
+      line-height: 1.65;
+      letter-spacing: -0.01em;
+    }
+
+    h1, h2, h3 {
+      font-family: "Space Grotesk", sans-serif;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.25;
     }
 
     /* Spacer so fixed nav doesn't overlap hero */
@@ -113,16 +127,18 @@
     }
 
     .design-title {
-      font-size: 2.6rem;
+      font-size: 3rem;
       font-weight: 700;
+      letter-spacing: -0.03em;
       margin-bottom: 0.5rem;
     }
 
     .design-subtitle {
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       max-width: 640px;
       margin: 0 auto;
       opacity: 0.85;
+      line-height: 1.6;
     }
 
     /* METRICS */
@@ -206,6 +222,7 @@
       border: 1px solid var(--border);
       background: var(--bg);
     }
+
   </style>
 </head>
 
@@ -214,20 +231,13 @@
   <!-- Spacer for fixed nav -->
   <div class="nav-spacer"></div>
 
-  <!-- TOP NAVIGATION (same as homepage) -->
+  <!-- TOP NAVIGATION -->
   <nav class="mini-nav fade-in">
     <a href="../index.html">Home</a>
     <a href="../portfolio/index.html">Portfolio</a>
     <a href="./index.html">Design Style</a>
     <a href="../client_site/index.html">Client Site</a>
   </nav>
-</style>
-</head>
-
-<body class="fade-in">
-
-  <!-- Spacer for fixed nav -->
-  <div class="nav-spacer"></div>
 
   <!-- Scroll progress bar -->
   <div class="scroll-progress" id="scrollProgress"></div>
@@ -240,19 +250,11 @@
   <!-- Theme toggle -->
   <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
 
-  <!-- TOP NAVIGATION (corrected paths) -->
-  <nav class="mini-nav fade-in">
-    <a href="../index.html">Home</a>
-    <a href="../portfolio/index.html">Portfolio</a>
-    <a href="./index.html">Design Style</a>
-    <a href="../client_site/index.html">Client Site</a>
-  </nav>
-
   <!-- HERO SECTION -->
   <section class="design-hero" id="heroContainer">
-    <img src="../assets/img/designstyle.png" 
-         class="design-poster" 
-         id="heroImage" 
+    <img src="../assets/img/designstyle.png"
+         class="design-poster"
+         id="heroImage"
          alt="Swiss Design Style Poster" />
 
     <h1 class="design-title">Swiss Design Style</h1>
@@ -272,162 +274,6 @@
         <div class="metric-label">Grid modules used</div>
         <div class="metric-underline"></div>
       </div>
-
-      <div class="metric-card" data-target="100">
-        <div class="metric-value">0%</div>
-        <div class="metric-label">Typographic consistency</div>
-        <div class="metric-underline"></div>
-      </div>
-
-      <div class="metric-card" data-target="4">
-        <div class="metric-value">0</div>
-        <div class="metric-label">Visual demonstration categories</div>
-        <div class="metric-underline"></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- MAIN CONTENT LAYOUT -->
-  <main class="design-layout">
-
-    <article class="design-body">
-
-      <section class="design-section" id="overview">
-        <h2>Overview</h2>
-        <p>
-          Swiss Design emphasizes clarity, structure, and visual harmony. This page explores how those principles translate into modern digital design.
-        </p>
-      </section>
-
-      <section class="design-section" id="principles">
-        <h2>Core Principles</h2>
-        <ul>
-          <li>Grid‑based structure</li>
-          <li>Asymmetrical layouts</li>
-          <li>Sans‑serif typography</li>
-          <li>Objective, content‑first design</li>
-          <li>High contrast and clarity</li>
-          <li>Minimal ornamentation</li>
-        </ul>
-      </section>
-      <section class="design-section" id="grid">
-        <h2>Grid System</h2>
-        <p>
-          The grid is the backbone of Swiss Design. It creates rhythm, alignment, and visual order.
-        </p>
-      </section>
-
-      <section class="design-section" id="typography">
-        <h2>Typography</h2>
-        <p>
-          Typography is treated as a functional tool rather than decoration.
-        </p>
-      </section>
-
-      <section class="design-section" id="color">
-        <h2>Color System</h2>
-        <p>
-          Swiss Design traditionally uses limited color palettes with strong contrast.
-        </p>
-      </section>
-
-      <section class="design-section" id="shapes">
-        <h2>Shape Language</h2>
-        <p>
-          Geometric shapes reinforce structure and guide the eye.
-        </p>
-      </section>
-
-      <section class="design-section" id="tools">
-        <h2>Tools Used</h2>
-        <ul>
-          <li>HTML & CSS</li>
-          <li>Grid & Flexbox</li>
-          <li>Responsive layout techniques</li>
-        </ul>
-      </section>
-
-      <section class="design-section" id="links">
-        <h2>Links</h2>
-        <div class="project-links">
-          <a href="https://pk776.github.io/flat-design-project/index.html" target="_blank">Live Project</a>
-          <a href="https://github.com/kaw393939/swiss_design_lineage_vibecoding" target="_blank">Assignment Directions</a>
-        </div>
-      </section>
-
-    </article>
-
-    <aside class="design-toc">
-      <div class="design-toc-title">On this page</div>
-      <ul>
-        <li><a href="#overview" class="toc-link">Overview</a><span class="toc-status"></span></li>
-        <li><a href="#principles" class="toc-link">Core Principles</a><span class="toc-status"></span></li>
-        <li><a href="#grid" class="toc-link">Grid System</a><span class="toc-status"></span></li>
-        <li><a href="#typography" class="toc-link">Typography</a><span class="toc-status"></span></li>
-        <li><a href="#color" class="toc-link">Color System</a><span class="toc-status"></span></li>
-        <li><a href="#shapes" class="toc-link">Shape Language</a><span class="toc-status"></span></li>
-        <li><a href="#tools" class="toc-link">Tools Used</a><span class="toc-status"></span></li>
-        <li><a href="#links" class="toc-link">Links</a><span class="toc-status"></span></li>
-      </ul>
-    </aside>
-
-  </main>
-
-  <footer class="site-footer reveal">
-    <p>© 2025 – Pranika Kalluru – Built with clarity & purpose</p>
-  </footer>
-
-  <!-- FIXED LIGHTBOX PATH -->
-  <div class="lightbox-overlay" id="lightbox">
-    <img src="../assets/img/designstyle.png" class="lightbox-image" />
-    <div class="lightbox-close" id="lightboxClose">×</div>
-  </div>
-
-  <a href="#top" class="back-to-top" id="backToTop">Back to top</a>
-
-  <script>
-    /* -----------------------------------------
-       SCROLL PROGRESS
-    ------------------------------------------ */
-    const scrollProgress = document.getElementById("scrollProgress");
-    window.addEventListener("scroll", () => {
-      const scrollTop = window.scrollY;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      scrollProgress.style.width = (scrollTop / docHeight) * 100 + "%";
-    });
-
-    /* -----------------------------------------
-       SECTION REVEAL
-    ------------------------------------------ */
-    const sections = document.querySelectorAll(".design-section");
-    function revealSections() {
-      const viewportBottom = window.scrollY + window.innerHeight;
-      sections.forEach(section => {
-        const top = section.getBoundingClientRect().top + window.scrollY;
-        if (viewportBottom > top + 80) section.classList.add("visible");
-      });
-    }
-    window.addEventListener("scroll", revealSections);
-    window.addEventListener("load", revealSections);
-
-    /* -----------------------------------------
-       TOC ACTIVE + MINI HEADER
-    ------------------------------------------ */
-    const tocLinks = document.querySelectorAll(".toc-link");
-    const miniHeader = document.getElementById("miniSectionHeader");
-
-    function updateTOC() {
-      let currentId = null;
-
-      sections.forEach(section => {
-        const rect = section.getBoundingClientRect();
-        if (rect.top <= 120 && rect.bottom >= 120) currentId = section.id;
-      });
-
-      tocLinks.forEach(link => {
-        link.classList.toggle("active", link.getAttribute("href").substring(1) === currentId);
-      });
-
       if (currentId) {
         const heading = document.getElementById(currentId).querySelector("h2").textContent;
         miniHeader.textContent = "Current section: " + heading;
@@ -437,6 +283,83 @@
       }
     }
 
+    window.addEventListener("scroll", updateTOC);
+    window.addEventListener("load", updateTOC);
+
+    /* -----------------------------------------
+       HERO PARALLAX
+    ------------------------------------------ */
+    const heroImage = document.getElementById("heroImage");
+    window.addEventListener("scroll", () => {
+      heroImage.style.transform = `translateY(${window.scrollY * 0.15}px)`;
+    });
+
+    /* -----------------------------------------
+       LIGHTBOX
+    ------------------------------------------ */
+    const lightbox = document.getElementById("lightbox");
+    const lightboxClose = document.getElementById("lightboxClose");
+
+    heroImage.addEventListener("click", () => lightbox.classList.add("visible"));
+    lightboxClose.addEventListener("click", () => lightbox.classList.remove("visible"));
+    lightbox.addEventListener("click", e => {
+      if (e.target === lightbox) lightbox.classList.remove("visible");
+    });
+
+    /* -----------------------------------------
+       BACK TO TOP
+    ------------------------------------------ */
+    const backToTop = document.getElementById("backToTop");
+    window.addEventListener("scroll", () => {
+      backToTop.classList.toggle("visible", window.scrollY > 400);
+    });
+
+    /* -----------------------------------------
+       METRIC COUNT-UP ANIMATION
+    ------------------------------------------ */
+    const metricCards = document.querySelectorAll(".metric-card");
+
+    function animateMetrics() {
+      const viewportBottom = window.scrollY + window.innerHeight;
+
+      metricCards.forEach(card => {
+        const rect = card.getBoundingClientRect();
+        const top = rect.top + window.scrollY;
+
+        if (!card.classList.contains("visible") && viewportBottom > top + 40) {
+          card.classList.add("visible");
+
+          const target = parseInt(card.getAttribute("data-target"), 10) || 0;
+          const valueEl = card.querySelector(".metric-value");
+          let current = 0;
+          const duration = 900;
+          const start = performance.now();
+
+          function tick(now) {
+            const progress = Math.min((now - start) / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            current = Math.floor(target * eased);
+
+            valueEl.textContent = target === 100 ? current + "%" : current;
+
+            if (progress < 1) {
+              requestAnimationFrame(tick);
+            } else {
+              valueEl.textContent = target === 100 ? target + "%" : target;
+            }
+          }
+
+          requestAnimationFrame(tick);
+        }
+      });
+    }
+
+    window.addEventListener("scroll", animateMetrics);
+    window.addEventListener("load", animateMetrics);
+  </script>
+
+</body>
+</html>
     window.addEventListener("scroll", updateTOC);
     window.addEventListener("load", updateTOC);
 
