@@ -13,7 +13,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
-
     /* -----------------------------------------
        GLOBAL TYPOGRAPHY
     ------------------------------------------ */
@@ -374,7 +373,6 @@
       opacity: 1;
       pointer-events: auto;
     }
-
   </style>
 </head>
 
@@ -436,13 +434,23 @@
   </section>
 
   <main class="design-layout">
-
     <article class="design-body">
-
       <section class="design-section" id="overview">
         <h2>Overview</h2>
         <p>
           Swiss Design emphasizes clarity, structure, and visual harmony. This page explores how those principles translate into modern digital design.
+        </p>
+      </section>
+
+      <section class="design-section" id="rationale">
+        <h2>Design Rationale</h2>
+        <p>
+          This page is built as a modern interpretation of Swiss Design — not as a recreation of mid‑century posters, but as a translation of their principles into digital form.
+          Every decision is intentional: the grid establishes rhythm, the typography creates hierarchy, and the spacing system maintains clarity across all breakpoints.
+        </p>
+        <p>
+          The goal is to demonstrate how timeless design rules adapt to interactive environments.
+          Motion is used sparingly, color is functional, and the layout prioritizes readability and structure over decoration.
         </p>
       </section>
 
@@ -472,10 +480,52 @@
         </p>
       </section>
 
+      <section class="design-section" id="type-specimen">
+        <h2>Typography Specimen</h2>
+        <p>
+          The type system pairs <strong>Space Grotesk</strong> for headings with <strong>Inter</strong> for body text — a combination that balances geometric precision with modern readability.
+        </p>
+
+        <div style="margin-top:1.5rem;">
+          <h3 style="font-size:2.4rem; margin-bottom:0.3rem;">Heading Level 1</h3>
+          <p style="opacity:0.7;">Space Grotesk · 700 · -0.03em tracking</p>
+        </div>
+
+        <div style="margin-top:1.5rem;">
+          <h3 style="font-size:1.9rem; margin-bottom:0.3rem;">Heading Level 2</h3>
+          <p style="opacity:0.7;">Space Grotesk · 600 · -0.02em tracking</p>
+        </div>
+
+        <div style="margin-top:1.5rem;">
+          <p style="font-size:1.1rem; margin-bottom:0.3rem;">Body Text</p>
+          <p style="opacity:0.7;">Inter · 400 · 1.65 line-height</p>
+        </div>
+      </section>
+
       <section class="design-section" id="color">
         <h2>Color System</h2>
         <p>
           Swiss Design traditionally uses limited color palettes with strong contrast.
+        </p>
+      </section>
+
+      <section class="design-section" id="color-system">
+        <h2>Color Palette</h2>
+        <p>
+          The palette is intentionally minimal — a hallmark of Swiss Design.
+          Color is used for structure, emphasis, and clarity rather than decoration.
+        </p>
+
+        <div style="display:flex; gap:1rem; margin-top:1.5rem; flex-wrap:wrap;">
+          <div style="width:120px; height:120px; background:var(--accent); border-radius:8px;"></div>
+          <div style="width:120px; height:120px; background:var(--text); border-radius:8px;"></div>
+          <div style="width:120px; height:120px; background:var(--text-subtle); border-radius:8px;"></div>
+          <div style="width:120px; height:120px; background:var(--card); border-radius:8px;"></div>
+          <div style="width:120px; height:120px; background:var(--bg); border-radius:8px; border:1px solid var(--border);"></div>
+        </div>
+
+        <p style="margin-top:1rem; opacity:0.7;">
+          Accent · Text · Subtle Text · Card · Background
         </p>
       </section>
 
@@ -502,17 +552,19 @@
           <a href="https://github.com/kaw393939/swiss_design_lineage_vibecoding" target="_blank">Assignment Directions</a>
         </div>
       </section>
-
     </article>
 
     <aside class="design-toc">
       <div class="design-toc-title">On this page</div>
       <ul>
         <li><a href="#overview" class="toc-link">Overview</a><span class="toc-status"></span></li>
+        <li><a href="#rationale" class="toc-link">Design Rationale</a><span class="toc-status"></span></li>
         <li><a href="#principles" class="toc-link">Core Principles</a><span class="toc-status"></span></li>
         <li><a href="#grid" class="toc-link">Grid System</a><span class="toc-status"></span></li>
         <li><a href="#typography" class="toc-link">Typography</a><span class="toc-status"></span></li>
+        <li><a href="#type-specimen" class="toc-link">Typography Specimen</a><span class="toc-status"></span></li>
         <li><a href="#color" class="toc-link">Color System</a><span class="toc-status"></span></li>
+        <li><a href="#color-system" class="toc-link">Color Palette</a><span class="toc-status"></span></li>
         <li><a href="#shapes" class="toc-link">Shape Language</a><span class="toc-status"></span></li>
         <li><a href="#tools" class="toc-link">Tools Used</a><span class="toc-status"></span></li>
         <li><a href="#links" class="toc-link">Links</a><span class="toc-status"></span></li>
@@ -527,14 +579,13 @@
 
   <!-- LIGHTBOX -->
   <div class="lightbox-overlay" id="lightbox">
-    <img src="../assets/img/designstyle.png" class="lightbox-image" />
+    <img src="../assets/img/designstyle.png" class="lightbox-image" alt="Swiss Design Style Poster enlarged" />
     <div class="lightbox-close" id="lightboxClose">×</div>
   </div>
 
   <a href="#top" class="back-to-top" id="backToTop">Back to top</a>
 
   <script>
-
     /* -----------------------------------------
        SCROLL PROGRESS
     ------------------------------------------ */
@@ -659,7 +710,7 @@
 
     window.addEventListener("scroll", animateMetrics);
     window.addEventListener("load", animateMetrics);
-
+    
   </script>
 
 </body>
