@@ -8,41 +8,159 @@
   <!-- C1 CSS -->
   <link rel="stylesheet" href="../assets/css/style-v2.css">
 
-  <!-- JS -->
+  <!-- JS (your global script) -->
   <script defer src="../assets/js/script.js"></script>
 
   <!-- PAGE-SPECIFIC STYLES -->
   <style>
-    /* Center main content */
+    /* Page transition */
+    body.page-transition {
+      opacity: 0;
+      transition: opacity 0.45s ease;
+    }
+
+    body.page-transition.page-loaded {
+      opacity: 1;
+    }
+
+    /* Layout */
     main {
       padding: 0 !important;
       margin: 0 auto !important;
       max-width: 1100px;
-      text-align: center;
     }
 
-    /* Reduce hero spacing */
-    .home-hero {
-      padding: 60px 20px 30px !important;
-      min-height: auto !important;
-    }
-
-    /* Section spacing */
     section {
       margin: 60px auto;
-      max-width: 900px;
+      max-width: 950px;
       padding: 0 20px;
     }
 
     .section-title {
+      text-align: center;
       margin-bottom: 6px;
     }
 
     .section-title-underline {
-      margin-bottom: 24px !important;
+      margin: 0 auto 24px !important;
     }
 
-    /* Service cards */
+    .section-intro-text {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .section-divider {
+      height: 1px;
+      max-width: 700px;
+      margin: 0 auto;
+      background: linear-gradient(to right, transparent, rgba(0,0,0,0.12), transparent);
+      opacity: 0.6;
+    }
+
+    /* Hero */
+    .home-hero {
+      padding: 70px 20px 40px !important;
+      min-height: auto !important;
+      text-align: center;
+    }
+
+    .hero-cta {
+      margin-top: 24px;
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+    }
+
+    .primary-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 22px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      background: #4a6cff;
+      color: white;
+      font-weight: 600;
+      font-size: 0.98rem;
+      letter-spacing: 0.02em;
+      box-shadow: 0 8px 20px rgba(74,108,255,0.35);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+      text-decoration: none;
+    }
+
+    .primary-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 26px rgba(74,108,255,0.45);
+      background: #3d5cff;
+    }
+
+    .secondary-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(0,0,0,0.12);
+      background: rgba(255,255,255,0.7);
+      backdrop-filter: blur(10px);
+      cursor: pointer;
+      font-size: 0.95rem;
+      text-decoration: none;
+      color: inherit;
+      transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .secondary-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+      background: rgba(255,255,255,0.9);
+    }
+
+    /* About section two-column */
+    .about-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 40px;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    .about-text {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      opacity: 0.9;
+    }
+
+    .about-highlight-card {
+      background: rgba(255,255,255,0.8);
+      backdrop-filter: blur(16px);
+      border-radius: 16px;
+      padding: 24px 22px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      border: 1px solid rgba(255,255,255,0.6);
+    }
+
+    .about-highlight-tag {
+      display: inline-flex;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      background: rgba(74,108,255,0.08);
+      color: #4a5cff;
+      margin-bottom: 10px;
+    }
+
+    .about-highlight-card p {
+      margin: 6px 0;
+      font-size: 0.95rem;
+      opacity: 0.9;
+    }
+
+    /* Services grid */
     .service-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -52,52 +170,270 @@
     }
 
     .service-card {
-      background: rgba(255,255,255,0.75);
+      background: rgba(255,255,255,0.8);
       backdrop-filter: blur(14px);
-      padding: 28px;
-      border-radius: 14px;
+      padding: 26px;
+      border-radius: 16px;
       text-align: left;
-      max-width: 300px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-      border: 1px solid rgba(255,255,255,0.4);
+      max-width: 320px;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.08);
+      border: 1px solid rgba(255,255,255,0.6);
       transition: transform 0.35s ease, box-shadow 0.35s ease;
+      position: relative;
+      overflow: hidden;
     }
 
     .service-card:hover {
       transform: translateY(-8px);
-      box-shadow: 0 14px 32px rgba(0,0,0,0.12);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.12);
     }
 
-    /* Testimonials */
-    .testimonial {
-      background: rgba(255,255,255,0.7);
-      backdrop-filter: blur(12px);
-      padding: 24px;
-      border-radius: 14px;
-      margin: 20px auto;
-      max-width: 700px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-      border: 1px solid rgba(255,255,255,0.4);
-      font-style: italic;
+    .service-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 14px;
+      background: radial-gradient(circle at 30% 0%, #ffffff, #dbe3ff);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+      font-size: 1.4rem;
     }
 
-    /* Contact box */
-    .contact-box {
-      background: rgba(255,255,255,0.75);
+    .service-card h3 {
+      margin-top: 0;
+      margin-bottom: 8px;
+    }
+
+    .service-card p {
+      margin: 0;
+      font-size: 0.98rem;
+      line-height: 1.6;
+      opacity: 0.9;
+    }
+
+    /* Testimonials slider */
+    .testimonial-slider {
+      max-width: 780px;
+      margin: 24px auto 10px;
+      position: relative;
+    }
+
+    .testimonial-slide {
+      background: rgba(255,255,255,0.8);
       backdrop-filter: blur(14px);
-      padding: 32px;
-      border-radius: 14px;
-      max-width: 600px;
-      margin: 0 auto;
+      padding: 24px 24px 20px;
+      border-radius: 16px;
       box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-      border: 1px solid rgba(255,255,255,0.4);
+      border: 1px solid rgba(255,255,255,0.6);
+      font-style: italic;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+      position: absolute;
+      inset: 0;
+    }
+
+    .testimonial-slide.active {
+      opacity: 1;
+      transform: translateY(0);
+      position: relative;
+    }
+
+    .testimonial-author {
+      margin-top: 10px;
+      font-style: normal;
+      font-weight: 500;
+      opacity: 0.8;
+    }
+
+    .testimonial-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .testimonial-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(0,0,0,0.16);
+      cursor: pointer;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .testimonial-dot.active {
+      transform: scale(1.25);
+      background: #4a6cff;
+    }
+
+    /* FAQ */
+    .faq-list {
+      max-width: 750px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    .faq-item {
+      margin-bottom: 14px;
+      border-radius: 10px;
+      background: rgba(255,255,255,0.8);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+      border: 1px solid rgba(255,255,255,0.6);
+      overflow: hidden;
+    }
+
+    .faq-item summary {
+      cursor: pointer;
+      padding: 12px 14px;
+      font-weight: 500;
+      list-style: none;
+      position: relative;
+    }
+
+    .faq-item summary::marker,
+    .faq-item summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq-item summary::after {
+      content: "+";
+      position: absolute;
+      right: 16px;
+      top: 12px;
+      font-weight: 600;
+      opacity: 0.7;
+    }
+
+    .faq-item[open] summary::after {
+      content: "−";
+    }
+
+    .faq-item p {
+      padding: 0 14px 12px;
+      margin: 0;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      opacity: 0.9;
+    }
+
+    /* Contact form */
+    .contact-layout {
+      max-width: 750px;
+      margin: 0 auto;
+    }
+
+    .contact-box {
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(16px);
+      padding: 28px 24px 26px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      border: 1px solid rgba(255,255,255,0.7);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      gap: 24px;
+      align-items: start;
+    }
+
+    .contact-form-group {
+      text-align: left;
+      margin-bottom: 12px;
+    }
+
+    .contact-form-group label {
+      display: block;
+      font-size: 0.9rem;
+      margin-bottom: 4px;
+      opacity: 0.85;
+    }
+
+    .contact-form-group input,
+    .contact-form-group textarea {
+      width: 100%;
+      border-radius: 10px;
+      border: 1px solid rgba(0,0,0,0.12);
+      padding: 8px 10px;
+      font-family: inherit;
+      font-size: 0.95rem;
+      resize: vertical;
+      background: rgba(255,255,255,0.9);
+    }
+
+    .contact-form-group textarea {
+      min-height: 90px;
+    }
+
+    .contact-submit {
+      margin-top: 8px;
+    }
+
+    .contact-details {
+      font-size: 0.95rem;
+      text-align: left;
+      opacity: 0.9;
+    }
+
+    .contact-details p {
+      margin: 6px 0;
+    }
+
+    /* Back to top button */
+    #backToTop {
+      position: fixed;
+      right: 24px;
+      bottom: 24px;
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      border: none;
+      background: rgba(74,108,255,0.9);
+      color: white;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.25);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease, transform 0.25s ease;
+      z-index: 900;
+    }
+
+    #backToTop.visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    #backToTop:hover {
+      transform: translateY(-2px);
+    }
+
+    /* Responsive */
+    @media (max-width: 800px) {
+      .about-layout,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        margin: 46px auto;
+      }
     }
   </style>
 </head>
 
-<body class="fade-in">
+<body class="fade-in page-transition">
 
-  <!-- BACKGROUND LAYERS -->
+  <!-- BACKGROUND LAYERS (C1 SYSTEM) -->
   <div class="hero-background">
     <div class="bg-gradient-wave"></div>
     <div class="bg-blob bg-blob-1"></div>
@@ -125,80 +461,253 @@
     <div class="title-underline"></div>
 
     <p class="intro-description">
-      Providing guidance, clarity, and support through thoughtful, client‑centered care.
+      A calm, client‑centered space for reflection, growth, and guided next steps.
     </p>
+
+    <div class="hero-cta">
+      <a href="#contact" class="primary-cta">Book a Session</a>
+      <a href="#services" class="secondary-cta">View Services</a>
+    </div>
   </header>
 
   <main class="fade-up-stagger">
 
     <!-- ABOUT -->
-    <section>
+    <section id="about">
       <h2 class="section-title">About</h2>
       <div class="section-title-underline"></div>
 
-      <p class="section-intro-text">
-        This client‑focused service site is designed to offer a calm, welcoming space for individuals seeking clarity, emotional support, or structured guidance. The goal is to create an environment that feels safe, grounded, and easy to navigate.
-      </p>
+      <div class="about-layout">
+        <div class="about-text">
+          <p>
+            This client‑focused site is designed to feel grounded, approachable, and clear. The goal is to create a space where individuals can explore support options without feeling overwhelmed.
+          </p>
+          <p>
+            Every element—from layout to language—is built to communicate trust, stability, and care. The experience is structured but gentle, making it easy for visitors to understand what is offered and how to take the next step.
+          </p>
+        </div>
+
+        <div class="about-highlight-card">
+          <span class="about-highlight-tag">Approach</span>
+          <p><strong>Client‑Centered:</strong> Focused on listening first and responding with care.</p>
+          <p><strong>Structured:</strong> Clear plans, defined goals, and actionable steps.</p>
+          <p><strong>Supportive:</strong> A calm tone and thoughtful pacing throughout the experience.</p>
+        </div>
+      </div>
     </section>
 
+    <div class="section-divider"></div>
+
     <!-- SERVICES -->
-    <section>
+    <section id="services">
       <h2 class="section-title">Services</h2>
       <div class="section-title-underline"></div>
+
+      <p class="section-intro-text">
+        Support is offered through focused, intentional sessions tailored to different needs—from everyday stress to longer‑term goals.
+      </p>
 
       <div class="service-grid">
 
         <div class="service-card">
+          <div class="service-icon">🌱</div>
           <h3>Personal Guidance</h3>
-          <p>One‑on‑one support focused on personal growth, emotional clarity, and developing healthy coping strategies.</p>
+          <p>One‑on‑one sessions centered on emotional clarity, self‑reflection, and developing healthier thought patterns and responses.</p>
         </div>
 
         <div class="service-card">
-          <h3>Stress & Wellness Support</h3>
-          <p>Tools and techniques to manage stress, build resilience, and create sustainable wellness habits.</p>
+          <div class="service-icon">🌊</div>
+          <h3>Stress & Wellness</h3>
+          <p>Support for navigating stress, burnout, and transition periods with practical tools and sustainable wellness habits.</p>
         </div>
 
         <div class="service-card">
+          <div class="service-icon">📍</div>
           <h3>Goal‑Oriented Planning</h3>
-          <p>Structured sessions designed to help clients set goals, stay accountable, and move forward with confidence.</p>
+          <p>Structured, collaborative planning to define goals, map next steps, and stay accountable over time.</p>
         </div>
 
       </div>
     </section>
 
+    <div class="section-divider"></div>
+
     <!-- TESTIMONIALS -->
-    <section>
+    <section id="testimonials">
       <h2 class="section-title">Testimonials</h2>
       <div class="section-title-underline"></div>
 
-      <div class="testimonial">
-        “A calm, supportive environment that helped me feel grounded and understood.”
+      <div class="testimonial-slider">
+        <div class="testimonial-slide active">
+          “A calm, steady presence that helped me feel more grounded and less overwhelmed.”
+          <div class="testimonial-author">— Client Reflection</div>
+        </div>
+        <div class="testimonial-slide">
+          “The structure was clear but never rigid. I felt guided, not pressured.”
+          <div class="testimonial-author">— Session Feedback</div>
+        </div>
+        <div class="testimonial-slide">
+          “I left with practical next steps and a sense that my situation was actually manageable.”
+          <div class="testimonial-author">— Ongoing Client</div>
+        </div>
       </div>
 
-      <div class="testimonial">
-        “Clear guidance and thoughtful insight — exactly what I needed.”
+      <div class="testimonial-dots">
+        <div class="testimonial-dot active" data-index="0"></div>
+        <div class="testimonial-dot" data-index="1"></div>
+        <div class="testimonial-dot" data-index="2"></div>
       </div>
     </section>
 
+    <div class="section-divider"></div>
+
+    <!-- FAQ -->
+    <section id="faq">
+      <h2 class="section-title">FAQ</h2>
+      <div class="section-title-underline"></div>
+
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>What can I expect from a session?</summary>
+          <p>Sessions are conversational and paced thoughtfully. The focus is on understanding what you’re experiencing, identifying what you need, and exploring options together.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Do you offer virtual appointments?</summary>
+          <p>Yes. Sessions can be offered virtually to provide flexibility and accessibility while still maintaining a grounded, supportive environment.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>How long is each session?</summary>
+          <p>Most sessions are designed around a 50–60 minute format, with time at the end to recap and define next steps.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Is this site for demonstration or real services?</summary>
+          <p>This site is designed as a demonstration of a calm, professional client experience and layout. Content and details can be customized for a real practice.</p>
+        </details>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
     <!-- CONTACT -->
-    <section>
+    <section id="contact">
       <h2 class="section-title">Contact</h2>
       <div class="section-title-underline"></div>
 
-      <div class="contact-box">
-        <p>If you’d like to learn more or schedule a session, feel free to reach out.</p>
-        <p><strong>Email:</strong> contact@example.com</p>
-        <p><strong>Phone:</strong> (000) 000‑0000</p>
+      <div class="contact-layout">
+        <div class="contact-box">
+          <div class="contact-grid">
+            <div>
+              <div class="contact-form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" placeholder="Your name">
+              </div>
+
+              <div class="contact-form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="you@example.com">
+              </div>
+
+              <div class="contact-form-group">
+                <label for="message">Message</label>
+                <textarea id="message" placeholder="Share a bit about what you’re looking for..."></textarea>
+              </div>
+
+              <div class="contact-submit">
+                <button type="button" class="primary-cta">Send Message</button>
+              </div>
+            </div>
+
+            <div class="contact-details">
+              <p>If you’d like to learn more, explore options, or discuss availability, you can reach out using the form or directly:</p>
+              <p><strong>Email:</strong> contact@example.com</p>
+              <p><strong>Phone:</strong> (000) 000‑0000</p>
+              <p><strong>Availability:</strong> Weekday afternoons and early evenings</p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
   </main>
 
+  <!-- BACK TO TOP BUTTON -->
+  <button id="backToTop" aria-label="Back to top">↑</button>
+
   <!-- FOOTER -->
   <footer class="site-footer reveal">
     <p>© 2025 – Professional Support Services</p>
   </footer>
-  
+
+  <!-- PAGE-SPECIFIC JS -->
+  <script>
+    // Page transition in
+    window.addEventListener("DOMContentLoaded", function () {
+      document.body.classList.add("page-loaded");
+    });
+
+    // Intercept internal nav links for smooth fade-out
+    document.addEventListener("click", function (e) {
+      const link = e.target.closest("a");
+      if (!link) return;
+
+      const href = link.getAttribute("href");
+      if (!href || href.startsWith("#")) return;
+
+      if (href.startsWith("http")) return;
+
+      e.preventDefault();
+      document.body.classList.remove("page-loaded");
+      setTimeout(function () {
+        window.location.href = href;
+      }, 250);
+    });
+
+    // Testimonial slider
+    const slides = Array.from(document.querySelectorAll(".testimonial-slide"));
+    const dots = Array.from(document.querySelectorAll(".testimonial-dot"));
+    let current = 0;
+
+    function showSlide(index) {
+      slides.forEach((s, i) => {
+        s.classList.toggle("active", i === index);
+      });
+      dots.forEach((d, i) => {
+        d.classList.toggle("active", i === index);
+      });
+      current = index;
+    }
+
+    if (slides.length && dots.length) {
+      setInterval(function () {
+        const next = (current + 1) % slides.length;
+        showSlide(next);
+      }, 6000);
+
+      dots.forEach(dot => {
+        dot.addEventListener("click", () => {
+          const idx = parseInt(dot.dataset.index, 10);
+          showSlide(idx);
+        });
+      });
+    }
+
+    // Back to top button
+    const backToTop = document.getElementById("backToTop");
+    window.addEventListener("scroll", function () {
+      if (window.scrollY > 450) {
+        backToTop.classList.add("visible");
+      } else {
+        backToTop.classList.remove("visible");
+      }
+    });
+
+    backToTop.addEventListener("click", function () {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  </script>
 </body>
 
 </html>
