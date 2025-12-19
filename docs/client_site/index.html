@@ -1,65 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Client Site – Professional Support Services</title>
 
   <!-- C1 CSS -->
-  <link rel="stylesheet" href="../assets/css/style-v2.css">
+  <link rel="stylesheet" href="../assets/css/style-v2.css" />
 
   <!-- Global JS -->
   <script defer src="../assets/js/script.js"></script>
 
   <!-- PAGE-SPECIFIC STYLES -->
   <style>
-    /* Page transition */
-    body.page-transition {
-      opacity: 0;
-      transition: opacity 0.45s ease;
-    }
-    body.page-transition.page-loaded {
-      opacity: 1;
-    }
-
-    /* Layout */
-    main {
-      padding: 0 !important;
-      margin: 0 auto !important;
-      max-width: 1100px;
-    }
-
+    /* Balanced spacing system */
     section {
-      margin: 48px auto;
+      margin: 32px auto;
       max-width: 950px;
       padding: 0 20px;
     }
 
-    .section-title {
-      text-align: center;
-      margin-bottom: 6px;
-    }
-
-    .section-title-underline {
-      margin: 0 auto 18px !important;
-    }
-
-    .section-intro-text {
-      text-align: center;
-      margin-bottom: 22px;
-    }
 
     .section-divider {
       height: 1px;
       max-width: 700px;
-      margin: 32px auto;
+      margin: 16px auto;
       background: linear-gradient(to right, transparent, rgba(0,0,0,0.12), transparent);
       opacity: 0.6;
     }
 
     /* Hero */
     .home-hero {
-      padding: 60px 20px 40px !important;
+      padding: 44px 20px 32px !important;
       text-align: center;
       position: relative;
       z-index: 5;
@@ -73,57 +45,16 @@
     }
 
     .hero-cta {
-      margin-top: 22px;
+      margin-top: 20px;
       display: flex;
       justify-content: center;
       gap: 14px;
       flex-wrap: wrap;
     }
 
-    .primary-cta,
-    .secondary-cta {
-      border-radius: 999px;
-      padding: 10px 20px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.96rem;
-      transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .primary-cta {
-      background: #4a6cff;
-      color: white;
-      box-shadow: 0 8px 20px rgba(74,108,255,0.35);
-    }
-    .primary-cta:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 12px 28px rgba(74,108,255,0.45);
-      background: #3d5cff;
-    }
-
-    .secondary-cta {
-      background: rgba(255,255,255,0.7);
-      border: 1px solid rgba(0,0,0,0.12);
-      color: inherit;
-      backdrop-filter: blur(10px);
-    }
-    .secondary-cta:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 18px rgba(0,0,0,0.15);
-      background: rgba(255,255,255,0.9);
-    }
-
-    /* Mini nav with floating indicator */
+    /* Nav indicator */
     .mini-nav {
       position: relative;
-    }
-
-    .mini-nav a {
-      position: relative;
-      padding-bottom: 6px;
     }
 
     .nav-indicator {
@@ -141,167 +72,29 @@
     .about-layout {
       display: grid;
       grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
-      gap: 28px;
+      gap: 24px;
       align-items: center;
     }
 
-    .about-text {
-      font-size: 1.02rem;
-      line-height: 1.7;
-      opacity: 0.9;
-    }
-
-    .about-highlight-card {
-      background: rgba(255,255,255,0.85);
-      padding: 22px 20px;
+    /* Before & After (wider highlight) */
+    #before-after .before-after-wrapper {
+      max-width: 900px;
+      margin: 0 auto;
+      background: rgba(255,255,255,0.86);
+      padding: 16px;
       border-radius: 16px;
-      backdrop-filter: blur(16px);
-      box-shadow: 0 10px 28px rgba(0,0,0,0.08);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.12);
       border: 1px solid rgba(255,255,255,0.7);
-      position: relative;
-      overflow: hidden;
     }
 
-    .about-highlight-card::before {
-      content: "";
-      position: absolute;
-      inset: -40%;
-      background: radial-gradient(circle at top left,
-        rgba(74,108,255,0.16),
-        transparent 55%);
-      opacity: 0.8;
-      pointer-events: none;
-    }
-
-    .about-highlight-tag {
-      display: inline-block;
-      padding: 4px 10px;
-      border-radius: 999px;
-      background: rgba(74,108,255,0.08);
-      color: #4a5cff;
-      font-size: 0.8rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      margin-bottom: 8px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .about-highlight-card p {
-      margin: 4px 0;
-      font-size: 0.94rem;
-      opacity: 0.9;
-      position: relative;
-      z-index: 1;
-    }
 
     /* Services */
     .service-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 24px;
+      gap: 18px;
       margin-top: 14px;
-    }
-
-    .service-card {
-      background: rgba(255,255,255,0.86);
-      padding: 22px;
-      border-radius: 16px;
-      backdrop-filter: blur(14px);
-      box-shadow: 0 10px 26px rgba(0,0,0,0.08);
-      border: 1px solid rgba(255,255,255,0.7);
-      transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .service-card::after {
-      content: "";
-      position: absolute;
-      inset: -40%;
-      background: radial-gradient(circle at top right,
-        rgba(74,108,255,0.18),
-        transparent 55%);
-      opacity: 0;
-      transition: opacity 0.35s ease;
-      pointer-events: none;
-    }
-
-    .service-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 18px 45px rgba(0,0,0,0.16);
-      border-color: rgba(74,108,255,0.45);
-    }
-
-    .service-card:hover::after {
-      opacity: 1;
-    }
-
-    .service-icon {
-      width: 38px;
-      height: 38px;
-      border-radius: 999px;
-      background: radial-gradient(circle at 30% 0%, #ffffff, #dbe3ff);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.3rem;
-      margin-bottom: 10px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.12);
-    }
-
-    .service-card h3 {
-      margin: 0 0 4px;
-      font-size: 1.02rem;
-    }
-
-    .service-card p {
-      margin: 0;
-      font-size: 0.95rem;
-      line-height: 1.6;
-      opacity: 0.9;
-    }
-
-    /* Before & After */
-    #before-after {
-      text-align: center;
-    }
-
-    .before-after-wrapper {
-      max-width: 750px;
-      margin: 0 auto;
-      background: rgba(255,255,255,0.86);
-      padding: 18px;
-      border-radius: 16px;
-      backdrop-filter: blur(14px);
-      box-shadow: 0 12px 32px rgba(0,0,0,0.12);
-      border: 1px solid rgba(255,255,255,0.7);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .before-after-wrapper::before {
-      content: "";
-      position: absolute;
-      inset: -40%;
-      background: radial-gradient(circle at center,
-        rgba(74,108,255,0.18),
-        transparent 60%);
-      opacity: 0.9;
-      pointer-events: none;
-    }
-
-    .before-after-wrapper img {
-      width: 100%;
-      border-radius: 12px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .before-after-caption {
-      margin-top: 10px;
-      font-size: 0.95rem;
-      opacity: 0.85;
     }
 
     /* Testimonials */
@@ -311,115 +104,19 @@
       position: relative;
     }
 
-    .testimonial-slide {
-      background: rgba(255,255,255,0.86);
-      padding: 22px 22px 18px;
-      border-radius: 16px;
-      backdrop-filter: blur(14px);
-      box-shadow: 0 10px 28px rgba(0,0,0,0.1);
-      border: 1px solid rgba(255,255,255,0.7);
-      font-style: italic;
-      opacity: 0;
-      transform: translateY(10px);
-      transition: opacity 0.45s ease, transform 0.45s ease;
-      position: absolute;
-      inset: 0;
-    }
-
-    .testimonial-slide.active {
-      opacity: 1;
-      transform: translateY(0);
-      position: relative;
-    }
-
-    .testimonial-author {
-      margin-top: 10px;
-      font-style: normal;
-      font-weight: 500;
-      opacity: 0.8;
-    }
-
-    .testimonial-dots {
-      display: flex;
-      justify-content: center;
-      gap: 8px;
-      margin-top: 10px;
-    }
-
-    .testimonial-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: rgba(0,0,0,0.16);
-      cursor: pointer;
-      transition: transform 0.2s ease, background 0.2s ease;
-    }
-
-    .testimonial-dot.active {
-      transform: scale(1.25);
-      background: #4a6cff;
-    }
 
     /* FAQ */
     .faq-list {
       max-width: 750px;
       margin: 0 auto;
-      text-align: left;
     }
 
-    .faq-item {
-      margin-bottom: 10px;
-      border-radius: 10px;
-      background: rgba(255,255,255,0.86);
-      backdrop-filter: blur(12px);
-      box-shadow: 0 6px 20px rgba(0,0,0,0.06);
-      border: 1px solid rgba(255,255,255,0.7);
-      overflow: hidden;
-    }
-
-    .faq-item summary {
-      cursor: pointer;
-      padding: 10px 12px;
-      font-weight: 500;
-      list-style: none;
-      position: relative;
-    }
-
-    .faq-item summary::marker,
-    .faq-item summary::-webkit-details-marker {
-      display: none;
-    }
-
-    .faq-item summary::after {
-      content: "+";
-      position: absolute;
-      right: 12px;
-      top: 9px;
-      font-weight: 600;
-      opacity: 0.7;
-    }
-
-    .faq-item[open] summary::after {
-      content: "−";
-    }
-
-    .faq-item p {
-      padding: 0 12px 10px;
-      margin: 0;
-      font-size: 0.94rem;
-      line-height: 1.6;
-      opacity: 0.9;
-    }
 
     /* Contact */
-    .contact-layout {
-      max-width: 750px;
-      margin: 0 auto;
-    }
 
     .contact-box {
       background: rgba(255,255,255,0.9);
-      padding: 24px 20px 22px;
+      padding: 18px 16px 16px;
       border-radius: 16px;
       backdrop-filter: blur(16px);
       box-shadow: 0 10px 30px rgba(0,0,0,0.1);
@@ -429,57 +126,14 @@
     .contact-grid {
       display: grid;
       grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
-      gap: 22px;
-      align-items: start;
+      gap: 18px;
     }
 
-    .contact-form-group {
-      text-align: left;
-      margin-bottom: 10px;
-    }
-
-    .contact-form-group label {
-      display: block;
-      font-size: 0.9rem;
-      margin-bottom: 3px;
-      opacity: 0.85;
-    }
-
-    .contact-form-group input,
-    .contact-form-group textarea {
-      width: 100%;
-      border-radius: 10px;
-      border: 1px solid rgba(0,0,0,0.12);
-      padding: 7px 9px;
-      font-family: inherit;
-      font-size: 0.94rem;
-      resize: vertical;
-      background: rgba(255,255,255,0.96);
-    }
-
-    .contact-form-group textarea {
-      min-height: 90px;
-    }
-
-    .contact-submit {
-      margin-top: 6px;
-    }
-
-    .contact-details {
-      font-size: 0.94rem;
-      text-align: left;
-      opacity: 0.9;
-    }
-
-    .contact-details p {
-      margin: 5px 0;
-    }
-
-    /* CTA Banner */
+    /* CTA Banner (smaller, elegant) */
     .cta-banner {
-      margin: 54px auto 32px;
-      padding: 28px 20px;
-      max-width: 950px;
+      margin: 28px auto 20px;
+      padding: 18px 16px;
+      max-width: 900px;
       text-align: center;
       background: linear-gradient(135deg,
         rgba(74,108,255,0.16),
@@ -490,14 +144,15 @@
       border: 1px solid rgba(255,255,255,0.7);
     }
 
-    .cta-banner h3 {
-      margin: 0 0 6px;
+    /* Scroll reveal */
+    .reveal-on-scroll {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
     }
-
-    .cta-banner p {
-      margin: 0 0 10px;
-      font-size: 0.97rem;
-      opacity: 0.9;
+    .reveal-on-scroll.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     /* Back to top */
@@ -522,42 +177,13 @@
     #backToTop.visible {
       opacity: 1;
       pointer-events: auto;
-      transform: translateY(0);
-    }
-    #backToTop:hover {
-      transform: translateY(-2px);
-    }
-
-    /* Scroll reveal base */
-    .reveal-on-scroll {
-      opacity: 0;
-      transform: translateY(16px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-    .reveal-on-scroll.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* Responsive */
-    @media (max-width: 800px) {
-      .about-layout,
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
-      section {
-        margin: 40px auto;
-      }
-      .cta-banner {
-        margin-top: 40px;
-      }
     }
   </style>
-</head>
 
+</head>
 <body class="fade-in page-transition">
 
-  <!-- BACKGROUND LAYERS -->
+  <!-- BACKGROUND -->
   <div class="hero-background">
     <div class="bg-gradient-wave"></div>
     <div class="bg-blob bg-blob-1"></div>
@@ -621,6 +247,22 @@
 
     <div class="section-divider reveal-on-scroll"></div>
 
+    <!-- BEFORE & AFTER (moved higher, wider) -->
+    <section id="before-after" class="reveal-on-scroll">
+      <h2 class="section-title">Before & After</h2>
+      <div class="section-title-underline"></div>
+
+      <div class="before-after-wrapper">
+        <img src="../assets/img/before-after.png" alt="Before and After Comparison" />
+      </div>
+
+      <p class="before-after-caption">
+        A visual comparison showing the transformation and clarity achieved through the redesigned experience.
+      </p>
+    </section>
+
+    <div class="section-divider reveal-on-scroll"></div>
+
     <!-- SERVICES -->
     <section id="services" class="reveal-on-scroll">
       <h2 class="section-title">Services</h2>
@@ -649,22 +291,6 @@
           <p>Structured, collaborative planning to define goals, map next steps, and stay accountable over time.</p>
         </div>
       </div>
-    </section>
-
-    <div class="section-divider reveal-on-scroll"></div>
-
-    <!-- BEFORE & AFTER -->
-    <section id="before-after" class="reveal-on-scroll">
-      <h2 class="section-title">Before & After</h2>
-      <div class="section-title-underline"></div>
-
-      <div class="before-after-wrapper">
-        <img src="../assets/img/before-after.png" alt="Before and After Comparison">
-      </div>
-
-      <p class="before-after-caption">
-        A visual comparison showing the transformation and clarity achieved through the redesigned experience.
-      </p>
     </section>
 
     <div class="section-divider reveal-on-scroll"></div>
@@ -739,12 +365,12 @@
             <div>
               <div class="contact-form-group">
                 <label for="name">Name</label>
-                <input type="text" id="name" placeholder="Your name">
+                <input type="text" id="name" placeholder="Your name" />
               </div>
 
               <div class="contact-form-group">
                 <label for="email">Email</label>
-                <input type="email" id="email" placeholder="you@example.com">
+                <input type="email" id="email" placeholder="you@example.com" />
               </div>
 
               <div class="contact-form-group">
@@ -786,15 +412,14 @@
   <footer class="site-footer reveal">
     <p>© 2025 – Professional Support Services</p>
   </footer>
-
-  <!-- PAGE-SPECIFIC JS -->
+    <!-- PAGE-SPECIFIC JS -->
   <script>
     // Page transition in
     window.addEventListener("DOMContentLoaded", function () {
       document.body.classList.add("page-loaded");
     });
 
-    // Intercept internal nav links for smooth fade-out (keep your behavior)
+    // Smooth fade navigation
     document.addEventListener("click", function (e) {
       const link = e.target.closest("a");
       if (!link) return;
@@ -805,57 +430,43 @@
 
       e.preventDefault();
       document.body.classList.remove("page-loaded");
-      setTimeout(function () {
-        window.location.href = href;
-      }, 250);
+      setTimeout(() => (window.location.href = href), 250);
     });
 
     // Floating nav indicator
     const nav = document.querySelector(".mini-nav");
     const indicator = document.querySelector(".nav-indicator");
     function updateIndicator() {
-      if (!nav || !indicator) return;
       const active = nav.querySelector("a.active") || nav.querySelector("a");
-      if (!active) return;
       const rect = active.getBoundingClientRect();
       const navRect = nav.getBoundingClientRect();
       indicator.style.width = rect.width + "px";
-      indicator.style.left = (rect.left - navRect.left) + "px";
+      indicator.style.left = rect.left - navRect.left + "px";
     }
     window.addEventListener("load", updateIndicator);
     window.addEventListener("resize", updateIndicator);
 
     // Testimonial slider
-    const slides = Array.from(document.querySelectorAll(".testimonial-slide"));
-    const dots = Array.from(document.querySelectorAll(".testimonial-dot"));
+    const slides = [...document.querySelectorAll(".testimonial-slide")];
+    const dots = [...document.querySelectorAll(".testimonial-dot")];
     let current = 0;
 
-    function showSlide(index) {
-      slides.forEach((s, i) => {
-        s.classList.toggle("active", i === index);
-      });
-      dots.forEach((d, i) => {
-        d.classList.toggle("active", i === index);
-      });
-      current = index;
+    function showSlide(i) {
+      slides.forEach((s, idx) => s.classList.toggle("active", idx === i));
+      dots.forEach((d, idx) => d.classList.toggle("active", idx === i));
+      current = i;
     }
 
-    if (slides.length && dots.length) {
-      setInterval(function () {
-        const next = (current + 1) % slides.length;
-        showSlide(next);
-      }, 6000);
-
-      dots.forEach(dot => {
-        dot.addEventListener("click", () => {
-          const idx = parseInt(dot.dataset.index, 10);
-          showSlide(idx);
-        });
-      });
+    if (slides.length) {
+      setInterval(() => showSlide((current + 1) % slides.length), 6000);
+      dots.forEach(dot =>
+        dot.addEventListener("click", () => showSlide(+dot.dataset.index))
+      );
     }
 
-    // Scroll reveal
+       // Scroll reveal
     const revealEls = document.querySelectorAll(".reveal-on-scroll");
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
