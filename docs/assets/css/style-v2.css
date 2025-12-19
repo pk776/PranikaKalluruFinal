@@ -1703,3 +1703,16 @@ body.dark .mini-nav {
     transform: translateY(0);
   }
 }
+/* Centered Featured Case Study */
+.featured-centered {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.featured-text {
+  color: var(--subtle-text);
+  margin-bottom: 20px;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
