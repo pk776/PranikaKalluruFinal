@@ -5,165 +5,433 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Client Site – Professional Support Services</title>
 
-  <!-- C1 CSS -->
+  <!-- Base Stylesheet -->
   <link rel="stylesheet" href="../assets/css/style-v2.css" />
 
-  <!-- Global JS -->
-  <script defer src="../assets/js/script.js"></script>
-
-  <!-- PAGE-SPECIFIC STYLES -->
+  <!-- Modern Interactive + Balanced Layout Styles -->
   <style>
-    /* Balanced spacing system */
-    section {
-      margin: 32px auto;
-      max-width: 950px;
-      padding: 0 20px;
+    /* ---------------------------------------------
+       GLOBAL RESET + BASE
+    --------------------------------------------- */
+    :root {
+      --radius-lg: 18px;
+      --radius-md: 14px;
+      --radius-sm: 10px;
+
+      --shadow-soft: 0 8px 24px rgba(0,0,0,0.08);
+      --shadow-medium: 0 12px 32px rgba(0,0,0,0.12);
+
+      --transition-fast: 0.25s ease;
+      --transition-medium: 0.45s ease;
+      --transition-slow: 0.7s ease;
+
+      --accent: #4a6cff;
+      --accent-soft: rgba(74,108,255,0.14);
+      --bg-glass: rgba(255,255,255,0.75);
     }
 
+    body {
+      margin: 0;
+      padding: 0;
+      background: #f7f8fc;
+      overflow-x: hidden;
+      font-family: "Inter", sans-serif;
+    }
+
+    section {
+      max-width: 950px;
+      margin: 36px auto;
+      padding: 0 22px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .section-title-underline {
+      width: 60px;
+      height: 3px;
+      background: var(--accent);
+      margin: 0 auto 18px;
+      border-radius: 999px;
+      animation: underlineGrow 0.8s ease forwards;
+    }
+
+    @keyframes underlineGrow {
+      from { width: 0; opacity: 0; }
+      to { width: 60px; opacity: 1; }
+    }
 
     .section-divider {
       height: 1px;
       max-width: 700px;
-      margin: 16px auto;
+      margin: 20px auto;
       background: linear-gradient(to right, transparent, rgba(0,0,0,0.12), transparent);
-      opacity: 0.6;
+      opacity: 0;
+      transform: scaleX(0.6);
+      transition: var(--transition-medium);
+    }
+    .section-divider.visible {
+      opacity: 1;
+      transform: scaleX(1);
     }
 
-    /* Hero */
-    .home-hero {
-      padding: 44px 20px 32px !important;
-      text-align: center;
-      position: relative;
-      z-index: 5;
-    }
-
-    .intro-description {
-      max-width: 620px;
-      margin: 10px auto 0;
-      font-size: 1.02rem;
-      opacity: 0.9;
-    }
-
-    .hero-cta {
-      margin-top: 20px;
-      display: flex;
-      justify-content: center;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
-
-    /* Nav indicator */
+    /* ---------------------------------------------
+       NAVIGATION + INDICATOR
+    --------------------------------------------- */
     .mini-nav {
       position: relative;
+      display: flex;
+      gap: 26px;
+      justify-content: center;
+      padding: 18px 0;
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+
+    .mini-nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      position: relative;
+      padding-bottom: 4px;
+      transition: color var(--transition-fast);
+    }
+
+    .mini-nav a:hover {
+      color: var(--accent);
     }
 
     .nav-indicator {
       position: absolute;
       bottom: 0;
       height: 3px;
-      background: #4a6cff;
+      background: var(--accent);
       border-radius: 999px;
-      transition: 0.3s ease;
+      transition: var(--transition-medium);
       width: 0;
       left: 0;
     }
 
-    /* About */
+    /* ---------------------------------------------
+       HERO (Centered + Parallax + Soft Motion)
+    --------------------------------------------- */
+    .home-hero {
+      padding: 70px 20px 50px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .home-hero h1 {
+      font-size: 2.6rem;
+      margin-bottom: 10px;
+      animation: fadeUp 0.8s ease forwards;
+      opacity: 0;
+    }
+
+    .intro-description {
+      max-width: 620px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      opacity: 0.85;
+      animation: fadeUp 1s ease forwards;
+      animation-delay: 0.15s;
+      opacity: 0;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-cta {
+      margin-top: 24px;
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      animation: fadeUp 1.2s ease forwards;
+      animation-delay: 0.25s;
+      opacity: 0;
+    }
+
+    .primary-cta,
+    .secondary-cta {
+      padding: 12px 22px;
+      border-radius: var(--radius-md);
+      font-weight: 600;
+      text-decoration: none;
+      transition: var(--transition-fast);
+    }
+
+    .primary-cta {
+      background: var(--accent);
+      color: white;
+      box-shadow: var(--shadow-soft);
+    }
+    .primary-cta:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-medium);
+    }
+
+    .secondary-cta {
+      background: white;
+      border: 1px solid rgba(0,0,0,0.12);
+      color: #333;
+    }
+    .secondary-cta:hover {
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+
+    /* ---------------------------------------------
+       ABOUT SECTION
+    --------------------------------------------- */
     .about-layout {
       display: grid;
       grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
-      gap: 24px;
+      gap: 26px;
       align-items: center;
     }
 
-    /* Before & After (wider highlight) */
-    #before-after .before-after-wrapper {
-      max-width: 900px;
-      margin: 0 auto;
-      background: rgba(255,255,255,0.86);
-      padding: 16px;
-      border-radius: 16px;
-      backdrop-filter: blur(14px);
-      box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+    .about-highlight-card {
+      background: var(--bg-glass);
+      padding: 18px;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-soft);
       border: 1px solid rgba(255,255,255,0.7);
+      transition: var(--transition-medium);
     }
 
+    .about-highlight-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-medium);
+    }
 
-    /* Services */
+    .about-highlight-tag {
+      display: inline-block;
+      background: var(--accent-soft);
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    /* ---------------------------------------------
+       BEFORE & AFTER (Smaller + Premium)
+    --------------------------------------------- */
+    #before-after .before-after-wrapper {
+      max-width: 550px;
+      margin: 0 auto;
+      background: white;
+      padding: 14px;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-medium);
+      border: 1px solid rgba(0,0,0,0.06);
+      opacity: 0;
+      transform: translateY(20px) scale(0.96);
+      transition: var(--transition-slow);
+    }
+    #before-after .before-after-wrapper.visible {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    .before-after-caption {
+      text-align: center;
+      margin-top: 12px;
+      opacity: 0.85;
+      font-size: 0.95rem;
+    }
+
+    /* ---------------------------------------------
+       SERVICES (Interactive Cards)
+    --------------------------------------------- */
     .service-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 18px;
-      margin-top: 14px;
+      gap: 20px;
+      margin-top: 16px;
     }
 
-    /* Testimonials */
+    .service-card {
+      background: white;
+      padding: 20px;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(0,0,0,0.06);
+      transition: var(--transition-medium);
+      cursor: pointer;
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-medium);
+    }
+
+    .service-icon {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    /* ---------------------------------------------
+       TESTIMONIALS
+    --------------------------------------------- */
     .testimonial-slider {
       max-width: 780px;
-      margin: 18px auto 6px;
+      margin: 20px auto 10px;
       position: relative;
     }
 
+    .testimonial-slide {
+      display: none;
+      text-align: center;
+      font-size: 1.1rem;
+      opacity: 0;
+      transition: var(--transition-medium);
+    }
+    .testimonial-slide.active {
+      display: block;
+      opacity: 1;
+    }
 
-    /* FAQ */
+    .testimonial-author {
+      margin-top: 8px;
+      font-weight: 600;
+      opacity: 0.7;
+    }
+
+    .testimonial-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .testimonial-dot {
+      width: 10px;
+      height: 10px;
+      background: rgba(0,0,0,0.2);
+      border-radius: 999px;
+      cursor: pointer;
+      transition: var(--transition-fast);
+    }
+    .testimonial-dot.active {
+      background: var(--accent);
+    }
+
+    /* ---------------------------------------------
+       FAQ
+    --------------------------------------------- */
     .faq-list {
       max-width: 750px;
       margin: 0 auto;
     }
 
+    details {
+      background: white;
+      padding: 14px 16px;
+      border-radius: var(--radius-md);
+      margin-bottom: 10px;
+      border: 1px solid rgba(0,0,0,0.08);
+      box-shadow: var(--shadow-soft);
+      transition: var(--transition-medium);
+      cursor: pointer;
+    }
 
-    /* Contact */
+    details:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-medium);
+    }
 
+    summary {
+      font-weight: 600;
+      outline: none;
+    }
+
+    /* ---------------------------------------------
+       CONTACT
+    --------------------------------------------- */
     .contact-box {
-      background: rgba(255,255,255,0.9);
-      padding: 18px 16px 16px;
-      border-radius: 16px;
-      backdrop-filter: blur(16px);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-      border: 1px solid rgba(255,255,255,0.7);
+      background: white;
+      padding: 20px;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-medium);
+      border: 1px solid rgba(0,0,0,0.06);
     }
 
     .contact-grid {
       display: grid;
       grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
-      gap: 18px;
+      gap: 20px;
     }
 
-    /* CTA Banner (smaller, elegant) */
+    .contact-form-group {
+      margin-bottom: 14px;
+    }
+
+    .contact-form-group input,
+    .contact-form-group textarea {
+      width: 100%;
+      padding: 10px;
+      border-radius: var(--radius-sm);
+      border: 1px solid rgba(0,0,0,0.15);
+      font-size: 1rem;
+    }
+
+    textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    /* ---------------------------------------------
+       CTA BANNER (Smaller + Premium)
+    --------------------------------------------- */
     .cta-banner {
-      margin: 28px auto 20px;
-      padding: 18px 16px;
+      margin: 34px auto 26px;
+      padding: 22px 18px;
       max-width: 900px;
       text-align: center;
       background: linear-gradient(135deg,
         rgba(74,108,255,0.16),
-        rgba(255,255,255,0.5));
-      border-radius: 18px;
+        rgba(255,255,255,0.6));
+      border-radius: var(--radius-lg);
       backdrop-filter: blur(18px);
-      box-shadow: 0 14px 34px rgba(0,0,0,0.12);
+      box-shadow: var(--shadow-medium);
       border: 1px solid rgba(255,255,255,0.7);
     }
 
-    /* Scroll reveal */
+    /* ---------------------------------------------
+       SCROLL REVEAL
+    --------------------------------------------- */
     .reveal-on-scroll {
       opacity: 0;
-      transform: translateY(16px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
+      transform: translateY(18px);
+      transition: var(--transition-slow);
     }
     .reveal-on-scroll.visible {
       opacity: 1;
       transform: translateY(0);
     }
 
-    /* Back to top */
+    /* ---------------------------------------------
+       BACK TO TOP
+    --------------------------------------------- */
     #backToTop {
       position: fixed;
       right: 24px;
       bottom: 24px;
-      width: 40px;
-      height: 40px;
+      width: 42px;
+      height: 42px;
       border-radius: 999px;
-      background: rgba(74,108,255,0.9);
+      background: var(--accent);
       color: white;
       border: none;
       display: flex;
@@ -171,32 +439,20 @@
       justify-content: center;
       opacity: 0;
       pointer-events: none;
-      transition: opacity 0.25s ease, transform 0.25s ease;
+      transition: var(--transition-fast);
       z-index: 900;
+      font-size: 1.2rem;
     }
     #backToTop.visible {
       opacity: 1;
       pointer-events: auto;
     }
   </style>
-
 </head>
-<body class="fade-in page-transition">
+<body class="page-loaded">
 
-  <!-- BACKGROUND -->
-  <div class="hero-background">
-    <div class="bg-gradient-wave"></div>
-    <div class="bg-blob bg-blob-1"></div>
-    <div class="bg-blob bg-blob-2"></div>
-    <div class="bg-blob bg-blob-3"></div>
-    <div class="bg-grid-overlay"></div>
-    <div class="bg-particles"></div>
-    <div class="bg-spotlight" id="bg-spotlight"></div>
-  </div>
-
-  <!-- NAV -->
-  <div class="nav-spacer"></div>
-  <nav class="mini-nav fade-in">
+  <!-- NAVIGATION -->
+  <nav class="mini-nav">
     <a href="../index.html">Home</a>
     <a href="../portfolio/index.html">Portfolio</a>
     <a href="../design_style/index.html">Design Style</a>
@@ -205,12 +461,10 @@
   </nav>
 
   <!-- HERO -->
-  <header class="home-hero fade-in reveal-on-scroll">
-    <h1 class="intro-title">Professional Support Services</h1>
-    <div class="title-underline"></div>
-
+  <header class="home-hero">
+    <h1>Professional Support Services</h1>
     <p class="intro-description">
-      A calm, client‑centered space for reflection, growth, and guided next steps.
+      A calm, structured, and supportive space designed to help individuals gain clarity, confidence, and direction.
     </p>
 
     <div class="hero-cta">
@@ -229,10 +483,10 @@
       <div class="about-layout">
         <div class="about-text">
           <p>
-            This client‑focused site is designed to feel grounded, approachable, and clear. The goal is to create a space where individuals can explore support options without feeling overwhelmed.
+            This client‑centered experience is designed to feel grounded, approachable, and clear. The goal is to create a space where individuals can explore support options without feeling overwhelmed.
           </p>
           <p>
-            Every element—from layout to language—is built to communicate trust, stability, and care. The experience is structured but gentle, making it easy for visitors to understand what is offered and how to take the next step.
+            Every element—from layout to language—is crafted to communicate trust, stability, and care. The experience is structured but gentle, making it easy for visitors to understand what is offered and how to take the next step.
           </p>
         </div>
 
@@ -247,42 +501,26 @@
 
     <div class="section-divider reveal-on-scroll"></div>
 
-    <!-- BEFORE & AFTER (moved higher, wider) -->
-    <section id="before-after" class="reveal-on-scroll">
-      <h2 class="section-title">Before & After</h2>
-      <div class="section-title-underline"></div>
-
-      <div class="before-after-wrapper">
-        <img src="../assets/img/before-after.png" alt="Before and After Comparison" />
-      </div>
-
-      <p class="before-after-caption">
-        A visual comparison showing the transformation and clarity achieved through the redesigned experience.
-      </p>
-    </section>
-
-    <div class="section-divider reveal-on-scroll"></div>
-
     <!-- SERVICES -->
     <section id="services" class="reveal-on-scroll">
       <h2 class="section-title">Services</h2>
       <div class="section-title-underline"></div>
 
-      <p class="section-intro-text">
-        Support is offered through focused, intentional sessions tailored to different needs—from everyday stress to longer‑term goals.
+      <p class="section-intro-text" style="text-align:center; max-width:650px; margin:0 auto 18px;">
+        Support is offered through focused, intentional sessions tailored to different needs—from everyday stress to long‑term goals.
       </p>
 
       <div class="service-grid">
         <div class="service-card">
           <div class="service-icon">🌱</div>
           <h3>Personal Guidance</h3>
-          <p>One‑on‑one sessions centered on emotional clarity, self‑reflection, and developing healthier thought patterns and responses.</p>
+          <p>One‑on‑one sessions centered on emotional clarity, self‑reflection, and developing healthier thought patterns.</p>
         </div>
 
         <div class="service-card">
           <div class="service-icon">🌊</div>
           <h3>Stress & Wellness</h3>
-          <p>Support for navigating stress, burnout, and transition periods with practical tools and sustainable wellness habits.</p>
+          <p>Support for navigating stress, burnout, and transition periods with practical tools and sustainable habits.</p>
         </div>
 
         <div class="service-card">
@@ -305,10 +543,12 @@
           “A calm, steady presence that helped me feel more grounded and less overwhelmed.”
           <div class="testimonial-author">— Client Reflection</div>
         </div>
+
         <div class="testimonial-slide">
           “The structure was clear but never rigid. I felt guided, not pressured.”
           <div class="testimonial-author">— Session Feedback</div>
         </div>
+
         <div class="testimonial-slide">
           “I left with practical next steps and a sense that my situation was actually manageable.”
           <div class="testimonial-author">— Ongoing Client</div>
@@ -330,26 +570,42 @@
       <div class="section-title-underline"></div>
 
       <div class="faq-list">
-        <details class="faq-item">
+        <details>
           <summary>What can I expect from a session?</summary>
           <p>Sessions are conversational and paced thoughtfully. The focus is on understanding what you’re experiencing, identifying what you need, and exploring options together.</p>
         </details>
 
-        <details class="faq-item">
+        <details>
           <summary>Do you offer virtual appointments?</summary>
           <p>Yes. Sessions can be offered virtually to provide flexibility and accessibility while still maintaining a grounded, supportive environment.</p>
         </details>
 
-        <details class="faq-item">
+        <details>
           <summary>How long is each session?</summary>
           <p>Most sessions are designed around a 50–60 minute format, with time at the end to recap and define next steps.</p>
         </details>
 
-        <details class="faq-item">
+        <details>
           <summary>Is this site for demonstration or real services?</summary>
           <p>This site is designed as a demonstration of a calm, professional client experience and layout. Content and details can be customized for a real practice.</p>
         </details>
       </div>
+    </section>
+
+    <div class="section-divider reveal-on-scroll"></div>
+
+    <!-- BEFORE & AFTER (Moved Lower + Smaller + Premium) -->
+    <section id="before-after" class="reveal-on-scroll">
+      <h2 class="section-title">Before & After</h2>
+      <div class="section-title-underline"></div>
+
+      <div class="before-after-wrapper">
+        <img src="../assets/img/before-after.png" alt="Before and After Comparison" style="width:100%; border-radius:14px;" />
+      </div>
+
+      <p class="before-after-caption">
+        A visual comparison showing the transformation and clarity achieved through the redesigned experience.
+      </p>
     </section>
 
     <div class="section-divider reveal-on-scroll"></div>
@@ -359,37 +615,35 @@
       <h2 class="section-title">Contact</h2>
       <div class="section-title-underline"></div>
 
-      <div class="contact-layout">
-        <div class="contact-box">
-          <div class="contact-grid">
-            <div>
-              <div class="contact-form-group">
-                <label for="name">Name</label>
-                <input type="text" id="name" placeholder="Your name" />
-              </div>
+      <div class="contact-box">
+        <div class="contact-grid">
 
-              <div class="contact-form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" placeholder="you@example.com" />
-              </div>
-
-              <div class="contact-form-group">
-                <label for="message">Message</label>
-                <textarea id="message" placeholder="Share a bit about what you’re looking for..."></textarea>
-              </div>
-
-              <div class="contact-submit">
-                <button type="button" class="primary-cta">Send Message</button>
-              </div>
+          <div>
+            <div class="contact-form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" placeholder="Your name" />
             </div>
 
-            <div class="contact-details">
-              <p>If you’d like to learn more, explore options, or discuss availability, you can reach out using the form or directly:</p>
-              <p><strong>Email:</strong> contact@example.com</p>
-              <p><strong>Phone:</strong> (000) 000‑0000</p>
-              <p><strong>Availability:</strong> Weekday afternoons and early evenings</p>
+            <div class="contact-form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" placeholder="you@example.com" />
             </div>
+
+            <div class="contact-form-group">
+              <label for="message">Message</label>
+              <textarea id="message" placeholder="Share a bit about what you’re looking for..."></textarea>
+            </div>
+
+            <button class="primary-cta" style="margin-top:6px;">Send Message</button>
           </div>
+
+          <div class="contact-details">
+            <p>If you’d like to learn more, explore options, or discuss availability, you can reach out using the form or directly:</p>
+            <p><strong>Email:</strong> contact@example.com</p>
+            <p><strong>Phone:</strong> (000) 000‑0000</p>
+            <p><strong>Availability:</strong> Weekday afternoons and early evenings</p>
+          </div>
+
         </div>
       </div>
     </section>
@@ -405,82 +659,106 @@
     </a>
   </section>
 
-  <!-- BACK TO TOP BUTTON -->
-  <button id="backToTop" aria-label="Back to top">↑</button>
+  <!-- BACK TO TOP -->
+  <button id="backToTop">↑</button>
 
   <!-- FOOTER -->
-  <footer class="site-footer reveal">
-    <p>© 2025 – Professional Support Services</p>
+  <footer class="site-footer" style="text-align:center; padding:20px 0; opacity:0.7;">
+    © 2025 – Professional Support Services
   </footer>
-    <!-- PAGE-SPECIFIC JS -->
+  <!-- INTERACTIVITY + ANIMATIONS JS -->
   <script>
-    // Page transition in
-    window.addEventListener("DOMContentLoaded", function () {
-      document.body.classList.add("page-loaded");
-    });
-
-    // Smooth fade navigation
-    document.addEventListener("click", function (e) {
-      const link = e.target.closest("a");
-      if (!link) return;
-
-      const href = link.getAttribute("href");
-      if (!href || href.startsWith("#")) return;
-      if (href.startsWith("http")) return;
-
-      e.preventDefault();
-      document.body.classList.remove("page-loaded");
-      setTimeout(() => (window.location.href = href), 250);
-    });
-
-    // Floating nav indicator
+    /* ----------------------------------------------------
+       NAV INDICATOR (Animated underline)
+    ---------------------------------------------------- */
     const nav = document.querySelector(".mini-nav");
     const indicator = document.querySelector(".nav-indicator");
+
     function updateIndicator() {
       const active = nav.querySelector("a.active") || nav.querySelector("a");
       const rect = active.getBoundingClientRect();
       const navRect = nav.getBoundingClientRect();
+
       indicator.style.width = rect.width + "px";
       indicator.style.left = rect.left - navRect.left + "px";
     }
+
     window.addEventListener("load", updateIndicator);
     window.addEventListener("resize", updateIndicator);
 
-    // Testimonial slider
+
+    /* ----------------------------------------------------
+       TESTIMONIAL SLIDER
+    ---------------------------------------------------- */
     const slides = [...document.querySelectorAll(".testimonial-slide")];
     const dots = [...document.querySelectorAll(".testimonial-dot")];
-    let current = 0;
+    let currentSlide = 0;
 
     function showSlide(i) {
-      slides.forEach((s, idx) => s.classList.toggle("active", idx === i));
-      dots.forEach((d, idx) => d.classList.toggle("active", idx === i));
-      current = i;
+      slides.forEach((slide, idx) => {
+        slide.classList.toggle("active", idx === i);
+      });
+      dots.forEach((dot, idx) => {
+        dot.classList.toggle("active", idx === i);
+      });
+      currentSlide = i;
     }
 
-    if (slides.length) {
-      setInterval(() => showSlide((current + 1) % slides.length), 6000);
-      dots.forEach(dot =>
-        dot.addEventListener("click", () => showSlide(+dot.dataset.index))
-      );
+    if (slides.length > 0) {
+      setInterval(() => {
+        showSlide((currentSlide + 1) % slides.length);
+      }, 6000);
+
+      dots.forEach(dot => {
+        dot.addEventListener("click", () => {
+          showSlide(parseInt(dot.dataset.index));
+        });
+      });
     }
 
-       // Scroll reveal
+
+    /* ----------------------------------------------------
+       SCROLL REVEAL (Staggered fade-up)
+    ---------------------------------------------------- */
     const revealEls = document.querySelectorAll(".reveal-on-scroll");
 
-    const observer = new IntersectionObserver((entries) => {
+    const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add("visible");
-          observer.unobserve(entry.target);
+          revealObserver.unobserve(entry.target);
         }
       });
     }, { threshold: 0.15 });
 
-    revealEls.forEach(el => observer.observe(el));
+    revealEls.forEach(el => revealObserver.observe(el));
 
-    // Back to top button
+
+    /* ----------------------------------------------------
+       BEFORE & AFTER ANIMATION (Scale + fade)
+    ---------------------------------------------------- */
+    const beforeAfter = document.querySelector("#before-after .before-after-wrapper");
+
+    if (beforeAfter) {
+      const baObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            beforeAfter.classList.add("visible");
+            baObserver.unobserve(beforeAfter);
+          }
+        });
+      }, { threshold: 0.2 });
+
+      baObserver.observe(beforeAfter);
+    }
+
+
+    /* ----------------------------------------------------
+       BACK TO TOP BUTTON
+    ---------------------------------------------------- */
     const backToTop = document.getElementById("backToTop");
-    window.addEventListener("scroll", function () {
+
+    window.addEventListener("scroll", () => {
       if (window.scrollY > 450) {
         backToTop.classList.add("visible");
       } else {
@@ -488,11 +766,22 @@
       }
     });
 
-    backToTop.addEventListener("click", function () {
+    backToTop.addEventListener("click", () => {
       window.scrollTo({ top: 0, behavior: "smooth" });
     });
+
+
+    /* ----------------------------------------------------
+       PARALLAX HERO (Soft, subtle)
+    ---------------------------------------------------- */
+    const hero = document.querySelector(".home-hero");
+
+    window.addEventListener("scroll", () => {
+      const offset = window.scrollY * 0.15;
+      hero.style.transform = `translateY(${offset}px)`;
+    });
   </script>
-  
+
 </body>
 
 </html>
