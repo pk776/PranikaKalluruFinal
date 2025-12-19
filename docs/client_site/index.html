@@ -5,33 +5,260 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Client Site – Pranika Kalluru</title>
 
-  <!-- Correct CSS path -->
   <link rel="stylesheet" href="../assets/css/style-v2.css">
-
-  <!-- Correct JS path -->
   <script defer src="../assets/js/script.js"></script>
+
+  <style>
+    /* ----------------------------------------------------------
+       CLIENT SITE — PREMIUM STICKY LAYOUT
+    ---------------------------------------------------------- */
+
+    .client-wrapper {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 160px 20px 80px;
+      display: grid;
+      grid-template-columns: 1fr 260px;
+      gap: 60px;
+    }
+
+    @media (max-width: 900px) {
+      .client-wrapper {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Left column (content) */
+    .client-content section {
+      margin-bottom: 80px;
+    }
+
+    /* Right column (sticky project info) */
+    .project-info {
+      position: sticky;
+      top: 120px;
+      align-self: start;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      padding: 16px 20px;
+      border-radius: var(--radius);
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+
+    /* ----------------------------------------------------------
+       SECTION NAV — STICKY
+    ---------------------------------------------------------- */
+
+    .section-nav {
+      position: sticky;
+      top: 60px;
+      background: var(--bg);
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+      z-index: 900;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .section-nav a {
+      font-size: 0.9rem;
+      padding-bottom: 4px;
+      position: relative;
+      text-decoration: none;
+      color: var(--text);
+    }
+
+    .section-nav a.active::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      width: 100%;
+      height: 2px;
+      background: var(--accent);
+    }
+
+    /* ----------------------------------------------------------
+       HERO
+    ---------------------------------------------------------- */
+
+    .client-hero {
+      text-align: center;
+      padding-top: 20px;
+    }
+
+    .client-hero h1 {
+      font-size: 2.6rem;
+      margin-bottom: 12px;
+    }
+
+    .client-hero p {
+      max-width: 700px;
+      margin: 0 auto;
+      color: var(--subtle-text);
+    }
+
+    /* ----------------------------------------------------------
+       SERVICES GRID
+    ---------------------------------------------------------- */
+
+    .services-grid {
+      display: grid;
+      gap: 24px;
+      grid-template-columns: 1fr;
+    }
+
+    @media (min-width: 800px) {
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .service-card {
+      border: 1px solid var(--border);
+      padding: 20px;
+      border-radius: var(--radius);
+      background: var(--bg);
+    }
+
+    /* ----------------------------------------------------------
+       BRAND PALETTE
+    ---------------------------------------------------------- */
+
+    .brand-palette {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .color-swatch {
+      width: 140px;
+      height: 80px;
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      border: 1px solid var(--border);
+    }
+
+    /* ----------------------------------------------------------
+       BEFORE / AFTER SLIDER
+    ---------------------------------------------------------- */
+
+    .before-after {
+      position: relative;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .before-after img {
+      border-radius: var(--radius);
+    }
+
+    .after-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 50%;
+      overflow: hidden;
+      border-radius: var(--radius);
+    }
+
+    .slider-handle {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 4px;
+      height: 100%;
+      background: var(--accent);
+      cursor: ew-resize;
+    }
+
+    /* ----------------------------------------------------------
+       MOCKUP SECTION
+    ---------------------------------------------------------- */
+
+    .mockup-section p {
+      max-width: 700px;
+      color: var(--subtle-text);
+      margin-bottom: 20px;
+    }
+
+    .mockup-devices {
+      display: flex;
+      gap: 40px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* ----------------------------------------------------------
+       PROCESS TIMELINE
+    ---------------------------------------------------------- */
+
+    .timeline {
+      display: grid;
+      gap: 30px;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .timeline-step h4 {
+      margin-bottom: 6px;
+    }
+
+    /* ----------------------------------------------------------
+       TESTIMONIAL
+    ---------------------------------------------------------- */
+
+    .testimonial p {
+      max-width: 700px;
+      margin: 0 auto 10px;
+      color: var(--subtle-text);
+      text-align: center;
+    }
+
+    .client-name {
+      text-align: center;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    /* ----------------------------------------------------------
+       CTA
+    ---------------------------------------------------------- */
+
+    .cta-section {
+      text-align: center;
+    }
+
+    .cta-section p {
+      max-width: 600px;
+      margin: 0 auto 20px;
+      color: var(--subtle-text);
+    }
+
+    .cta-btn {
+      display: inline-block;
+      padding: 12px 24px;
+      background: var(--accent);
+      color: #fff;
+      border-radius: var(--radius);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .cta-btn:hover {
+      opacity: 0.85;
+    }
+  </style>
 </head>
 
 <body class="fade-in">
 
-  <!-- SCROLL PROGRESS BAR -->
-  <div class="scroll-progress-bar"></div>
-
-  <!-- MINI SECTION HEADER -->
-  <div class="mini-section-header" id="miniSectionHeader">
-    Current section: Overview
-  </div>
-
-  <!-- FLOATING PROJECT INFO -->
-  <div class="project-info">
-    <h4>Client Project</h4>
-    <p>Branding<br>UI/UX<br>Responsive Design<br>Case Study</p>
-  </div>
-
-  <!-- DARK MODE TOGGLE -->
-  <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
-
-  <!-- MAIN NAVIGATION -->
+  <!-- MAIN NAV -->
   <nav class="mini-nav fade-in">
     <a href="../index.html">Home</a>
     <a href="../portfolio/index.html">Portfolio</a>
@@ -39,8 +266,8 @@
     <a href="../client_site/index.html" class="active">Client Site</a>
   </nav>
 
-  <!-- SECTION NAVIGATION (horizontal replacement for TOC) -->
-  <nav class="mini-nav section-nav fade-in">
+  <!-- SECTION NAV -->
+  <nav class="section-nav">
     <a href="#overview">Overview</a>
     <a href="#services">Services</a>
     <a href="#palette">Brand Palette</a>
@@ -53,144 +280,84 @@
 
   <main class="client-wrapper">
 
-    <!-- HERO -->
-    <section class="client-hero reveal-on-scroll" id="overview">
-      <h1>Client Site</h1>
-      <p>A polished, professional business‑style website designed for a fictional client — showcasing structure, clarity, and modern UI principles.</p>
-    </section>
+    <!-- LEFT COLUMN -->
+    <div class="client-content">
 
-    <div class="divider reveal-on-scroll"></div>
-    <!-- SERVICES -->
-    <section class="services-grid reveal-on-scroll" id="services">
-      <h2>Services</h2>
+      <section class="client-hero" id="overview">
+        <h1>Client Site</h1>
+        <p>A polished, professional business‑style website designed for a fictional client — showcasing structure, clarity, and modern UI principles.</p>
+      </section>
 
-      <div class="service-card">
-        <h3>Brand Identity</h3>
-        <p>Clear, consistent branding built around typography, color, and layout systems tailored to the client’s goals.</p>
-      </div>
+      <section class="services-grid" id="services">
+        <h2>Services</h2>
+        <div class="service-card"><h3>Brand Identity</h3><p>Clear, consistent branding built around typography, color, and layout systems.</p></div>
+        <div class="service-card"><h3>Responsive Web Design</h3><p>Fully responsive layouts optimized for all devices.</p></div>
+        <div class="service-card"><h3>Content Strategy</h3><p>Structured messaging that communicates value and builds trust.</p></div>
+        <div class="service-card"><h3>UI Components</h3><p>Reusable, scalable interface components designed for clarity.</p></div>
+      </section>
 
-      <div class="service-card">
-        <h3>Responsive Web Design</h3>
-        <p>Fully responsive layouts optimized for mobile, tablet, and desktop with clean spacing and visual hierarchy.</p>
-      </div>
+      <section class="brand-palette" id="palette">
+        <h2>Brand Palette</h2>
+        <div class="color-swatch" style="background:#E63946;">#E63946</div>
+        <div class="color-swatch" style="background:#111;">#111111</div>
+        <div class="color-swatch" style="background:#555;">#555555</div>
+        <div class="color-swatch" style="background:#f5f5f5; color:#111;">#F5F5F5</div>
+      </section>
 
-      <div class="service-card">
-        <h3>Content Strategy</h3>
-        <p>Structured messaging that communicates value, builds trust, and guides users through the client’s offerings.</p>
-      </div>
-
-      <div class="service-card">
-        <h3>UI Components</h3>
-        <p>Reusable, scalable interface components designed for clarity, accessibility, and long‑term maintainability.</p>
-      </div>
-    </section>
-
-    <div class="divider reveal-on-scroll"></div>
-
-    <!-- BRAND PALETTE -->
-    <section class="brand-palette reveal-on-scroll" id="palette">
-      <h2>Brand Palette</h2>
-
-      <div class="color-swatch" style="background:#E63946;">#E63946</div>
-      <div class="color-swatch" style="background:#111;">#111111</div>
-      <div class="color-swatch" style="background:#555;">#555555</div>
-      <div class="color-swatch" style="background:#f5f5f5; color:#111;">#F5F5F5</div>
-    </section>
-
-    <div class="divider reveal-on-scroll"></div>
-
-    <!-- BEFORE/AFTER -->
-    <section class="before-after reveal-on-scroll" id="beforeafter">
-      <h2>Before & After Redesign</h2>
-
-      <div class="before-after">
-        <img src="../assets/img/before-after.png" alt="Before and After">
-
-        <div class="after-img" id="afterImg">
-          <img src="../assets/img/before-after.png" alt="After">
+      <section class="before-after" id="beforeafter">
+        <h2>Before & After Redesign</h2>
+        <div class="before-after">
+          <img src="../assets/img/before-after.png" alt="Before and After">
+          <div class="after-img"><img src="../assets/img/before-after.png" alt="After"></div>
+          <div class="slider-handle"></div>
         </div>
+      </section>
 
-        <div class="slider-handle" id="sliderHandle"></div>
-      </div>
-    </section>
-
-    <div class="divider reveal-on-scroll"></div>
-
-    <!-- MOCKUPS -->
-    <section class="mockup-section reveal-on-scroll" id="mockups">
-      <h2>Client Homepage Mockup</h2>
-      <p>A responsive homepage preview displayed inside realistic device frames.</p>
-
-      <div class="mockup-devices">
-
-        <div class="device laptop">
-          <div class="laptop-screen">
-            <div class="screen-content"></div>
-          </div>
-          <div class="laptop-base"></div>
+      <section class="mockup-section" id="mockups">
+        <h2>Client Homepage Mockup</h2>
+        <p>A responsive homepage preview displayed inside realistic device frames.</p>
+        <div class="mockup-devices">
+          <div class="device laptop"><div class="laptop-screen"><div class="screen-content"></div></div><div class="laptop-base"></div></div>
+          <div class="device phone"><div class="phone-screen"><div class="screen-content"></div></div></div>
         </div>
+      </section>
 
-        <div class="device phone">
-          <div class="phone-screen">
-            <div class="screen-content"></div>
-          </div>
+      <section class="process-section" id="process">
+        <h2>Design Process</h2>
+        <div class="timeline">
+          <div class="timeline-step"><h4>1. Discovery</h4><p>Understanding the client’s goals and audience.</p></div>
+          <div class="timeline-step"><h4>2. Wireframing</h4><p>Creating structured layouts that prioritize clarity.</p></div>
+          <div class="timeline-step"><h4>3. Visual Design</h4><p>Applying typography, color, and spacing.</p></div>
+          <div class="timeline-step"><h4>4. Development</h4><p>Building responsive, accessible UI components.</p></div>
         </div>
+      </section>
 
-      </div>
-    </section>
+      <section class="testimonial" id="testimonial">
+        <h2>Testimonial</h2>
+        <p>“Pranika delivered a clean, modern, and highly professional website that perfectly captured our brand’s identity.”</p>
+        <div class="client-name">— Fictional Client</div>
+      </section>
 
-    <div class="divider reveal-on-scroll"></div>
+      <section class="cta-section" id="cta">
+        <h2>Want to See More?</h2>
+        <p>Explore additional projects, case studies, and design explorations in my portfolio.</p>
+        <a class="cta-btn" href="../portfolio/index.html">View Portfolio</a>
+      </section>
 
-    <!-- PROCESS TIMELINE -->
-    <section class="process-section reveal-on-scroll" id="process">
-      <h2>Design Process</h2>
+    </div>
 
-      <div class="timeline">
-        <div class="timeline-step">
-          <h4>1. Discovery</h4>
-          <p>Understanding the client’s goals, audience, and brand identity.</p>
-        </div>
+    <!-- RIGHT COLUMN -->
+    <div class="project-info">
+      <h4>Client Project</h4>
+      <p>Branding<br>UI/UX<br>Responsive Design<br>Case Study</p>
+    </div>
 
-        <div class="timeline-step">
-          <h4>2. Wireframing</h4>
-          <p>Creating structured layouts that prioritize clarity and usability.</p>
-        </div>
-
-        <div class="timeline-step">
-          <h4>3. Visual Design</h4>
-          <p>Applying typography, color, and spacing to build a cohesive visual system.</p>
-        </div>
-
-        <div class="timeline-step">
-          <h4>4. Development</h4>
-          <p>Building responsive, accessible, and scalable UI components.</p>
-        </div>
-      </div>
-    </section>
-
-    <div class="divider reveal-on-scroll"></div>
-
-    <!-- TESTIMONIAL -->
-    <section class="testimonial reveal-on-scroll" id="testimonial">
-      <h2>Testimonial</h2>
-      <p>“Pranika delivered a clean, modern, and highly professional website that perfectly captured our brand’s identity. Her attention to detail and design clarity made the entire process seamless.”</p>
-      <div class="client-name">— Fictional Client</div>
-    </section>
-
-    <div class="divider reveal-on-scroll"></div>
-
-    <!-- CTA -->
-    <section class="cta-section reveal-on-scroll" id="cta">
-      <h2>Want to See More?</h2>
-      <p>Explore additional projects, case studies, and design explorations in my portfolio.</p>
-      <a class="cta-btn" href="../portfolio/index.html">View Portfolio</a>
-    </section>
   </main>
 
-  <footer class="site-footer reveal-on-scroll">
+  <footer class="site-footer">
     <p>© 2025 – Pranika Kalluru – Built with clarity & purpose</p>
   </footer>
-  
+
 </body>
 
 </html>
