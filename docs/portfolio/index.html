@@ -5,20 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfolio – Pranika Kalluru</title>
 
-  <link rel="stylesheet" href="../assets/css/style-v2.css?v=3">
-  <script defer src="../assets/js/script.js"></script>
+  <!-- C1 CSS -->
+  <link rel="stylesheet" href="../assets/css/style-v2.css">
 
-  <style>
-    .nav-spacer {
-      height: 70px;
-    }
-  </style>
+  <!-- JS -->
+  <script defer src="../assets/js/script.js"></script>
+  
 </head>
 
 <body class="fade-in">
 
-  <!-- BACKGROUND LAYERS -->
-  <div class="portfolio-background">
+  <!-- BACKGROUND LAYERS (C1 SYSTEM) -->
+  <div class="hero-background">
     <div class="bg-gradient-wave"></div>
     <div class="bg-blob bg-blob-1"></div>
     <div class="bg-blob bg-blob-2"></div>
@@ -28,6 +26,7 @@
     <div class="bg-spotlight" id="bg-spotlight"></div>
   </div>
 
+  <!-- NAV SPACER -->
   <div class="nav-spacer"></div>
 
   <!-- NAV -->
@@ -38,92 +37,62 @@
     <a href="../client_site/index.html">Client Site</a>
   </nav>
 
-  <button class="theme-toggle glow-toggle" onclick="toggleTheme()">🌙</button>
+  <!-- PAGE HERO -->
+  <header class="home-hero fade-in">
+    <h1 class="intro-title">Portfolio</h1>
+    <div class="title-underline"></div>
 
-  <!-- PORTFOLIO HEADER -->
-  <header class="portfolio-header parallax-layer fade-up-stagger">
-    <p class="section-label">PORTFOLIO</p>
-    <h1 class="portfolio-title">Selected Work</h1>
-    <div class="section-title-underline"></div>
-    <p class="portfolio-subtitle">
-      A curated collection of digital work exploring clarity, structure, and visual systems.
+    <p class="intro-description">
+      A curated selection of projects that blend design clarity, thoughtful structure, and intentional execution.
     </p>
   </header>
 
-  <!-- PORTFOLIO GRID -->
-  <main class="portfolio-grid-wrapper fade-up-stagger">
+  <!-- PROJECT GRID -->
+  <main class="fade-up-stagger" style="padding: 40px 40px 80px; max-width: 1100px; margin: auto;">
 
-    <section class="portfolio-grid">
+    <p class="section-label">PROJECTS</p>
+    <h2 class="section-title">Selected Work</h2>
+    <div class="section-title-underline"></div>
 
-      <a href="projects/project-one.html" class="project-card hover-lift ripple">
-        <div class="project-image-frame">
-          <img src="../assets/img/archetype.png" class="project-image soft-zoom">
-        </div>
-        <h2 class="project-title">Archetypes Persuasion Analysis</h2>
-        <p class="project-desc">
-          Competitive landscape research analyzing persuasion archetypes, brand identity, and funnel strategy.
-        </p>
-        <div class="project-tags">
-          <span>Strategy</span><span>Analysis</span><span>Design Systems</span>
-        </div>
+    <div class="home-card-grid">
+
+      <!-- PROJECT 1 -->
+      <a href="../project1/index.html" class="home-card hover-lift ripple">
+        <h2>Archetypes Persuasion Analysis →</h2>
+        <p>A structured, editorial-style analysis exploring persuasion, narrative, and character systems.</p>
       </a>
 
-      <a href="projects/project-two.html" class="project-card hover-lift ripple">
-        <div class="project-image-frame">
-          <img src="../assets/img/webcollab.png" class="project-image soft-zoom">
-        </div>
-        <h2 class="project-title">Web Collaboration – Elemental Water</h2>
-        <p class="project-desc">
-          A collaborative themed website built with coordinated design, GitHub workflows, and team integration.
-        </p>
-        <div class="project-tags">
-          <span>Web Dev</span><span>Collaboration</span><span>GitHub</span>
-        </div>
+      <!-- PROJECT 2 -->
+      <a href="../project2/index.html" class="home-card hover-lift ripple">
+        <h2>Elemental Water Project →</h2>
+        <p>A visual exploration of water as a design system — motion, clarity, and layered depth.</p>
       </a>
 
-      <a href="projects/project-three.html" class="project-card hover-lift ripple">
-        <div class="project-image-frame">
-          <img src="../assets/img/designstyle.png" class="project-image soft-zoom">
-        </div>
-        <h2 class="project-title">Swiss Design Lineage – Flat Design</h2>
-        <p class="project-desc">
-          A coded exploration of Swiss Design principles using grids, typography, and flat-design clarity.
-        </p>
-        <div class="project-tags">
-          <span>Swiss Design</span><span>Grid Systems</span><span>Front-end</span>
-        </div>
+      <!-- PROJECT 3 -->
+      <a href="../project3/index.html" class="home-card hover-lift ripple">
+        <h2>Client Counseling Site →</h2>
+        <p>A calm, professional site designed for clarity, trust, and accessible information flow.</p>
       </a>
 
-    </section>
+      <!-- PROJECT 4 -->
+      <a href="../project4/index.html" class="home-card hover-lift ripple">
+        <h2>Typography & Layout Study →</h2>
+        <p>An experiment in Swiss-inspired structure, modular spacing, and typographic rhythm.</p>
+      </a>
 
+      <!-- PROJECT 5 -->
+      <a href="../project5/index.html" class="home-card hover-lift ripple">
+        <h2>Interactive UI Experiments →</h2>
+        <p>A collection of motion tests, hover interactions, and micro‑animation prototypes.</p>
+      </a>
+
+    </div>
   </main>
 
+  <!-- FOOTER -->
   <footer class="site-footer reveal">
-    © 2025 – Pranika Kalluru – built with clarity & purpose
+    <p>© 2025 – Pranika Kalluru – Built with clarity & purpose</p>
   </footer>
-
-  <!-- INLINE JS FOR SPOTLIGHT + PARALLAX -->
-  <script>
-    // Spotlight cursor
-    const spotlight = document.getElementById("bg-spotlight");
-    if (spotlight) {
-      document.addEventListener("mousemove", (e) => {
-        const x = e.clientX;
-        const y = e.clientY + window.scrollY;
-        spotlight.style.transform = `translate(${x - 200}px, ${y - 200}px)`;
-      });
-    }
-
-    // Parallax header
-    const parallaxLayers = document.querySelectorAll(".parallax-layer");
-    window.addEventListener("scroll", () => {
-      const scrollY = window.scrollY;
-      parallaxLayers.forEach((layer, index) => {
-        const depth = (index + 1) * 0.06;
-        layer.style.transform = `translateY(${scrollY * depth}px)`;
-      });
-    });
-  </script>
 
 </body>
 
