@@ -47,7 +47,6 @@ img {
   max-width: 100%;
   display: block;
 }
-
 /* ----------------------------------------------------------
    2. GLOBAL ANIMATIONS
 ---------------------------------------------------------- */
@@ -76,18 +75,15 @@ img {
   transform: translateY(30px);
 }
 
-/* Unified fade-up */
 @keyframes fadeUp {
   0% { opacity: 0; transform: translateY(24px); }
   100% { opacity: 1; transform: translateY(0); }
 }
 
-/* Divider animation */
 @keyframes fadeInDivider {
   0% { opacity: 0; transform: scaleX(0.8); }
   100% { opacity: 1; transform: scaleX(1); }
 }
-
 /* ----------------------------------------------------------
    3. SCROLL PROGRESS BAR
 ---------------------------------------------------------- */
@@ -123,7 +119,6 @@ img {
   opacity: 0.7;
 }
 
-/* Glow toggle */
 .glow-toggle {
   box-shadow: 0 0 18px rgba(255, 255, 255, 0.18);
   transition: box-shadow 0.3s ease-out, transform 0.2s ease-out;
@@ -164,7 +159,6 @@ img {
   border-radius: var(--radius);
   cursor: pointer;
 }
-
 /* ----------------------------------------------------------
    6. NAVIGATION (GLOBAL)
 ---------------------------------------------------------- */
@@ -200,9 +194,8 @@ body.dark .mini-nav {
   opacity: 1;
   color: var(--accent);
 }
-
 /* ----------------------------------------------------------
-   7. AMBIENT BACKGROUND SYSTEM (UNIFIED)
+   7. AMBIENT BACKGROUND SYSTEM
 ---------------------------------------------------------- */
 
 .hero-background,
@@ -273,38 +266,10 @@ body.dark .mini-nav {
   pointer-events: none;
   transition: transform 0.20s ease-out;
 }
-
-/* Background animations */
-@keyframes waveShift {
-  0% { transform: translate3d(0, -10px, 0); }
-  100% { transform: translate3d(0, 16px, 0); }
-}
-
-@keyframes floatBlob1 {
-  0% { transform: translate3d(0, 0, 0); }
-  100% { transform: translate3d(40px, 30px, 0); }
-}
-
-@keyframes floatBlob2 {
-  0% { transform: translate3d(0, 0, 0); }
-  100% { transform: translate3d(-30px, -30px, 0); }
-}
-
-@keyframes floatBlob3 {
-  0% { transform: translate3d(0, 0, 0); }
-  100% { transform: translate3d(20px, -40px, 0); }
-}
-
-@keyframes particleDrift {
-  0% { transform: translate3d(0, 0, 0); }
-  100% { transform: translate3d(-50px, -40px, 0); }
-}
-
 /* ----------------------------------------------------------
    8. SHARED COMPONENTS
 ---------------------------------------------------------- */
 
-/* Section labels */
 .section-label {
   text-transform: uppercase;
   letter-spacing: 0.16em;
@@ -314,7 +279,6 @@ body.dark .mini-nav {
   margin-bottom: 8px;
 }
 
-/* Section titles */
 .section-title,
 .client-wrapper h2,
 .portfolio-title {
@@ -323,7 +287,6 @@ body.dark .mini-nav {
   margin-bottom: 4px;
 }
 
-/* Underline */
 .section-title-underline {
   width: 52px;
   height: 2px;
@@ -331,7 +294,6 @@ body.dark .mini-nav {
   margin: 10px auto 20px;
 }
 
-/* Intro text */
 .section-intro-text,
 .intro-text {
   max-width: 650px;
@@ -340,7 +302,6 @@ body.dark .mini-nav {
   text-align: center;
 }
 
-/* Cards */
 .home-card,
 .portfolio-card,
 .service-card,
@@ -352,7 +313,6 @@ body.dark .mini-nav {
   transition: var(--transition);
 }
 
-/* Hover lift */
 .hover-lift {
   transition: transform 0.25s ease-out, box-shadow 0.25s ease-out;
 }
@@ -361,39 +321,6 @@ body.dark .mini-nav {
   transform: translateY(-6px);
   box-shadow: 0 14px 30px rgba(0, 0, 0, 0.16);
 }
-
-/* Ripple */
-.ripple {
-  position: relative;
-  overflow: hidden;
-}
-
-.ripple::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.18), transparent 65%);
-  opacity: 0;
-  transform: scale(0.8);
-  transition: opacity 0.25s ease-out, transform 0.25s ease-out;
-}
-
-.ripple:hover::after {
-  opacity: 1;
-  transform: scale(1);
-}
-
-/* Soft zoom */
-.hover-soft-zoom img,
-.soft-zoom {
-  transition: transform 0.4s ease-out;
-}
-
-.hover-soft-zoom:hover img,
-.project-card:hover .soft-zoom {
-  transform: scale(1.04);
-}
-
 /* ----------------------------------------------------------
    9. HOMEPAGE MODULE
 ---------------------------------------------------------- */
@@ -468,7 +395,6 @@ body.dark .mini-nav {
   background: rgba(0, 0, 0, 0.12);
 }
 
-/* Featured case study */
 .featured-centered {
   max-width: 700px;
   margin: 0 auto;
@@ -481,7 +407,6 @@ body.dark .mini-nav {
   font-size: 1.05rem;
   line-height: 1.6;
 }
-
 /* ----------------------------------------------------------
    10. PORTFOLIO MODULE
 ---------------------------------------------------------- */
@@ -545,7 +470,6 @@ body.dark .mini-nav {
   letter-spacing: 0.5px;
   border-radius: 4px;
 }
-
 /* ----------------------------------------------------------
    11. DESIGN STYLE MODULE
 ---------------------------------------------------------- */
@@ -588,7 +512,6 @@ body.dark .mini-nav {
   flex-direction: column;
   gap: 20px;
 }
-
 /* ----------------------------------------------------------
    12. CLIENT SITE MODULE
 ---------------------------------------------------------- */
@@ -619,17 +542,11 @@ body.dark .mini-nav {
   justify-content: center;
 }
 
-.services-grid {
+.client-wrapper .services-grid {
   display: grid;
   gap: 24px;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   margin-top: 32px;
-}
-
-@media (min-width: 800px) {
-  .services-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
 }
 
 .brand-palette {
@@ -644,11 +561,6 @@ body.dark .mini-nav {
   width: 140px;
   height: 80px;
   border-radius: var(--radius);
-  display
-  .color-swatch {
-  width: 140px;
-  height: 80px;
-  border-radius: var(--radius);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -656,33 +568,30 @@ body.dark .mini-nav {
   border: 1px solid var(--border);
 }
 
-/* ----------------------------------------------------------
-   CLIENT SITE — MOCKUP BANNER
----------------------------------------------------------- */
-
-.mockup-banner {
+/* Mockup banner */
+.client-wrapper .mockup-banner {
   text-align: center;
 }
 
-.mockup-banner-frame {
+.client-wrapper .mockup-banner-frame {
   margin-top: 24px;
   border-radius: var(--radius);
   border: 1px solid var(--border);
   overflow: hidden;
   background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.06), transparent 60%);
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.mockup-banner-frame img {
+.client-wrapper .mockup-banner-frame img {
   display: block;
   width: 100%;
   height: auto;
 }
 
-/* ----------------------------------------------------------
-   CLIENT SITE — PROCESS TIMELINE
----------------------------------------------------------- */
-
-.timeline {
+/* Timeline */
+.client-wrapper .timeline {
   display: grid;
   gap: 30px;
   max-width: 650px;
@@ -709,201 +618,4 @@ body.dark .mini-nav {
   opacity: 0.65;
 }
 
-/* ----------------------------------------------------------
-   CLIENT SITE — TESTIMONIAL
----------------------------------------------------------- */
-
-.testimonial p {
-  max-width: 650px;
-  margin: 16px auto 10px;
-  color: var(--subtle-text);
-  text-align: center;
-}
-
-.client-name {
-  text-align: center;
-  font-weight: 600;
-  color: var(--text);
-}
-
-/* ----------------------------------------------------------
-   CLIENT SITE — CTA
----------------------------------------------------------- */
-
-.cta-section {
-  text-align: center;
-}
-
-.cta-section p {
-  max-width: 600px;
-  margin: 16px auto 20px;
-  color: var(--subtle-text);
-}
-
-.cta-btn {
-  display: inline-block;
-  padding: 12px 24px;
-  background: var(--accent);
-  color: #fff;
-  border-radius: var(--radius);
-  text-decoration: none;
-  transition: transform 0.2s ease-out, box-shadow 0.2s ease-out, opacity 0.2s ease-out;
-}
-
-.cta-btn:hover {
-  opacity: 0.9;
-  transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
-}
-
-/* ----------------------------------------------------------
-   LIGHTBOX / MODAL  — FINAL PATCHED VERSION
----------------------------------------------------------- */
-
-/* -----------------------------------------
-   LIGHTBOX (FINAL PATCH)
------------------------------------------- */
-.lightbox-overlay {
-  position: fixed !important;
-  inset: 0 !important;
-  background: rgba(0,0,0,0.8) !important;
-  display: none !important; /* fully hidden by default */
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.25s ease;
-  z-index: 999;
-}
-
-.lightbox-overlay.visible {
-  display: flex !important; /* only visible when activated */
-  opacity: 1;
-  pointer-events: auto;
-}
-
-/* -----------------------------------------
-   MODAL SYSTEM (unchanged)
------------------------------------------- */
-.modal {
-  font-family: "Inter", sans-serif;
-}
-
-.modal__overlay {
-  background-color: rgba(0, 0, 0, 0.65);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-}
-
-.modal__container {
-  background-color: var(--bg);
-  padding: 0;
-  max-width: 960px;
-  max-height: 90vh;
-  border-radius: var(--radius);
-  overflow: hidden;
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.4);
-}
-
-.modal__close {
-  position: absolute;
-  top: 12px;
-  right: 16px;
-  background: none;
-  border: none;
-  color: #fff;
-  font-size: 1.4rem;
-  cursor: pointer;
-  z-index: 2;
-}
-
-.modal__image-wrapper {
-  width: 100%;
-  max-height: 90vh;
-}
-
-.modal__image-wrapper img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-/* ----------------------------------------------------------
-   SHARED DEMOS (GRID, CONTRAST, SHAPES)
----------------------------------------------------------- */
-
-.grid-demo,
-.contrast-demo,
-.shape-demo {
-  display: flex;
-  gap: 20px;
-  margin-top: 20px;
-}
-
-.grid-box {
-  flex: 1;
-  height: 120px;
-  background: var(--border);
-  border-radius: var(--radius);
-}
-
-.contrast-block {
-  flex: 1;
-  padding: 20px;
-  text-align: center;
-  border-radius: var(--radius);
-  color: #fff;
-}
-
-.contrast-dark { background: #111; }
-.contrast-light { background: #ccc; color: #000; }
-.contrast-accent { background: var(--accent); }
-
-.shape {
-  width: 80px;
-  height: 80px;
-  background: var(--accent);
-  border-radius: var(--radius);
-}
-
-.circle { border-radius: 50%; }
-.rectangle { width: 140px; }
-
-/* ----------------------------------------------------------
-   ANIMATION STAGGERS (GLOBAL)
----------------------------------------------------------- */
-
-.animate-section,
-.animate-divider {
-  opacity: 0;
-  transform: translateY(24px);
-  animation: fadeUp 0.5s ease-out forwards;
-}
-
-.animate-divider {
-  animation: fadeInDivider 0.4s ease-out forwards;
-}
-
-.animate-section:nth-of-type(1) { animation-delay: 0.05s; }
-.animate-section:nth-of-type(2) { animation-delay: 0.10s; }
-.animate-section:nth-of-type(3) { animation-delay: 0.15s; }
-.animate-section:nth-of-type(4) { animation-delay: 0.20s; }
-.animate-section:nth-of-type(5) { animation-delay: 0.25s; }
-.animate-section:nth-of-type(6) { animation-delay: 0.30s; }
-.animate-section:nth-of-type(7) { animation-delay: 0.35s; }
-.animate-section:nth-of-type(8) { animation-delay: 0.40s; }
-
-/* ----------------------------------------------------------
-   FOOTER
----------------------------------------------------------- */
-
-.site-footer {
-  text-align: center;
-  padding: 20px 0;
-  color: var(--subtle-text);
-
-}
-
-}
+/* Testimonial */
